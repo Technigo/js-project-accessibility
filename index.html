@@ -1,49 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0" />
-  <title>Title</title>
-  <link rel="stylesheet"
-        href="css/styles.css" />
-  <link rel="preconnect"
-        href="https://fonts.googleapis.com">
-  <link rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Accessibility Quiz for beginners</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
 
 </head>
-<header>
+<!-- -->
 
-  <body>
+<body>
+  <a href="#main-content" class="skip-link">Skip to Content</a>
+
+  <header>
+    <h1>Web Accessibility Quiz for beginners</h1>
     <nav aria-label="Main navigation">
       <ul>
-        <li><a href="/">Home</a></Li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/abou>About</a></li>
-
-
-
+        <li><a href="index.html">Home</a></Li>
+        <li><a href="about.html">About</a></li>
       </ul>
     </nav>
-</header>
+  </header>
 
-<main>
-  <!-- Main content here-->
-</main>
+  <main>
+    <section>
+      <h2>Welcome to the Quiz</h2>
+      <p>This quiz is designed to test your knowlege of web accessibility principles,</p>
+    </section>
 
-<footer>
+    <!-- QUIZ-->
+    <section aria-labelledby="quiz-heading">
+      <h2 id="quiz-heading">Accessibility Quiz</h2>
+      <form id="quiz-form">
 
+        <fieldset>
+          <legend>Is it bla bla bla or blah blah blah?</legend>
+          <div>
+            <input type="radio" id="aria-1" name="aria" value="Bla bla">
+            <label for="aria-1">Bla bla</label>
+          </div>
+          <div>
+            <input type="radio" id="aria-2" name="aria" value="Bla bla bla">
+            <label for="aria-2">Bla bla bla</label>
+          </div>
+          <div>
+            <input type="radio" id="aria-3" name="aria" value="blah blah blah">
+            <label for="aria-3">blah blah blah</label>
+          </div>
+          <div>
+            <input type="radio" id="aria-3" name="aria" value="blah blah blah blah">
+            <label for="aria-3">blah blah blah blah</label>
+          </div>
+        </fieldset>
+        <button type="submit" aria-live="polite">Submit</button>
 
-</footer>
+      </form>
+      <div id="feedback" aria-live="polite"></div>
 
-<p>This is the starting point.</p>
-<script src="
-             js/main.js"></script>
-  </body>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2025 Accessibility Quiz for beginners. All rights rreserved by Jonny, Sofia and Varia.</p>
+  </footer>
+
+  <script src=" js/main.js"></script>
+</body>
 
 </html>
