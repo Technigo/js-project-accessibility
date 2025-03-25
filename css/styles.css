@@ -1,0 +1,32 @@
+:root {
+  /* Primary Colors */
+  --ibm-blue: #648FFF;
+  --ibm-orange: #FE6100;
+  --ibm-green: #DC267F;
+  --ibm-yellow: #FFB000;
+
+  /* Supporting Colors */
+  --ibm-light-blue: #785EF0;
+  --ibm-cyan: #3DDCFF;
+  --ibm-dark-font: #000000;
+  --ibm-light-font: #ffffff;
+  /* Fonts*/
+  --default-font: "Roboto", sans-serif;
+  --secondary-font: "Roboto Mono", sans-serif;
+  --default-font-size: 1rem;
+
+}
+
+body {
+  font-family: var(--default-font);
+  background-color: var(--ibm-blue);
+  font-size: var(--default-font-size);
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--ibm-light-blue);
+  text-decoration: none;
+
+}
