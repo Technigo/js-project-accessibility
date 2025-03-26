@@ -7,7 +7,38 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <p>This is the starting point.</p>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <header id="header">
+      <h1>Web Accessibility Quiz</h1>
+      <nav>
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+    <section id="quizIntroduction">
+      <h2>Introduction</h2>
+      <p>This is the starting point of the quiz! This section will explain the quiz and the accessibility features that will be tested.</p>
+    </section>
+
+    <section id="quizQuestions">
+      <h2>Quiz Questions</h2>
+      <p>This is the section that will contain the quiz questions. Each question will be a <fieldset> with a <legend> and a set of <input type="radio"> elements.</p>
+    </section>
+
+    <section id="quizResults">
+      <h2>Quiz Results</h2>
+      <p>This is the section that will contain the quiz results. It will display the results of the quiz and the score.</p>
+    </section>
+  </main>
+
+    <footer role="contentinfo">
+      <p>All rights reserved to Tengil, our liberator.</p>
+    </footer>
+
     <script src="js/main.js"></script>
   </body>
 </html>
