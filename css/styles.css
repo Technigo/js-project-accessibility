@@ -122,7 +122,7 @@ h2 {
 }
 
 a {
-  color: var(--text-dark);
+  color: var(--text-light);
   text-decoration: none;
 }
 
@@ -135,22 +135,7 @@ nav ul {
 }
 
 main {
-  padding: 0 1.5em;
-}
-
-#quiz {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: left;
-  align-items: flex-start; */
-  margin: 1rem;
-  padding: 1rem;
-  /* border-radius: 10px;
-  border: var(--ibm-dark-font) 2px solid; */
-  /* max-width: 50%;
-  margin: 0 auto; */
-  gap: 1rem;
-
+  padding: 0 1.5rem;
 }
 
 #quiz-form {
@@ -158,13 +143,12 @@ main {
   flex-direction: column;
   align-items: flex-start;
   flex-wrap: wrap;
-  max-width: 50%;
-  margin: 0 auto;
+  max-width: 50%;  
   background-color: var(--teal-50);
   border: var(--text-light) 2px solid;
   border-radius: 1rem;
-  padding: 2rem;
-  /* gap: 10rem; */
+  padding: 1rem 0 1rem 0; 
+  margin: 1rem 0 1rem 0; 
 }
 
 
@@ -176,11 +160,13 @@ fieldset {
 }
 
 button {
-  background-color: var(--accent-color);
+  background-color: var(--teal-90);
+  color: var(--text-light);
   box-shadow: var(--shadow-sm);
   border-radius: 1rem;
   font-size: var(--default-font);
   height: var(--height-sm);
+  margin: 2rem;
 }
 
 footer {
