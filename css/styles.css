@@ -2,11 +2,11 @@
   /* Primary Colors */
   --ibm-blue: #648FFF;
   --ibm-orange: #FE6100;
-  --ibm-green: #DC267F;
+  --ibm-pink: #DC267F;
   --ibm-yellow: #FFB000;
 
   /* Supporting Colors */
-  --ibm-light-blue: #785EF0;
+  --ibm-light-puple: #785EF0;
   --ibm-cyan: #3DDCFF;
   --ibm-dark-font: #000000;
   --ibm-light-font: #ffffff;
@@ -19,14 +19,79 @@
 
 body {
   font-family: var(--default-font);
-  /* background-color: var(--ibm-yellow); */
+  background-color: var(--ibm-pink);
   font-size: var(--default-font-size);
+}
+
+header {
+  background-color: var(--ibm-yellow);
+  /* color: var(--ibm-light-font); */
+  padding: 1rem; 
+  border: var(--ibm-dark-font) 2px solid;
+  border-radius: 1rem;
+  margin: 1rem;   
+  
+}
+
+h1 {  
+  font-size: 2rem;
+  /* color: var(--ibm-blue); */
+  text-align: center;
 }
 
 nav {
   display: flex;
-  flex-direction: row;
-  background-color: var(--ibm-yellow);
+  flex-direction: row;  
   text-decoration: none;
+}
 
+main{
+  
+}
+
+#quiz {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: flex-start; */
+  margin: 1rem;
+  padding: 1rem;
+  /* border-radius: 10px;
+  border: var(--ibm-dark-font) 2px solid; */
+  /* max-width: 50%;
+  margin: 0 auto; */
+ gap:   1rem;
+  
+}
+
+#quiz-form {
+  display: flex;
+  flex-direction: column;  
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  max-width: 50%;
+  margin: 0 auto;
+ 
+  background-color: var(--ibm-light-font);
+  border: var(--ibm-dark-font) 2px solid;
+  border-radius: 1rem;
+  padding: 2rem;
+  /* gap: 10rem; */
+}
+
+
+fieldset {
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem;
+  border: var(--ibm-dark-font) 2px solid;
+}
+
+button{
+  background-color: var(--ibm-yellow);
+  border: var(--ibm-dark-font) 2px solid;
+  border-radius: 1rem;
+  font-size: 1rem;
+  padding: 1rem;
 }
