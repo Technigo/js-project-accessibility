@@ -1,0 +1,71 @@
+:root {
+  --primary-color: #000000;
+  --background-color: #ffffff;
+  --accent-color: #5389db;
+  /* Darker blue for better contrast */
+  --error-color: #e74c3c;
+  --success-color: #27ae60;
+  --focus-outline: 3px solid var(--accent-color);
+  --focus-ring-color: rgba(0, 86, 179, 0.5);
+  --progress-bg: #edf2f7;
+  --text-color: #2c3e50;
+  --border-color: #e2e8f0;
+  --hover-bg: rgba(0, 0, 0, 0.05);
+  --transition-speed: 0.3s;
+}
+
+/* Apply box-sizing border-box to all elements */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: arial;
+  color: var(--primary-color);
+}
+
+header {
+  background-color: var(--accent-color);
+}
+
+nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* unvisited link */
+a:link {
+  color: var(--primary-color);
+}
+
+/* visited link */
+a:visited {
+  color: var(--primary-color);
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+}
+
+.presentation {
+  height: 600px;
+  width: 400px;
+}
+
+.presentation img {
+  max-height: 400px;
+
+}
