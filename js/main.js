@@ -114,9 +114,9 @@ quizQuestions.forEach((quizQuestion) => {
           ${quizAnswers
             .map((answer, i) => {
               return `<div class="quiz-option">
-            <input type="radio" id="option-${i + 1}" name="q${
-                quizQuestion.questionNumber
-              }" value="${answer.value}" />
+            <input aria-controls="answer-section" type="radio" id="option-${
+              i + 1
+            }" name="q${quizQuestion.questionNumber}" value="${answer.value}" />
             <label for="option-${i + 1}">${answer.label}</label>
           </div>
         `;
