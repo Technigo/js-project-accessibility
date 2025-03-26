@@ -1,21 +1,67 @@
+/*
 :root {
-  /* Primary Colors */
-  --ibm-blue: #648FFF;
-  --ibm-orange: #FE6100;
-  --ibm-pink: #DC267F;
-  --ibm-yellow: #FFB000;
+  /* Primary Colors *
+  --ibm-blue: #0043ce;
+  --ibm-red: #a2191f;
+  --ibm-pink: #9f1853;
+  --ibm-yellow: #c98a01;
 
-  /* Supporting Colors */
-  --ibm-light-puple: #785EF0;
-  --ibm-cyan: #3DDCFF;
+  /* Supporting Colors *
+  --ibm-light-puple: #6929c4;
+  --ibm-cyan: #00539a;
   --ibm-dark-font: #000000;
   --ibm-light-font: #ffffff;
-  /* Fonts*/
+  /* Fonts*
+--default-font: "Roboto",
+sans-serif;
+--secondary-font: "Roboto Mono",
+sans-serif;
+--default-font-size: 1rem;
+
+}
+
+*/
+
+:root {
+  /*Teal Shades */
+
+  --teal-90: #022b30;
+  --teal-60: #007d79;
+  /*below 50 use text-dark above use text light*/
+
+  --teal-50: #009d9a;
+  --teal-30: #3ddbd9;
+
+  /* Accent Color - Coral  */
+  --accent-coral: #ea7348;
+
+  /* Supporting Contrast Colors */
+  --dark-gray: #2F2F2F;
+  --light-gray: #EAEAEA;
+
+  --background-light: #D9FDFD;
+  --backgorund-dark: #022b30;
+
+  --text-light: #D9FDFD;
+  --text-dark: #081a1c;
+
+  /* Shadows */
+  --shadow-sm: 0px 2px 4px rgba(8, 26, 28, 0.1);
+  --shadow-md: 0px 4px 8px rgba(8, 26, 28, 0.15);
+  --shadow-lg: 0px 6px 12px rgba(8, 26, 28, 0.2);
+
+  /* Heights */
+  --height-sm: 32px;
+  --height-md: 48px;
+  --height-lg: 64px;
+
+  /*font*/
   --default-font: "Roboto", sans-serif;
   --secondary-font: "Roboto Mono", sans-serif;
   --default-font-size: 1rem;
 
 }
+
 
 /* Apply box-sizing border-box to all elements */
 *,
@@ -29,8 +75,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  font-family: var(--default-font);
-  background-color: var(--ibm-cyan);
+  font-family: var(--text-dark);
+  background-color: var(--background-light);
   font-size: var(--default-font-size);
   margin: 0;
   padding: 0;
@@ -46,8 +92,8 @@ body {
   position: absolute;
   top: -40px;
   left: 0;
-  background: var(--accent-color);
-  color: white;
+  background: var(--teal-50);
+  color: var(--accent-coral);
   padding: 8px;
   z-index: 100;
   transition: top 0.3s;
@@ -55,25 +101,29 @@ body {
 
 .skip-link:focus {
   top: 0;
-  outline: var(--focus-outline);
+  outline: var(--accent-coral);
   outline-offset: 2px;
-
 }
 
 header {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
-  background-color: var(--ibm-blue);
-  color: white;
+  background-color: var(--teal-90);
+  color: var(--text-light);
   padding: 1.5 rem 0;
-  box-shadow: 0 0 1em .5em var(--ibm-light-puple) 10%;
+  box-shadow: var(--shadow-md);
 }
 
 h1,
 h2 {
   margin-bottom: 1rem;
 
+}
+
+a {
+  color: var(--text-dark);
+  text-decoration: none;
 }
 
 nav ul {
@@ -110,8 +160,8 @@ main {
   flex-wrap: wrap;
   max-width: 50%;
   margin: 0 auto;
-  background-color: var(--ibm-light-font);
-  border: var(--ibm-dark-font) 2px solid;
+  background-color: var(--teal-50);
+  border: var(--text-light) 2px solid;
   border-radius: 1rem;
   padding: 2rem;
   /* gap: 10rem; */
@@ -122,26 +172,26 @@ fieldset {
   border-radius: 1rem;
   padding: 1rem;
   margin: 1rem;
-  border: var(--ibm-dark-font) 2px solid;
+  border: var(--teal-50) 2px solid;
 }
 
 button {
-  background-color: var(--ibm-yellow);
-  border: var(--ibm-dark-font) 2px solid;
+  background-color: var(--accent-color);
+  box-shadow: var(--shadow-sm);
   border-radius: 1rem;
-  font-size: 1rem;
-  padding: 1rem;
+  font-size: var(--default-font);
+  height: var(--height-sm);
 }
 
 footer {
   position: relative;
   width: 100vw;
+  height: auto;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
-  background-color: var(--ibm-blue);
-  color: white;
-
+  background-color: var(--teal-90);
   bottom: 0;
+  color: var(--text-light);
 }
 
 .footer-content {
