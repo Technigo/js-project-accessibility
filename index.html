@@ -18,9 +18,9 @@
 <body>
   <a href="#main-content" class="skip-link">Skip to Content</a>
 
-  <header>
+  <header id="header">
     <h1>Web Accessibility Quiz for beginners</h1>
-    <nav aria-label="Main navigation">
+    <nav role="navigation" aria-label="Main navigation">
       <ul>
         <li><a href="index.html">Home</a></Li>
         <li><a href="about.html">About</a></li>
@@ -28,8 +28,11 @@
     </nav>
   </header>
 
-  <main>
-    <section>
+  <main id="main-content">
+    <section id="banner" role="banner">
+      <img src="assets/bunner.jpg" alt="" role="presentation" />
+    </section>
+    <section id="Introduction">
       <h2>Welcome to the Quiz</h2>
       <p>This quiz is designed to test your knowlege of web accessibility principles,</p>
     </section>
@@ -37,8 +40,15 @@
     <!-- QUIZ-->
     <section aria-labelledby="quiz-heading">
       <h2 id="quiz-heading">Accessibility Quiz</h2>
+
+      <div class="formcontrols intro-section">
+        <button id="intrto-continue" type="button" class="submit-button">
+          Continue </button>
+      </div>
+
       <form id="quiz-form">
 
+        <!-- Question1-->
         <fieldset>
           <legend>Is it bla bla bla or blah blah blah?</legend>
           <div>
@@ -67,7 +77,7 @@
 
   </main>
 
-  <footer>
+  <footer role="contentinfo">
     <p>© 2025 Accessibility Quiz for beginners. All rights rreserved by Jonny, Sofia and Varia.</p>
   </footer>
 

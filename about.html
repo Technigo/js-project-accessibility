@@ -17,18 +17,20 @@
 <body>
   <a href="#main-content" class="skip-link">Skip to Content</a>
 
-  <header>
-    <h1>About</h1>
-    <nav aria-label="Main Navigation">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-    </nav>
+  <header id="header">
+    <div class="header-content">
+      <h1>About</h1>
+      <nav role="navigation" aria-label="Main Navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <main id="main-content">
-    <section>
+    <section id="about">
       <h2>Main content about team, somthing important</h2>
       <p>More information about everything related.</p>
     </section>
@@ -39,27 +41,55 @@
       <p>
         A short explanation of how your quiz follows accessibility principles:
       </p>
-      <ul>
-        <li>Semantic HTML for better screen reader support.</li>
-        <li>Keyboard-friendly navigation for interactive elements.</li>
-        <li>High-contrast colors for better readability.</li>
-        <li>ARIA roles for dynamic content announcements.</li>
-      </ul>
-
-      <!-- Decorative Image -->
-      <img src="decorative-image.jpg" alt="" class="decorative-image">
-      <!-- Empty alt attribute ensures the image is ignored by screen readers. -->
-
-      <!-- Informative Imagge -->
-      <figure>
+      <div class="hero images">
+        <!-- Informative Imagge -->
         <img src="informative-image.jpg" alt="A descriptive alt text" class="informative-image">
         <figcaption>A descriptive alt text.</figcaption>
-      </figure>
+      </div>
+
+      <div class="accessibility-item">
+        <h3> Accessibility features</h3>
+        <div class="accordeon-item">
+          <h4>
+            <button class="accordeon-button" aria-expanded="false" aria-controls="content-1">
+              Screen Reader Compatibility
+              <span class="accordion-icon" aria-hidden="true"></span>
+            </button>
+          </h4>
+          <div id="ccontent-1" class="acccordion-content" hidden>
+            <p>Our website is fully compatible with screen readers.</p>
+          </div>
+
+          <!--another purpose-->
+          <div class="accordeon-item">
+            <h4>
+              <button class="accordeon-button" aria-expanded="false" aria-controls="content-2">
+                Keyboard Navigation
+                <span class="accordion-icon" aria-hidden="true"></span>
+              </button>
+            </h4>
+            <div id="ccontent-2" class="acccordion-content" hidden>
+              <p>All interactive elements are accessible via keyboard.</p>
+            </div>
+          </div>
+        </div>
+        <ul>
+          <li>Semantic HTML for better screen reader support.</li>
+          <li>Keyboard-friendly navigation for interactive elements.</li>
+          <li>High-contrast colors for better readability.</li>
+          <li>ARIA roles for dynamic content announcements.</li>
+        </ul>
+
+        <!-- Decorative Image (need to  move it somewhere else) -->
+        <img src="decorative-image.jpg" alt="" class="decorative-image">
+        <!-- Empty alt attribute ensures the image is ignored by screen readers. -->
+
+
 
   </main>
 
 
-  <footer>
+  <footer role="contentinfo">
     <p>© 2025 Accessibility Quiz for beginners. All rights rreserved by Jonny, Sofia and Varia.</p>
   </footer>
 
