@@ -8,40 +8,100 @@
   </head>
   <body>
     <header>
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Quiz</a>
+      <nav role="navigation" aria-label="Main menu">
+        <ul>
+          <li>
+            <a href="#home-content">Home</a>
+          </li>
+          <li>
+            <a href="#about-content">About</a>
+          </li>
+          <li>
+            <a href="#quiz-content">Quiz</a>
+          </li>
+        </ul>
       </nav>
     </header>
-    <main class="hero-section">
-      <h1>This is the accessibility quiz</h1>
-      <p>Quick description of quiz.</p>
-      <button>Take the Quiz!</button>
+
+    <main class="hero-section" id="home-content">
+      <h1>Test Your Web Accessibility Knowledge!</h1>
+      <p>Put your web accessibility skills to the test with our quick quiz!</p>
+      <button class="btn">Take the quiz!</button>
     </main>
 
-    <section class="about-section">
+    <section class="about-section" id="about-content">
       <h2>About Us!</h2>
-      <p>Meet the team that developed this quiz.</p>
+      <p>
+        Meet the team behind the quiz! We're passionate about web accessibility
+        and dedicated to creating resources that promote a more inclusive
+        internet for all.
+      </p>
       <div class="team-cards-container">
         <div class="team-card">
-          <img />
-          <h3>Team Member 1</h3>
+          <img
+            src="https://images.pexels.com/photos/8534247/pexels-photo-8534247.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt=""
+          />
+          <h3>Therese</h3>
           <p>
-            This is team member 1. They are a developer interested in
-            accessibility.
+            Therese is a front-end developer who’s passionate about building
+            accessible, user-centric designs that make the web easier to
+            navigate for everyone.
+          </p>
+        </div>
+        <div class="team-card">
+          <img
+            src="https://images.pexels.com/photos/8534247/pexels-photo-8534247.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt=""
+          />
+          <h3>Darius</h3>
+          <p>
+            Darius specialises in front-end development, crafting clean,
+            intuitive user interfaces that ensure an inclusive experience across
+            all devices and platforms
+          </p>
+        </div>
+        <div class="team-card">
+          <img
+            src="https://images.pexels.com/photos/8534247/pexels-photo-8534247.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt=""
+          />
+          <h3>Christina</h3>
+          <p>
+            Christina focuses on creating responsive, accessible web
+            experiences, working to ensure that every user, regardless of
+            ability, can enjoy seamless interaction with websites.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="quiz-section">
-      <div class="quiz-question">
-        <form></form>
+    <section class="quiz-section" id="quiz-content">
+      <h2>Accessibility Quiz!</h2>
+      <p>
+        Answer the following questions, then click the submit button once you're
+        done. You can only select one answer per question.
+      </p>
+      <form id="quiz-form">
+        <div id="quiz-container"></div>
+        <button class="btn" type="submit">Submit!</button>
+      </form>
+    </section>
+
+    <section class="quiz-result-section">
+      <h2>Your Results!</h2>
+      <p>Great job you got 8/10!</p>
+      <div class="btns-container">
+        <button class="btn">Take the quiz again!</button>
+        <button class="btn">To home!</button>
       </div>
     </section>
 
-    <footer></footer>
+    <footer role="contetninfo">
+      <div class="footer-content">
+        <nav aria-label="Footer menu"></nav>
+      </div>
+    </footer>
     <script src="js/main.js"></script>
   </body>
 </html>
