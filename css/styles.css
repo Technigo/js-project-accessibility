@@ -19,14 +19,14 @@
 
 body {
   font-family: var(--default-font);
-  background-color: var(--ibm-blue);
+  /* background-color: var(--ibm-yellow); */
   font-size: var(--default-font-size);
 }
 
 nav {
   display: flex;
   flex-direction: row;
-  background-color: var(--ibm-light-blue);
+  background-color: var(--ibm-yellow);
   text-decoration: none;
 
 }
