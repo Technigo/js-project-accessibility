@@ -24,24 +24,40 @@
   box-sizing: border-box;
 }
 
-a {
-text-decoration: none;
-margin: 1rem;
-}
+
 body {
-display: flex;
-flex-direction: column;
-justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   font-family: var(--default-font);
-  background-color: var(--ibm-pink);
+  background-color: var(--ibm-cyan);
   font-size: var(--default-font-size);
-margin: 0;
-padding: 0;
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
-.header-content{
-top: 0;
-margin: 0 15vw;
+.header-content {
+  top: 0;
+  margin: 0 15vw;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--accent-color);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+
 }
 
 header {
@@ -50,25 +66,26 @@ header {
   margin-right: calc(-50vw + 50%);
   background-color: var(--ibm-blue);
   color: white;
-  padding: 2rem 0;  
-
+  padding: 1.5 rem 0;
+  box-shadow: 0 0 1em .5em var(--ibm-light-puple) 10%;
 }
 
-h1, 
-h2 {  
-margin-bottom: 1rem ;
+h1,
+h2 {
+  margin-bottom: 1rem;
 
 }
 
 nav ul {
   display: flex;
-  flex-direction: row; 
- gap 
- 
+  flex-direction: row;
+  gap: 1em;
+  list-style-type: none;
+  padding: 0;
 }
 
-main{
-  
+main {
+  padding: 0 1.5em;
 }
 
 #quiz {
@@ -82,18 +99,17 @@ main{
   border: var(--ibm-dark-font) 2px solid; */
   /* max-width: 50%;
   margin: 0 auto; */
- gap: 1rem;
-  
+  gap: 1rem;
+
 }
 
 #quiz-form {
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
   align-items: flex-start;
   flex-wrap: wrap;
   max-width: 50%;
   margin: 0 auto;
- 
   background-color: var(--ibm-light-font);
   border: var(--ibm-dark-font) 2px solid;
   border-radius: 1rem;
@@ -109,7 +125,7 @@ fieldset {
   border: var(--ibm-dark-font) 2px solid;
 }
 
-button{
+button {
   background-color: var(--ibm-yellow);
   border: var(--ibm-dark-font) 2px solid;
   border-radius: 1rem;
@@ -124,11 +140,11 @@ footer {
   margin-right: calc(-50vw + 50%);
   background-color: var(--ibm-blue);
   color: white;
-  padding: 2rem 0;
-bottom: 0;
+
+  bottom: 0;
 }
 
-.footer-content{
-  margin: 0 15vw;  
-bottom: 0;
+.footer-content {
+  margin: 0 15vw;
+  bottom: 0;
 }
