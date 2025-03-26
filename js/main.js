@@ -2,8 +2,8 @@ const quizQuestions = [
   {
     questionNumber: 1,
     question: "What does WCAG stand for?",
-    altAnswerOne: "Website Compliance and Accessibility Guide",
     correctAnswer: "Web Content Accessibility Guidelines",
+    altAnswerOne: "Website Compliance and Accessibility Guide",
     altAnswerTwo: "Web Coding Accessibility Guide",
     altAnswerThree: "Website Content Accessibility Group",
   },
@@ -11,8 +11,8 @@ const quizQuestions = [
   {
     questionNumber: 2,
     question: "Which HTML attribute provides alternative text for images?",
-    altAnswerOne: "title",
     correctAnswer: "alt",
+    altAnswerOne: "title",
     altAnswerTwo: "aria-label",
     altAnswerThree: "desc",
   },
@@ -20,29 +20,28 @@ const quizQuestions = [
   {
     questionNumber: 3,
     question: "What is the purpose of semantic HTML?",
-    altAnswerOne:
-      "To improve accessibility and SEO by using meaningful elements",
-    altAnswerTwo: "To reduce page load time",
     correctAnswer:
       "To improve accessibility and SEO by using meaningful elements",
-    altAnswerThree: "To style a webpage without CSS",
+    altAnswerOne: "To reduce page load time",
+    altAnswerTwo: "To style a webpage without CSS",
+    altAnswerThree: "To use generic divs and spans for layout",
   },
 
   {
     questionNumber: 4,
     question:
       "Which of these is NOT a valid way to make a website more accessible?",
-    altAnswerOne: "Using only color to convey information",
-    altAnswerTwo: "Adding captions to videos",
     correctAnswer: "Using only color to convey information",
-    altAnswerThree: "Ensuring good keyboard navigation",
+    altAnswerOne: "Adding captions to videos",
+    altAnswerTwo: "Ensuring good keyboard navigation",
+    altAnswerThree: "Providing alternative text for images",
   },
 
   {
     questionNumber: 5,
     question: "Which feature improves keyboard navigation?",
-    altAnswerOne: "Disabling the tab key",
     correctAnswer: "Adding tabindex to interactive elements",
+    altAnswerOne: "Disabling the tab key",
     altAnswerTwo: "Using only mouse-friendly UI components",
     altAnswerThree: "Removing focus outlines",
   },
@@ -50,36 +49,36 @@ const quizQuestions = [
   {
     questionNumber: 6,
     question: "Why should you avoid autoplaying videos with sound?",
-    altAnswerOne: "It can be disruptive and inaccessible to some users",
-    altAnswerTwo: "It slows down page load times",
     correctAnswer: "It can be disruptive and inaccessible to some users",
-    altAnswerThree: "It's bad for SEO",
+    altAnswerOne: "It slows down page load times",
+    altAnswerTwo: "It's bad for SEO",
+    altAnswerThree: "It makes the website look unprofessional",
   },
 
   {
     questionNumber: 7,
     question: "How can you make links more accessible?",
-    altAnswerOne: "Use descriptive link text instead of 'Click here'",
     correctAnswer: "Use descriptive link text instead of 'Click here'",
-    altAnswerTwo: "Add more links to the same destination",
-    altAnswerThree: "Only use icons without text",
+    altAnswerOne: "Add more links to the same destination",
+    altAnswerTwo: "Only use icons without text",
+    altAnswerThree: "Use vague link text like 'Learn more'",
   },
 
   {
     questionNumber: 8,
     question:
       "Which of these elements is best for screen readers to understand page structure?",
-    altAnswerOne: "div, span, b, i",
-    altAnswerTwo: "header, nav, main, footer",
     correctAnswer: "header, nav, main, footer",
-    altAnswerThree: "section, article, aside, hr",
+    altAnswerOne: "div, span, b, i",
+    altAnswerTwo: "section, article, aside, hr",
+    altAnswerThree: "p, h1, h2, h3",
   },
 
   {
     questionNumber: 9,
     question: "What does POUR stand for?",
-    altAnswerOne: "Provide Offer Uplift and Rebuild",
     correctAnswer: "Perceivable Operable Understandable Robust",
+    altAnswerOne: "Provide Offer Uplift and Rebuild",
     altAnswerTwo: "Perceivable Operable Usable Reliable",
     altAnswerThree: "Place of Usual Residence",
   },
@@ -87,9 +86,9 @@ const quizQuestions = [
   {
     questionNumber: 10,
     question: "Which of these font sizes is best for readability?",
+    correctAnswer: "At least 16px for body text",
     altAnswerOne: "10px for compact design",
     altAnswerTwo: "12px for minimalism",
-    correctAnswer: "At least 16px for body text",
     altAnswerThree: "14px for desktop, 10px for mobile",
   },
 ];
