@@ -95,7 +95,7 @@ const quizQuestions = [
 ];
 
 // SELECTORS
-const quizContainer = document.getElementById("quiz-form");
+const quizContainer = document.getElementById("quiz-container");
 
 // QUIZ QUESTIONS HTML
 quizQuestions.forEach((quizQuestion) => {
