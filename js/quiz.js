@@ -5,41 +5,43 @@ const submitAnswers = () => {
   })
 }
 
-const compareAnswers = (submitAnswers) => {
-  // Questions
-  const question1 = document.getElementById("question-1")
-  const question2 = document.getElementById("question-2")
-  const question3 = document.getElementById("question-3")
+const compareAnswers = () => {
+  // Correct answers
+  // Question 1's correct answer is "A", question 2's is "B", etc.).
+  const correctAnswers = ["answer1", "answer2", "answer3"]
 
-  // Answers
+  // Array to store user-selected answers
+  const userAnswers = []
 
-  let results = ""
-
-  if (question1.checked) {
-    // Compare selected answer to the correct answer
-
-    // Add +1 to results
-    results++
+  // Retrieve user answers
+  for (let i = 1; i <= 3; i++) {
+    const question = document.querySelector(
+      `input[name="question${i}"]:checked`
+    )
+    if (question) {
+      userAnswers.push(question.value) // Add the selected answer to the userAnswers array
+    } else {
+      userAnswers.push(null) // If no answer is selected, push null
+    }
   }
 
-  if (question2.checked) {
-    results++
-  }
+  let totalCorrectAnswers = 0
 
-  if (question3.checked) {
-    results++
+  // Compare user answers with correct answers
+  for (let i = 0; i < correctAnswers.length; i++) {
+    if (userAnswers[i] === correctAnswers[i]) {
+      totalCorrectAnswers++ // Increment the count of correct answers
+    }
   }
-
-  revealAnswers(results)
+  displayAnswers(totalCorrectAnswers, correctAnswers)
 }
 
-const revealAnswers = (results) => {
-  const quizContainer = document.getElementById(".quiz")
+// Display the results
+const displayAnswers = (totalCorrectAnswers, correctAnswers) => {
+  const resultContainer = document.getElementById("result-container")
   // If submitAnswers has run
   if (submitAnswers) {
-    // Clear container
-    quizContainer.innerHTML = ""
     // Display results
-    quizContainer.innerHTML = `<h2>Your results:</h2> You answered ${results} questions correctly.`
+    resultContainer.innerHTML = `<h2>Your results:</h2> You answered ${totalCorrectAnswers} out of ${correctAnswers.length} questions correctly.`
   }
 }
