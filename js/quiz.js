@@ -39,9 +39,6 @@ const compareAnswers = () => {
 // Display the results
 const displayAnswers = (totalCorrectAnswers, correctAnswers) => {
   const resultContainer = document.getElementById("result-container")
-  // If submitAnswers has run
-  if (submitAnswers) {
-    // Display results
-    resultContainer.innerHTML = `<h2>Your results:</h2> You answered ${totalCorrectAnswers} out of ${correctAnswers.length} questions correctly.`
-  }
+  // Display results
+  resultContainer.innerHTML = `<h2>Your results:</h2> <p>You answered ${totalCorrectAnswers} out of ${correctAnswers.length} questions correctly.</p>`
 }
