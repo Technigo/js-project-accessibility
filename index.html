@@ -1,36 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Accessibility Quiz</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Title</title>
-  <link rel="stylesheet" href="css/styles.css" />
-</head>
+  <body>
+    <a href="#quiz">Skip to quiz!</a>
+    <header>
+      <h1>Web Accessibility Quiz</h1>
+      <nav role="navigation" aria-label="Main menu">
+        <ul>
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="about.html">About</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-<body>
+    <main id="main-content">
+      <section id="" tabindex="0">
+        <h2>Titel på quiz</h2>
+        <p>En kort beskrivning om hur vi har gjort ett quiz tillgängligt</p>
+        <form>
+          <fieldset class="question-1">
+            <legend>Första frågan</legend>
+            <label
+              ><input type="radio" name="question" value="answer1" /> svar
+              1</label
+            >
+            <label
+              ><input type="radio" name="question" value="answer2" />svar
+              2</label
+            >
+            <label
+              ><input type="radio" name="question" value="answer3" />svar
+              3</label
+            >
+          </fieldset>
+          <fieldset class="question-2">
+            <legend>Andra frågan</legend>
+            <label
+              ><input type="radio" name="question" value="answer1" /> svar
+              1</label
+            >
+            <label
+              ><input type="radio" name="question" value="answer2" />svar
+              2</label
+            >
+            <label
+              ><input type="radio" name="question" value="answer3" />svar
+              3</label
+            >
+          </fieldset>
+          <fieldset class="question-3">
+            <legend>Tredje frågan</legend>
+            <label
+              ><input type="radio" name="question" value="answer1" /> svar
+              1</label
+            >
+            <label
+              ><input type="radio" name="question" value="answer2" />svar
+              2</label
+            >
+            <label
+              ><input type="radio" name="question" value="answer3" />svar
+              3</label
+            >
+          </fieldset>
+        </form>
+      </section>
+    </main>
 
-  <a href="#main-content">Skip to Main content!</a>
-  <header>
-    <h1>Web Accessibility Quiz</h1>
-    <nav role="navigation" aria-label="Main menu">
-      <ul>
-        <li>
-          <a href="index.html">Home</a>
-        </li>
-        <li>
-          <a href="about.html">About</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-
-  <main id="main-content">
-
-  </main>
-
-  <footer id="footer-menu"></footer>
-  <script src="js/main.js"></script>
-</body>
-
+    <footer id="footer-menu"></footer>
+    <script src="js/main.js"></script>
+  </body>
 </html>
