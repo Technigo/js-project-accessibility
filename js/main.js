@@ -96,31 +96,64 @@ const quizQuestions = [
 // SELECTORS
 const quizContainer = document.getElementById("quiz-container");
 
-// QUIZ QUESTIONS HTML
-quizQuestions.forEach((quizQuestion) => {
-  let quizAnswers = [
-    { label: quizQuestion.altAnswerOne, value: "wrong" },
-    { label: quizQuestion.altAnswerTwo, value: "wrong" },
-    { label: quizQuestion.correctAnswer, value: "correct" },
-    { label: quizQuestion.altAnswerThree, value: "wrong" },
-  ];
+// QUIZ QUESTIONS
+const displayQuizQuestions = () => {
+  quizQuestions.forEach((quizQuestion) => {
+    let quizAnswers = [
+      { label: quizQuestion.altAnswerOne, value: "wrong" },
+      { label: quizQuestion.altAnswerTwo, value: "wrong" },
+      { label: quizQuestion.correctAnswer, value: "correct" },
+      { label: quizQuestion.altAnswerThree, value: "wrong" },
+    ];
 
-  quizAnswers = quizAnswers.sort(() => Math.random() - 0.5);
+    quizAnswers = quizAnswers.sort(() => Math.random() - 0.5);
 
-  quizContainer.innerHTML += `<fieldset class="question-${
-    quizQuestion.questionNumber
-  }">
-          <legend>${quizQuestion.question}</legend>
-          ${quizAnswers
-            .map((answer, i) => {
-              return `<div class="quiz-option">
-            <input aria-controls="answer-section" type="radio" id="option-${
-              i + 1
-            }" name="q${quizQuestion.questionNumber}" value="${answer.value}" />
-            <label for="option-${i + 1}">${answer.label}</label>
-          </div>
-        `;
-            })
-            .join("")}
-        </fieldset>`;
+    quizContainer.innerHTML += `<fieldset class="question-${
+      quizQuestion.questionNumber
+    }">
+            <legend>${quizQuestion.question}</legend>
+            ${quizAnswers
+              .map((answer, i) => {
+                return `<div class="quiz-option">
+              <input class="quiz-input" aria-controls="answer-section" type="radio" id="option-${
+                i + 1
+              }" name="q${quizQuestion.questionNumber}" value="${
+                  answer.value
+                }" required />
+              <label for="option-${i + 1}">${answer.label}</label>
+            </div>
+          `;
+              })
+              .join("")}
+          </fieldset>`;
+  });
+};
+document.addEventListener("DOMContentLoaded", displayQuizQuestions);
+
+// QUIZ RESULTS
+const quizSection = document.querySelector(".quiz-section");
+const quizForm = document.getElementById("quiz-form");
+
+const displaQuizResults = () => {
+  const quizInputs = document.querySelectorAll(".quiz-input:checked");
+
+  let answers = [];
+
+  quizInputs.forEach((quizInput) => {
+    answers.push(quizInput.value);
+  });
+
+  const correctAnswers = answers.filter((answer) => answer === "correct");
+
+  quizSection.innerHTML = `<h2>Your Results!</h2>
+      <p>Great job you got ${correctAnswers.length}/${answers.length}!</p>
+      <div class="btns-container">
+        <button class="btn">Take the quiz again!</button>
+        <button class="btn">To home!</button>
+      </div>`;
+};
+
+quizForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  displaQuizResults();
 });
