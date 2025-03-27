@@ -1,0 +1,123 @@
+:root {
+  --bg-primary: #ffffff; /* White background */
+  --color-primary: #333333; /* Dark grey text */
+  --color-featured: #f0a500; /* Featured color (yellow/orange) */
+  --color-connect: #f2f2f3; /* Dark blue for headings */
+  --bg-white: #f9f9f9; /* Light grey background */
+  --border-gray: #cccccc; /* Light grey borders */
+  --bg-4rd: #f1f1f1; /* Light grey for cards */
+  --nf-bg-1: #2e3a59; /* Dark blue for quiz section */
+  --nf-bg-2: #1a1c2c; /* Very dark blue for hero section */
+  --nf-bg-3: #343a40; /* Dark gray for results section */
+  --color-orange: #ff6600; /* Dark orange for buttons */
+  --color-white: #ffffff; /* White text */
+  --bg-secondary: #222222; /* Dark background for footer */
+}
+
+body {
+  background: #f0a500;
+  color: var(--color-primary);
+  font-family: sans-serif;
+  margin: 0;
+  line-height: 1.6;
+}
+
+header {
+  background: var(--color-); /* Featured color */
+  padding: 1rem;
+}
+
+.team-card-paragraph {
+  font-size: 1rem;
+  background-color: #ffffff;
+  padding: 2rem;
+  margin: 1rem 0;
+}
+nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: var(--color-primary); /* Dark text for links */
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--color-orange); /* Highlight on hover */
+}
+
+.hero-section {
+  background: var(--nf-bg-2); /* Very dark blue */
+  padding: 2rem;
+  text-align: center;
+  color: var(--color-white); /* White text on dark background */
+}
+
+.hero-section h1 {
+  color: #f2f2f3; /* Blue heading */
+}
+
+.about-section {
+  background:#333333 ; /* Light background */
+  padding: 2rem;
+}
+
+.about-section h2 {
+  color: white;
+}
+
+.team-card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);/* fr = relative space */
+  
+  background-color: #ffffff;
+  border: 1px solid var(--border-gray);
+  background: var(--bg-4rd); 
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.team-card img {
+  grid-row: span 2;
+}
+
+.quiz-section {
+  background: var(--nf-bg-1); /* Dark blue for quiz */
+  padding: 2rem;
+  color: var(--color-white); /* White text on dark background */
+}
+
+.quiz-result-section {
+  background: var(--nf-bg-3); /* Dark gray */
+  padding: 2rem;
+  color: var(--color-white); /* White text */
+}
+
+.btn {
+  background: #f0a500; /* Dark orange */
+  color: #000000; /* White text */
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0.5rem;
+}
+
+.btn:hover {
+  background: #ff5500; /* Slightly darker orange for hover */
+}
+
+.btn:focus {
+  outline: 3px solid #ff6600; /* Orange outline on focus for accessibility */
+}
+
+footer {
+  background: var(--bg-secondary); /* Dark footer background */
+  color: var(--color-white); /* White text in footer */
+  text-align: center;
+  padding: 1rem;
+}
