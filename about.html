@@ -3,30 +3,24 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About</title>
-  <link rel="stylesheet"
-        href="css/styles.css" />
-  <link rel="preconnect"
-        href="https://fonts.googleapis.com">
-  <link rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
 
 </head>
 
 <body>
-  <a href="#main-content"
-     class="skip-link">Skip to Content</a>
+  <a href="#main-content" class="skip-link">Skip to Content</a>
 
   <header id="header">
     <div class="header-content">
       <h1>About</h1>
-      <nav role="navigation"
-           aria-label="Main Navigation">
+      <nav role="navigation" aria-label="Main Navigation">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
@@ -41,68 +35,45 @@
       <p>More information about everything related.</p>
     </section>
 
-    <!--2 Introduction: How This UI is Accessible-->
     <section>
       <h2>How This UI is Accessible</h2>
       <p>
         A short explanation of how your quiz follows accessibility principles:
       </p>
+      <!--
       <div class="hero images">
-        <!-- Informative Imagge -->
-        <img src="informative-image.jpg"
-             alt="A descriptive alt text"
-             class="informative-image">
-        <figcaption hidden>A descriptive alt text.</figcaption>
-      </div>
+        <img src="/img/accessibility-image.png" alt="Asseccibility illustration" class="informative-image" <figcaption>
+        hidden>A descriptive alt text.</figcaption>
+      </div> -->
 
       <div class="accessibility-item">
         <h3> Accessibility features</h3>
-        <div class="accordeon-item">
+        <div class="accordion-item">
           <h4>
-            <button class="accordeon-button"
-                    aria-expanded="false"
-                    aria-controls="content-1">
+            <button class="accordion-button" aria-expanded="false" aria-controls="content-1">
               Screen Reader Compatibility
-              <span class="accordion-icon"
-                    aria-hidden="true"></span>
+              <span class="accordion-icon" aria-hidden="true"></span>
             </button>
           </h4>
-          <div id="ccontent-1"
-               class="acccordion-content"
-               hidden>
+          <div id="ccontent-1" class="acccordion-content" hidden>
             <p>Our website is fully compatible with screen readers.</p>
-          </div>
-
-          <!--another purpose-->
-          <div class="accordeon-item">
-            <h4>
-              <button class="accordeon-button"
-                      aria-expanded="false"
-                      aria-controls="content-2">
-                Keyboard Navigation
-                <span class="accordion-icon"
-                      aria-hidden="true"></span>
-              </button>
-            </h4>
-            <div id="ccontent-2"
-                 class="acccordion-content"
-                 hidden>
-              <p>All interactive elements are accessible via keyboard.</p>
-            </div>
           </div>
         </div>
 
-        <!--
-        <ul>
-          <li>Semantic HTML for better screen reader support.</li>
-          <li>Keyboard-friendly navigation for interactive elements.</li>
-          <li>High-contrast colors for better readability.</li>
-          <li>ARIA roles for dynamic content announcements.</li>
-        </ul>
+        <div class="accordion-item">
+          <h4>
+            <button class="accordion-button" aria-expanded="false" aria-controls="content-2">
+              Keyboard Navigation
+              <span class="accordion-icon" aria-hidden="true"></span>
+            </button>
+          </h4>
+          <div id="ccontent-2" class="acccordion-content" hidden>
+            <p>All interactive elements are accessible via keyboard navigation.</p>
+          </div>
+        </div>
+      </div>
 
-         Decorative Image (need to  move it somewhere else) 
-        <img src="decorative-image.jpg" alt="" class="decorative-image">
-         Empty alt attribute ensures the image is ignored by screen readers. -->
+    </section>
 
 
 
@@ -111,8 +82,7 @@
 
   <footer role="contentinfo">
     <div class="footer-content">
-      <nav role="navigation"
-           aria-label="footer Navigation">
+      <nav role="navigation" aria-label="footer Navigation">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
