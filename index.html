@@ -61,16 +61,24 @@
       <form id="quiz-form">
 
         <!-- Question1-->
-        <fieldset>
-          <legend>Is it bla bla bla or blah blah blah?</legend>
+        <fieldset id="quizCard">
+          <h2 id="quizQuestion"></h2>
+          <legend></legend>          
           <div>
-            <input type="radio"
-                   id="aria-1"
+            <input type="button"
+                   class="quizOptions"
                    name="aria"
-                   value="Bla bla">
+                   value="Bla bla"
+                   >
             <label for="aria-1">Bla bla</label>
           </div>
-          <div>
+          <div id="quizAnswer">   
+ Your score: <span id="score">0</span>
+</div>
+  <button id="restartBtn">Restart Quiz</button>
+
+          
+          <!-- <div>
             <input type="radio"
                    id="aria-2"
                    name="aria"
@@ -90,9 +98,9 @@
                    name="aria"
                    value="blah blah blah blah">
             <label for="aria-3">blah blah blah blah</label>
-          </div>
+          </div> -->
         </fieldset>
-        <button type="submit"
+        <button id="quizBtn" type="submit"
                 aria-live="polite">Submit</button>
 
       </form>
@@ -116,7 +124,7 @@
     </div>
   </footer>
 
-  <script src=" js/main.js"></script>
+  <script src=" js/script.js"></script>
 </body>
 
 </html>
