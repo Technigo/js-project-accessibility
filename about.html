@@ -1,10 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About</title>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
-  <body></body>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to Main Content</a>
+    <header id="header">
+      <div class="header-content">
+        <h1>Wind 1 - Accessibility Site</h1>
+        <nav role="navigation" aria-label="Main menu">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section id="about">
+        <h2>About Our Wind-1 Team</h2>
+        <p>
+          Why is Accessibility important to us?
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat eum nisi vitae, praesentium itaque esse amet blanditiis cupiditate soluta nam.
+        </p>
+        <div class="informative-image">
+          <img 
+            id="info-image"
+            class="info-image"
+            src="./assets/web-accessibility-image.jpg"
+            alt="Accessibility illustration"
+            aria-label=""
+
+            />
+        </div>
+        <h2>The Team</h2>
+        <h3>Kasia </h3>
+        <p> Kasia bio Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates placeat pariatur illo nesciunt nisi possimus.</p>
+        <h3>Talo </h3>
+        <p> Talo bio Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates placeat pariatur illo nesciunt nisi possimus.</p>
+        <h3>Bianka </h3>
+        <p> Bianka bio Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates placeat pariatur illo nesciunt nisi possimus.</p>
+
+      </section>
+    </main>
+  </body>
+  <script src=".js/main.js"></script>
 </html>
