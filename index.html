@@ -61,23 +61,18 @@
       <form id="quiz-form">
 
         <!-- Question1-->
-        <fieldset id="quizCard">
+        <fieldset>
           <h2 id="quizQuestion"></h2>
-          <legend></legend>          
-          <div>
-            <input type="button"
-                   class="quizOptions"
-                   name="aria"
-                   value="Bla bla"
-                   >
-            <label for="aria-1">Bla bla</label>
-          </div>
-          <div id="quizAnswer">   
- Your score: <span id="score">0</span>
-</div>
-  <button id="restartBtn">Restart Quiz</button>
+          <legend id="quizCard"></legend>
+          <div id="quizOptions">
 
-          
+          </div>
+          <div id="quizAnswer">
+            Your score: <span id="score">0</span>
+          </div>
+          <button id="restartBtn">Restart Quiz</button>
+
+
           <!-- <div>
             <input type="radio"
                    id="aria-2"
@@ -100,7 +95,8 @@
             <label for="aria-3">blah blah blah blah</label>
           </div> -->
         </fieldset>
-        <button id="quizBtn" type="submit"
+        <button id="quizBtn"
+                type="submit"
                 aria-live="polite">Submit</button>
 
       </form>

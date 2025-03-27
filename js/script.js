@@ -1,8 +1,10 @@
 "use strict";
 const quiz = [
-    { ask: "What is the capital of France?",
+    {
+        ask: "What is the capital of France?",
         choose: ["Berlin", "Madrid", "Paris", "Lisbon"],
-        answer: "Paris" },
+        answer: "Paris"
+    },
     { ask: "Which language is used for web development?", choose: ["Python", "HTML", "Java", "C++"], answer: "HTML" },
     {
         ask: "Who wrote 'Hamlet'?", choose: ["Charles Dickens", "William Shakespeare", "Mark Twain", "Jane Austen"],
@@ -24,12 +26,20 @@ function loadQuestion() {
         quizQuestion.textContent = getQ.ask;
     if (quizOptions)
         quizOptions.innerHTML = "";
+
     getQ.choose.forEach((element, i) => {
-        const btn = document.createElement('button');
-        btn.classList.add("element");
-        btn.textContent = `${i + 1}. ${element}`;
+        const btn = document.createElement("input");
+        btn.type = "button";
+        btn.classList.add("quizOptions");
+        btn.name = "aria";
+        btn.id = `aria-${i}`;
+        btn.value = `${i + 1}. ${element}`;
         btn.onclick = () => checkA(element);
+        const label = document.createElement("label");
+        label.htmlFor = btn.id;
+        label.textContent = element;
         quizOptions === null || quizOptions === void 0 ? void 0 : quizOptions.appendChild(btn);
+        quizOptions === null || quizOptions === void 0 ? void 0 : quizOptions.appendChild(label);
     });
 }
 function checkA(opt) {
