@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
+    <a href="#quiz-content" class="skip-link">Skip to Quiz</a>
     <header>
       <nav role="navigation" aria-label="Main menu">
         <ul>
@@ -24,6 +25,10 @@
     </header>
 
     <main class="hero-section" id="home-content">
+      <!-- <section id="banner" role="banner">
+        <img src="assets/banner.jpg" alt="" role="presentation" />
+      </section> -->
+
       <h1>Test Your Web Accessibility Knowledge!</h1>
       <p>Put your web accessibility skills to the test with our quick quiz!</p>
       <button class="btn">Take the quiz!</button>
@@ -99,7 +104,19 @@
 
     <footer role="contetninfo">
       <div class="footer-content">
-        <nav aria-label="Footer menu"></nav>
+        <nav role="navigation" aria-label="Footer menu">
+          <ul>
+            <li>
+              <a href="#home-content">Home</a>
+            </li>
+            <li>
+              <a href="#about-content">About</a>
+            </li>
+            <li>
+              <a href="#quiz-content">Quiz</a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </footer>
     <script src="js/main.js"></script>
