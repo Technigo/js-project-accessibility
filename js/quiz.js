@@ -1,6 +1,8 @@
-const submitAnswers = () => {
+const submitAnswers = (event) => {
   const submitButton = document.getElementById("submit-button")
   submitButton.addEventListener("click", () => {
+    console.log("Submit button clicked")
+    // Call the function to compare answers
     compareAnswers()
   })
 }
@@ -33,12 +35,14 @@ const compareAnswers = () => {
       totalCorrectAnswers++ // Increment the count of correct answers
     }
   }
+
   displayAnswers(totalCorrectAnswers, correctAnswers)
 }
 
 // Display the results
 const displayAnswers = (totalCorrectAnswers, correctAnswers) => {
+  console.log("Displaying results")
   const resultContainer = document.getElementById("result-container")
-  // Display results
-  resultContainer.innerHTML = `<h2>Your results:</h2> <p>You answered ${totalCorrectAnswers} out of ${correctAnswers.length} questions correctly.</p>`
+  resultContainer.innerHTML = `<h2>Your results:</h2>
+  <p>You answered ${totalCorrectAnswers} out of ${correctAnswers.length} questions correctly.</p>`
 }
