@@ -25,52 +25,57 @@
 
     <main id="main-content">
       <section id="quiz" tabindex="0">
-        <h2>Titel på quiz</h2>
+        <h2>Accessibility Quiz</h2>
         <p>En kort beskrivning om hur vi har gjort ett quiz tillgängligt</p>
         <form>
           <fieldset class="question-1">
             <legend>Första frågan</legend>
             <label
-              ><input type="radio" name="question" value="answer1" /> svar
-              1</label
+              ><input
+                type="radio"
+                name="question"
+                id="answer1"
+                aria-disabled="true"
+              />
+              svar 1</label
             >
             <label
-              ><input type="radio" name="question" value="answer2" />svar
-              2</label
+              ><input
+                type="radio"
+                name="question"
+                id="answer2"
+                aria-disabled="true"
+              />svar 2</label
             >
             <label
-              ><input type="radio" name="question" value="answer3" />svar
-              3</label
+              ><input
+                type="radio"
+                name="question"
+                id="answer3"
+                aria-disabled="true"
+              />svar 3</label
             >
           </fieldset>
           <fieldset class="question-2">
             <legend>Andra frågan</legend>
+            <label><input type="radio" name="question" id="" /> svar 1</label>
             <label
-              ><input type="radio" name="question" value="answer1" /> svar
-              1</label
+              ><input type="radio" name="question" id="answer2" />svar 2</label
             >
             <label
-              ><input type="radio" name="question" value="answer2" />svar
-              2</label
-            >
-            <label
-              ><input type="radio" name="question" value="answer3" />svar
-              3</label
+              ><input type="radio" name="question" id="answer3" />svar 3</label
             >
           </fieldset>
           <fieldset class="question-3">
             <legend>Tredje frågan</legend>
             <label
-              ><input type="radio" name="question" value="answer1" /> svar
-              1</label
+              ><input type="radio" name="question" id="answer1" /> svar 1</label
             >
             <label
-              ><input type="radio" name="question" value="answer2" />svar
-              2</label
+              ><input type="radio" name="question" id="answer2" />svar 2</label
             >
             <label
-              ><input type="radio" name="question" value="answer3" />svar
-              3</label
+              ><input type="radio" name="question" id="answer3" />svar 3</label
             >
           </fieldset>
           <button id="submit-button">Submit answers</button>

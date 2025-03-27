@@ -27,6 +27,8 @@ body {
 }
 
 header {
+  display: flex;
+  justify-content: space-between;
   background-color: var(--accent-color);
 }
 
@@ -57,7 +59,9 @@ a:hover {
 
 section {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .presentation {
