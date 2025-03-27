@@ -89,6 +89,23 @@ section {
   flex-wrap: wrap;
 }
 
+#result-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#result-container h2 {
+  margin: 1rem 0;
+  padding: 0;
+}
+
+#result-container p {
+  margin: 0;
+  padding: 0;
+}
+
 .team {
   justify-content: center;
   flex-direction: row;
