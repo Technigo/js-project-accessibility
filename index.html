@@ -18,103 +18,127 @@
   <a
     href="#skip-to-quiz"
     class="skip-link"
-  >Skip To Quiz</a>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./about.html">About</a></li>
-      </ul>
-    </nav>
-    <h1>Web Accessibility Quiz</h1>
+  >Skip To Quiz
+  </a>
+  <header id="header">
+    <div class="header-content">
+      <nav
+        role="navigation"
+        aria-label="main menu"
+      >
+        <ul>
+          <li>
+            <a href="./index.html">Home</a>
+          </li>
+          <li>
+            <a href="./about.html">About</a>
+          </li>
+        </ul>
+      </nav>
+      <h1>Web Accessibility Quiz</h1>
+    </div>
   </header>
 
-  <main>
-    <h2>Instructions to Quiz</h2>
-    <p>Our quiz follows accessibility principles to ensure it can be used by everyone. We use semantic HTML elements to
-      clearly group related questions. Each radio button is labeled properly for better screen reader support. Keyboard
-      navigation is fully supported, allowing users to move through the quiz without a mouse. Overall, the design is
-      simple, clear, and inclusive for all users. This quiz is part of our mission to help more people understand what
-      accessibility really means, and how disability can affect the way people experience the world.</p>
-    <img
-      src="assets/disability1.jpg"
-      alt=""
+  <main id="main-content">
+
+    <section
+      id="banner"
+      role="banner"
     >
-    <img
-      src="assets/disability.jpg"
-      alt="Image portraing different disabilities"
-    >
-    <form id="accessability-quiz">
-      <h2>Accessability Quiz</h2>
-      <fieldset>
-        <legend>1. Meet Camilla. Camilla is blind and uses a screen reader to browse the web. Which feature helps
-          Camilla the most when navigating a website? </legend>
-        <label for="question-one-a"><input
-            id="question-one-a"
-            type="radio"
-            name="question-one-a"
-            value="often"
-          > Images with descriptive alt text</label><br>
-        <label for="question-one-b"><input
-            id="question-one-b"
-            type="radio"
-            name="question-one-b"
-            value="sometimes"
-          > Buttons that rely on mouse hover</label><br>
-        <label for="question-one-c"><input
-            id="question-one-c"
-            type="radio"
-            name="question-one-c"
-            value="never"
-          > Auto playing videos</label>
-      </fieldset>
-      <fieldset>
-        <legend>2. Meet Priya
-          Priya has ADHD and finds it hard to focus on long blocks of content.
-          What can help her better engage with your app or site?</legend>
-        <label for="question-two-a"><input
-            id="question-two-a"
-            type="radio"
-            name="question-two-a"
-            value="yes"
-          > Flashing animations to grab attention</label><br>
-        <label for="question-two-b"><input
-            id="question-two-b"
-            type="radio"
-            name="question-two-b"
-            value="partly"
-          > Breaking content into smaller, collapsible sections</label><br>
-        <label for="question-two-c"><input
-            id="question-two-c"
-            type="radio"
-            name="question-two-c"
-            value="no"
-          >Dense paragraphs on a single page</label>
-      </fieldset>
-      <fieldset>
-        <legend>3.Meet Jordan
-          Jordan has low vision and prefers high-contrast designs. Which feature supports Jordan’s needs best?</legend>
-        <label for="question-three-a"><input
-            id="question-three-a"
-            type="radio"
-            name="question-three-a"
-            value="yes"
-          > Light gray text on white</label><br>
-        <label for="question-three-b"><input
-            id="question-three-b"
-            type="radio"
-            name="qestion-three-b"
-            value="partly"
-          > A dark mode toggle</label><br>
-        <label for="question-three-c"><input
-            id="question-three-c"
-            type="radio"
-            name="question-three-c"
-            value="no"
-          > Background images behind text</label>
-        <button type="submit">Check Answers</button>
-      </fieldset>
-    </form>
+      <img
+        src="assets/disability1.jpg"
+        alt=""
+      >
+    </section>
+
+    <section id="instructions">
+      <h2>
+        Instructions to Quiz
+      </h2>
+      <p>
+        Our quiz follows accessibility principles to ensure it can be used by everyone. We use semantic HTML elements to
+        clearly group related questions. Each radio button is labeled properly for better screen reader support.
+        Keyboard
+        navigation is fully supported, allowing users to move through the quiz without a mouse. Overall, the design is
+        simple, clear, and inclusive for all users. This quiz is part of our mission to help more people understand what
+        accessibility really means, and how disability can affect the way people experience the world.
+      </p>
+      <img
+        src="assets/disability.jpg"
+        alt="Friends with disability"
+      >
+      <form id="accessability-quiz">
+        <h2>Accessability Quiz</h2>
+        <fieldset>
+          <legend>1. Meet Camilla. Camilla is blind and uses a screen reader to browse the web. Which feature helps
+            Camilla the most when navigating a website?</legend>
+          <label for="question-one-a"><input
+              id="question-one-a"
+              type="radio"
+              name="question-one-a"
+              value="often"
+            > Images with descriptive alt text</label><br>
+          <label for="question-one-b"><input
+              id="question-one-b"
+              type="radio"
+              name="question-one-b"
+              value="sometimes"
+            > Buttons that rely on mouse hover</label><br>
+          <label for="question-one-c"><input
+              id="question-one-c"
+              type="radio"
+              name="question-one-c"
+              value="never"
+            > Auto playing videos</label>
+        </fieldset>
+        <fieldset>
+          <legend>2. Meet Priya
+            Priya has ADHD and finds it hard to focus on long blocks of content.
+            What can help her better engage with your app or site?</legend>
+          <label for="question-two-a"><input
+              id="question-two-a"
+              type="radio"
+              name="question-two-a"
+              value="yes"
+            > Flashing animations to grab attention</label><br>
+          <label for="question-two-b"><input
+              id="question-two-b"
+              type="radio"
+              name="question-two-b"
+              value="partly"
+            > Breaking content into smaller, collapsible sections</label><br>
+          <label for="question-two-c"><input
+              id="question-two-c"
+              type="radio"
+              name="question-two-c"
+              value="no"
+            >Dense paragraphs on a single page</label>
+        </fieldset>
+        <fieldset>
+          <legend>3.Meet Jordan
+            Jordan has low vision and prefers high-contrast designs. Which feature supports Jordan’s needs best?
+          </legend>
+          <label for="question-three-a"><input
+              id="question-three-a"
+              type="radio"
+              name="question-three-a"
+              value="yes"
+            > Light gray text on white</label><br>
+          <label for="question-three-b"><input
+              id="question-three-b"
+              type="radio"
+              name="question-three-b"
+              value="partly"
+            > A dark mode toggle</label><br>
+          <label for="question-three-c"><input
+              id="question-three-c"
+              type="radio"
+              name="question-three-c"
+              value="no"
+            > Background images behind text</label>
+          <button type="submit">Check Answers</button>
+        </fieldset>
+      </form>
   </main>
 
 
@@ -122,7 +146,7 @@
     <div class="footer-content">
       <nav
         role="navigation"
-        aria-label="Footer navigation"
+        aria-label="Footer menu"
       >
         <ul>
           <li>
