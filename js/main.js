@@ -95,9 +95,14 @@ const quizQuestions = [
 
 // SELECTORS
 const quizContainer = document.getElementById("quiz-container");
+const quizForm = document.getElementById("quiz-form");
 
 // QUIZ QUESTIONS
 const displayQuizQuestions = () => {
+  quizForm.reset();
+
+  quizContainer.innerHTML = "";
+
   quizQuestions.forEach((quizQuestion) => {
     let quizAnswers = [
       { label: quizQuestion.altAnswerOne, value: "wrong" },
@@ -132,7 +137,6 @@ document.addEventListener("DOMContentLoaded", displayQuizQuestions);
 
 // QUIZ RESULTS
 const quizSection = document.querySelector(".quiz-section");
-const quizForm = document.getElementById("quiz-form");
 
 const displaQuizResults = () => {
   const quizInputs = document.querySelectorAll(".quiz-input:checked");
@@ -148,9 +152,14 @@ const displaQuizResults = () => {
   quizSection.innerHTML = `<h2>Your Results!</h2>
       <p>Great job you got ${correctAnswers.length}/${answers.length}!</p>
       <div class="btns-container">
-        <button class="btn">Take the quiz again!</button>
+        <button class="btn retake-btn">Take the quiz again!</button>
         <button class="btn">To home!</button>
       </div>`;
+
+  const retakeQuizBtn = document.querySelector(".retake-btn");
+  console.log(retakeQuizBtn);
+
+  retakeQuizBtn.addEventListener("click", displayQuizQuestions);
 };
 
 quizForm.addEventListener("submit", (e) => {
