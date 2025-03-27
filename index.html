@@ -1,13 +1,88 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title</title>
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <p>This is the starting point.</p>
-    <script src="js/main.js"></script>
-  </body>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>Quizy</title>
+  <link
+    rel="stylesheet"
+    href="css/styles.css"
+  />
+</head>
+
+<body>
+  <a
+    href="#main-content"
+    class="skip-link"
+  >Skip to main content</a>
+  <header id="header">
+    <div class="header-content">
+      <h1> Quizzy time </h1>
+      <nav
+        role="navigation"
+        aria-label="Main navigation"
+      >
+        <ul>
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="about.html">About</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section
+      id="banner"
+      role="banner"
+    >
+      <img
+        src=""
+        alt=""
+        role="presentation"
+      >
+    </section>
+    <section id="introduction">
+      <h2>Introduction</h2>
+      <p>Hej Hej detta är ju rätt så kul!</p>
+      <div class="form-controls intro-section">
+        <button
+          id="intro-continue"
+          type="button"
+          class="submit-button"
+        >
+          Start Quiz
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="footer-content">
+      <nav
+        role="navigation"
+        aria-label="Footer navigation"
+      >
+        <ul>
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="about.html">About</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
 </html>
