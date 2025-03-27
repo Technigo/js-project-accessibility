@@ -27,23 +27,32 @@ a {
 
 .headerContent {
   color: var(--color-text);
+  margin: 0;
   font-weight: bold;
   margin-right: var(--spacing-sm);
 }
 
-header {
+#header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: right;
-  height: 50px;
   background-color: var(--color-bg);
   padding: 10px 0;
 }
 
+.header h1 {
+  margin: 0;
+}
+
+.header a {
+  margin: 0;
+}
+
+
 h1 {
   color: var(--color-text);
   font-weight: bold;
-  text-align: center;
+
   padding: var(--spacing-sm);
   font-size: clamp(2rem, 5vw, 3rem);
 
@@ -120,8 +129,6 @@ p {
 .startQuiz:hover {
   background-color: #333;
 }
-
-
 
 footer {
   height: 200px;
