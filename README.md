@@ -1,5 +1,7 @@
 # Web Accessibility Project
 
+Deployed site: teamwind1.netlify.app
+
 A basic web server template focused on web accessibility practices.
 
 ### Installation
