@@ -168,13 +168,17 @@ const displaQuizResults = () => {
       <p>Great job you got ${correctAnswers.length}/${answers.length}!</p>
       <div class="btns-container">
         <button class="btn retake-btn">Take the quiz again!</button>
-        <button class="btn">To home!</button>
+        <button class="btn home-btn">To home!</button>
       </div>`;
 
   const retakeQuizBtn = document.querySelector(".retake-btn");
-  console.log(retakeQuizBtn);
+  const toHomeBtn = document.querySelector(".home-btn");
 
   retakeQuizBtn.addEventListener("click", displayQuizQuestions);
+  toHomeBtn.addEventListener("click", () => {
+    const homeSection = document.getElementById("home-content");
+    homeSection.scrollIntoView({ behavior: "smooth" });
+  });
 };
 
 document.addEventListener("DOMContentLoaded", displayQuizQuestions);
