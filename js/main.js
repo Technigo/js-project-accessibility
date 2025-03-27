@@ -94,14 +94,25 @@ const quizQuestions = [
 ];
 
 // SELECTORS
-const quizContainer = document.getElementById("quiz-container");
-const quizForm = document.getElementById("quiz-form");
+const quizSection = document.querySelector(".quiz-section");
+let quizForm;
 
 // QUIZ QUESTIONS
-const displayQuizQuestions = () => {
-  quizForm.reset();
 
-  quizContainer.innerHTML = "";
+const displayQuizQuestions = () => {
+  quizSection.innerHTML = `
+  <h2>Accessibility Quiz!</h2>
+  <p>
+  Answer the following questions, then click the submit button once you're
+  done. You can only select one answer per question.
+  </p>
+  <form id="quiz-form">
+  <div id="quiz-container"></div>
+  <button class="btn" type="submit">Submit!</button>
+  </form>
+  `;
+
+  quizForm = document.getElementById("quiz-form");
 
   quizQuestions.forEach((quizQuestion) => {
     let quizAnswers = [
@@ -112,6 +123,8 @@ const displayQuizQuestions = () => {
     ];
 
     quizAnswers = quizAnswers.sort(() => Math.random() - 0.5);
+
+    const quizContainer = document.getElementById("quiz-container");
 
     quizContainer.innerHTML += `<fieldset class="question-${
       quizQuestion.questionNumber
@@ -132,12 +145,14 @@ const displayQuizQuestions = () => {
               .join("")}
           </fieldset>`;
   });
+
+  quizForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    displaQuizResults();
+  });
 };
-document.addEventListener("DOMContentLoaded", displayQuizQuestions);
 
 // QUIZ RESULTS
-const quizSection = document.querySelector(".quiz-section");
-
 const displaQuizResults = () => {
   const quizInputs = document.querySelectorAll(".quiz-input:checked");
 
@@ -162,7 +177,4 @@ const displaQuizResults = () => {
   retakeQuizBtn.addEventListener("click", displayQuizQuestions);
 };
 
-quizForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  displaQuizResults();
-});
+document.addEventListener("DOMContentLoaded", displayQuizQuestions);
