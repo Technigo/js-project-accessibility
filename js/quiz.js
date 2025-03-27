@@ -1,6 +1,7 @@
 const submitAnswers = (event) => {
   const submitButton = document.getElementById("submit-button")
-  submitButton.addEventListener("click", () => {
+  submitButton.addEventListener("click", (event) => {
+    event.preventDefault() // Prevent the form from reloading the page
     console.log("Submit button clicked")
     // Call the function to compare answers
     compareAnswers()
@@ -8,6 +9,7 @@ const submitAnswers = (event) => {
 }
 
 const compareAnswers = () => {
+  console.log("Comparing answers")
   // Correct answers
   // Question 1's correct answer is "A", question 2's is "B", etc.).
   const correctAnswers = ["answer1", "answer2", "answer3"]
