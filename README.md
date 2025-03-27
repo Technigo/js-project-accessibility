@@ -1,6 +1,6 @@
 # Web Accessibility Project
 
-Deployed site: www.teamwind1.netlify.app
+Deployed site: [www.teamwind1.netlify.app](https://teamwind1.netlify.app)
 
 A basic web server template focused on web accessibility practices.
 
