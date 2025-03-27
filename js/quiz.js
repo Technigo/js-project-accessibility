@@ -14,6 +14,8 @@ const compareAnswers = (submitAnswers) => {
   let results = ""
 
   if (question1.checked) {
+    // Compare answer to the correct answer
+    // Add +1 to results
     results++
   }
 
