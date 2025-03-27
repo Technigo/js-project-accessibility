@@ -51,6 +51,9 @@ header {
   display: flex;
   justify-content: space-between;
   background-color: var(--accent-color);
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
 }
 
 nav ul {
@@ -80,6 +83,7 @@ a:hover {
 
 section {
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
@@ -95,7 +99,13 @@ section {
   width: 400px;
 }
 
-.presentation,
+.presentation img,
 #quiz img {
   max-height: 400px;
+}
+
+@media (min-width: 600px) {
+  section {
+    flex-direction: row;
+  }
 }
