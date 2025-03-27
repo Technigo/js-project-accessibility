@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Title</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <html lang="en">
   </head>
   <body>
     <a href="#main" class="skip-link">Skip to main content</a>
@@ -28,46 +28,55 @@
       <section id="quizIntroduction">
         <h2>Introduction</h2>
         <p>This is the starting point of the quiz! This section will explain the quiz and the accessibility features that will be tested.</p>
-        <img src="images/mountains.jpg" id="mountains"/>
+        <img src="images/mountains.jpg" id="mountains" alt="" role="presentation"/>
         <img src="images/manga-mountains.jpg" id="manga-mountains" alt="Black and white painting of a mountainous landscape"/>
       </section>
 
       <section id="quizQuestions">
-        <h2>Quiz Questions</h2>
-        <p>This is the section that will contain the quiz questions. Each question will be a fieldset with a <legend> and a set of <input type="radio"> elements.</p>
+        <h2>Lord of the Rings Accessibility Quiz</h2>
+        <form>
+          <fieldset>
+            <legend>Who has the most severe disability seen to using a computer?</legend>
+            <div role="radiogroup" aria-labelledby="question1">
+              <input type="radio" id="question1-option1" name="question1" />
+              <label for="question1-option1">Smeagol (We've all tried choosing between profiles in chrome)</label>
+              <input type="radio" id="question1-option2" name="question1" />
+              <label for="question1-option2">Sauron (No body seems like an issue)</label>
+              <input type="radio" id="question1-option3" name="question1" />
+              <label for="question1-option3">Tom Bombadil (Every heard about ADHD? Tom invented it)</label>
+            </div>
+          </fieldset>
 
-        <fieldset>
-          <legend>Question 1</legend>
-          <input type="radio" id="question1-option1" name="question1" />
-          <label for="question1-option1">Option 1</label>
-          <input type="radio" id="question1-option2" name="question1" />
-          <label for="question1-option2">Option 2</label>
-          <input type="radio" id="question1-option3" name="question1" />
-          <label for="question1-option3">Option 3</label>
-        </fieldset>
+          <fieldset>
+            <legend>What would be Frodos' biggest disadvantage in using a modern computer?</legend>
+            <div role="radiogroup" aria-labelledby="question2">
+              <input type="radio" id="question2-option1" name="question2" />
+              <label for="question2-option1">Reaching the keyboard</label>
+              <input type="radio" id="question2-option2" name="question2" />
+              <label for="question2-option2">Hairy fingers getting in the way of the mouse</label>
+              <input type="radio" id="question2-option3" name="question2" />
+              <label for="question2-option3">Cheese crumbles stuck in the keyboard</label>
+            </div>
+          </fieldset>
 
-        <fieldset>
-          <legend>Question 2</legend>
-          <input type="radio" id="question2-option1" name="question2" />
-          <label for="question2-option1">Option 1</label>
-          <input type="radio" id="question2-option2" name="question2" />
-          <label for="question2-option2">Option 2</label>
-          <input type="radio" id="question2-option3" name="question2" />
-          <label for="question2-option3">Option 3</label>
-        </fieldset>
+          <fieldset>
+            <legend>Who has the worst eyestight?</legend>
+            <div role="radiogroup" aria-labelledby="question3">
+              <input type="radio" id="question3-option1" name="question3" />
+              <label for="question3-option1">Smeagol</label>
+              <input type="radio" id="question3-option2" name="question3" />
+              <label for="question3-option2">Samwise Gamgi</label>
+              <input type="radio" id="question3-option3" name="question3" />
+              <label for="question3-option3">Gandalf Grey</label>
+            </div>
+          </fieldset>
 
-        <fieldset>
-          <legend>Question 3</legend>
-          <input type="radio" id="question3-option1" name="question3" />
-          <label for="question3-option1">Option 1</label>
-          <input type="radio" id="question3-option2" name="question3" />
-          <label for="question3-option2">Option 2</label>
-          <input type="radio" id="question3-option3" name="question3" />
-          <label for="question3-option3">Option 3</label>
-        </fieldset>
+          <div aria-live="polite" id="feedback-region" class="sr-only"></div>
+          <button type="submit" aria-label="Submit quiz answers">Submit</button>
+        </form>
       </section>
 
-      <section id="quizResults">
+      <section id="quizResults" aria-live="polite">
         <h2>Quiz Results</h2>
         <p>This is the section that will contain the quiz results. It will display the results of the quiz and the score.</p>
       </section>
