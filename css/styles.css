@@ -75,14 +75,15 @@ sans-serif;
 body {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: start;
+
   font-family: var(--text-dark);
   background-color: var(--background-light);
   font-size: var(--default-font-size);
   margin: 0;
   padding: 0;
   height: 100vh;
-  gap: var(--height-md);
+
 }
 
 .header-content {
@@ -122,6 +123,17 @@ h1,
 h2 {
   margin-bottom: 1rem;
 
+}
+
+#banner>img {
+  width: 100vw;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+a {
+  color: var(--text-light);
+  text-decoration: none;
 }
 
 a {
