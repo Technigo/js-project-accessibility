@@ -7,14 +7,18 @@ interface quizData {
 
 const quiz: quizData[] = [
   {
-    ask: "What is the capital of France?",
-    choose: ["Berlin", "Madrid", "Paris", "Lisbon"],
-    answer: "Paris"
+    ask: "When should you avoid using descriptive alt text for images?",
+    choose: ["For decorative images", "For informational images ", "For functional images"],
+    answer: "For decorative images"
   },
-  { ask: "Which language is used for web development?", choose: ["Python", "HTML", "Java", "C++"], answer: "HTML" },
   {
-    ask: "Who wrote 'Hamlet'?", choose: ["Charles Dickens", "William Shakespeare", "Mark Twain", "Jane Austen"],
-    answer: "William Shakespeare"
+    ask: "What are the different levels of the Web content accessibility guidelines (WCAG)?",
+    choose: ["A, B, C ", "G, VG, MVG ", "A, AA, AAA"], answer: "A, AA, AAA"
+  },
+  {
+    ask: "Which description of flowers is easiest to understand?",
+    choose: ["Flowers symbolize emotions and culture.", "Flowers are nature's drip—bold and meaningful.", "Flowers are colorful plants that show feelings."],
+    answer: "Flowers symbolize emotions and culture."
   }
 ]
 
@@ -40,7 +44,7 @@ function loadQuestion(): void {
   if (quizOptions) quizOptions.innerHTML = ""; // Clear previous options
 
   getQ.choose.forEach((element, i) => {
-    // Create input button
+
     const btn = document.createElement("input");
     btn.type = "button";
     btn.classList.add("quizOptions");
@@ -49,8 +53,9 @@ function loadQuestion(): void {
     btn.value = `${i + 1}. ${element}`;
     btn.onclick = () => checkA(element);
 
-    // Create label
+
     const label = document.createElement("label");
+    label.hidden = true;
     label.htmlFor = btn.id;
     label.textContent = element;
 
