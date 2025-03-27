@@ -3,18 +3,21 @@ const submitAnswers = () => {
   submitButton.addEventListener("click", () => {
     compareAnswers()
   })
-
-  return
 }
 
 const compareAnswers = (submitAnswers) => {
+  // Questions
   const question1 = document.getElementById("question-1")
   const question2 = document.getElementById("question-2")
   const question3 = document.getElementById("question-3")
+
+  // Answers
+
   let results = ""
 
   if (question1.checked) {
-    // Compare answer to the correct answer
+    // Compare selected answer to the correct answer
+
     // Add +1 to results
     results++
   }
