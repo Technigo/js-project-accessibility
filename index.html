@@ -34,7 +34,9 @@
       <section id="introduction">
         <h2>Welcome to our Accessibility quiz!</h2>
         <p>
-          Thank you for exploring the topic of Web Accessibility! In this quiz you'll go through both Semantic HTML, actual facts and diverse blablablabla.
+          Hello there! Thank you for exploring the important topic of web accessibility. Please feel welcome to take the quiz below to assess your understanding of key accessibility principles in web development. Accessibility is fundamental to creating inclusive digital experiences, and we encourage you to share this resource with others who may benefit from learning more.
+        </p> 
+        <p> This quiz has been developed with a strong focus on web accessibility principles to ensure a positive experience for all users, including those with disabilities. 
         </p>
         <div class="form-controls intro-section">
           <button 
@@ -49,6 +51,317 @@
             src="assets/web-accessibility-image.jpg"
             aria-labelledby="id" />  <!--will double check on aria label-->
         </div>
+      </section>
+      
+      <!--TO DO??/ QUESTIONS: Introduction FORM asking for name and email, between Continue button and the Quiz itself-->
+
+      <section class="accessibility-quiz">
+        <h2>Accessibility Quiz</h2>
+        
+        <fieldset name="question1"> 
+          <p>1. What is accessibility?</p>  
+          <legend>This questions is about the definition of accessibility</legend>
+          <input 
+            type="radio" 
+            name="question1" 
+            id="q1a1">
+          <label 
+            for="red" 
+            id="q1a1label"> 
+            Accessibility refers to the design of products, devices, services and environments for people who experience disabilities, including web developemnt.
+          </label><br>
+          <input 
+            type="radio" 
+            name="question1" 
+            id="q1a2">
+          <label 
+              for="blue" 
+              id="q1a2label">
+              Accessibility is primarily focused on optimizing websites for search engines to improve their ranking.
+          </label><br>
+          <input 
+            type="radio" 
+            name="question1" 
+            id="q1a3">
+          <label 
+            for="green" 
+            id="q1a3label">
+            Accessibility mainly concerns the visual design of a website, ensuring it is aesthetically pleasing and easy to navigate for all users.
+          </label><br>
+        </fieldset>
+
+        <fieldset name="question2">
+          <p>1. What is Semantic HTML as it relates to accessible web design? </p>
+          <legend>
+            This question asks about Semantic HTML as it relates to accessible web design.
+          </legend>
+          <input 
+            type="radio" 
+            name="question2" 
+            id=label a>
+          <label 
+            for="red" 
+            id="q2a1label">
+            Semantic HTML refers to writing HTML code that is shorter and uses fewer lines, making it easier to load quickly.
+          </label><br>
+          <!--should every answer also have a legend???-->
+          <input 
+            type="radio" 
+            name="question2" 
+            id="q2a2">
+          <label 
+              for="blue" 
+              id="q2a2label">
+              It is the practise of using HTML elements that clearly describe their meaning and purpose to both browsers and developers *
+          </label><br>
+          <input 
+            type="radio" 
+            name="question2" 
+            id="q2a3">
+          <label 
+              for="green" 
+              id="q2a3label">
+              Semantic HTML is a coding style that focuses on using the latest HTML5 features, regardless of their meaning or purpose, to create modern-looking websites.
+          </label><br>
+        </fieldset>
+    
+        <fieldset name="question3">
+         <p>3. What is the primary purpose of the "Skip to Content" link in terms of web accessibility?</p>
+         <legend>
+          This question asks about primary purpose of the "Skip to Content" link in terms of web accessibility.
+         </legend>
+         <input 
+          type="radio" 
+          name="question3" 
+          id="q3a1">
+        <label 
+            for="q3a1" 
+            id="q3a1label">To provide a link back to the homepage.      .
+         </label><br>
+        <input 
+          type="radio" 
+          name="question3" 
+          id="q3a2">
+        <label 
+            for="q3a2" 
+            id="q3a2label">
+            To enable keyboard users to bypass repetitive navigation and jump directly to the main content. ***
+        </label><br>
+        <input 
+          type="radio" 
+          name="question3" 
+          id="q3a3"><label 
+          for="q3a3" 
+          id="q3a3label">
+          To improve the website's search engine optimization.
+        </label><br>
+        </fieldset>
+    
+    <fieldset name="question4">
+      <p>4. What does EAA stand for?</p>
+      <legend>
+        This question asks what does EAA stands for.
+      </legend>
+      <input 
+        type="radio" 
+        name="question4" 
+        id="q4a1">
+      <label 
+        for="red" 
+        id="q4a1label">
+        European Adaptation to Acessibility.      .
+      </label><br>
+      <input 
+        type="radio" 
+        name="question4" 
+        id="q4a2">
+      <label 
+          for="blue" 
+          id="q4a2label">European Accessibility Act**.
+      </label><br>
+      <input 
+        type="radio" 
+        name="question4" 
+        id="q4a3">
+      <label 
+        for="green" 
+        id="q4a3label">
+        European Access to Adaptiveness.
+      </label><br>
+    </fieldset>
+    
+    <fieldset name="question5">
+      <p>5. Who in Europe is not necessarily affected by the EEA’s requirements and obligations?</p>
+      <legend>
+        This question asks who in Europe is not necessarily affected by the EEA’s requirements and obligations.
+      </legend>
+      <input 
+        type="radio" 
+        name="question5" 
+        id="q5a1">
+      <label 
+        for="red" 
+        id="q5a1label">
+        Enterprises that work in Europe but have their headquarters outside of Europe.     .
+      </label><br>
+      <input 
+        type="radio" 
+        name="question5" 
+        id="q5a2">
+      <label 
+        for="blue" 
+        id="q5a2label">
+        Infants, children under 13 years old, students, unemployed and adults over 65 years old.
+      </label><br>
+      <input 
+        type="radio" 
+        name="question5" 
+        id="q5a3">
+      <label 
+        for="green" 
+        id="q5a3label">
+        Enterprises which employ fewer than 10 persons and have an annual turnover or balance sheet total not exceeding €2 million.
+      </label><br>
+    </fieldset>
+    
+    </fieldset>
+    <fieldset name="question6">
+      <p>6. What is the purpose of ARIA (Accessible Rich Internet Applications) attributes?  </p>
+      <legend>
+        This question asks about the purpose of ARIA (Accessible Rich Internet Applications) attributes.  
+      </legend>
+      <input 
+        type="radio" 
+        name="question6" 
+        id="q6a1">
+      <label 
+        for="red" 
+        id="q6a1label">
+        To provide additional styling options for HTML elements.
+      </label><br>
+      <input 
+        type="radio" 
+        name="question6" 
+        id="q6a2">
+      <label 
+        for="blue" 
+        id="q6a2label">
+        To offer semantic information for assistive technologies.
+      </label><br>
+      <input 
+        type="radio" 
+        name="question6" 
+        id="q6a3">
+      <label 
+        for="green" 
+        id="q6a3label">
+        To manage dynamic content without JavaScript.
+      </label><br>
+    </fieldset>
+    
+    </fieldset>
+    <fieldset name="question7">
+      <p>7. Which ARIA attribute is commonly used to provide a text alternative for non-text content like images when the image is informative?</p>
+      <legend>
+        This question asks which ARIA attribute is commonly used to provide a text alternative for non-text content like images when the image is informative.
+      </legend>
+      <input 
+        type="radio" 
+        name="question7" 
+        id="q7a1">
+      <label 
+        for="red" 
+        id="q7a1label">
+        aria-label
+      </label><br>
+      <input 
+        type="radio" 
+        name="question7" 
+        id="q7a2">
+      <label 
+        for="blue" 
+        id="q7a2label">
+        aria-describedby **
+      </label><br>
+      <input 
+        type="radio" 
+        name="question7" 
+        id="q7a3">
+      <label 
+        for="green" 
+        id="q7a3label">
+        alt 
+      </label><br>
+    </fieldset>
+    
+    <fieldset name="question8">
+      <p>8. Why is it important to ensure that all interactive elements on a webpage are navigable using the keyboard?</p>
+      <legend>
+        This question asks why is it important to ensure that all interactive elements on a webpage are navigable using the keyboard?
+      </legend>
+      <input 
+        type="radio" 
+        name="question8" 
+        id="q8a1">
+      <label 
+        for="red" 
+        id="q8a1label">
+        To improve the website's visual appeal.
+      </label><br>
+      <input 
+        type="radio" 
+        name="question8" 
+        id="q8a2">
+      <label 
+        for="blue" 
+        id="q8a2label">
+        To make the website accessible to users who cannot use a mouse or other pointing devices. 
+      </label><br>
+      <input 
+        type="radio" 
+        name="question8" 
+        id="q8a3">
+      <label 
+        for="green" 
+        id="q8a3label">
+        To ensure compliance with search engine guidelines.
+      </label><br>
+    </fieldset>
+    
+    <fieldset name="question 9">
+      <p>9. According to Funkify - Disability Simulator - how many people are affected by blurry vision?</p>
+      <legend>
+        This question asks how many people are affected by blurry vision according to Funkify - Disability Simulator.
+      </legend>
+      <input 
+        type="radio" 
+        name="question9" 
+        id="q9a1">
+      <label 
+        for="q9a1" 
+        id="q9a1label">
+        About 4% of population has vision impairment, while about 60% wear glasses or contact lenses.
+      </label><br>
+      <input 
+        type="radio" 
+        name="question9" 
+        id="q9a2">
+      <label 
+        for="q9a2"  
+        id="q9a2label">
+        1% of population.
+      </label><br>
+      <input 
+        type="radio" 
+        name="question9" 
+        id="q9a3">
+      <label 
+        for="q9a3"  
+        id="q9a3label">
+        70% of population.
+      </label><br>
+    </fieldset>
+    
       </section>
     </main>
     
