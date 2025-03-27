@@ -5,12 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wind 1 - Accessibility Site</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/ggo4lqo.css">
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to Main Content</a>
     <header id="header">
       <div class="header-content">
-        <h1>Wind 1 - Accessibility Site</h1>
+        <img
+        class="nav-logo" 
+        src="assets/dark-olive.svg" 
+        alt="Team Wind Logo"
+        style="width: 100px">
+        <h1>An Accessibility Site for All</h1>
+        
         <nav role="navigation" aria-label="Main menu">
           <ul>
             <li>
@@ -58,7 +65,7 @@
       <section class="accessibility-quiz">
         <h2>Accessibility Quiz</h2>
         
-        <fieldset name="question1"> 
+        <fieldset name="question1"> <!--perhaps fieldset name "questions1" is not needed for the sake of accessibility, maybe id or class will be better for JS????? for example <fieldset id="question1" class="quiz-question">  -->
           <legend>This questions is about the definition of accessibility</legend>
           <p>1. What is accessibility?</p>  
           <input 
@@ -315,7 +322,7 @@
         id="q8a2">
       <label 
         for="q8a2 
-        id="q8a2label">
+        id="q8a2label>
         To make the website accessible to users who cannot use a mouse or other pointing devices. 
       </label><br>
       <input 
@@ -370,12 +377,9 @@
       <div class="footer-content">
         <nav role="navigation" aria-label="Footer menu">
           <ul>
-            <li>
-              <a href="index.html">Home</a>
-            </li>
-            <li>
-              <a href="about.html">About</a>
-            </li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <a href="">Created by: Kasia, Talo & Bianka</a> <!--Git hub link and font awesome icon if we want it-->
           </ul>
         </nav>
       </div>
