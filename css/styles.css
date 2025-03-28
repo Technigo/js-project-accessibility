@@ -72,6 +72,9 @@ sans-serif;
   box-sizing: border-box;
 }
 
+:focus {
+  outline: 2px solid #007BFF;
+}
 
 body {
   display: flex;
@@ -242,11 +245,11 @@ button {
   height: var(--height-sm);
 }
 
-.informative-image{
+.informative-image {
   max-height: 100px;
 }
 
-.accessibility-item{
+.accessibility-item {
   display: grid;
   grid-template-columns: 2, 1rem;
 }

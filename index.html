@@ -3,31 +3,25 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Web Accessibility Quiz for beginners</title>
-  <link rel="stylesheet"
-        href="css/styles.css" />
-  <link rel="preconnect"
-        href="https://fonts.googleapis.com">
-  <link rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
 
 </head>
 <!-- -->
 
 <body>
-  <a href="#main-content"
-     class="skip-link">Skip to Content</a>
+  <a href="#main-content" class="skip-link">Skip to Content</a>
 
   <header id="header">
     <div class="header-content">
       <h1>Web Accessibility Quiz for beginners</h1>
-      <nav role="navigation"
-           aria-label="Main navigation">
+      <nav role="navigation" aria-label="Main navigation">
         <ul>
           <li><a href="index.html">Home</a></Li>
           <li><a href="about.html">About</a></li>
@@ -35,11 +29,8 @@
       </nav>
     </div>
   </header>
-  <section id="banner"
-           role="banner">
-    <img src="./img/accessibility.jpeg"
-         alt=""
-         role="presentation" />
+  <section id="banner" role="banner">
+    <img src="./img/accessibility.jpeg" alt="" role="presentation" />
   </section>
   <main id="main-content">
     <section id="Introduction">
@@ -58,6 +49,10 @@
           Continue </button>
       </div>
 -->
+      <div id="quizInstructions" tabindex="0">
+        Use the Tab key to navigate through options and press Enter to select an answer.
+      </div>
+
       <form id="quiz-form">
         <div class="card-header">
           <h2 id="quizQuestion"></h2>
@@ -79,8 +74,7 @@
 -->
 
       </form>
-      <div id="feedback"
-           aria-live="polite"></div>
+      <div id="feedback" aria-live="polite"></div>
 
     </section>
 
@@ -88,8 +82,7 @@
 
   <footer role="contentinfo">
     <div class="footer-content">
-      <nav role="navigation"
-           aria-label="footer Navigation">
+      <nav role="navigation" aria-label="footer Navigation">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>

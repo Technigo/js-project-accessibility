@@ -35,6 +35,10 @@ let index = 0, scr = 0;
 //quizAnswer
 //quizBtn
 
+//instructions for screen readers at the start of the quiz
+const quizInstructions = document.getElementById("quizInstructions");
+quizInstructions?.focus(); // Focus on instructions first
+
 function loadQuestion(): void {
   if (index >= quiz.length) return endQ(); // End if no more questions
 
