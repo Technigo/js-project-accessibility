@@ -9,13 +9,9 @@ const submitAnswers = (event) => {
 }
 
 const compareAnswers = () => {
-  console.log("Comparing answers")
-  // Correct answers
-  // Question 1's correct answer is [0], question 2's is [1], etc.).
-  const correctAnswers = ["answer1", "answer2", "answer3"]
+  const correctAnswers = ["answer1", "answer2", "answer3"] // Question 1's correct answer is [0], question 2's is [1], etc.).
 
-  // Array to store user-selected answers
-  const userAnswers = []
+  const userAnswers = [] // Array to store user-selected answers
   const numberOfQuestions = 3 // Number of questions in the quiz
 
   // Retrieve user answers
