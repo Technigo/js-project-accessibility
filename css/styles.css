@@ -19,7 +19,6 @@
   --bg-secondary: #222222; /* Dark background for footer */
 }
 
-
 body {
   background: #2e3a59;
   color: var(--bg-primary); /* White text */
@@ -30,21 +29,21 @@ body {
 
 header {
   background: var(--color-featured); /* Featured color */
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
-quiz-form{
-   font-size: 2rem;
+quiz-form {
+  font-size: 2rem;
 }
 
-.question{ 
+.question {
   background: var(--bg-white); /* Light grey background */
   padding: 1.5rem;
   margin: 1rem 0;
 }
 
-quiz-question {
-  font-size: 0,5rem;
+.quiz-question {
+  font-size: 0, 5rem;
   background-color: #ffffff;
   padding: 2rem;
   margin: 1rem 0;
@@ -72,7 +71,7 @@ nav a:hover {
 
 .hero-section {
   background: var(--nf-bg-2); /* Very dark blue */
-  padding: 2rem;
+  padding: 3rem;
   text-align: center;
   color: var(--color-white); /* White text on dark background */
 }
@@ -80,16 +79,17 @@ nav a:hover {
 .hero-section h1 {
   color: var(--bg-primary); /* Blue heading */
   font-size: 4rem;
+  margin-bottom: 3rem;
 }
 
 .hero-section p {
   font-size: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 .about-section {
-  background:#333333 ; /* Light background */
+  background: #333333; /* Light background */
   padding: 2rem;
-  
 }
 
 .about-section h2 {
@@ -100,11 +100,10 @@ nav a:hover {
 .about-section p {
   font-size: 1.3rem;
   margin-bottom: 2rem;
-
 }
 
 .team-cards-container {
-  display: grid;  
+  display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 1rem;
   padding: 1rem;
@@ -113,11 +112,11 @@ nav a:hover {
 
 .team-card {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);/* fr = relative space */
+  grid-template-columns: repeat(2, 1fr); /* fr = relative space */
   gap: 2rem;
   background-color: #ffffff;
   border: 1px solid var(--border-gray);
-  background: var(--bg-4rd); 
+  background: var(--bg-4rd);
   padding: 2rem;
   margin: 1rem 0;
   justify-content: left;
@@ -139,9 +138,9 @@ nav a:hover {
 }
 
 .quiz-section {
-   /* Light grey */
+  /* Light grey */
   padding: 3rem;
-   /* Very dark blue for hero section */
+  /* Very dark blue for hero section */
   color: var(--bg-primary); /* Adjust text color for contrast */
   font-size: 1.2rem;
 }
@@ -163,9 +162,9 @@ fieldset {
 
 .quiz-result-section p {
   font-size: 1.5rem;
- 
+
   background: var(--color-featured);
-   /* Makes text yellow */
+  /* Makes text yellow */
   padding: 1rem;
   border-radius: 8px;
 }
@@ -184,6 +183,7 @@ fieldset {
   border-radius: 8px;
   cursor: pointer;
   margin: 0.5rem;
+  font-size: 1.2rem;
 }
 
 .btn:hover {
