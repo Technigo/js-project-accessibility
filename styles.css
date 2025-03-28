@@ -118,7 +118,13 @@ p {
 }
 
 .principesImg {
-  width: 100%;
+  width: 95%;
+  height: auto;
+  border-radius: var(--border-radius);
+}
+
+.aboutImage {
+  width: 95%;
   height: auto;
   border-radius: var(--border-radius);
 }
@@ -149,9 +155,19 @@ p {
   flex-basis: 100%;
 }
 
+.aboutCard {
+  width: 100%;
+  background-color: var(--color-bg);
+  text-align: center;
+  padding: var(--spacing-sm);
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  gap: 20px;
+}
+
 .startQuiz {
   position: absolute;
-  top: 50%; /* Adjust positioning */
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-weight: 200;
@@ -183,6 +199,8 @@ hr {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   margin: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 @media (max-width: 767px) {
