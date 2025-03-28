@@ -35,39 +35,57 @@
       <section id="quizQuestions">
         <h2>Lord of the Rings Accessibility Quiz</h2>
         <form>
-          <fieldset>
-            <legend>Who has the most severe disability seen to using a computer?</legend>
-            <div role="radiogroup" aria-labelledby="question1">
-              <input type="radio" id="question1-option1" name="question1" />
-              <label for="question1-option1">Smeagol (We've all tried choosing between profiles in chrome)</label>
-              <input type="radio" id="question1-option2" name="question1" />
-              <label for="question1-option2">Sauron (No body seems like an issue)</label>
-              <input type="radio" id="question1-option3" name="question1" />
-              <label for="question1-option3">Tom Bombadil (Every heard about ADHD? Tom invented it)</label>
+          <fieldset id="question1">
+            <legend>Who would have the hardest time using a computer, seen to their disability?</legend>
+            <div role="radiogroup">
+              <div>
+                <input type="radio" id="question1-option1" name="question1" />
+                <label for="question1-option1">Smeagol (We've all tried choosing between profiles in chrome)</label>
+              </div>
+              <div>
+                <input type="radio" id="question1-option2" name="question1" />
+                <label for="question1-option2">Sauron (No body seems like an issue)</label>
+              </div>
+              <div>
+                <input type="radio" id="question1-option3" name="question1" />
+                <label for="question1-option3">Tom Bombadil (Ever heard about ADHD? Tom invented it)</label>
+              </div>
             </div>
           </fieldset>
 
-          <fieldset>
-            <legend>What would be Frodos' biggest disadvantage in using a modern computer?</legend>
-            <div role="radiogroup" aria-labelledby="question2">
-              <input type="radio" id="question2-option1" name="question2" />
-              <label for="question2-option1">Reaching the keyboard</label>
-              <input type="radio" id="question2-option2" name="question2" />
-              <label for="question2-option2">Hairy fingers getting in the way of the mouse</label>
-              <input type="radio" id="question2-option3" name="question2" />
-              <label for="question2-option3">Cheese crumbles stuck in the keyboard</label>
+          <fieldset id="question2">
+            <legend>What would be Frodo's biggest disadvantage in using a modern computer?</legend>
+            <div role="radiogroup">
+              <div>
+                <input type="radio" id="question2-option1" name="question2" />
+                <label for="question2-option1">Reaching the keyboard</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="question2-option2" name="question2" />
+                <label for="question2-option2">Hairy fingers getting in the way of the mouse</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="question2-option3" name="question2" />
+                <label for="question2-option3">Cheese crumbles stuck in the keyboard</label>
+              </div>
             </div>
           </fieldset>
 
-          <fieldset>
-            <legend>Who has the worst eyestight?</legend>
-            <div role="radiogroup" aria-labelledby="question3">
-              <input type="radio" id="question3-option1" name="question3" />
-              <label for="question3-option1">Smeagol</label>
-              <input type="radio" id="question3-option2" name="question3" />
-              <label for="question3-option2">Samwise Gamgi</label>
-              <input type="radio" id="question3-option3" name="question3" />
-              <label for="question3-option3">Gandalf Grey</label>
+          <fieldset id="question3">
+            <legend>Who has the worst eyesight?</legend>
+            <div role="radiogroup">
+              <div class="radio-option">
+                <input type="radio" id="question3-option1" name="question3" />
+                <label for="question3-option1">Smeagol</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="question3-option2" name="question3" />
+                <label for="question3-option2">Samwise Gamgi</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="question3-option3" name="question3" />
+                <label for="question3-option3">Gandalf Grey</label>
+              </div>
             </div>
           </fieldset>
 
@@ -83,7 +101,7 @@
     </main>
 
     <footer role="contentinfo">
-      <p>All rights reserved to Tengil, our liberator.</p>
+      <p>All rights reserved to Sauron, just trying to piss Middle Earth off.</p>
     </footer>
 
     <script src="js/main.js"></script>
