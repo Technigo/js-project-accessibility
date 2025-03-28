@@ -36,6 +36,17 @@ quiz-form {
   font-size: 2rem;
 }
 
+.skip-link:link,
+.skip-link:visited {
+  color: white;
+  text-decoration: none;
+}
+
+.skip-link:hover,
+.skip-link:active {
+  color: var(--color-featured);
+}
+
 .question {
   background: var(--bg-white); /* Light grey background */
   padding: 1.5rem;
@@ -71,7 +82,7 @@ nav a:hover {
 
 .hero-section {
   background: var(--nf-bg-2); /* Very dark blue */
-  padding: 3rem;
+  padding: 5rem;
   text-align: center;
   color: var(--color-white); /* White text on dark background */
 }
