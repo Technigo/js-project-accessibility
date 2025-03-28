@@ -310,10 +310,11 @@ nav a:hover {
 
 /* ABOUT PAGE */
 #introduction {
-  padding: 2rem;
-  margin-bottom: 2rem;
-  background-color: #f8fafc;
-  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
 }
 
 #introduction h2 {
