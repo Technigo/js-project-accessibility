@@ -11,14 +11,15 @@ const submitAnswers = (event) => {
 const compareAnswers = () => {
   console.log("Comparing answers")
   // Correct answers
-  // Question 1's correct answer is "A", question 2's is "B", etc.).
+  // Question 1's correct answer is [0], question 2's is [1], etc.).
   const correctAnswers = ["answer1", "answer2", "answer3"]
 
   // Array to store user-selected answers
   const userAnswers = []
+  const numberOfQuestions = 3 // Number of questions in the quiz
 
   // Retrieve user answers
-  for (let i = 1; i <= 3; i++) {
+  for (let i = 1; i <= numberOfQuestions; i++) {
     const question = document.querySelector(
       `input[name="question${i}"]:checked`
     )
