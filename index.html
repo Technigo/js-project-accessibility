@@ -53,13 +53,13 @@
 
     <section class="quiz-instructions">
       <h2>
-        Instructions to Quiz
+        Welcome to our quiz
       </h2>
       <p>
-        Our quiz follows accessibility principles to ensure it can be used by everyone. We use semantic HTML elements to
-        clearly group related questions. Each radio button is labeled properly for better screen reader support.
-        Keyboard
-        navigation is fully supported, allowing users to move through the quiz without a mouse. Overall, the design is
+        Our quiz follows accessibility principles to ensure it can be used by everyone. We use clearly group related
+        questions. Labeling for screen reader support.
+        Keyboard navigation is fully supported, allowing users to move through the quiz without a mouse. Overall, the
+        design is
         simple, clear, and inclusive for all users. This quiz is part of our mission to help more people understand what
         accessibility really means, and how disability can affect the way people experience the world.
       </p>
@@ -71,24 +71,25 @@
       <form id="accessibility-quiz">
         <h2>Accessibility Quiz</h2>
         <fieldset class="quiz-card">
-          <legend>1. Meet Camilla. Camilla is blind and uses a screen reader to browse the web. Which feature helps
+          <legend> 1. Meet Camilla.
+            Camilla is blind and uses a screen reader to browse the web. Which feature helps
             Camilla the most when navigating a website?</legend>
           <label for="question-one-a"><input
               id="question-one-a"
               type="radio"
-              name="question-one-a"
+              name="question-one"
               value="Images with descriptive alt text"
-            > Images with descriptive alt text</label><br>
+            >Images with descriptive alt text</label><br>
           <label for="question-one-b"><input
               id="question-one-b"
               type="radio"
-              name="question-one-b"
+              name="question-one"
               value="Buttons that rely on mouse hover"
             > Buttons that rely on mouse hover</label><br>
           <label for="question-one-c"><input
               id="question-one-c"
               type="radio"
-              name="question-one-c"
+              name="question-one"
               value="Auto playing videos"
             > Auto playing videos</label>
           <div class="nav-buttons">
@@ -107,19 +108,19 @@
           <label for="question-two-a"><input
               id="question-two-a"
               type="radio"
-              name="question-two-a"
+              name="question-two"
               value="Flashing animations to grab attention"
             > Flashing animations to grab attention</label><br>
           <label for="question-two-b"><input
               id="question-two-b"
               type="radio"
-              name="question-two-b"
+              name="question-two"
               value="Breaking content into smaller, collapsible sections"
             > Breaking content into smaller, collapsible sections</label><br>
           <label for="question-two-c"><input
               id="question-two-c"
               type="radio"
-              name="question-two-c"
+              name="question-two"
               value="Dense paragraphs on a single page"
             >Dense paragraphs on a single page</label>
           <div class="nav-buttons">
@@ -135,44 +136,152 @@
         </fieldset>
 
         <fieldset class="quiz-card">
-          <legend>3.Meet Jordan.
-            Jordan has low vision and prefers high-contrast designs. Which feature supports Jordan’s needs best?
+          <legend>3. Meet Lisa.
+            Lisa has low vision and prefers high-contrast designs. Which feature supports her needs best?
           </legend>
           <label for="question-three-a"><input
               id="question-three-a"
               type="radio"
-              name="question-three-a"
+              name="question-three"
               value="Light gray text on white"
             > Light gray text on white</label><br>
           <label for="question-three-b"><input
               id="question-three-b"
               type="radio"
-              name="question-three-b"
+              name="question-three"
               value=" A dark mode toggle"
             > A dark mode toggle</label><br>
           <label for="question-three-c"><input
               id="question-three-c"
               type="radio"
-              name="question-three-c"
+              name="question-three"
               value="Background images behind text"
             > Background images behind text</label>
           <div class="nav-buttons">
+            <button
+              type="button"
+              class="prev-btn"
+            >Previous</button>
             <button
               type="button"
               class="next-btn"
             >Next</button>
           </div>
         </fieldset>
-        <button
-          class="submit-button"
-          type="submit"
-        >Check Answers</button>
-        <div
-          id="feedback"
-          class="feedback"
-          aria-live="assertive"
-          tabindex="-1"
-        ></div>
+
+        <fieldset class="quiz-card">
+          <legend> 4. Meet Erik.
+            Erik has dyslexia and finds it challenging to read complex layouts and dense blocks of text. Which design
+            choice would help Erik read and process content more easily?
+          </legend>
+          <label for="question-three-a"><input
+              id="question-three-a"
+              type="radio"
+              name="question-three"
+              value="Clear fonts, generous spacing, and simple layout"
+            > Clear fonts, generous spacing, and simple layout</label><br>
+          <label for="question-three-b"><input
+              id="question-three-b"
+              type="radio"
+              name="question-three"
+              value=" Decorative fonts with long paragraphs"
+            > Decorative fonts with long paragraphs</label><br>
+          <label for="question-three-c"><input
+              id="question-three-c"
+              type="radio"
+              name="question-three"
+              value="BRotating banners and multiple text columns"
+            > Rotating banners and multiple text columns</label>
+          <div class="nav-buttons">
+            <button
+              type="button"
+              class="prev-btn"
+            >Previous</button>
+            <button
+              type="button"
+              class="next-btn"
+            >Next</button>
+          </div>
+        </fieldset>
+
+        <fieldset class="quiz-card">
+          <legend> 5. Meet Anders.
+            Anders has hearing loss and relies on visual cues and text to understand content. Which feature would best
+            support his experience on a video-based website?
+          </legend>
+          <label for="question-three-a"><input
+              id="question-three-a"
+              type="radio"
+              name="question-three"
+              value="Autoplaying background music"
+            > Autoplaying background music</label><br>
+          <label for="question-three-b"><input
+              id="question-three-b"
+              type="radio"
+              name="question-three"
+              value=" Captions and transcripts for all audio"
+            > Captions and transcripts for all audio</label><br>
+          <label for="question-three-c"><input
+              id="question-three-c"
+              type="radio"
+              name="question-three"
+              value=" Sound-only navigation cues"
+            > Sound-only navigation cues</label>
+          <div class="nav-buttons">
+            <button
+              type="button"
+              class="prev-btn"
+            >Previous</button>
+            <button
+              type="button"
+              class="next-btn"
+            >Next</button>
+          </div>
+        </fieldset>
+
+        <fieldset class="quiz-card">
+          <legend>6. Meet Nour.
+            Nour has limited mobility and uses a keyboard instead of a mouse to navigate digital interfaces. What
+            feature would help Nour the most when using your website?
+          </legend>
+          <label for="question-three-a"><input
+              id="question-three-a"
+              type="radio"
+              name="question-three"
+              value="Keyboard-accessible buttons and links"
+            > Keyboard-accessible buttons and links</label><br>
+          <label for="question-three-b"><input
+              id="question-three-b"
+              type="radio"
+              name="question-three"
+              value="Hover-only drop-down menus"
+            > Hover-only drop-down menus</label><br>
+          <label for="question-three-c"><input
+              id="question-three-c"
+              type="radio"
+              name="question-three"
+              value="Tiny clickable elements spread across the screen"
+            > Tiny clickable elements spread across the screen</label>
+          <div class="nav-buttons">
+            <button
+              type="button"
+              class="prev-btn"
+            >Previous</button>
+            <button
+              type="submit"
+              class="submit-button"
+            >Check Answers</button>
+          </div>
+
+          <div
+            id="feedback"
+            class="feedback"
+            aria-live="assertive"
+            tabindex="-1"
+          ></div>
+
+        </fieldset>
+
       </form>
   </main>
 

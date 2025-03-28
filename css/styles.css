@@ -124,10 +124,17 @@ body {
 }
 
 /* Instructions section */
-
 #accessibility-quiz {
   margin: 5% 20% 5% 20%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
+
+#accessibility-quiz h2 {
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
 
 .quiz-instructions {
   display: flex;
@@ -145,20 +152,48 @@ body {
   text-align: center;
 }
 
-/*Form elements/*
-
-/*Jasmin added, hide quiz cards by default*/
+/*Quiz elements*/
 .quiz-card {
   display: none;
 }
 
-/* Jasmin added, only show card w. active class*/
 .quiz-card.active {
   display: block;
 }
 
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.nav-buttons button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-buttons button:hover {
+  background-color: #003080;
+}
+
+.next-btn:active,
+.prev-btn:active {
+  transform: scale(0.98);
+}
+
+.next-btn:focus-visible,
+.prev-btn:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+}
+
 fieldset {
-  border: 1px solid var(--primary-color);
+  border: none;
   margin: 1em 0;
   padding: 1em;
   border-radius: 4px;
@@ -166,52 +201,27 @@ fieldset {
 
 legend {
   font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
   padding: 0.5em 1em;
   color: var(--primary-color);
   background-color: #f8fafc;
-
   border-radius: 4px;
 }
 
-/* Enhanced radio button */
-.radio-group {
-  margin: 1em 0;
-}
-
-.radio-option {
-  position: relative;
-  padding: 0.75em;
-  margin: 0.5em 0;
-  border-radius: 4px;
-  transition: background-color 0.2s;
-  display: flex;
-  align-items: center;
-}
-
-.radio-option:hover {
-  background-color: rgba(44, 62, 80, 0.1);
-}
-
-/* Custom radio button */
-input[type='radio'] {
-  margin-right: 0.75em;
-  width: 20px;
-  height: 20px;
-}
-
-input[type='radio']:focus-visible+label {
-  outline: var(--focus-outline);
-  outline-offset: 2px;
-  border-radius: 2px;
-}
-
-input[type='radio']+label {
+input[type="radio"] {
   cursor: pointer;
-  padding: 4px 8px;
-  border-radius: 4px;
-  transition: background-color 0.2s;
-  flex: 1;
+  accent-color: var(--primary-color);
+  width: 1.1em;
+  height: 1.1em;
+  margin-right: 0.5rem;
 }
+
+input[type="radio"]:hover {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
 
 /* Progress bar */
 .quiz-progress {
@@ -239,7 +249,7 @@ input[type='radio']+label {
   font-weight: 500;
 }
 
-/* Submit button */
+/* Submit button Jasmin commented out because we now have it as a nav button
 .form-controls {
   margin-top: 2rem;
   text-align: center;
@@ -268,7 +278,7 @@ input[type='radio']+label {
 .submit-button:focus-visible {
   outline: var(--focus-outline);
   outline-offset: 2px;
-}
+}*/
 
 /* Footer */
 nav ul {
