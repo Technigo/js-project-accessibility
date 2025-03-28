@@ -62,7 +62,7 @@ body {
   border-radius: 2px;
 }
 
-/* Header improvements */
+/* Header */
 #header {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
@@ -126,7 +126,7 @@ body {
 /* Instructions section */
 #accessibility-quiz {
   margin: 5% 20% 5% 20%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 #accessibility-quiz h2 {
@@ -134,7 +134,6 @@ body {
   margin-top: 1rem;
   margin-bottom: 2rem;
 }
-
 
 .quiz-instructions {
   display: flex;
@@ -228,12 +227,10 @@ input[type="radio"]:checked+label {
   border-radius: 0.25rem;
 }
 
-
 input[type="radio"]:focus-visible+label {
   outline: var(--focus-outline);
   border-radius: 0.25rem;
 }
-
 
 /* Progress bar */
 .quiz-progress {
@@ -381,18 +378,6 @@ nav a:hover {
     background-color: var(--background-color);
   }
 
-  .radio-option:hover,
-  .checkbox-container:hover {
-    background-color: var(--hover-bg);
-  }
-
-  .progress-bar {
-    border: 2px solid var(--text-color);
-  }
-
-  .progress-fill {
-    background-color: var(--text-color);
-  }
 }
 
 /* Footer styles */
