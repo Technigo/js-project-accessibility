@@ -24,7 +24,7 @@
     </header>
 
     <main id="main-content">
-      <section id="quiz" tabindex="0">
+      <section id="introduction" tabindex="0">
         <img
           src="assets/accessibility.jpg"
           alt="picture of a woman sitting in a wheelchair behind a desk with a computer"
@@ -39,6 +39,9 @@
           provident! Accusamus maiores recusandae quos ducimus deleniti
           architecto cupiditate odit animi ab natus.
         </p>
+      </section>
+
+      <section id="quiz">
         <form>
           <fieldset class="question-1">
             <legend>Första frågan</legend>
@@ -88,7 +91,7 @@
           <button id="submit-button">Submit answers</button>
         </form>
       </section>
-      <section id="result-container"></section>
+      <section id="result-container" aria-live="polite"></section>
     </main>
 
     <footer id="footer-menu"></footer>
