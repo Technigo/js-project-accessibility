@@ -63,13 +63,14 @@
         simple, clear, and inclusive for all users. This quiz is part of our mission to help more people understand what
         accessibility really means, and how disability can affect the way people experience the world.
       </p>
-      <img class="info-image"
+      <img
+        class="info-image"
         src="assets/disability.jpg"
         alt="Friends with disability"
       >
       <form id="accessibility-quiz">
         <h2>Accessibility Quiz</h2>
-        <fieldset>
+        <fieldset class="quiz-card">
           <legend>1. Meet Camilla. Camilla is blind and uses a screen reader to browse the web. Which feature helps
             Camilla the most when navigating a website?</legend>
           <label for="question-one-a"><input
@@ -90,9 +91,17 @@
               name="question-one-c"
               value="Auto playing videos"
             > Auto playing videos</label>
+          <div class="nav-buttons">
+            <button
+              type="button"
+              class="next-btn"
+            >Next</button>
+          </div>
         </fieldset>
-        <fieldset>
-          <legend>2. Meet Priya
+
+
+        <fieldset class="quiz-card">
+          <legend>2. Meet Priya.
             Priya has ADHD and finds it hard to focus on long blocks of content.
             What can help her better engage with your app or site?</legend>
           <label for="question-two-a"><input
@@ -113,9 +122,20 @@
               name="question-two-c"
               value="Dense paragraphs on a single page"
             >Dense paragraphs on a single page</label>
+          <div class="nav-buttons">
+            <button
+              type="button"
+              class="prev-btn"
+            >Previous</button>
+            <button
+              type="button"
+              class="next-btn"
+            >Next</button>
+          </div>
         </fieldset>
-        <fieldset>
-          <legend>3.Meet Jordan
+
+        <fieldset class="quiz-card">
+          <legend>3.Meet Jordan.
             Jordan has low vision and prefers high-contrast designs. Which feature supports Jordan’s needs best?
           </legend>
           <label for="question-three-a"><input
@@ -136,9 +156,23 @@
               name="question-three-c"
               value="Background images behind text"
             > Background images behind text</label>
+          <div class="nav-buttons">
+            <button
+              type="button"
+              class="next-btn"
+            >Next</button>
+          </div>
         </fieldset>
-        <button class="submit-button" type="submit">Check Answers</button>
-        <div id="feedback" class="feedback" aria-live="assertive" tabindex="-1"></div>
+        <button
+          class="submit-button"
+          type="submit"
+        >Check Answers</button>
+        <div
+          id="feedback"
+          class="feedback"
+          aria-live="assertive"
+          tabindex="-1"
+        ></div>
       </form>
   </main>
 

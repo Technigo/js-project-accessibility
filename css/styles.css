@@ -2,7 +2,8 @@
 :root {
   --primary-color: #2c3e50;
   --background-color: #ffffff;
-  --accent-color: #0040a3; /* Darker blue for better contrast */
+  --accent-color: #0040a3;
+  /* Darker blue for better contrast */
   --error-color: #e74c3c;
   --success-color: #27ae60;
   --focus-outline: 3px solid var(--accent-color);
@@ -120,7 +121,7 @@ body {
   width: 100%;
   height: 50vh;
   object-fit: cover;
-} 
+}
 
 /* Instructions section */
 
@@ -144,7 +145,18 @@ body {
   text-align: center;
 }
 
-/* Form elements */
+/*Form elements/*
+
+/*Jasmin added, hide quiz cards by default*/
+.quiz-card {
+  display: none;
+}
+
+/* Jasmin added, only show card w. active class*/
+.quiz-card.active {
+  display: block;
+}
+
 fieldset {
   border: 1px solid var(--primary-color);
   margin: 1em 0;
@@ -157,7 +169,7 @@ legend {
   padding: 0.5em 1em;
   color: var(--primary-color);
   background-color: #f8fafc;
-  
+
   border-radius: 4px;
 }
 
@@ -187,13 +199,13 @@ input[type='radio'] {
   height: 20px;
 }
 
-input[type='radio']:focus-visible + label {
+input[type='radio']:focus-visible+label {
   outline: var(--focus-outline);
   outline-offset: 2px;
   border-radius: 2px;
 }
 
-input[type='radio'] + label {
+input[type='radio']+label {
   cursor: pointer;
   padding: 4px 8px;
   border-radius: 4px;
@@ -494,5 +506,3 @@ footer {
   font-size: 0.875rem;
   margin-top: 0.25rem;
 }
-
-
