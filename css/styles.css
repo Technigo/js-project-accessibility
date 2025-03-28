@@ -242,6 +242,14 @@ button {
   height: var(--height-sm);
 }
 
+.informative-image{
+  max-height: 100px;
+}
+
+.accessibility-item{
+  display: grid;
+  grid-template-columns: 2, 1rem;
+}
 
 footer {
   position: relative;
