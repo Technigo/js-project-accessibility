@@ -328,6 +328,34 @@ nav a:hover {
   margin: 0 auto 2rem;
 }
 
+.button-back {
+  display: block;
+  background-color: var(--primary-color);
+  width: fit-content;
+  text-decoration: none;
+  color: white;
+  margin: 2rem auto;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.button-back:hover {
+  background-color: #003080;
+}
+
+.button-back:active {
+  transform: scale(0.98);
+}
+
+.button-back:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 0.125rem;
+}
+
+
 .info-image {
   background: white;
   padding: 1rem;
