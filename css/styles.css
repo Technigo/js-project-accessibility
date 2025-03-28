@@ -160,6 +160,10 @@ body {
   display: block;
 }
 
+.error-message {
+  font-weight: bold;
+}
+
 .nav-buttons {
   display: flex;
   justify-content: space-between;
