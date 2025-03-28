@@ -70,6 +70,11 @@ legend {
   padding: 0 0.5rem;
 }
 
+legend::after {
+  content: " *";
+  color: var(--color-error);
+}
+
 /* Radio button groups */
 div[role="radiogroup"] {
   display: flex;
