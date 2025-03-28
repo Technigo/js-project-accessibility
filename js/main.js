@@ -10,22 +10,11 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   }
 
-  //Gets all nextbuttons and adds an action
+  // Gets all next buttons and adds an action
   const nextButtons = document.querySelectorAll('.next-btn')
   nextButtons.forEach((button) => {
     button.addEventListener('click', () => {
-
-      const currentCard = cards[currentIndex]
-
-      // Check if any radio button is selected
-      const selected = currentCard.querySelector('input[type="radio"]:checked')
-
-      // If no radio button is selected, show an alert and don't move to the next question
-      if (!selected) {
-        alert("Please select an answer before continuing.")
-        return
-      }
-
+      // Move to the next question 
       if (currentIndex < cards.length - 1) {
         currentIndex++
         showCard(currentIndex)
