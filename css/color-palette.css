@@ -1,0 +1,52 @@
+:root {
+  --primary: #fdeb3f;
+  --primary-hover: ;
+  --primary-fixed: ;
+
+  --secondary: ;
+  --secondary-hover: ;
+  --secondary-fixed: ;
+
+  --complementary: ;
+  --complementary-hover: ;
+  --complementary-fixed: ;
+
+  --aditional: ;
+  --aditional-hover: ;
+  --aditional-fixed: ;
+
+  --font-primary: ;
+  --font-primary-hover: ;
+  --font-primary-fixed: ;
+
+  --font-secondary: ;
+  --font-secondary-hover: ;
+  --font-secondary-fixed: ;
+}
+
+.dark-mode {
+  --primary: #6c2727;
+  --primary-hover: ;
+  --primary-fixed: ;
+
+  --secondary: ;
+  --secondary-hover: ;
+  --secondary-fixed: ;
+
+  --complementary: ;
+  --complementary-hover: ;
+  --complementary-fixed: ;
+
+  --aditional: ;
+  --aditional-hover: ;
+  --aditional-fixed: ;
+
+  --font-primary: ;
+  --font-primary-hover: ;
+  --font-primary-fixed: ;
+
+  --font-secondary: ;
+  --font-secondary-hover: ;
+  --font-secondary-fixed: ;
+
+}
