@@ -22,6 +22,8 @@ const quizAnswer = document.getElementById("quizAnswer");
 const score = document.getElementById("score");
 const restartBtn = document.getElementById("restartBtn");
 let index = 0, scr = 0;
+const quizInstructions = document.getElementById("quizInstructions");
+quizInstructions === null || quizInstructions === void 0 ? void 0 : quizInstructions.focus();
 function loadQuestion() {
     if (index >= quiz.length)
         return endQ();
