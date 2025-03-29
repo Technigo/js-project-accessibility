@@ -3,25 +3,31 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0" />
   <title>Web Accessibility Quiz for beginners</title>
-  <link rel="stylesheet" href="css/styles.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
+  <link rel="stylesheet"
+        href="css/styles.css" />
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 
 </head>
 <!-- -->
 
 <body>
-  <a href="#main-content" class="skip-link">Skip to Content</a>
+  <a href="#main-content"
+     class="skip-link">Skip to Content</a>
 
   <header id="header">
     <div class="header-content">
       <h1>Web Accessibility Quiz for beginners</h1>
-      <nav role="navigation" aria-label="Main navigation">
+      <nav role="navigation"
+           aria-label="Main navigation">
         <ul>
           <li><a href="index.html">Home</a></Li>
           <li><a href="about.html">About</a></li>
@@ -29,52 +35,55 @@
       </nav>
     </div>
   </header>
-  <section id="banner" role="banner">
-    <img src="./img/accessibility.jpeg" alt="" role="presentation" />
+  <section id="banner"
+           role="banner">
+    <img src="./img/accessibility.jpeg"
+         alt=""
+         role="presentation" />
   </section>
   <main id="main-content">
-    <section id="Introduction">
+    <section id="introduction">
       <h2>Welcome to the Quiz</h2>
       <p>This quiz is designed to test your knowlege of web accessibility principles,</p>
     </section>
 
     <!-- QUIZ-->
-    <section aria-labelledby="quiz-heading">
-      <h2 id="quiz-heading">Accessibility Quiz</h2>
 
+    <section id="quizInstructions"
+             aria-labelledby="Quiz Instruction">
+      <h3 id="quiz-heading">Accessibility Quiz</h3>
+      <p tabindex="0">
+        Use the Tab key to navigate through options and press Enter to select an answer.
+      </p>
       <!-- <div class="formcontrols intro-section">
         <button id="intro-continue"
                 type="button"
                 class="submit-button">
           Continue </button>
-      </div>
--->
-      <div id="quizInstructions" tabindex="0">
-        Use the Tab key to navigate through options and press Enter to select an answer.
-      </div>
+      </div> -->
+    </section>
 
+    <section id="quizSection"
+             aria-labelledby=" Quiz Section">
       <form id="quiz-form">
         <div class="card-header">
           <h2 id="quizQuestion"></h2>
         </div>
-        <fieldset>
-
-          <legend id="quizCard"></legend>
+        <fieldset id="quizCard">
+          <legend></legend>
           <div id="quizOptions">
           </div>
           <div id="quizAnswer">
             Your score: <span id="score">0</span>
           </div>
-          <button id="restartBtn">Restart Quiz</button>
+          <button type="submit"
+                  aria-live="polite"
+                  id="restartBtn">Restart Quiz</button>
 
         </fieldset>
-        <!-- <button id="quizBtn"
-                type="submit"
-                aria-live="polite">Submit</button>
--->
-
       </form>
-      <div id="feedback" aria-live="polite"></div>
+      <div id="feedback"
+           aria-live="polite"></div>
 
     </section>
 
@@ -82,13 +91,14 @@
 
   <footer role="contentinfo">
     <div class="footer-content">
-      <nav role="navigation" aria-label="footer Navigation">
+      <nav role="navigation"
+           aria-label="footer Navigation">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
         </ul>
       </nav>
-      <p>© 2025 Accessibility Quiz for beginners. All rights rreserved by Jonny, Sofia and Varia.</p>
+      <p>© 2025 Accessibility Quiz for beginners by Jonny, Sofia and Varia.</p>
     </div>
   </footer>
 
