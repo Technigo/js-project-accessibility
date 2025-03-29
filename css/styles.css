@@ -161,7 +161,6 @@ body {
   display: block;
 }
 
-
 .nav-buttons {
   display: flex;
   justify-content: space-between;
@@ -314,6 +313,8 @@ nav a:hover {
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
 
 }
 
