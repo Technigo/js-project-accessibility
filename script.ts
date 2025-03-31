@@ -94,78 +94,75 @@ function loadQuestion(): void {
 }
 
 
+
 function checkA(opt: string): void {
 
-const currentQuestion = quiz[index]; // Store the current question
+    if (opt === quiz[index].answer) {
+      scr++;
+    index++;
+    loadQuestion();
+  } else {
+    console.log("incorrect answer")
+    submitAnswer?.style.setProperty('display', 'none'); //Remove submit when the answer is incorrect
 
-  if (opt === quiz[index].answer) {
-    scr++;
-  index++;
-  loadQuestion();
-} else {
-  console.log("incorrect answer")
-  submitAnswer?.style.setProperty('display', 'none'); //Remove submit when the answer is incorrect
+    quizCard.innerHTML =`
+    <h3>Oh no wrong answer</H3>
+    <button id=retryBtn>Click to Retry</button>
+    `;
 
-  quizCard.innerHTML =`
-  <h3>Oh no wrong answer</H3>
-  <button id=retryBtn>Click to Retry</button>
-  ` 
-}
-  const retryBtn = document.getElementById("retryBtn") as HTMLButtonElement
+    
+    loadQuestion()
 
-  retryBtn.onclick = () => {
-     const last = quiz[index - 1];
-     retryQuestion(currentQuestion); // Reload the same question
-   }
-  
+  }
+   
 }
 
 // Function to retry the same question
-function retryQuestion(question: quizData): void {
-  quizCard.innerHTML = ""; // Clear retry message
+// function retryQuestion(question: quizData): void {
+//   quizCard.innerHTML = ""; // Clear retry message
 
-  if (quizQuestion) quizQuestion.textContent = question.ask;
-  if (quizOptions) quizOptions.innerHTML = ""; // Clear previous options
+//   if (quizQuestion) quizQuestion.textContent = question.ask;
+//   if (quizOptions) quizOptions.innerHTML = ""; // Clear previous options
 
-  let selectedOption: string | null = null;
+//   let selectedOption: string | null = null;
 
-  question.choose.forEach((element, i )=> {
-    const btn = document.createElement("input");
-    btn.type = "radio";
-    btn.name = "aria";
-    btn.id = `aria-${i}`; // Unique ID for accessibility
-    btn.value = `${i + 1}. ${element}`;
+//   question.choose.forEach((element, i) => {
+//     const btn = document.createElement("input");
+//     btn.type = "radio";
+//     btn.name = "aria";
+//     btn.id = `aria-${i}`; // Unique ID for accessibility
+//     btn.value = `${i + 1}. ${element}`;
 
-   btn.onclick = () => {
-      selectedOption = element;
-      console.log("Selected:", selectedOption);
-    };
+//    btn.onclick = () => {
+//       selectedOption = element;
+//       console.log("Selected:", selectedOption);
+//     };
 
-    const label = document.createElement("label");
-    //label.hidden = true;
-    label.htmlFor = btn.id;
+//     const label = document.createElement("label");
+//     //label.hidden = true;
+//     label.htmlFor = btn.id;
     
 
-  label.appendChild(btn);
-  label.append(` ${element}`)
+//   label.appendChild(btn);
+//   label.append(` ${element}`)
 
-    submitAnswer.onclick = (event) => {
+//     submitAnswer.onclick = (event) => {
 
-    event.preventDefault(); //Stops form submission from refreshing the page
+//     event.preventDefault(); //Stops form submission from refreshing the page
 
-    if (selectedOption !== null) {
-      checkA(selectedOption);
-    } else {
-      console.log("No option selected!");
-    }
-  };
-    // Append elements
+//     if (selectedOption !== null) {
+//       checkA(selectedOption);
+//     } else {
+//       console.log("No option selected!");
+//     }
+//   };
+//     // Append elements
    
-    quizOptions?.appendChild(label);
-  });
+//     quizOptions?.appendChild(label);
+//   });
 
-  submitAnswer.style.display = "block"; // Show submit button again
-}
+//   submitAnswer.style.display = "block"; // Show submit button again
+// }
 
 
 function endQ(): void {

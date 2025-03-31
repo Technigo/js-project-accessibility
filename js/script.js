@@ -62,7 +62,6 @@ function loadQuestion() {
     });
 }
 function checkA(opt) {
-    const currentQuestion = quiz[index];
     if (opt === quiz[index].answer) {
         scr++;
         index++;
@@ -72,49 +71,11 @@ function checkA(opt) {
         console.log("incorrect answer");
         submitAnswer === null || submitAnswer === void 0 ? void 0 : submitAnswer.style.setProperty('display', 'none');
         quizCard.innerHTML = `
-  <h3>Oh no wrong answer</H3>
-  <button id=retryBtn>Click to Retry</button>
-  `;
+    <h3>Oh no wrong answer</H3>
+    <button id=retryBtn>Click to Retry</button>
+    `;
+        loadQuestion();
     }
-    const retryBtn = document.getElementById("retryBtn");
-    retryBtn.onclick = () => {
-        const last = quiz[index - 1];
-        retryQuestion(currentQuestion);
-    };
-}
-function retryQuestion(question) {
-    quizCard.innerHTML = "";
-    if (quizQuestion)
-        quizQuestion.textContent = question.ask;
-    if (quizOptions)
-        quizOptions.innerHTML = "";
-    let selectedOption = null;
-    question.choose.forEach((element, i) => {
-        const btn = document.createElement("input");
-        btn.type = "radio";
-        btn.name = "aria";
-        btn.id = `aria-${i}`;
-        btn.value = `${i + 1}. ${element}`;
-        btn.onclick = () => {
-            selectedOption = element;
-            console.log("Selected:", selectedOption);
-        };
-        const label = document.createElement("label");
-        label.htmlFor = btn.id;
-        label.appendChild(btn);
-        label.append(` ${element}`);
-        submitAnswer.onclick = (event) => {
-            event.preventDefault();
-            if (selectedOption !== null) {
-                checkA(selectedOption);
-            }
-            else {
-                console.log("No option selected!");
-            }
-        };
-        quizOptions === null || quizOptions === void 0 ? void 0 : quizOptions.appendChild(label);
-    });
-    submitAnswer.style.display = "block";
 }
 function endQ() {
     quizQuestion === null || quizQuestion === void 0 ? void 0 : quizQuestion.style.setProperty('display', 'none');
