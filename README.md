@@ -4,7 +4,7 @@ This is an accessible multiple-choice quiz designed to demonstrate the principle
 
 ## Live Demo
 
-Check out the live website at [Accessibility Quiz](uploadinglinksoon).
+Check out the live website at [Accessibility Quiz](https://webaccessibilityquiz.netlify.app/).
 
 ## Features
 

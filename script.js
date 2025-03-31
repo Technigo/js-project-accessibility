@@ -1,30 +1,67 @@
-// JavaScript File: script.js
-
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("quizForm");
   const feedback = document.getElementById("feedback");
   const darkModeToggle = document.getElementById("darkModeToggle");
 
+  // Dark Mode Toggle
+  darkModeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    if (document.body.classList.contains("dark-mode")) {
+      darkModeToggle.textContent = "Switch to Light Mode";
+    } else {
+      darkModeToggle.textContent = "Switch to Dark Mode";
+    }
+  });
 
+  // Enhanced Keyboard Navigation for Radio Buttons
+  const allFieldsets = document.querySelectorAll("fieldset");
 
-  // Keyboard Navigation for Radio Buttons
-  const allRadios = document.querySelectorAll('input[type="radio"]');
-  allRadios.forEach((radio) => {
-    radio.addEventListener("keydown", (event) => {
-      if (event.key === "ArrowDown" || event.key === "ArrowRight") {
-        event.preventDefault();
-        const next = radio.nextElementSibling?.nextElementSibling;
-        if (next && next.type === "radio") next.focus();
-      }
-      if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
-        event.preventDefault();
-        const previous = radio.previousElementSibling?.previousElementSibling;
-        if (previous && previous.type === "radio") previous.focus();
-      }
+  allFieldsets.forEach((fieldset) => {
+    const radios = fieldset.querySelectorAll('input[type="radio"]');
+
+    radios.forEach((radio, index) => {
+      radio.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowDown" || event.key === "ArrowRight") {
+          event.preventDefault();
+          const nextIndex = (index + 1) % radios.length;
+          radios[nextIndex].focus();
+          radios[nextIndex].checked = true; // Markera som vald
+        }
+        if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
+          event.preventDefault();
+          const prevIndex = (index - 1 + radios.length) % radios.length;
+          radios[prevIndex].focus();
+          radios[prevIndex].checked = true; // Markera som vald
+        }
+      });
     });
   });
 
+  // Form Submission Handler
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    feedback.innerHTML = "<strong>Processing...</strong>";
+    feedback.style.backgroundColor = "#fffbcc";
+    feedback.style.color = "#b38f00";
 
+    setTimeout(() => {
+      let correctAnswers = 0;
+      const questions = ["q1", "q2", "q3"];
+      let feedbackMessages = [];
+
+      questions.forEach((question) => {
+        const selectedOption = document.querySelector(`input[name="${question}"]:checked`);
+        if (selectedOption) {
+          if (selectedOption.value === "correct") {
+            correctAnswers++;
+            feedbackMessages.push(`✅ ${question.toUpperCase()} - Correct!`);
+          } else {
+            feedbackMessages.push(`❌ ${question.toUpperCase()} - Incorrect. Try again.`);
+          }
+        } else {
+          feedbackMessages.push(`⚠️ ${question.toUpperCase()} - No answer selected.`);
+        }
+      });
 
       const totalQuestions = questions.length;
       const resultMessage =

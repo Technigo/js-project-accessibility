@@ -37,8 +37,16 @@
           This quiz is designed with accessibility in mind, following best practices for screen reader compatibility,
           keyboard navigation, and more.
         </p>
-        <img src="decorative.jpg" alt="" aria-hidden="true" />
-        <img src="informative.jpg" alt="Example of a well-structured website with accessible elements" />
+        <!--  Decorative Image (Ignored by Screen Readers) 
+              This is just to demonstrate how to include an image without screen readers actually reading it. 
+              The image is marked as decorative using alt="" and aria-hidden="true". -->
+        <img src="img/decorative.png" alt="" aria-hidden="true" />
+
+        <!-- Informative image (Read by screen readers) -->
+        <img
+          src="img/informative.png"
+          alt="Infographic about web accessibility with examples of accessible elements such as navigation, forms, and alt text usage."
+        />
       </section>
 
       <section id="quiz" class="quiz-section">
@@ -85,6 +93,22 @@
         <div id="feedback"></div>
       </section>
     </div>
+
+    <footer>
+      <div class="footer">
+        <p>
+          Follow us on
+          <a href="https://facebook.com" target="_blank">Facebook</a>,
+          <a href="https://instagram.com" target="_blank">Instagram</a>
+          and <a href="https://twitter.com" target="_blank">Twitter</a> | <a href="#">Contact Us</a> |
+          <a href="#">Privacy Policy</a>
+        </p>
+        <p>
+          &copy; 2025 <strong>Web Accessibility Quiz</strong>. All Rights Reserved. | Developed & Designed by
+          <strong><a href="https://github.com/RicardoNicolau" target="_blank">Ricardo Nicolau</a></strong>
+        </p>
+      </div>
+    </footer>
 
     <script src="script.js"></script>
   </body>
