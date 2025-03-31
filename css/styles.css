@@ -83,7 +83,7 @@ main {
 .skip-link,
 .quiz-section,
 .results-section {
-  /* display: none; */
+  display: none;
 }
 
 button {
@@ -98,14 +98,38 @@ button {
 button:hover {
   background: #540b0e;
 }
+.quiz-section form {
+  margin-top: 32px;
+}
 
-.quiz-section fieldset div {
+.quiz-section fieldset {
+  padding: 16px;
+  margin-bottom: 16px;
+  border: none;
+}
+
+.quiz-section fieldset legend {
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.quiz-section label {
   border: 2px solid var(--border-color);
   border-radius: 5px;
   padding: 12px;
   margin-bottom: 12px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
-.quiz-section fieldset div:hover {
+.quiz-section label:hover {
   background: var(--hover-bg);
+}
+
+.quiz-section fieldset label {
+  cursor: pointer;
+  width: 95%;
+  height: 100%;
+  display: inline-block;
+  padding: 16px 8px;
 }

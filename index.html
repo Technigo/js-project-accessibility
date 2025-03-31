@@ -49,8 +49,9 @@
       <section class="quiz-section" id="quiz">
         <h2>Header about the quiz</h2>
         <p>Question <b>1</b> of <b>10</b></p>
-        <form>
-          <fieldset class="question-container" id="question-1">
+        <form onsubmit="checkAnswers(event)">
+          <div id="question-container"></div>
+          <!-- <fieldset class="question-container" id="question-1">
             <legend>here we write the question</legend>
             <div>
               <input
@@ -59,6 +60,7 @@
                 id="question1-option1"
                 required
                 aria-required="true"
+                value="true"
               />
               <label for="question1-option1">answer option 1</label>
             </div>
@@ -69,6 +71,7 @@
                 id="question1-option2"
                 required
                 aria-required="true"
+                value="false"
               />
               <label for="question1-option2">answer option 2</label>
             </div>
@@ -79,6 +82,7 @@
                 id="question1-option3"
                 required
                 aria-required="true"
+                value="false"
               />
               <label for="question1-option3">answer option 3</label>
             </div>
@@ -93,6 +97,7 @@
                 id="question2-option1"
                 required
                 aria-required="true"
+                value="true"
               />
               <label for="question2-option1">answer option 1</label>
             </div>
@@ -103,6 +108,7 @@
                 id="question2-option2"
                 required
                 aria-required="true"
+                value="false"
               />
               <label for="question2-option2">answer option 2</label>
             </div>
@@ -113,6 +119,7 @@
                 id="question2-option3"
                 required
                 aria-required="true"
+                value="false"
               />
               <label for="question2-option3">answer option 3</label>
             </div>
@@ -127,6 +134,7 @@
                 id="question3-option1"
                 required
                 aria-required="true"
+                value="true"
               />
               <label for="question3-option1">answer option 1</label>
             </div>
@@ -137,6 +145,7 @@
                 id="question3-option2"
                 required
                 aria-required="true"
+                value="false"
               />
               <label for="question3-option2">answer option 2</label>
             </div>
@@ -147,10 +156,11 @@
                 id="question3-option3"
                 required
                 aria-required="true"
+                value="false"
               />
               <label for="question3-option3">answer option 3</label>
             </div>
-          </fieldset>
+          </fieldset> -->
 
           <button
             class="submit-button"
@@ -167,7 +177,8 @@
         <img src="" alt="" />
         <h2>Quiz completed</h2>
         <p class="result-message">
-          You answered <b>1</b> out of <b>10</b> questions correctly.
+          You answered <b id="correct-answers">1</b> out of
+          <b class="total-questions">10</b> questions correctly.
         </p>
         <button
           class="restart-btn"
@@ -194,6 +205,7 @@
         </nav>
       </div>
     </footer>
+    <script src="js/quiz.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
