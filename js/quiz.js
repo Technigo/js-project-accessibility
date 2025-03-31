@@ -12,7 +12,7 @@ const compareAnswers = () => {
   const correctAnswers = ["answer1", "answer2", "answer3"] // Question 1's correct answer is [0], question 2's is [1], etc.).
 
   const userAnswers = [] // Array to store user-selected answers
-  const numberOfQuestions = 3 // Number of questions in the quiz
+  const numberOfQuestions = 3 // Number of questions in the quiz - in case we want to add more questions in the future - just change this variable
 
   // Retrieve user answers
   for (let i = 1; i <= numberOfQuestions; i++) {
