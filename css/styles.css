@@ -5,7 +5,7 @@
   --body-background-color: #ffeedd;
   --accent-color: #0040a3;
   /* Darker blue for better contrast */
-  --button-color: #9e2a2b;
+  --button-color: #e74c3c;
   --error-color: #e74c3c;
   --success-color: #27ae60;
   --focus-outline: 3px solid var(--accent-color);
@@ -40,9 +40,33 @@ header {
 }
 
 header ul {
+  list-style-type: none;
   display: flex;
   flex-direction: row;
   gap: 24px;
+  padding: 16px;
+}
+
+header ul li {
+  position: relative;
+  text-align: center;
+  font-weight: 600;
+  padding: 0 12px;
+}
+
+li.active::after {
+  position: absolute;
+  content: "";
+  height: 3px;
+  width: 100%;
+  background: var(--button-color);
+  left: 0;
+  bottom: -10px;
+}
+
+header ul li a {
+  color: white;
+  text-decoration: none;
 }
 
 main {
@@ -53,12 +77,13 @@ main {
   border-radius: 15px;
   position: relative;
   top: -80px;
+  max-width: 1400px;
 }
 
 .skip-link,
 .quiz-section,
 .results-section {
-  display: none;
+  /* display: none; */
 }
 
 button {
@@ -72,4 +97,15 @@ button {
 
 button:hover {
   background: #540b0e;
+}
+
+.quiz-section fieldset div {
+  border: 2px solid var(--border-color);
+  border-radius: 5px;
+  padding: 12px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+.quiz-section fieldset div:hover {
+  background: var(--hover-bg);
 }
