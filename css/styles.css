@@ -12,15 +12,41 @@
 button:focus-visible,
 a:focus-visible,
 input:focus-visible {
-  outline: 3px solid #007acc;
-  outline-offset: 2px;
-  border-radius: 4px;
+  outline: 3px solid var(--melon);
+  background-color: var(--dark-spring-green);
+  color: var(--light-yellow);
+}
+
+#quiz-form:focus-visible,
+#quiz-form.show-focus {
+  outline: 3px solid var(--melon);
+  background-color: var(--dark-spring-green);
+  color: var(--light-yellow);
+}
+
+input[type='radio'] {
+  accent-color: var(--sea-green);
 }
 
 body {
   font-family: 'Montserrat', sans-serif;
-
   background-color: var(--light-yellow);
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background-color: #007acc;
+  color: white;
+  padding: 0.5rem 1rem;
+  z-index: 1000;
+  text-decoration: none;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 1px;
 }
 
 .sr-only {
@@ -35,11 +61,10 @@ body {
   border: 0;
 }
 
-#quiz:focus {
-  outline: 3px solid #007acc;
-  background-color: #f0f8ff;
-}
-
 img {
   width: 200px;
+}
+
+#quiz-form {
+  border: 3px solid transparent;
 }

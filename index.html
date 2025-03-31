@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,7 +13,7 @@
     />
   </head>
   <body>
-    <a href="#quiz" class="skip-link">Skip to Content</a>
+    <a href="#quiz-form" class="skip-link">Skip to Content</a>
 
     <header>
       <h1>Strength in Diversity</h1>
@@ -25,7 +25,7 @@
       </nav>
     </header>
 
-    <main>
+    <main role="main">
       <section id="home">
         <h2>How This UI is Accessible</h2>
         <p>
@@ -35,7 +35,7 @@
         <img src="/images/decorative.svg" alt="" />
         <img
           src="/images/accessible-form-example.svg"
-          alt="Example of an accessible form with properly labeled inputs"
+          alt="Hands that creating a symbol of a heart"
         />
       </section>
 
@@ -48,71 +48,86 @@
         </p>
       </section>
 
-      <section id="quiz" tabindex="-1">
-        <h2>Accessibility Quiz</h2>
-
-        <form id="quiz-form" aria-labelledby="quiz">
+      <section id="quiz">
+        <form id="quiz-form" tabindex="0">
+          <h2>Accessibility Quiz</h2>
+          <p id="form-intro" class="sr-only">
+            This is a quiz with 2 questions about Accessibility. Use Tab to
+            start and Arrow keys to navigate.
+          </p>
           <fieldset>
-            <legend>What is the purpose of alt text on images?</legend>
-            <label for="question1">
-              <input
-                type="radio"
-                name="question1"
-                value="a"
-                id="question1"
-              />Adds captions to videos</label
-            >
-            <label for="question1">
+            <legend id="question1-legend">
+              What is the purpose of alt text on images?
+            </legend>
+            <input
+              type="radio"
+              name="question1"
+              value="a"
+              id="question1-a"
+              aria-describedby="question1-legend"
+            />
+            <label for="question1-a">Adds captions to videos</label>
+            <br />
+
+            <label for="question1-b">
               <input
                 type="radio"
                 name="question1"
                 value="b"
-                id="question1"
+                id="question1-b"
               />Describes images to screen readers</label
             >
-            <label for="question1">
+            <br />
+
+            <label for="question1-c">
               <input
                 type="radio"
                 name="question1"
                 value="c"
-                id="question1"
+                id="question1-c"
               />Changes the image color</label
             >
           </fieldset>
           <fieldset>
-            <legend>What is the purpose of alt text on images?</legend>
-            <label for="question2">
-              <input
-                type="radio"
-                name="question2"
-                value="a"
-                id="question2"
-              />Adds captions to videos</label
-            >
-            <label for="question2">
+            <legend id="question2-legend">
+              Which element is used to group related form controls?
+            </legend>
+            <input
+              type="radio"
+              name="question2"
+              value="a"
+              id="question2-a"
+              aria-describedby="question1-legend"
+            />
+            <label for="question2-a">Adds captions to videos</label>
+            <br />
+
+            <label for="question2-b">
               <input
                 type="radio"
                 name="question2"
                 value="b"
-                id="question2"
+                id="question2-b"
               />Describes images to screen readers</label
             >
-            <label for="question2">
+            <br />
+
+            <label for="question2-c">
               <input
                 type="radio"
                 name="question2"
                 value="c"
-                id="question2"
+                id="question1-c"
               />Changes the image color</label
             >
           </fieldset>
-          <button type="submit">Submit</button>
 
-          <div id="feedback" aria-live="polite" class="sr-only">
-            You got 2 out of 3 correct!
-            <!--Kommer genereras av js sen men bara för att testa och automatiskt läsas av SR??-->
-          </div>
+          <button type="submit">Submit Quiz</button>
         </form>
+        <div id="feedback" aria-live="polite" class="sr-only">
+          You got 2 out of 3 correct!
+          <!--Kommer genereras av js sen men bara för att testa och automatiskt läsas av SR??-->
+        </div>
       </section>
     </main>
 
