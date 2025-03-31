@@ -9,20 +9,12 @@ const submitAnswers = (event) => {
 };
 
 const compareAnswers = () => {
-<<<<<<< HEAD
-  const correctAnswers = ["answer1", "answer2", "answer3"] // Question 1's correct answer is [0], question 2's is [1], etc.).
+  const correctAnswers = ["answer1", "answer2", "answer3"]; // Question 1's correct answer is [0], question 2's is [1], etc.).
 
-  const userAnswers = [] // Array to store user-selected answers
-  const numberOfQuestions = 3 // Number of questions in the quiz - in case we want to add more questions in the future - just change this variable
-=======
-  console.log("Comparing answers");
-  // Correct answers
-  // Question 1's correct answer is "A", question 2's is "B", etc.).
-  const correctAnswers = ["answer1", "answer2", "answer3"];
+  const userAnswers = []; // Array to store user-selected answers
+  const numberOfQuestions = 3; // Number of questions in the quiz - in case we want to add more questions in the future - just change this variable
 
-  // Array to store user-selected answers
-  const userAnswers = [];
->>>>>>> quiz-functions
+  console.log("Comparing answers...");
 
   // Retrieve user answers
   for (let i = 1; i <= numberOfQuestions; i++) {
@@ -44,38 +36,46 @@ const compareAnswers = () => {
       totalCorrectAnswers++; // Increment the count of correct answers
     }
   }
+  displayAnswers(totalCorrectAnswers, correctAnswers, userAnswers);
+};
 
-  // Loop through each question to display individual feedback (correct/incorrect)
-  // Get the question number, the user's selected answer, and the correct answer
+// Loop through each question to display individual feedback (correct/incorrect)
+// Get the question number, the user's selected answer, and the correct answer
+const displayUserFeedback = (userAnswers, correctAnswers) => {
   for (let i = 0; i < correctAnswers.length; i++) {
     const questionNumber = i + 1;
     const userAnswer = userAnswers[i];
-    const correct = correctAnswers[i];
-
-    console.log(`Question ${questionNumber}:`);
-    console.log(`Your answer: ${userAnswer}`);
-    console.log(`Right answer: ${correct}`);
+    const correctValue = correctAnswers[i];
 
     const feedbackDiv = document.getElementById(
       `feedback-question${questionNumber}`
     );
+    const correctInput = document.querySelector(
+      `input[name="question${questionNumber}"][value="${correctValue}"]`
+    );
 
-    if (userAnswer === correct) {
-      feedbackDiv.innerHTML = `<p style="color: green;> Yes! You got this!</p>"`;
+    const correctText = correctInput.parentElement.textContent.trim();
+    // Get the text of the correct answer option
+
+    /*console.log(`Question ${questionNumber}:`);
+    console.log(`Your answer: ${userAnswer}`);
+    console.log(`Right answer: ${correct}`);*/
+
+    if (userAnswer === correctValue) {
+      feedbackDiv.innerHTML = `<p style="color: green; border: 2px solid; border-color: green;">Yes! You got this! ${correctText} is correct!</p>`;
     } else if (userAnswer === null) {
-      feedbackDiv.innerHTML = `<p style="color": red;> You forgot to answer!</p>`;
+      feedbackDiv.innerHTML = `<p style="color: red;"> You forgot to answer!</p>`;
     } else {
-      feedbackDiv.innerHTML = `<p style="color": red; Wrong. The right answer is ${correct}</p>`;
+      feedbackDiv.innerHTML = `<p style="color: red;"> Wrong. The right answer is ${correctText.toLowerCase()}</p>`;
     }
   }
+};
 
-  function displayAnswers();
-  
-  // Display the results
-  displayAnswers = (totalCorrectAnswers, correctAnswers) => {
-    console.log("Displaying results");
-    const resultContainer = document.getElementById("result-container");
-    resultContainer.innerHTML = `<h2>Your results:</h2>
+// Display the results
+const displayAnswers = (totalCorrectAnswers, correctAnswers, userAnswers) => {
+  console.log("Displaying results");
+  const resultContainer = document.getElementById("result-container");
+  resultContainer.innerHTML = `<h2>Your results:</h2>
   <p>You answered ${totalCorrectAnswers} out of ${correctAnswers.length} questions correctly.</p>`;
-  };
+  displayUserFeedback(userAnswers, correctAnswers); // Call the function to display feedback for each question
 };
