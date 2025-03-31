@@ -34,7 +34,6 @@ function loadQuestion() {
         quizQuestion.textContent = getQ.ask;
     if (quizOptions)
         quizOptions.innerHTML = "";
-    selectedOption = null;
     getQ.choose.forEach((element, i) => {
         const btn = document.createElement("input");
         btn.type = "button";

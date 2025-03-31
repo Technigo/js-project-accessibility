@@ -52,7 +52,7 @@ function loadQuestion(): void {
   if (quizQuestion) quizQuestion.textContent = getQ.ask;
   if (quizOptions) quizOptions.innerHTML = ""; // Clear previous options
 
- selectedOption = null; // Reset selection for new question
+ //selectedOption = null; // Reset selection for new question
 
   getQ.choose.forEach((element, i )=> {
     const btn = document.createElement("input");
