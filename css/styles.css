@@ -1,9 +1,11 @@
 /* Base styles with accessibility considerations */
 :root {
-  --primary-color: #2c3e50;
-  --background-color: #ffffff;
+  --header-background-color: #335c67;
+  --main-background-color: #ffffff;
+  --body-background-color: #ffeedd;
   --accent-color: #0040a3;
   /* Darker blue for better contrast */
+  --button-color: #9e2a2b;
   --error-color: #e74c3c;
   --success-color: #27ae60;
   --focus-outline: 3px solid var(--accent-color);
@@ -20,4 +22,54 @@
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  background: var(--body-background-color);
+}
+
+header {
+  background: var(--header-background-color);
+  padding: 36px 64px;
+  z-index: 1;
+  position: relative;
+  height: 250px;
+  color: white;
+}
+
+header ul {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+main {
+  margin: 16px 64px;
+  padding: 24px;
+  z-index: 2;
+  background: var(--main-background-color);
+  border-radius: 15px;
+  position: relative;
+  top: -80px;
+}
+
+.skip-link,
+.quiz-section,
+.results-section {
+  display: none;
+}
+
+button {
+  padding: 8px 12px;
+  border-radius: 5px;
+  background: var(--button-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #540b0e;
 }

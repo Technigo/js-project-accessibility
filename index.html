@@ -1,88 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quizy</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-  <title>Quizy</title>
-  <link
-    rel="stylesheet"
-    href="css/styles.css"
-  />
-</head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<body>
-  <a
-    href="#main-content"
-    class="skip-link"
-  >Skip to main content</a>
-  <header id="header">
-    <div class="header-content">
-      <h1> Quizzy time </h1>
-      <nav
-        role="navigation"
-        aria-label="Main navigation"
-      >
-        <ul>
-          <li>
-            <a href="index.html">Home</a>
-          </li>
-          <li>
-            <a href="about.html">About</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main-content">
-    <section
-      id="banner"
-      role="banner"
-    >
-      <img
-        src=""
-        alt=""
-        role="presentation"
-      >
-    </section>
-    <section id="introduction">
-      <h2>Introduction</h2>
-      <p>Hej Hej detta är ju rätt så kul!</p>
-      <div class="form-controls intro-section">
-        <button
-          id="intro-continue"
-          type="button"
-          class="submit-button"
-        >
-          Start Quiz
-        </button>
+    <header id="header">
+      <div class="header-content">
+        <h1>Web Accessibility Quiz</h1>
+        <nav role="navigation" aria-label="Main navigation">
+          <ul>
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="about.html">About</a>
+            </li>
+          </ul>
+        </nav>
       </div>
-    </section>
-  </main>
+    </header>
 
-  <footer role="contentinfo">
-    <div class="footer-content">
-      <nav
-        role="navigation"
-        aria-label="Footer navigation"
-      >
-        <ul>
-          <li>
-            <a href="index.html">Home</a>
-          </li>
-          <li>
-            <a href="about.html">About</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </footer>
+    <main id="main-content">
+      <section id="banner" role="banner">
+        <img src="" alt="" role="presentation" />
+      </section>
 
-  <script src="js/main.js"></script>
-</body>
+      <section class="intro-section" id="introduction">
+        <h2>Learn to understan everybody's needs</h2>
+        <p>Hej Hej detta är ju rätt så kul!</p>
+        <div class="form-controls intro-section">
+          <button
+            id="start-quiz-button"
+            type="button"
+            class="submit-button"
+            aria-label="Start quiz"
+          >
+            Start Quiz
+          </button>
+        </div>
+      </section>
 
+      <section class="quiz-section" id="quiz">
+        <h2>Header about the quiz</h2>
+        <p>Question <b>1</b> of <b>10</b></p>
+        <form>
+          <fieldset class="question-container" id="question-1">
+            <legend>here we write the question</legend>
+            <div>
+              <input
+                type="radio"
+                name="question1"
+                id="question1-option1"
+                required
+                aria-required="true"
+              />
+              <label for="question1-option1">answer option 1</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="question1"
+                id="question1-option2"
+                required
+                aria-required="true"
+              />
+              <label for="question1-option2">answer option 2</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="question1"
+                id="question1-option3"
+                required
+                aria-required="true"
+              />
+              <label for="question1-option3">answer option 3</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="question-container" id="question-2">
+            <legend>here we write the question</legend>
+            <div>
+              <input
+                type="radio"
+                name="question2"
+                id="question2-option1"
+                required
+                aria-required="true"
+              />
+              <label for="question2-option1">answer option 1</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="question2"
+                id="question2-option2"
+                required
+                aria-required="true"
+              />
+              <label for="question2-option2">answer option 2</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="question2"
+                id="question2-option3"
+                required
+                aria-required="true"
+              />
+              <label for="question2-option3">answer option 3</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="question-container" id="question-3">
+            <legend>here we write the question</legend>
+            <div>
+              <input
+                type="radio"
+                name="question3"
+                id="question3-option1"
+                required
+                aria-required="true"
+              />
+              <label for="question3-option1">answer option 1</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="question3"
+                id="question3-option2"
+                required
+                aria-required="true"
+              />
+              <label for="question3-option2">answer option 2</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="question3"
+                id="question3-option3"
+                required
+                aria-required="true"
+              />
+              <label for="question3-option3">answer option 3</label>
+            </div>
+          </fieldset>
+
+          <button
+            class="submit-button"
+            type="submit"
+            id="submitQuiz"
+            aria-label="Submit quiz"
+          >
+            Submit Quiz
+          </button>
+        </form>
+      </section>
+
+      <section class="results-section" id="results">
+        <img src="" alt="" />
+        <h2>Quiz completed</h2>
+        <p class="result-message">
+          You answered <b>1</b> out of <b>10</b> questions correctly.
+        </p>
+        <button
+          class="restart-btn"
+          type="button"
+          id="restartQuiz"
+          aria-label="Restart quiz"
+        >
+          Restart Quiz
+        </button>
+      </section>
+    </main>
+
+    <footer role="contentinfo">
+      <div class="footer-content">
+        <nav role="navigation" aria-label="Footer navigation">
+          <ul>
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="about.html">About</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    <script src="js/main.js"></script>
+  </body>
 </html>
