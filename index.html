@@ -68,6 +68,7 @@
                 value="answer3"
               />Blue-orange</label
             >
+            <div id="feedback-question1" aria-label="Feedback for question 1" aria-live="polite"></div>
           </fieldset>
           <fieldset class="question-2">
             <legend>Andra frågan</legend>
@@ -83,6 +84,8 @@
               ><input type="radio" name="question2" value="answer3" />svar
               3</label
             >
+            <div id="feedback-question1" aria-label="Feedback for question 2" aria-live="polite"></div>
+
           </fieldset>
           <fieldset class="question-3">
             <legend>Tredje frågan</legend>
@@ -98,11 +101,13 @@
               ><input type="radio" name="question3" value="answer3" />svar
               3</label
             >
+            <div id="feedback-question1" aria-label="Feedback for question 3" aria-live="polite"></div>
+
           </fieldset>
           <button id="submit-button">Submit answers</button>
         </form>
       </section>
-      <section id="result-container" aria-live="polite"></section>
+      <section id="result-container" aria-label="Your result!" aria-live="polite"></section>
     </main>
 
     <footer id="footer-menu"></footer>
