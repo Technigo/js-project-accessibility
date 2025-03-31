@@ -52,7 +52,7 @@ function loadQuestion(): void {
   if (quizQuestion) quizQuestion.textContent = getQ.ask;
   if (quizOptions) quizOptions.innerHTML = ""; // Clear previous options
 
- //selectedOption = null; // Reset selection for new question
+ 
 
   getQ.choose.forEach((element, i )=> {
     const btn = document.createElement("input");
@@ -67,14 +67,6 @@ function loadQuestion(): void {
       console.log("Selected:", selectedOption);
     };
 
-
-    //btn.onclick = () => checkA(element);
-    //submitAnswer.onclick = () => checkA(element); 
-    //submitAnswer.classList.add("quizoptions");
-    //submitAnswer.name = "aria";
-    //submitAnswer.id = `aria-${i}`; // Unique ID for accessibility
-    //submitAnswer.value= `${i + 1}. ${element}`; 
-
     const label = document.createElement("label");
     label.hidden = true;
     label.htmlFor = btn.id;
@@ -82,7 +74,7 @@ function loadQuestion(): void {
 
   submitAnswer.onclick = (event) => {
 
-    event.preventDefault(); // 🛑 Stops form submission from refreshing the page
+    event.preventDefault(); //Stops form submission from refreshing the page
 
     if (selectedOption !== null) {
       checkA(selectedOption);
@@ -97,21 +89,12 @@ function loadQuestion(): void {
 }
 
 
-
-
 function checkA(opt: string): void {
   if (opt === quiz[index].answer) 
     scr++;
   index++;
   loadQuestion();
 }
-
-
-// function checkA(opt: string): void {
-//   if (opt === quiz[index].answer) scr++;
-//   index++;
-//   loadQuestion();
-// }
 
 function endQ(): void {
   quizQuestion?.style.setProperty('display', 'none');
