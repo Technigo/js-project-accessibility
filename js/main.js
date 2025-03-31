@@ -1,14 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
   submitAnswers()
 
-  console.log("DOM fully loaded")
   const toggle = document.getElementById("toggle")
   if (!toggle) {
     console.error("Toggle element not found!")
     return
   }
-  console.log("Toggle element found")
-
   const body = document.body
 
   // Restore the toggle state from localStorage so the state doesn't change on reloading the page
@@ -21,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     body.classList.remove("high-contrast")
   }
 
-  // Add event listener to the switch button
+  // Add event listener to the toggle element
   toggle.addEventListener("click", () => {
     toggleContrast()
   })
