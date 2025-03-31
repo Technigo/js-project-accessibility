@@ -3,11 +3,119 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title</title>
+    <title>Strength in Diversity</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <p>This is the starting point.</p>
+    <a href="#quiz" class="skip-link">Skip to Content</a>
+
+    <header>
+      <h1>Strength in Diversity</h1>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home">
+        <h2>How This UI is Accessible</h2>
+        <p>
+          This quiz follows accessibility principles by using semantic HTML,
+          keyboard-friendly interactions, and screen reader-friendly markup.
+        </p>
+        <img src="/images/decorative.svg" alt="" />
+        <img
+          src="/images/accessible-form-example.svg"
+          alt="Example of an accessible form with properly labeled inputs"
+        />
+      </section>
+
+      <section id="about">
+        <h2>Empowering People with Disabilities</h2>
+        <p>
+          Our goal is to empower each of you to champion the prioritization of
+          Accessibilityon the web and help provide all people with equal
+          opportunities.
+        </p>
+      </section>
+
+      <section id="quiz" tabindex="-1">
+        <h2>Accessibility Quiz</h2>
+
+        <form id="quiz-form" aria-labelledby="quiz">
+          <fieldset>
+            <legend>What is the purpose of alt text on images?</legend>
+            <label for="question1">
+              <input
+                type="radio"
+                name="question1"
+                value="a"
+                id="question1"
+              />Adds captions to videos</label
+            >
+            <label for="question1">
+              <input
+                type="radio"
+                name="question1"
+                value="b"
+                id="question1"
+              />Describes images to screen readers</label
+            >
+            <label for="question1">
+              <input
+                type="radio"
+                name="question1"
+                value="c"
+                id="question1"
+              />Changes the image color</label
+            >
+          </fieldset>
+          <fieldset>
+            <legend>What is the purpose of alt text on images?</legend>
+            <label for="question2">
+              <input
+                type="radio"
+                name="question2"
+                value="a"
+                id="question2"
+              />Adds captions to videos</label
+            >
+            <label for="question2">
+              <input
+                type="radio"
+                name="question2"
+                value="b"
+                id="question2"
+              />Describes images to screen readers</label
+            >
+            <label for="question2">
+              <input
+                type="radio"
+                name="question2"
+                value="c"
+                id="question2"
+              />Changes the image color</label
+            >
+          </fieldset>
+          <button type="submit">Submit</button>
+
+          <div id="feedback" aria-live="polite" class="sr-only">
+            You got 2 out of 3 correct!
+            <!--Kommer genereras av js sen men bara för att testa och automatiskt läsas av SR??-->
+          </div>
+        </form>
+      </section>
+    </main>
+
     <script src="js/main.js"></script>
   </body>
 </html>
