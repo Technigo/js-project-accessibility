@@ -77,11 +77,15 @@ body {
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
 }
 
 #header h1 {
   color: white;
-  margin: 0 0 1rem 1rem;
+  margin: 0;
 }
 
 #header nav ul {
@@ -120,7 +124,7 @@ body {
 
 #banner img {
   width: 100%;
-  height: 50vh;
+  height: auto; 
   object-fit: cover;
 }
 
@@ -209,12 +213,16 @@ fieldset {
 
 legend {
   font-weight: bold;
-  text-align: center;
+  text-align: left;
   margin-bottom: 1rem;
   padding: 0.5em 1em;
   color: var(--primary-color);
   background-color: #f8fafc;
   border-radius: 0.25rem;
+}
+
+input {
+ text-align: left;
 }
 
 input[type="radio"] {
@@ -298,7 +306,7 @@ input[type="radio"]:focus-visible+label {
 }*/
 
 /* Footer */
-nav ul {
+footer nav ul {
   list-style: none;
   padding: 0;
   display: flex;
@@ -367,7 +375,7 @@ nav a:hover {
 .info-image {
   background: white;
   padding: 1rem;
-  max-width: 90%;
+  max-width: 100%;
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -552,3 +560,107 @@ footer {
   font-size: 0.875rem;
   margin-top: 0.25rem;
 }
+
+
+/* 320px to 480px */
+@media (min-width: 320px ) and (max-width: 480px) {
+  #header .header-content {
+    flex-direction: column;
+  }
+
+  #header h1 {
+    font-size: 1.5rem; /* 24px */
+  }
+
+  #header nav a {
+    font-size: 1.125rem; /* 18px */
+  }
+
+  .quiz-instructions {
+    width: 94%;
+  }
+
+  .quiz-instructions h2,
+  #accessibility-quiz h2 {
+    font-size: 1.25rem; /* 20px */
+  }
+
+  .quiz-instructions p,
+  legend,
+  label {
+    font-size: 1rem; /* 16px */
+  }
+}
+
+/* 480px to 768px */
+@media (min-width: 480px) and (max-width: 768px) {
+  #header .header-content {
+    flex-direction: column;
+  }
+  
+  #header h1 {
+    font-size: 1.625rem; /* 26px */
+  }
+
+  #header nav a {
+    font-size: 1.25rem; /* 20px */
+  }
+
+  .quiz-instructions {
+    width: 90%;
+  }
+
+  .quiz-instructions h2,
+  #accessibility-quiz h2  {
+    font-size: 1.375rem; /* 22px */
+    }
+  
+  .quiz-instructions p,
+  legend,
+  label {
+    font-size: 1.125rem; /* 18px */
+    }
+}
+
+/* 768px to 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  #header h1 {
+    font-size: 1.625rem; /* 26px */
+  }
+  nav a {
+    font-size: 1.375rem; /* 22px */
+  }
+
+  .quiz-instructions h2,
+  #accessibility-quiz h2 {
+    font-size: 1.375rem; /* 22px */
+    }
+
+  .quiz-instructions p,
+  legend,
+  label {
+    font-size: 1.125rem; /* 18px */
+    }
+}
+
+/* 768px to 1024px */
+@media (min-width: 1024px) {
+  #header h1 {
+    font-size: 1.75rem; /* 28px */
+  }
+  #header nav a {
+    font-size: 1.375rem; /* 22px */
+  }
+
+  .quiz-instructions h2,
+  #accessibility-quiz h2 {
+    font-size: 1.5rem; /* 24px */
+    }
+
+  .quiz-instructions p,
+  legend,
+  label {
+    font-size: 1.25rem; /* 20px */
+    }
+}
+
