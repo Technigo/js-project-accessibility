@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const body = document.body
 
-  // Restore the toggle state from localStorage
+  // Restore the toggle state from localStorage so the state doesn't change on reloading the page
   const isHighContrast = localStorage.getItem("highContrast") === "true"
   if (isHighContrast) {
     toggle.classList.add("active")
