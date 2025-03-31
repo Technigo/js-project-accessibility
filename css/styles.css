@@ -2,17 +2,17 @@
 
 /* Base styles with accessibility considerations */
 :root {
-  --primary-color: #2c3e50;
-  --background-color: #ffffff;
-  --accent-color: #0040a3;
+  --primary-color: #042778;
+  --background-color: rgb(213, 233, 250, 0.5);
+  --accent-color: #0073e6;
   /* Darker blue for better contrast */
   --error-color: #e74c3c;
   --success-color: #27ae60;
   --focus-outline: 3px solid var(--accent-color);
-  --focus-ring-color: rgba(0, 86, 179, 0.5);
-  --progress-bg: #edf2f7;
-  --text-color: #2c3e50;
-  --border-color: #e2e8f0;
+  --focus-ring-color: rgba(0, 115, 230, 0.5);
+  --progress-bg: #0073e6;
+  --text-color: #042778;
+  --border-color: #054fb9;
   --hover-bg: rgba(0, 0, 0, 0.05);
   --transition-speed: 0.3s;
 }
@@ -76,7 +76,7 @@ body {
 #header .header-content {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 3rem;
   display: flex;
   align-items: center;
   text-align: center;
@@ -99,7 +99,6 @@ body {
 #header nav a {
   color: white;
   text-decoration: none;
-  font-size: 1.1rem;
   font-weight: 500;
   padding: 0.5rem 1rem;
   border-radius: 6px;
@@ -130,7 +129,9 @@ body {
 
 /* Instructions section */
 #accessibility-quiz {
-  margin: 5% 20% 5% 20%;
+  margin: 5% 20%;
+  border-radius: 8px;
+  background-color: var(--background-color);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   width: 100%;
 }
@@ -147,6 +148,7 @@ body {
   align-items: center;
   text-align: center;
   background-color: #f8f9fa;
+  color: var(--text-color);
   margin: 1rem auto;
   max-width: 600px;
   width: 100%;
@@ -182,7 +184,7 @@ body {
 .nav-buttons button {
   background-color: var(--primary-color);
   color: white;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 2rem;
   border-radius: 0.25rem;
   font-size: 1rem;
   border: none;
@@ -216,8 +218,7 @@ legend {
   text-align: left;
   margin-bottom: 1rem;
   padding: 0.5em 1em;
-  color: var(--primary-color);
-  background-color: #f8fafc;
+  color: var(--text-color);
   border-radius: 0.25rem;
 }
 
@@ -374,11 +375,10 @@ nav a:hover {
 
 .info-image {
   background: white;
-  padding: 1rem;
   max-width: 100%;
+  margin-top: 20px;
   height: auto;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* High contrast mode */
@@ -631,6 +631,10 @@ footer {
     font-size: 1.375rem; /* 22px */
   }
 
+  .quiz-instructions {
+    padding: 2em;
+  }
+
   .quiz-instructions h2,
   #accessibility-quiz h2 {
     font-size: 1.375rem; /* 22px */
@@ -650,6 +654,10 @@ footer {
   }
   #header nav a {
     font-size: 1.375rem; /* 22px */
+  }
+
+  .quiz-instructions {
+    padding: 2em;
   }
 
   .quiz-instructions h2,
