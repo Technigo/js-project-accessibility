@@ -161,7 +161,6 @@ body {
   display: block;
 }
 
-
 .nav-buttons {
   display: flex;
   justify-content: space-between;
@@ -258,6 +257,13 @@ input[type="radio"]:focus-visible+label {
   margin-top: 0.5rem;
   text-align: center;
   font-weight: 500;
+}
+
+.error-message {
+  font-size: 1rem;
+  font-weight: 600;
+  /* not final color, just testing */
+  color: red; 
 }
 
 /* Submit button Jasmin commented out because we now have it as a nav button
