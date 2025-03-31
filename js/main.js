@@ -97,8 +97,14 @@ const quizQuestions = [
 const quizSection = document.querySelector(".quiz-section");
 let quizForm;
 
-// QUIZ QUESTIONS
+//  HERO BUTTON SCROLL
+const ctaBtn = document.querySelector(".cta-btn");
+ctaBtn.addEventListener("click", () => {
+  const quizSection = document.getElementById("quiz-content");
+  quizSection.scrollIntoView({ behavior: "smooth" });
+});
 
+// QUIZ QUESTIONS
 const displayQuizQuestions = () => {
   quizSection.innerHTML = `
   <h2>Accessibility Quiz!</h2>
@@ -164,8 +170,20 @@ const displaQuizResults = () => {
 
   const correctAnswers = answers.filter((answer) => answer === "correct");
 
+  const result = `${correctAnswers.length} / ${answers.length}`;
+
+  let resultText;
+
+  if (correctAnswers.length >= 5 && correctAnswers.length <= 7) {
+    resultText = "Almsot there, try again!";
+  } else if (correctAnswers.length <= 4) {
+    resultText = "Not quite there, try again!";
+  } else {
+    resultText = "Great job!";
+  }
+
   quizSection.innerHTML = `<h2>Your Results!</h2>
-      <p>Great job you got ${correctAnswers.length}/${answers.length}!</p>
+      <p>${resultText} You got ${result}!</p>
       <div class="btns-container">
         <button class="btn retake-btn">Take the quiz again!</button>
         <button class="btn home-btn">To home!</button>
