@@ -22,12 +22,14 @@ const quiz: quizData[] = [
   }
 ]
 
-const quizCard = document.getElementById("quizCard")
-const quizQuestion = document.getElementById("quizQuestion")
-const quizOptions = document.getElementById("quizOptions")
-const quizAnswer = document.getElementById("quizAnswer")
-const score = document.getElementById("score")
-const restartBtn = document.getElementById("restartBtn")
+const quizCard = document.getElementById("quizCard") as HTMLFieldSetElement
+const quizQuestion = document.getElementById("quizQuestion") as HTMLHeadElement
+const quizOptions = document.getElementById("quizOptions") as HTMLInputElement
+const quizAnswer = document.getElementById("quizAnswer") as HTMLDivElement
+const score = document.getElementById("score") as HTMLSpanElement
+const restartBtn = document.getElementById("restartBtn") as HTMLButtonElement
+const submitAnswer = document.getElementById("submitAnswer") as HTMLButtonElement 
+
 let index = 0, scr = 0;
 
 // quizQuestion
@@ -39,7 +41,10 @@ let index = 0, scr = 0;
 const quizInstructions = document.getElementById("quizInstructions");
 quizInstructions?.focus(); // Focus on instructions first
 
+let selectedOption: string | null = null;
+
 function loadQuestion(): void {
+
   if (index >= quiz.length) return endQ(); // End if no more questions
 
   const getQ = quiz[index];
@@ -47,32 +52,66 @@ function loadQuestion(): void {
   if (quizQuestion) quizQuestion.textContent = getQ.ask;
   if (quizOptions) quizOptions.innerHTML = ""; // Clear previous options
 
-  getQ.choose.forEach((element, i) => {
+ selectedOption = null; // Reset selection for new question
 
+  getQ.choose.forEach((element, i )=> {
     const btn = document.createElement("input");
     btn.type = "button";
     btn.classList.add("quizOptions");
     btn.name = "aria";
     btn.id = `aria-${i}`; // Unique ID for accessibility
     btn.value = `${i + 1}. ${element}`;
-    btn.onclick = () => checkA(element);
 
+   btn.onclick = () => {
+      selectedOption = element;
+      console.log("Selected:", selectedOption);
+    };
+
+
+    //btn.onclick = () => checkA(element);
+    //submitAnswer.onclick = () => checkA(element); 
+    //submitAnswer.classList.add("quizoptions");
+    //submitAnswer.name = "aria";
+    //submitAnswer.id = `aria-${i}`; // Unique ID for accessibility
+    //submitAnswer.value= `${i + 1}. ${element}`; 
 
     const label = document.createElement("label");
     label.hidden = true;
     label.htmlFor = btn.id;
     label.textContent = element;
 
+  submitAnswer.onclick = (event) => {
+
+    event.preventDefault(); // 🛑 Stops form submission from refreshing the page
+
+    if (selectedOption !== null) {
+      checkA(selectedOption);
+    } else {
+      console.log("No option selected!");
+    }
+  };
     // Append elements
     quizOptions?.appendChild(btn);
     quizOptions?.appendChild(label);
   });
 }
+
+
+
+
 function checkA(opt: string): void {
-  if (opt === quiz[index].answer) scr++;
+  if (opt === quiz[index].answer) 
+    scr++;
   index++;
   loadQuestion();
 }
+
+
+// function checkA(opt: string): void {
+//   if (opt === quiz[index].answer) scr++;
+//   index++;
+//   loadQuestion();
+// }
 
 function endQ(): void {
   quizQuestion?.style.setProperty('display', 'none');

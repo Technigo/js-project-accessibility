@@ -21,9 +21,11 @@ const quizOptions = document.getElementById("quizOptions");
 const quizAnswer = document.getElementById("quizAnswer");
 const score = document.getElementById("score");
 const restartBtn = document.getElementById("restartBtn");
+const submitAnswer = document.getElementById("submitAnswer");
 let index = 0, scr = 0;
 const quizInstructions = document.getElementById("quizInstructions");
 quizInstructions === null || quizInstructions === void 0 ? void 0 : quizInstructions.focus();
+let selectedOption = null;
 function loadQuestion() {
     if (index >= quiz.length)
         return endQ();
@@ -32,6 +34,7 @@ function loadQuestion() {
         quizQuestion.textContent = getQ.ask;
     if (quizOptions)
         quizOptions.innerHTML = "";
+    selectedOption = null;
     getQ.choose.forEach((element, i) => {
         const btn = document.createElement("input");
         btn.type = "button";
@@ -39,11 +42,23 @@ function loadQuestion() {
         btn.name = "aria";
         btn.id = `aria-${i}`;
         btn.value = `${i + 1}. ${element}`;
-        btn.onclick = () => checkA(element);
+        btn.onclick = () => {
+            selectedOption = element;
+            console.log("Selected:", selectedOption);
+        };
         const label = document.createElement("label");
         label.hidden = true;
         label.htmlFor = btn.id;
         label.textContent = element;
+        submitAnswer.onclick = (event) => {
+            event.preventDefault();
+            if (selectedOption !== null) {
+                checkA(selectedOption);
+            }
+            else {
+                console.log("No option selected!");
+            }
+        };
         quizOptions === null || quizOptions === void 0 ? void 0 : quizOptions.appendChild(btn);
         quizOptions === null || quizOptions === void 0 ? void 0 : quizOptions.appendChild(label);
     });
