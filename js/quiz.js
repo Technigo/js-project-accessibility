@@ -62,11 +62,11 @@ const displayUserFeedback = (userAnswers, correctAnswers) => {
     console.log(`Right answer: ${correct}`);*/
 
     if (userAnswer === correctValue) {
-      feedbackDiv.innerHTML = `<p style="color: green; border: 2px solid; border-color: green;">Yes! You got this! ${correctText} is correct!</p>`;
+      feedbackDiv.innerHTML = `<p style="color: black; border: 2px solid; border-color: green;">Yes! You got this! ${correctText} is correct!</p>`;
     } else if (userAnswer === null) {
-      feedbackDiv.innerHTML = `<p style="color: red;"> You forgot to answer!</p>`;
+      feedbackDiv.innerHTML = `<p style="color: black; border: 2px solid; border-color: red;">You forgot to answer!</p>`;
     } else {
-      feedbackDiv.innerHTML = `<p style="color: red;"> Wrong. The right answer is ${correctText.toLowerCase()}</p>`;
+      feedbackDiv.innerHTML = `<p style="color: black; border: 2px solid; border-color: red;">Wrong. The right answer is ${correctText.toLowerCase()}</p>`;
     }
   }
 };
