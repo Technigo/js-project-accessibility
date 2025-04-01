@@ -107,8 +107,8 @@ ctaBtn.addEventListener("click", () => {
 // QUIZ QUESTIONS
 const displayQuizQuestions = () => {
   quizSection.innerHTML = `
-  <h2>Accessibility Quiz!</h2>
-  <p>
+  <h2 tabindex="0">Accessibility Quiz!</h2>
+  <p tabindex="0">
   Answer the following questions, then click the submit button once you're
   done. You can only select one answer per question.
   </p>
@@ -143,10 +143,10 @@ const displayQuizQuestions = () => {
 
     const quizContainer = document.getElementById("quiz-container");
 
-    quizContainer.innerHTML = `<fieldset class="question-${
+    quizContainer.innerHTML = `<fieldset tabindex="0" class="question-${
       currentQuizQuestion.questionNumber
     }">
-              <legend>${currentQuizQuestion.question}</legend>
+              <legend tabindex="0">${currentQuizQuestion.question}</legend>
               ${quizAnswers
                 .map((answer, i) => {
                   return `<div class="quiz-option">
@@ -160,7 +160,36 @@ const displayQuizQuestions = () => {
             `;
                 })
                 .join("")}
-            </fieldset>`;
+            </fieldset>
+            <p id="warning-message" class="hidden" aria-live="polite">
+              
+            </p>
+            `;
+
+    const quizInputs = document.querySelectorAll(
+      `input[name="q${currentQuizQuestion.questionNumber}"]`
+    );
+    const warningMessage = document.getElementById("warning-message");
+
+    const updateNextButtonState = () => {
+      const questionAnswered = Array.from(quizInputs).some(
+        (input) => input.checked
+      );
+      nextBtn.disabled = !questionAnswered;
+
+      if (!questionAnswered) {
+        warningMessage.textContent =
+          "Please select an answer before proceeding.";
+      } else {
+        warningMessage.textContent = "";
+      }
+    };
+
+    updateNextButtonState();
+
+    quizInputs.forEach((input) => {
+      input.addEventListener("change", updateNextButtonState);
+    });
 
     if (currentQuestionIndex === 0) {
       prevBtn.disabled = true;
@@ -169,10 +198,8 @@ const displayQuizQuestions = () => {
     }
 
     if (currentQuestionIndex === quizQuestions.length - 1) {
-      nextBtn.disabled = true;
       submitBtn.classList.remove("hidden");
     } else {
-      nextBtn.disabled = false;
       submitBtn.classList.add("hidden");
     }
   };
@@ -196,15 +223,15 @@ const displayQuizQuestions = () => {
 
   quizForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    displaQuizResults();
+    displayQuizResults();
   });
 };
 
 // QUIZ RESULTS
-const displaQuizResults = () => {
-  const quizInputs = document.querySelectorAll(".quiz-input:checked");
+let answers = [];
 
-  let answers = [];
+const displayQuizResults = () => {
+  const quizInputs = document.querySelectorAll(".quiz-input:checked");
 
   quizInputs.forEach((quizInput) => {
     answers.push(quizInput.value);
@@ -234,7 +261,12 @@ const displaQuizResults = () => {
   const retakeQuizBtn = document.querySelector(".retake-btn");
   const toHomeBtn = document.querySelector(".home-btn");
 
-  retakeQuizBtn.addEventListener("click", displayQuizQuestions);
+  retakeQuizBtn.addEventListener("click", () => {
+    answers = [];
+    currentQuestionIndex = 0;
+    displayQuizQuestions();
+  });
+
   toHomeBtn.addEventListener("click", () => {
     const homeSection = document.getElementById("home-content");
     homeSection.scrollIntoView({ behavior: "smooth" });
