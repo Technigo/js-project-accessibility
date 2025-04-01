@@ -33,6 +33,8 @@ const submitAnswer = document.getElementById("submitAnswer") as HTMLButtonElemen
 
 let index = 0, scr = 0;
 let selectedOption: string | null = null;
+let currentQuestion = 0;
+let currentOption: string[] = [];
 
 
 // quizQuestion
@@ -51,18 +53,24 @@ function loadQuestion(): void {
   if (index >= quiz.length) return endQ(); // End if no more questions
 
   const getQ = quiz[index];
+  currentQuestion = index; //Store current question, to go back to
+  currentOption = getQ.choose //Store current options, to go back to 
+  console.log(currentOption) 
 
   if (quizQuestion) quizQuestion.textContent = getQ.ask;
-  if (quizOptions) quizOptions.innerHTML = ""; // Clear previous options 
+  if (quizOptions) quizOptions.innerHTML  = ""; // Clear previous options 
 
  let selectedOption: string | null = null;
 
   getQ.choose.forEach((element, i )=> {
+    
     const btn = document.createElement("input");
     btn.type = "radio";
     btn.name = "aria";
     btn.id = `aria-${i}`; // Unique ID for accessibility
     btn.value = `${i + 1}. ${element}`;
+
+    
 
    btn.onclick = () => {
       selectedOption = element;
@@ -97,8 +105,11 @@ function loadQuestion(): void {
 
 function checkA(opt: string): void {
 
-    if (opt === quiz[index].answer) {
-      scr++;
+  console.log("Current question index:", index);
+  console.log("Current options:", currentOption)
+
+  if (opt === quiz[index].answer) {
+    scr++;
     index++;
     loadQuestion();
   } else {
@@ -109,60 +120,22 @@ function checkA(opt: string): void {
     <h3>Oh no wrong answer</H3>
     <button id=retryBtn>Click to Retry</button>
     `;
-
-    
-    loadQuestion()
-
-  }
    
+    const retryBtn = document.getElementById("retryBtn") as HTMLButtonElement | null;
+    if (retryBtn) {
+      retryBtn.addEventListener("click", (event) => {
+      event.preventDefault(); //Stops form submission from refreshing the page
+
+      index = currentQuestion;
+      
+      console.log("hejhej")
+      console.log(currentQuestion)
+
+      loadQuestion()
+    })    
+    }
+  }   
 }
-
-// Function to retry the same question
-// function retryQuestion(question: quizData): void {
-//   quizCard.innerHTML = ""; // Clear retry message
-
-//   if (quizQuestion) quizQuestion.textContent = question.ask;
-//   if (quizOptions) quizOptions.innerHTML = ""; // Clear previous options
-
-//   let selectedOption: string | null = null;
-
-//   question.choose.forEach((element, i) => {
-//     const btn = document.createElement("input");
-//     btn.type = "radio";
-//     btn.name = "aria";
-//     btn.id = `aria-${i}`; // Unique ID for accessibility
-//     btn.value = `${i + 1}. ${element}`;
-
-//    btn.onclick = () => {
-//       selectedOption = element;
-//       console.log("Selected:", selectedOption);
-//     };
-
-//     const label = document.createElement("label");
-//     //label.hidden = true;
-//     label.htmlFor = btn.id;
-    
-
-//   label.appendChild(btn);
-//   label.append(` ${element}`)
-
-//     submitAnswer.onclick = (event) => {
-
-//     event.preventDefault(); //Stops form submission from refreshing the page
-
-//     if (selectedOption !== null) {
-//       checkA(selectedOption);
-//     } else {
-//       console.log("No option selected!");
-//     }
-//   };
-//     // Append elements
-   
-//     quizOptions?.appendChild(label);
-//   });
-
-//   submitAnswer.style.display = "block"; // Show submit button again
-// }
 
 
 function endQ(): void {
@@ -174,7 +147,7 @@ function endQ(): void {
   submitAnswer.style.setProperty('display', 'none');
 }
 
-console.log(loadQuestion)
+//console.log(loadQuestion)
 
 loadQuestion();
 

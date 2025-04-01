@@ -24,12 +24,17 @@ const restartBtn = document.getElementById("restartBtn");
 const submitAnswer = document.getElementById("submitAnswer");
 let index = 0, scr = 0;
 let selectedOption = null;
+let currentQuestion = 0;
+let currentOption = [];
 const quizInstructions = document.getElementById("quizInstructions");
 quizInstructions === null || quizInstructions === void 0 ? void 0 : quizInstructions.focus();
 function loadQuestion() {
     if (index >= quiz.length)
         return endQ();
     const getQ = quiz[index];
+    currentQuestion = index;
+    currentOption = getQ.choose;
+    console.log(currentOption);
     if (quizQuestion)
         quizQuestion.textContent = getQ.ask;
     if (quizOptions)
@@ -62,6 +67,8 @@ function loadQuestion() {
     });
 }
 function checkA(opt) {
+    console.log("Current question index:", index);
+    console.log("Current options:", currentOption);
     if (opt === quiz[index].answer) {
         scr++;
         index++;
@@ -74,7 +81,16 @@ function checkA(opt) {
     <h3>Oh no wrong answer</H3>
     <button id=retryBtn>Click to Retry</button>
     `;
-        loadQuestion();
+        const retryBtn = document.getElementById("retryBtn");
+        if (retryBtn) {
+            retryBtn.addEventListener("click", (event) => {
+                event.preventDefault();
+                index = currentQuestion;
+                console.log("hejhej");
+                console.log(currentQuestion);
+                loadQuestion();
+            });
+        }
     }
 }
 function endQ() {
@@ -86,5 +102,4 @@ function endQ() {
     restartBtn === null || restartBtn === void 0 ? void 0 : restartBtn.style.setProperty('display', 'block');
     submitAnswer.style.setProperty('display', 'none');
 }
-console.log(loadQuestion);
 loadQuestion();
