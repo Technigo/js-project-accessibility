@@ -5,12 +5,12 @@ document.addEventListener('DOMContentLoaded', function () {
   let userAnswers = {};
 
   const correctAnswers = {
-    0: "Images with descriptive alt text",
-    1: "Breaking content into smaller, collapsible sections",
-    2: "A dark mode toggle",
-    3: "Clear fonts, generous spacing, and simple layout",
-    4: "Captions and transcripts for all audio",
-    5: "Keyboard-accessible buttons and links",
+    0: "Images with helpful descriptions",
+    1: "Collapsible sections",
+    2: "A dark mode option",
+    3: "Simple layout and easy-to-read text",
+    4: "Videos with captions and text",
+    5: "Keyboard friendly buttons",
   };
 
   //A function that loops through all the quiz cards and only shows the one that matches the target index, by adding the active class to it and hiding the rest
