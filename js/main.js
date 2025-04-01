@@ -1,38 +1,161 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  const cards = document.querySelectorAll('.quiz-card')
-  let currentIndex = 0 //First question
+  const cards = document.querySelectorAll('.quiz-card');
+  let currentIndex = 0;
+  let userAnswers = {};
+
+  const correctAnswers = {
+    0: "Images with helpful descriptions",
+    1: "Collapsible sections",
+    2: "A dark mode option",
+    3: "Simple layout and easy-to-read text",
+    4: "Videos with captions and text",
+    5: "Keyboard friendly buttons",
+  };
 
   //A function that loops through all the quiz cards and only shows the one that matches the target index, by adding the active class to it and hiding the rest
   const showCard = (targetIndex) => {
     cards.forEach((card, index) => {
-      card.classList.toggle('active', index === targetIndex)
-    })
-  }
+      card.classList.toggle('active', index === targetIndex);
+    });
+  };
 
   // Gets all next buttons and adds an action
   const nextButtons = document.querySelectorAll('.next-btn')
   nextButtons.forEach((button) => {
     button.addEventListener('click', () => {
       // Move to the next question 
-      if (currentIndex < cards.length - 1) {
-        currentIndex++
-        showCard(currentIndex)
+      if (currentIndex <= cards.length - 1) {
+        handleNext();
       }
-    })
-  })
+    });
+  });
 
   //Gets all previous buttons and adds an action
   const previousButtons = document.querySelectorAll('.prev-btn')
   previousButtons.forEach((button) => {
     button.addEventListener('click', () => {
       if (currentIndex > 0) {
-        currentIndex--
-        showCard(currentIndex)
+        handlePrevious();
       }
-    })
-  })
+    });
+  });
 
   //Start by showing first card
   showCard(currentIndex)
-})
+
+  //Get the answer selected by the user 
+
+  const getSelectedAnswer = () => {
+    const selectedOption = document.querySelector(`.quiz-card.active input[type="radio"]:checked`);
+    return selectedOption ? selectedOption.value : null; 
+  };
+
+
+  const createErrorMessage = () => {
+    const errorMessage = document.createElement("div");
+    errorMessage.classList.add("error-message");
+    errorMessage.setAttribute("aria-live", "polite");
+    errorMessage.textContent = "Please select an answer before proceeding.";
+    return errorMessage;
+  };
+
+  const showSummary = () => {
+    let summaryCard = document.getElementById("summary-card");
+
+    if (!summaryCard) {
+      summaryCard = document.createElement("fieldset");
+      summaryCard.id = "summary-card";
+      summaryCard.classList.add("quiz-card");
+      summaryCard.innerHTML = `
+        <h2>Your results:</h2>
+        <div id="summary-content"></div>
+        <button type="button" id="restart-btn">Restart Quiz</button>
+      `;
+      document.getElementById("accessibility-quiz").appendChild(summaryCard);
+    }
+
+    summaryCard.classList.add("active");
+
+    const summaryContent = document.getElementById("summary-content");
+    summaryContent.innerHTML = "";
+
+    let correctCount = 0; 
+    Object.keys(userAnswers).forEach(index => {
+      const answer = userAnswers[index];
+      const resultText = answer.isCorrect ? "Correct ✅" : "Incorrect ❌";
+      if(answer.isCorrect) {
+        correctCount++;
+      }
+
+      summaryContent.innerHTML += `
+        <p>Question ${parseInt(index) + 1}: ${resultText}</p>
+      `;
+    });
+
+    summaryContent.innerHTML += `<h3>You got ${correctCount} out of ${cards.length} questions right!</h3>`;
+
+    const restartButton = document.getElementById("restart-btn");
+    restartButton.addEventListener("click", () => {
+      currentIndex = 0;
+      userAnswers = {};
+      
+      summaryCard.classList.remove("active");
+      
+      document.querySelectorAll('input[type="radio"]:checked').forEach((radio) => {
+        radio.checked = false;
+      });
+
+      showCard(currentIndex);
+      
+    });
+
+    showCard(cards.length);
+  }
+
+  // Function that gets the user's answer, compares it to the right answer, and marks answer as right or wrong
+  const handleNext = () => {
+
+    const currentCard = cards[currentIndex];
+    const selectedAnswer = getSelectedAnswer();
+
+    // Check if error message already exists and remove it if it does
+    const existingError = currentCard.querySelector(".error-message");
+    if (existingError) {
+      existingError.remove();
+    }
+
+    // If no answer selected create an error message
+    if (!selectedAnswer) {
+      const errorMessage = createErrorMessage();
+      currentCard.appendChild(errorMessage);
+      return;
+    }
+
+    // Store user's answer and correctness
+    const correctAnswer = correctAnswers[currentIndex];
+    userAnswers[currentIndex] = {
+        selected: selectedAnswer,
+        isCorrect: selectedAnswer === correctAnswer
+    };
+
+    if (currentIndex < cards.length) {
+      currentIndex++; 
+    }
+
+    // If at the end, show summary
+    if (currentIndex === cards.length) {
+      showSummary();
+    } else {
+        showCard(currentIndex);
+    }
+  }
+
+  const handlePrevious = () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      showCard(currentIndex);
+    }
+  }
+
+});
