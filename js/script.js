@@ -80,17 +80,9 @@ function checkA(opt) {
         quizCard.innerHTML = `
     <h3>Oh no wrong answer</H3>
     <button id=retryBtn>Click to Retry</button>
+    <button id=continueBtn>Click to Continue</button>
     `;
-        const retryBtn = document.getElementById("retryBtn");
-        if (retryBtn) {
-            retryBtn.addEventListener("click", (event) => {
-                event.preventDefault();
-                index = currentQuestion;
-                console.log("hejhej");
-                console.log(currentQuestion);
-                loadQuestion();
-            });
-        }
+        loadQuestion();
     }
 }
 function endQ() {

@@ -119,21 +119,36 @@ function checkA(opt: string): void {
     quizCard.innerHTML =`
     <h3>Oh no wrong answer</H3>
     <button id=retryBtn>Click to Retry</button>
+    <button id=continueBtn>Click to Continue</button>
     `;
    
-    const retryBtn = document.getElementById("retryBtn") as HTMLButtonElement | null;
-    if (retryBtn) {
-      retryBtn.addEventListener("click", (event) => {
-      event.preventDefault(); //Stops form submission from refreshing the page
+    // const retryBtn = document.getElementById("retryBtn") as HTMLButtonElement | null;
+    // if (retryBtn) {
+    //   retryBtn.addEventListener("click", (event) => {
+    //   event.preventDefault(); //Stops form submission from refreshing the page
 
-      index = currentQuestion;
+    //   index = currentQuestion;
       
-      console.log("hejhej")
-      console.log(currentQuestion)
+    //   console.log("hejhej")
+    //   console.log(currentQuestion)
 
-      loadQuestion()
-    })    
-    }
+    //   loadQuestion()
+    // })    
+    // }
+
+    // const continueBtn = document.getElementById("continueBtn") as HTMLButtonElement | null;
+
+    // if (continueBtn)  {
+    //   continueBtn.addEventListener("click", (event) => {
+    //     event.preventDefault();//Stops form submission from refreshing the page
+
+    //     index = currentQuestion[index + 1];
+    //     loadQuestion()
+    //   }
+
+    //   )
+    // }
+    loadQuestion()
   }   
 }
 
