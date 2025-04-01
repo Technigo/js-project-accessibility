@@ -66,8 +66,8 @@ body {
 /* Header */
 #header {
   width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
+  /* margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);*/
   background-color: var(--primary-color);
   color: white;
   padding: 2rem 0;
@@ -99,25 +99,17 @@ body {
 #header nav a {
   color: white;
   text-decoration: none;
-  font-weight: 500;
+  /*font-weight: 500;*/
   padding: 0.5rem 1rem;
   border-radius: 6px;
   transition: opacity var(--transition-speed);
 }
 
 #header nav a:hover {
-  opacity: 0.8;
-  background-color: rgba(255, 255, 255, 0.1);
+  text-decoration: underline;
 }
 
-
-#banner img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-/* Instructions section */
+/* Instructions section LEAVE*/
 #accessibility-quiz {
   margin: 5% 20%;
   border-radius: 8px;
@@ -160,6 +152,14 @@ body {
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+/*.info-image {
+  background: white;
+  max-width: 100%;
+  margin-top: 20px;
+  height: auto;
+  border-radius: 8px;
+}*/
 
 /*Quiz elements*/
 .quiz-card {
@@ -237,7 +237,7 @@ input[type="radio"]:hover {
   outline-offset: 0.125rem;
 }
 
-/*Style for navigation w. keyboard*/
+/*Style for navigation w. keyboard LEAVE*/
 input[type="radio"]:checked+label {
   background-color: #e6f0ff;
   border-radius: 0.25rem;
@@ -278,58 +278,18 @@ input[type="radio"]:focus-visible+label {
   font-size: 1rem;
   font-weight: 600;
   /* not final color, just testing */
-  color: red; 
+  color: red;
 }
 
-/* Submit button Jasmin commented out because we now have it as a nav button
-.form-controls {
-  margin-top: 2rem;
-  text-align: center;
+
+/* ABOUT PAGE LEAVE*/
+#banner img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
-.submit-button {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.2s, transform 0.1s;
-  font-weight: 500;
-}
 
-.submit-button:hover {
-  background-color: #34495e;
-}
-
-.submit-button:active {
-  transform: scale(0.98);
-}
-
-.submit-button:focus-visible {
-  outline: var(--focus-outline);
-  outline-offset: 2px;
-}*/
-
-/* Footer */
-footer nav ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 1rem;
-}
-
-nav a {
-  color: var(--accent-color);
-  text-decoration: none;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-/* ABOUT PAGE */
 #introduction {
   display: flex;
   flex-direction: column;
@@ -379,136 +339,37 @@ nav a:hover {
 }
 
 
-.info-image {
-  background: white;
-  max-width: 100%;
-  margin-top: 20px;
-  height: auto;
-  border-radius: 8px;
-}
 
-/* High contrast mode */
-@media (prefers-contrast: more) {
-  :root {
-    --primary-color: #000000;
-    --background-color: #ffffff;
-    --accent-color: #0000ff;
-    --error-color: #ff0000;
-    --success-color: #008000;
-    --text-color: #000000;
-    --border-color: #000000;
-    --hover-bg: #000000;
-    --focus-outline: 3px solid #000000;
-    --focus-ring-color: #000000;
-    --progress-bg: #ffffff;
-  }
-
-  body {
-    background-color: var(--background-color);
-    color: var(--text-color);
-  }
-
-  a {
-    color: var(--accent-color);
-    text-decoration: underline;
-  }
-
-  button,
-  input,
-  select,
-  textarea {
-    border: 2px solid var(--text-color);
-    background-color: var(--background-color);
-    color: var(--text-color);
-  }
-
-  fieldset {
-    border: 2px solid var(--text-color);
-  }
-
-  legend {
-    border: 2px solid var(--text-color);
-    background-color: var(--background-color);
-  }
-
-}
-
-/* Footer styles */
-footer {
+/* Footer */
+.footer-content {
   width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
   background-color: var(--primary-color);
   color: white;
   padding: 2rem 0;
   margin-top: auto;
+  font-size: 18px;
 }
 
-.footer-content {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 1rem;
-  display: grid;
-  gap: 2rem;
-}
-
-.footer-content ul {
+footer nav ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
+  padding: 8px 16px;
+  margin: 1rem 0;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  background-color: var(--primary-color);
 }
 
-.footer-content a {
-  color: white;
+nav a {
+  color: var(--accent-color);
   text-decoration: none;
-  padding: 0.5rem 0;
-  display: block;
-  transition: opacity var(--transition-speed);
+  color: white;
 }
 
-.footer-content a:hover {
-  opacity: 0.8;
+nav a:hover {
+  text-decoration: underline;
 }
 
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-
-  .progress-fill {
-    transition: none;
-  }
-
-  .skip-link {
-    transition: none;
-  }
-
-  button,
-  input,
-  select,
-  textarea {
-    transition: none;
-  }
-}
-
-/* Add a class for manual high contrast toggle */
-.high-contrast-mode {
-  --primary-color: #000000 !important;
-  --background-color: #ffffff !important;
-  --accent-color: #0000ff !important;
-  --error-color: #ff0000 !important;
-  --success-color: #008000 !important;
-  --text-color: #000000 !important;
-  --border-color: #000000 !important;
-  --hover-bg: #000000 !important;
-  --focus-outline: 3px solid #000000 !important;
-  --focus-ring-color: #000000 !important;
-  --progress-bg: #ffffff !important;
-}
 
 /* User Info Form */
 #user-info {
@@ -567,6 +428,7 @@ footer {
   margin-top: 0.25rem;
 }
 
+/*Media Queries*/
 
 /* 320px to 480px */
 @media (min-width: 320px) and (max-width: 480px) {
@@ -693,5 +555,12 @@ footer {
   label {
     font-size: 1.25rem;
     /* 20px */
+  }
+
+  footer nav ul {
+    justify-content: flex-end;
+    padding-right: 18rem;
+
+
   }
 }
