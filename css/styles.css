@@ -198,3 +198,56 @@ h1 {
   height: 100%;
   object-fit: cover;
 }
+
+/* Error message styles */
+.error-message {
+  display: none;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.error-message.correct {
+  color: var(--color-success);
+  background-color: rgba(47, 133, 90, 0.1);
+}
+
+.error-message.incorrect {
+  color: var(--color-error);
+  background-color: rgba(197, 48, 48, 0.1);
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Radio button focus styles */
+input[type="radio"]:focus-visible + label {
+  background-color: var(--color-border);
+  border-radius: 4px;
+}
+
+/* Skip link focus styles */
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  z-index: 1000;
+}
+
+/* Ensure all interactive elements are focusable */
+a:focus,
+button:focus,
+input:focus {
+  outline: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

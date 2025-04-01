@@ -1,10 +1,10 @@
 <!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title</title>
+    <title>Lord of the rings accessibility quiz</title>
     <link rel="stylesheet" href="css/styles.css" />
-    <html lang="en">
   </head>
   <body>
     <a href="#main" class="skip-link">Skip to main content</a>
@@ -27,28 +27,63 @@
     <main id="main">
       <section id="quizIntroduction">
         <h2>Introduction</h2>
-        <p>This is the starting point of the quiz! This section will explain the quiz and the accessibility features that will be tested.</p>
-        <img src="images/mountains.jpg" id="mountains" alt="" role="presentation"/>
-        <img src="images/manga-mountains.jpg" id="manga-mountains" alt="Black and white painting of a mountainous landscape"/>
+        <p>Welcome to our Web Accessibility Quiz! This interactive quiz will help you learn about web accessibility features while having fun with a Lord of the Rings theme. Each question explores different aspects of accessibility challenges and solutions.</p>
+        <div class="image-container">
+          <img 
+            src="images/mountains.jpg" 
+            id="mountains" 
+            alt="" 
+            role="presentation"
+            aria-hidden="true" />
+          <img 
+            src="images/manga-mountains.jpg" 
+            id="manga-mountains" 
+            alt="Black and white painting of a mountainous landscape"
+            width="400"
+            height="300" />
+        </div>
       </section>
 
       <section id="quizQuestions">
         <h2>Lord of the Rings Accessibility Quiz</h2>
-        <form>
+        <form id="quiz-form" novalidate>
           <fieldset id="question1">
             <legend>Who would have the hardest time using a computer, seen to their disability?</legend>
-            <div role="radiogroup">
-              <div>
-                <input type="radio" id="question1-option1" name="question1" />
-                <label for="question1-option1">Smeagol (keeping track of profiles is hard enough)</label>
+            <div role="radiogroup" aria-required="true" aria-invalid="true">
+              <div class="radio-option">
+                <input 
+                  type="radio" 
+                  id="question1-option1" 
+                  name="question1"
+                  value="smeagol"
+                  required />
+                <label for="question1-option1">
+                  Smeagol (keeping track of profiles is hard enough)
+                </label>
               </div>
-              <div>
-                <input type="radio" id="question1-option2" name="question1" />
-                <label for="question1-option2">Sauron (having no body seems like an issue)</label>
+              
+              <div class="radio-option">
+                <input 
+                  type="radio" 
+                  id="question1-option2" 
+                  name="question1"
+                  value="sauron"
+                  required />
+                <label for="question1-option2">
+                  Sauron (having no body seems like an issue)
+                </label>
               </div>
-              <div>
-                <input type="radio" id="question1-option3" name="question1" />
-                <label for="question1-option3">Tom Bombadil (ever heard about ADHD? Tom invented it)</label>
+              
+              <div class="radio-option">
+                <input 
+                  type="radio" 
+                  id="question1-option3" 
+                  name="question1"
+                  value="tom"
+                  required />
+                <label for="question1-option3">
+                  Tom Bombadil (ever heard about ADHD? Tom invented it)
+                </label>
               </div>
             </div>
             <div class="error-message" id="error-question1" aria-live="polite"></div>
@@ -56,17 +91,32 @@
 
           <fieldset id="question2">
             <legend>What would be Frodo's biggest challenge in using a modern computer?</legend>
-            <div role="radiogroup">
-              <div>
-                <input type="radio" id="question2-option1" name="question2" />
+            <div role="radiogroup" aria-required="true" aria-invalid="true">
+              <div class="radio-option">
+                <input 
+                  type="radio" 
+                  id="question2-option1" 
+                  name="question2"
+                  value="keyboard"
+                  required />
                 <label for="question2-option1">Reaching the keyboard</label>
               </div>
               <div class="radio-option">
-                <input type="radio" id="question2-option2" name="question2" />
+                <input 
+                  type="radio" 
+                  id="question2-option2" 
+                  name="question2"
+                  value="fingers"
+                  required />
                 <label for="question2-option2">Hairy fingers getting in the way of the mouse</label>
               </div>
               <div class="radio-option">
-                <input type="radio" id="question2-option3" name="question2" />
+                <input 
+                  type="radio" 
+                  id="question2-option3" 
+                  name="question2"
+                  value="crumbles"
+                  required />
                 <label for="question2-option3">Cheese crumbles stuck in the keyboard</label>
               </div>
             </div>
@@ -75,17 +125,32 @@
 
           <fieldset id="question3">
             <legend>Who has the worst eyesight?</legend>
-            <div role="radiogroup">
+            <div role="radiogroup" aria-required="true" aria-invalid="true">
               <div class="radio-option">
-                <input type="radio" id="question3-option1" name="question3" />
+                <input 
+                  type="radio" 
+                  id="question3-option1" 
+                  name="question3"
+                  value="smeagol"
+                  required />
                 <label for="question3-option1">Smeagol</label>
               </div>
               <div class="radio-option">
-                <input type="radio" id="question3-option2" name="question3" />
+                <input 
+                  type="radio" 
+                  id="question3-option2" 
+                  name="question3"
+                  value="samwise"
+                  required />
                 <label for="question3-option2">Samwise Gamgi</label>
               </div>
               <div class="radio-option">
-                <input type="radio" id="question3-option3" name="question3" />
+                <input 
+                  type="radio" 
+                  id="question3-option3" 
+                  name="question3"
+                  value="gandalf"
+                  required />
                 <label for="question3-option3">Gandalf Grey</label>
               </div>
             </div>
