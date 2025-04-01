@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wind 1 - Accessibility Site</title>
+    <title>Accessibility Site - By Wind 1</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="https://use.typekit.net/ggo4lqo.css">
   </head>
@@ -59,13 +59,46 @@
             alt="A graphic image representing web accessibility" />  <!--will double check on aria label-->
         </div>
       </section>
-      
-      <!--TO DO??/ QUESTIONS: Introduction FORM asking for name and email, between Continue button and the Quiz itself-->
+
+      <section id="user-info" hidden>
+        <h2>Your information</h2>
+        <form id="user-info-form">
+          <div class="form--control">
+            <label for="name">Name:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              aria-required="true"
+              aria-describedby="name-error"
+              placeholder="Example: Johan Johansson"
+            />
+            <div id="name-error" class="error" role="alert" hidden></div>
+          </div>
+          <div class="form-control">
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              aria-required="true"
+              aria-describedby="email-hint email-error"
+              placeholder="name@example.com"/>
+            <div id="email-hint" class="error" role="alert" hidden></div>
+            <div class="form-control">
+              <button type="submit" class="submit-button">
+                Continue to our accessibility quiz
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+      <div id="announcer" class="visually-hidden" aria-live="polite"></div>
 
       <section class="accessibility-quiz">
         <h2>Accessibility Quiz</h2>
         
-        <fieldset name="question1"> <!--perhaps fieldset name "questions1" is not needed for the sake of accessibility, maybe id or class will be better for JS????? for example <fieldset id="question1" class="quiz-question">  -->
+        <fieldset id="question1" class="quiz-question">  <!--perhaps fieldset name "questions1" is not needed for the sake of accessibility, maybe id or class will be better for JS????? for example <fieldset id="question1" class="quiz-question">  -->
           <legend>This questions is about the definition of accessibility</legend>
           <p>1. What is accessibility?</p>  
           <input 
@@ -75,7 +108,7 @@
           <label 
             for="q1a1"
             id="q1a1label"> 
-            Accessibility refers to the design of products, devices, services and environments for people who experience disabilities, including web developemnt.
+            Accessibility refers to the design of products, devices, services and environments for people who experience disabilities, including web development.
           </label><br>
           <input 
             type="radio" 
