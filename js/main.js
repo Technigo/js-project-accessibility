@@ -16,10 +16,12 @@ document.addEventListener("DOMContentLoaded", () => {
   if (isHighContrast) {
     console.log("Applying saved high-contrast mode")
     toggle.classList.add("active")
+    toggle.checked = true
     body.classList.add("high-contrast")
   } else {
     console.log("Starting in default mode")
     toggle.classList.remove("active")
+    toggle.checked = false // To make the toggle visually reflect the state
     body.classList.remove("high-contrast")
   }
 
@@ -27,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
   toggle.addEventListener("click", () => {
     toggleContrast() // Call the toggleContrast function when the button is clicked
   })
-  submitAnswers()
 })
 
 const toggleContrast = () => {
