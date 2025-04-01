@@ -143,7 +143,7 @@ const displayQuizQuestions = () => {
 
     const quizContainer = document.getElementById("quiz-container");
 
-    quizContainer.innerHTML = `<fieldset tabindex="0" class="question-${
+    quizContainer.innerHTML = `<fieldset class="question-${
       currentQuizQuestion.questionNumber
     }">
               <legend tabindex="0">${currentQuizQuestion.question}</legend>
