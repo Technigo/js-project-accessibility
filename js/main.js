@@ -114,42 +114,84 @@ const displayQuizQuestions = () => {
   </p>
   <form id="quiz-form">
   <div id="quiz-container"></div>
-  <button class="btn" type="submit">Submit!</button>
+  <div class="btns-container">
+    <button class="btn next-btn" aria-label="Next-question">Next question</button>
+    <button class="btn prev-btn" aria-label="Previous-question">Previous question</button>
+    <button class="btn submit-btn" type="submit" aria-label="Submit-button">Submit!</button>  
+  </div>
   </form>
   `;
 
   quizForm = document.getElementById("quiz-form");
+  const nextBtn = document.querySelector(".next-btn");
+  const prevBtn = document.querySelector(".prev-btn");
+  const submitBtn = document.querySelector(".submit-btn");
 
-  quizQuestions.forEach((quizQuestion) => {
+  let currentQuestionIndex = 0;
+
+  const displayCurrentQuestion = () => {
+    const currentQuizQuestion = quizQuestions[currentQuestionIndex];
+
     let quizAnswers = [
-      { label: quizQuestion.altAnswerOne, value: "wrong" },
-      { label: quizQuestion.altAnswerTwo, value: "wrong" },
-      { label: quizQuestion.correctAnswer, value: "correct" },
-      { label: quizQuestion.altAnswerThree, value: "wrong" },
+      { label: currentQuizQuestion.altAnswerOne, value: "wrong" },
+      { label: currentQuizQuestion.altAnswerTwo, value: "wrong" },
+      { label: currentQuizQuestion.correctAnswer, value: "correct" },
+      { label: currentQuizQuestion.altAnswerThree, value: "wrong" },
     ];
 
     quizAnswers = quizAnswers.sort(() => Math.random() - 0.5);
 
     const quizContainer = document.getElementById("quiz-container");
 
-    quizContainer.innerHTML += `<fieldset class="question-${
-      quizQuestion.questionNumber
+    quizContainer.innerHTML = `<fieldset class="question-${
+      currentQuizQuestion.questionNumber
     }">
-            <legend>${quizQuestion.question}</legend>
-            ${quizAnswers
-              .map((answer, i) => {
-                return `<div class="quiz-option">
-              <input class="quiz-input" aria-controls="answer-section" type="radio" id="option-${
-                i + 1
-              }" name="q${quizQuestion.questionNumber}" value="${
-                  answer.value
-                }" required />
-              <label for="option-${i + 1}">${answer.label}</label>
-            </div>
-          `;
-              })
-              .join("")}
-          </fieldset>`;
+              <legend>${currentQuizQuestion.question}</legend>
+              ${quizAnswers
+                .map((answer, i) => {
+                  return `<div class="quiz-option">
+                <input class="quiz-input" aria-controls="answer-section" type="radio" id="option-${
+                  i + 1
+                }" name="q${currentQuizQuestion.questionNumber}" value="${
+                    answer.value
+                  }" required />
+                <label for="option-${i + 1}">${answer.label}</label>
+              </div>
+            `;
+                })
+                .join("")}
+            </fieldset>`;
+
+    if (currentQuestionIndex === 0) {
+      prevBtn.disabled = true;
+    } else {
+      prevBtn.disabled = false;
+    }
+
+    if (currentQuestionIndex === quizQuestions.length - 1) {
+      nextBtn.disabled = true;
+      submitBtn.classList.remove("hidden");
+    } else {
+      nextBtn.disabled = false;
+      submitBtn.classList.add("hidden");
+    }
+  };
+
+  displayCurrentQuestion();
+
+  nextBtn.addEventListener("click", () => {
+    if (currentQuestionIndex < quizQuestions.length - 1) {
+      currentQuestionIndex++;
+      displayCurrentQuestion();
+      prevBtn.disabled = false;
+    }
+  });
+
+  prevBtn.addEventListener("click", () => {
+    if (currentQuestionIndex > 0) {
+      currentQuestionIndex--;
+      displayCurrentQuestion();
+    }
   });
 
   quizForm.addEventListener("submit", (e) => {
