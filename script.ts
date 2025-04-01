@@ -22,6 +22,7 @@ const quiz: quizData[] = [
   }
 ]
 
+const quizSection = document.getElementById("quizSection") as HTMLSelectElement
 const quizCard = document.getElementById("quizCard") as HTMLFieldSetElement
 const quizQuestion = document.getElementById("quizQuestion") as HTMLHeadElement
 const quizOptions = document.getElementById("quizOptions") as HTMLInputElement
@@ -29,6 +30,7 @@ const quizAnswer = document.getElementById("quizAnswer") as HTMLDivElement
 const score = document.getElementById("score") as HTMLSpanElement
 const restartBtn = document.getElementById("restartBtn") as HTMLButtonElement
 const submitAnswer = document.getElementById("submitAnswer") as HTMLButtonElement 
+const quizFeedback = document.getElementById("quizFeedback") as HTMLDivElement
 
 
 let index = 0, scr = 0;
@@ -59,8 +61,7 @@ function loadQuestion(): void {
 
   if (quizQuestion) quizQuestion.textContent = getQ.ask;
   if (quizOptions) quizOptions.innerHTML  = ""; // Clear previous options 
-
- let selectedOption: string | null = null;
+  
 
   getQ.choose.forEach((element, i )=> {
     
@@ -69,10 +70,9 @@ function loadQuestion(): void {
     btn.name = "aria";
     btn.id = `aria-${i}`; // Unique ID for accessibility
     btn.value = `${i + 1}. ${element}`;
+    btn.hidden;    
 
-    
-
-   btn.onclick = () => {
+    btn.onclick = () => {
       selectedOption = element;
       console.log("Selected:", selectedOption);
     };
@@ -82,8 +82,8 @@ function loadQuestion(): void {
     label.htmlFor = btn.id;
     
 
-  label.appendChild(btn);
-  label.append(` ${element}`)
+    label.appendChild(btn);
+    label.append(` ${element}`)
 
     submitAnswer.onclick = (event) => {
 
@@ -95,8 +95,7 @@ function loadQuestion(): void {
       console.log("No option selected!");
     }
   };
-    // Append elements
-   
+    // Append elements   
     quizOptions?.appendChild(label);
   });
 }
@@ -108,33 +107,52 @@ function checkA(opt: string): void {
   console.log("Current question index:", index);
   console.log("Current options:", currentOption)
 
+  const quizFeedback = document.getElementById("quizFeedback");
+  if (quizFeedback) {
+    quizFeedback.remove();
+  }
+
   if (opt === quiz[index].answer) {
     scr++;
     index++;
     loadQuestion();
   } else {
     console.log("incorrect answer")
-    submitAnswer?.style.setProperty('display', 'none'); //Remove submit when the answer is incorrect
+    //submitAnswer?.style.setProperty('display', 'none'); //Remove submit when the answer is incorrect
 
-    quizCard.innerHTML =`
-    <h3>Oh no wrong answer</H3>
-    <button id=retryBtn>Click to Retry</button>
-    <button id=continueBtn>Click to Continue</button>
-    `;
-   
-    // const retryBtn = document.getElementById("retryBtn") as HTMLButtonElement | null;
-    // if (retryBtn) {
-    //   retryBtn.addEventListener("click", (event) => {
-    //   event.preventDefault(); //Stops form submission from refreshing the page
+    quizSection.insertAdjacentHTML (
+       "beforeend",
+       `<div id="quizFeedback">
+          <p>Oh no wrong answer, try again or continue to the next question!</p>
+          <button id="continueBtn">Continue to the next question</button>
+        </div>`);      
+  } 
+  
+  const continueBtn = document.getElementById("continueBtn") as HTMLButtonElement | null;
+ 
+    if (continueBtn)  {
+      continueBtn.addEventListener("click", (event) => {
+        event.preventDefault();//Stops form submission from refreshing the page
 
-    //   index = currentQuestion;
+        index++;
+        console.log("hejDå")
+        loadQuestion()
+      })
+    }
+}
+
+// const retryBtn = document.getElementById("retryBtn") as HTMLButtonElement | null;
+//     if (retryBtn) {
+//       retryBtn.addEventListener("click", (event) => {
+//       event.preventDefault(); //Stops form submission from refreshing the page
+
+//       index = currentQuestion;
       
-    //   console.log("hejhej")
-    //   console.log(currentQuestion)
-
-    //   loadQuestion()
-    // })    
-    // }
+//       console.log("hejhej")
+      
+//       loadQuestion()
+//     })    
+//     }
 
     // const continueBtn = document.getElementById("continueBtn") as HTMLButtonElement | null;
 
@@ -142,15 +160,17 @@ function checkA(opt: string): void {
     //   continueBtn.addEventListener("click", (event) => {
     //     event.preventDefault();//Stops form submission from refreshing the page
 
-    //     index = currentQuestion[index + 1];
+    //     index++;
+    //     console.log("hejDå")
     //     loadQuestion()
     //   }
 
     //   )
     // }
-    loadQuestion()
-  }   
-}
+
+
+
+
 
 
 function endQ(): void {
@@ -162,7 +182,9 @@ function endQ(): void {
   submitAnswer.style.setProperty('display', 'none');
 }
 
-//console.log(loadQuestion)
+
+
+
 
 loadQuestion();
 
