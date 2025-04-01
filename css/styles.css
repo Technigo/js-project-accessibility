@@ -2,15 +2,17 @@
 
 /* Base styles with accessibility considerations */
 :root {
-  --primary-color: #2c3e50;
-  --background-color: #ffffff;
-  --accent-color: #0040a3;
+  --primary-color: #042778;
+  --background-color: rgb(213, 233, 250, 0.5);
+  --accent-color: #0073e6;
+  /* Darker blue for better contrast */
   --error-color: #e74c3c;
   --success-color: #27ae60;
   --focus-outline: 3px solid var(--accent-color);
-  --focus-ring-color: rgba(0, 86, 179, 0.5);
-  --text-color: #2c3e50;
-  --border-color: #e2e8f0;
+  --focus-ring-color: rgba(0, 115, 230, 0.5);
+  --progress-bg: #0073e6;
+  --text-color: #042778;
+  --border-color: #054fb9;
   --hover-bg: rgba(0, 0, 0, 0.05);
   --transition-speed: 0.3s;
 }
@@ -74,13 +76,16 @@ body {
 #header .header-content {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 3rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
 }
 
 #header h1 {
   color: white;
-  margin: 0 0 1rem 1rem;
-
+  margin: 0;
 }
 
 #header nav ul {
@@ -94,7 +99,6 @@ body {
 #header nav a {
   color: white;
   text-decoration: none;
-  font-size: 1.1rem;
   font-weight: 500;
   padding: 0.5rem 1rem;
   border-radius: 6px;
@@ -115,7 +119,9 @@ body {
 
 /* Instructions section */
 #accessibility-quiz {
-  margin: 5% 20% 5% 20%;
+  margin: 5% 20%;
+  border-radius: 8px;
+  background-color: var(--background-color);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   width: 100%;
 }
@@ -132,6 +138,7 @@ body {
   align-items: center;
   text-align: center;
   background-color: #f8f9fa;
+  color: var(--text-color);
   margin: 1rem auto;
   max-width: 600px;
   width: 100%;
@@ -177,7 +184,7 @@ body {
 .nav-buttons button {
   background-color: var(--primary-color);
   color: white;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 2rem;
   border-radius: 0.25rem;
   font-size: 1rem;
   border: none;
@@ -208,12 +215,15 @@ fieldset {
 
 legend {
   font-weight: bold;
-  text-align: center;
+  text-align: left;
   margin-bottom: 1rem;
   padding: 0.5em 1em;
-  color: var(--primary-color);
-  background-color: #f8fafc;
+  color: var(--text-color);
   border-radius: 0.25rem;
+}
+
+input {
+  text-align: left;
 }
 
 input[type="radio"] {
@@ -297,7 +307,7 @@ input[type="radio"]:focus-visible+label {
 }*/
 
 /* Footer */
-nav ul {
+footer nav ul {
   list-style: none;
   padding: 0;
   display: flex;
@@ -362,6 +372,14 @@ nav a:hover {
   outline-offset: 0.125rem;
 }
 
+
+.info-image {
+  background: white;
+  max-width: 100%;
+  margin-top: 20px;
+  height: auto;
+  border-radius: 8px;
+}
 
 /* High contrast mode */
 @media (prefers-contrast: more) {
@@ -541,4 +559,133 @@ footer {
   color: var(--secondary-color);
   font-size: 0.875rem;
   margin-top: 0.25rem;
+}
+
+
+/* 320px to 480px */
+@media (min-width: 320px) and (max-width: 480px) {
+  #header .header-content {
+    flex-direction: column;
+  }
+
+  #header h1 {
+    font-size: 1.5rem;
+    /* 24px */
+  }
+
+  #header nav a {
+    font-size: 1.125rem;
+    /* 18px */
+  }
+
+  .quiz-instructions {
+    width: 94%;
+  }
+
+  .quiz-instructions h2,
+  #accessibility-quiz h2 {
+    font-size: 1.25rem;
+    /* 20px */
+  }
+
+  .quiz-instructions p,
+  legend,
+  label {
+    font-size: 1rem;
+    /* 16px */
+  }
+}
+
+/* 480px to 768px */
+@media (min-width: 480px) and (max-width: 768px) {
+  #header .header-content {
+    flex-direction: column;
+  }
+
+  #header h1 {
+    font-size: 1.625rem;
+    /* 26px */
+  }
+
+  #header nav a {
+    font-size: 1.25rem;
+    /* 20px */
+  }
+
+  .quiz-instructions {
+    width: 90%;
+  }
+
+  .quiz-instructions h2,
+  #accessibility-quiz h2 {
+    font-size: 1.375rem;
+    /* 22px */
+  }
+
+  .quiz-instructions p,
+  legend,
+  label {
+    font-size: 1.125rem;
+    /* 18px */
+  }
+}
+
+/* 768px to 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  #header h1 {
+    font-size: 1.625rem;
+    /* 26px */
+  }
+
+  nav a {
+    font-size: 1.375rem;
+    /* 22px */
+  }
+
+  .quiz-instructions {
+    padding: 2em;
+  }
+
+  .quiz-instructions h2,
+  #accessibility-quiz h2 {
+    font-size: 1.375rem;
+    /* 22px */
+  }
+
+  .quiz-instructions p,
+  legend,
+  label {
+    font-size: 1.125rem;
+    /* 18px */
+  }
+}
+
+/* 768px to 1024px */
+@media (min-width: 1024px) {
+  #header h1 {
+    font-size: 1.75rem;
+    /* 28px */
+  }
+
+  #header nav a {
+    font-size: 1.375rem;
+    /* 22px */
+  }
+
+  .quiz-instructions {
+    padding: 2em;
+  }
+
+  .quiz-instructions h2,
+  #accessibility-quiz h2 {
+    font-size: 1.5rem;
+    /* 24px */
+  }
+
+  .quiz-instructions p,
+  legend,
+  label {
+    font-size: 1.25rem;
+    /* 20px */
+  }
 }
