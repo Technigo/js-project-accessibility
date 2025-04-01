@@ -5,12 +5,10 @@
   --primary-color: #2c3e50;
   --background-color: #ffffff;
   --accent-color: #0040a3;
-  /* Darker blue for better contrast */
   --error-color: #e74c3c;
   --success-color: #27ae60;
   --focus-outline: 3px solid var(--accent-color);
   --focus-ring-color: rgba(0, 86, 179, 0.5);
-  --progress-bg: #edf2f7;
   --text-color: #2c3e50;
   --border-color: #e2e8f0;
   --hover-bg: rgba(0, 0, 0, 0.05);
@@ -82,6 +80,7 @@ body {
 #header h1 {
   color: white;
   margin: 0 0 1rem 1rem;
+
 }
 
 #header nav ul {
@@ -107,20 +106,10 @@ body {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-#banner {
-  margin: -20px -20px 2rem;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  overflow: hidden;
-}
 
 #banner img {
   width: 100%;
-  height: 50vh;
+  height: auto;
   object-fit: cover;
 }
 
@@ -128,6 +117,7 @@ body {
 #accessibility-quiz {
   margin: 5% 20% 5% 20%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  width: 100%;
 }
 
 #accessibility-quiz h2 {
@@ -140,9 +130,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   background-color: #f8f9fa;
-  margin: 10%;
-  max-width: 90%;
+  margin: 1rem auto;
+  max-width: 600px;
+  width: 100%;
   padding: 1em;
   border-radius: 0 4px 4px 0;
 }
@@ -152,13 +144,27 @@ body {
   text-align: center;
 }
 
+
+.info-image {
+  background: white;
+  padding: 1rem;
+  max-width: 90%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 /*Quiz elements*/
 .quiz-card {
   display: none;
+
 }
 
 .quiz-card.active {
   display: block;
+  margin: 1rem auto;
+  width: 100%;
+  max-width: 600px;
 }
 
 .nav-buttons {
@@ -214,7 +220,6 @@ input[type="radio"] {
   accent-color: var(--primary-color);
   width: 1.1em;
   height: 1.1em;
-  margin-right: 0.5rem;
 }
 
 input[type="radio"]:hover {
@@ -320,6 +325,8 @@ nav a:hover {
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
 
 }
 
@@ -361,15 +368,6 @@ nav a:hover {
   outline-offset: 0.125rem;
 }
 
-
-.info-image {
-  background: white;
-  padding: 1rem;
-  max-width: 90%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
 
 /* High contrast mode */
 @media (prefers-contrast: more) {
