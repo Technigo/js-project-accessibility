@@ -63,7 +63,7 @@
       <section id="user-info" hidden>
         <h2>Your information</h2>
         <form id="user-info-form">
-          <div class="form--control">
+          <div class="form-control">
             <label for="name">Name:</label>
             <input
               type="text"
@@ -84,7 +84,8 @@
               aria-required="true"
               aria-describedby="email-hint email-error"
               placeholder="name@example.com"/>
-            <div id="email-hint" class="error" role="alert" hidden></div>
+            <div id="email-hint" class="error" role="alert" hidden>Example: name@example.com</div>
+            <div id="email-error" class="error" role="alert" hidden></div>
             <div class="form-control">
               <button type="submit" class="submit-button">
                 Continue to our accessibility quiz
@@ -95,7 +96,7 @@
       </section>
       <div id="announcer" class="visually-hidden" aria-live="polite"></div>
 
-      <section class="accessibility-quiz">
+      <section id="accessibility-quiz" class="accessibility-quiz" hidden>
         <h2>Accessibility Quiz</h2>
         
         <fieldset id="question1" class="quiz-question">  <!--perhaps fieldset name "questions1" is not needed for the sake of accessibility, maybe id or class will be better for JS????? for example <fieldset id="question1" class="quiz-question">  -->
