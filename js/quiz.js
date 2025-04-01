@@ -54,8 +54,7 @@ const displayUserFeedback = (userAnswers, correctAnswers) => {
       `input[name="question${questionNumber}"][value="${correctValue}"]`
     )
 
-    const correctText = correctInput.parentElement.textContent.trim()
-    // Get the text of the correct answer option
+    const correctText = correctInput.parentElement.textContent.trim() // Get the text of the correct answer option
 
     /*console.log(`Question ${questionNumber}:`);
     console.log(`Your answer: ${userAnswer}`);
@@ -73,7 +72,6 @@ const displayUserFeedback = (userAnswers, correctAnswers) => {
 
 // Display the results
 const displayAnswers = (totalCorrectAnswers, correctAnswers, userAnswers) => {
-  console.log("Displaying results")
   const resultContainer = document.getElementById("result-container")
   resultContainer.innerHTML = `<h2>Your results:</h2>
   <p>You answered ${totalCorrectAnswers} out of ${correctAnswers.length} questions correctly.</p>`
