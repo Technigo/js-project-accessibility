@@ -103,6 +103,7 @@ nav a {
   margin: 0 auto;
   padding: 0 3rem;
   display: flex;
+
   align-items: center;
   text-align: center;
   justify-content: space-between;
@@ -412,18 +413,12 @@ nav a:hover {
 }
 
 /*Media Queries*/
-/* 320px to 480px */
+
 @media (min-width: 320px) and (max-width: 480px) {
 
   #header .header-content {
     flex-direction: column;
   }
-
-  .quiz-instructions {
-    width: 94%;
-  }
-
-
 }
 
 /* 480px to 768px */
