@@ -26,17 +26,12 @@ const submitAnswer = document.getElementById("submitAnswer");
 const quizFeedback = document.getElementById("quizFeedback");
 let index = 0, scr = 0;
 let selectedOption = null;
-let currentQuestion = 0;
-let currentOption = [];
 const quizInstructions = document.getElementById("quizInstructions");
 quizInstructions === null || quizInstructions === void 0 ? void 0 : quizInstructions.focus();
 function loadQuestion() {
     if (index >= quiz.length)
         return endQ();
     const getQ = quiz[index];
-    currentQuestion = index;
-    currentOption = getQ.choose;
-    console.log(currentOption);
     if (quizQuestion)
         quizQuestion.textContent = getQ.ask;
     if (quizOptions)
@@ -44,8 +39,8 @@ function loadQuestion() {
     getQ.choose.forEach((element, i) => {
         const btn = document.createElement("input");
         btn.type = "radio";
-        btn.name = "aria";
-        btn.id = `aria-${i}`;
+        btn.name = "option";
+        btn.id = `option-${i}`;
         btn.value = `${i + 1}. ${element}`;
         btn.tabIndex = 0;
         btn.onclick = () => {
@@ -61,7 +56,9 @@ function loadQuestion() {
                 checkA(selectedOption);
             }
             else {
-                console.log("No option selected!");
+                quizSection.insertAdjacentHTML("beforeend", `<div id="quizFeedback" aria-live="polite">
+           <p>No option is selecten, please select an option and click submit!</p>         
+         </div>`);
             }
         };
         quizOptions === null || quizOptions === void 0 ? void 0 : quizOptions.appendChild(label);
@@ -74,14 +71,21 @@ function checkA(opt) {
     }
     if (opt === quiz[index].answer) {
         scr++;
-        index++;
-        loadQuestion();
+        quizSection.insertAdjacentHTML("beforeend", `<div id="quizFeedback" aria-live="polite">
+         <p>Correct answer!</p>
+         <button id="continueBtn">Continue to the next question</button>
+       </div>`);
     }
-    else {
+    else if (opt !== quiz[index].answer) {
         quizSection.insertAdjacentHTML("beforeend", `<div id="quizFeedback" aria-live="polite">
           <p>Oh no wrong answer, try again or continue to the next question!</p>
           <button id="continueBtn">Continue to the next question</button>
         </div>`);
+    }
+    else if (selectedOption !== null) {
+        quizSection.insertAdjacentHTML("beforeend", `<div id="quizFeedback" aria-live="polite">
+         <p>No option is selecten, please select an option and click submit!</p>         
+       </div>`);
     }
     const continueBtn = document.getElementById("continueBtn");
     if (continueBtn) {
@@ -92,7 +96,6 @@ function checkA(opt) {
                 quizFeedback.remove();
             }
             index++;
-            console.log("hejDå");
             loadQuestion();
         });
     }
@@ -106,5 +109,4 @@ function endQ() {
     restartBtn === null || restartBtn === void 0 ? void 0 : restartBtn.style.setProperty('display', 'block');
     submitAnswer.style.setProperty('display', 'none');
 }
-console.log(loadQuestion);
 loadQuestion();

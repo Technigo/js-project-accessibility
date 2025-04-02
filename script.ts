@@ -4,7 +4,7 @@ interface quizData {
   answer: string;
 }
 
-
+//Quiz data
 const quiz: quizData[] = [
   {
     ask: "When should you avoid using descriptive alt text for images?",
@@ -22,6 +22,7 @@ const quiz: quizData[] = [
   }
 ]
 
+//DOM Selectors
 const quizSection = document.getElementById("quizSection") as HTMLSelectElement
 const quizCard = document.getElementById("quizCard") as HTMLFieldSetElement
 const quizQuestion = document.getElementById("quizQuestion") as HTMLHeadElement
@@ -34,51 +35,49 @@ const quizFeedback = document.getElementById("quizFeedback") as HTMLDivElement
 
 let index = 0, scr = 0;
 let selectedOption: string | null = null;
-let currentQuestion = 0;
-let currentOption: string[] = [];
 
 //instructions for screen readers at the start of the quiz
 const quizInstructions = document.getElementById("quizInstructions");
 quizInstructions?.focus(); // Focus on instructions first
 
+//Function to load the question
 function loadQuestion(): void {
+    if (index >= quiz.length) return endQ(); // End if no more questions
 
-  if (index >= quiz.length) return endQ(); // End if no more questions
+    const getQ = quiz[index];
+    
+    if (quizQuestion) quizQuestion.textContent = getQ.ask;
+    if (quizOptions) quizOptions.innerHTML = ""; // Clear previous options 
 
-  const getQ = quiz[index];
+    getQ.choose.forEach((element, i )=> {
+      const btn = document.createElement("input");
+      btn.type = "radio";
+      btn.name = "option";
+      btn.id = `option-${i}`; // Unique ID for accessibility
+      btn.value = `${i + 1}. ${element}`;
+      btn.tabIndex = 0;
 
-  currentQuestion = index; //Store current question, to go back to
-  currentOption = getQ.choose //Store current options, to go back to 
-  console.log(currentOption) 
+    btn.onclick = () => {
+        selectedOption = element;      
+      };
 
-  if (quizQuestion) quizQuestion.textContent = getQ.ask;
-  if (quizOptions) quizOptions.innerHTML = ""; // Clear previous options 
+      const label = document.createElement("label");   
+      label.htmlFor = btn.id;    
 
-  getQ.choose.forEach((element, i )=> {
-    const btn = document.createElement("input");
-    btn.type = "radio";
-    btn.name = "aria";
-    btn.id = `aria-${i}`; // Unique ID for accessibility
-    btn.value = `${i + 1}. ${element}`;
-    btn.tabIndex = 0;
-
-   btn.onclick = () => {
-      selectedOption = element;      
-    };
-
-    const label = document.createElement("label");   
-    label.htmlFor = btn.id;    
-
-  label.appendChild(btn);
-  label.append(` ${element}`)
+    label.appendChild(btn);
+    label.append(` ${element}`)
 
     submitAnswer.onclick = (event) => {
     event.preventDefault(); //Stops form submission from refreshing the page
 
     if (selectedOption !== null) {
       checkA(selectedOption);
-    } else {
-      console.log("No option selected!");
+    } else {      
+      quizSection.insertAdjacentHTML (
+        "beforeend",
+        `<div id="quizFeedback" aria-live="polite">
+           <p>No option is selecten, please select an option and click submit!</p>         
+         </div>`)
     }
   };
 
@@ -88,6 +87,7 @@ function loadQuestion(): void {
 }
 
 function checkA(opt: string): void {
+  //Remove quiz feedback
   const quizFeedback = document.getElementById("quizFeedback") as HTMLDivElement | null;
   if (quizFeedback) {
     quizFeedback.remove();
@@ -95,35 +95,44 @@ function checkA(opt: string): void {
 
   if (opt === quiz[index].answer) {
     scr++;
-    index++;
-    loadQuestion();
-  } else { 
-
+    // index++;
+    // loadQuestion();
+    quizSection.insertAdjacentHTML (
+      "beforeend",
+      `<div id="quizFeedback" aria-live="polite">
+         <p>Correct answer!</p>
+         <button id="continueBtn">Continue to the next question</button>
+       </div>`); 
+  } else if (opt !== quiz[index].answer) { 
     quizSection.insertAdjacentHTML (
        "beforeend",
        `<div id="quizFeedback" aria-live="polite">
           <p>Oh no wrong answer, try again or continue to the next question!</p>
           <button id="continueBtn">Continue to the next question</button>
         </div>`);      
-  } 
+  } else if (selectedOption !== null) {
+    quizSection.insertAdjacentHTML (
+      "beforeend",
+      `<div id="quizFeedback" aria-live="polite">
+         <p>No option is selecten, please select an option and click submit!</p>         
+       </div>`)
+  }
   
   const continueBtn = document.getElementById("continueBtn") as HTMLButtonElement | null; 
     if (continueBtn)  {
       continueBtn.addEventListener("click", (event) => {
         event.preventDefault();//Stops form submission from refreshing the page
 
-        //quizFeedback?.remove()
+        //Remove quiz feedback
         const quizFeedback = document.getElementById("quizFeedback") as HTMLDivElement | null;
         if (quizFeedback) {
           quizFeedback.remove();
         }
 
-        index++;
-        console.log("hejDå")        
+        index++;               
         loadQuestion()
       })
-    }
-    
+    }    
 }
 
 function endQ(): void {
@@ -135,8 +144,4 @@ function endQ(): void {
   submitAnswer.style.setProperty('display', 'none');
 }
 
-console.log(loadQuestion)
-
 loadQuestion();
-
-
