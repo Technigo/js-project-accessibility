@@ -3,18 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sauron can see</title>
+    <title>Lord of the rings accessibility quiz</title>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <a href="#main" class="skip-link">Skip to main content</a>
-    <header id="header">
+    <a href="#main" class="skip-link" aria-label="Skip to main content">Skip to main content</a>
+    <header id="header" role="banner">
       <div class="header-content">
         <h1>Web Accessibility Quiz</h1>
-        <nav>
+        <nav role="navigation" aria-label="Main navigation">
           <ul>
             <li>
-              <a href="./index.html">Home</a>
+              <a href="./index.html" aria-current="page">Home</a>
             </li>
             <li>
               <a href="about.html">About</a>
@@ -24,11 +24,11 @@
       </div>
     </header>
 
-    <main id="main">
-      <section id="quizIntroduction">
-        <h2>Introduction</h2>
+    <main id="main" role="main">
+      <section id="quizIntroduction" aria-labelledby="intro-heading">
+        <h2 id="intro-heading">Introduction</h2>
         <p>Welcome to our Web Accessibility Quiz! This interactive quiz will help you learn about web accessibility features while having fun with a Lord of the Rings theme. Each question explores different aspects of accessibility challenges and solutions.</p>
-        <div class="image-container">
+        <div class="image-container" aria-label="Decorative images">
           <img 
             src="images/mountains.jpg" 
             id="mountains" 
@@ -44,19 +44,20 @@
         </div>
       </section>
 
-      <section id="quizQuestions">
-        <h3>Lord of the Rings Accessibility Quiz</h3>
-        <form id="quiz-form" novalidate>
+      <section id="quizQuestions" aria-labelledby="quiz-heading">
+        <h2 id="quiz-heading">Lord of the Rings Accessibility Quiz</h2>
+        <form id="quiz-form" novalidate aria-label="Quiz questions">
           <fieldset id="question1">
-            <legend>Who would have the hardest time using a computer, seen to their disability?</legend>
-            <div role="radiogroup" aria-required="true" aria-invalid="true">
+            <legend id="q1-legend">Who would have the hardest time using a computer, seen to their disability?</legend>
+            <div role="radiogroup" aria-labelledby="q1-legend" aria-required="true">
               <div class="radio-option">
                 <input 
                   type="radio" 
                   id="question1-option1" 
                   name="question1"
                   value="smeagol"
-                  required />
+                  required 
+                  aria-describedby="error-question1" />
                 <label for="question1-option1">
                   Smeagol (keeping track of profiles is hard enough)
                 </label>
@@ -68,7 +69,8 @@
                   id="question1-option2" 
                   name="question1"
                   value="sauron"
-                  required />
+                  required 
+                  aria-describedby="error-question1" />
                 <label for="question1-option2">
                   Sauron (having no body seems like an issue)
                 </label>
@@ -80,25 +82,27 @@
                   id="question1-option3" 
                   name="question1"
                   value="tom"
-                  required />
+                  required 
+                  aria-describedby="error-question1" />
                 <label for="question1-option3">
                   Tom Bombadil (ever heard about ADHD? Tom invented it)
                 </label>
               </div>
             </div>
-            <div class="error-message" id="error-question1" aria-live="polite"></div>
+            <div class="error-message" id="error-question1" role="alert" aria-live="polite"></div>
           </fieldset>
 
           <fieldset id="question2">
-            <legend>What would be Frodo's biggest challenge in using a modern computer?</legend>
-            <div role="radiogroup" aria-required="true" aria-invalid="true">
+            <legend id="q2-legend">What would be Frodo's biggest challenge in using a modern computer?</legend>
+            <div role="radiogroup" aria-labelledby="q2-legend" aria-required="true">
               <div class="radio-option">
                 <input 
                   type="radio" 
                   id="question2-option1" 
                   name="question2"
                   value="keyboard"
-                  required />
+                  required 
+                  aria-describedby="error-question2" />
                 <label for="question2-option1">Reaching the keyboard</label>
               </div>
               <div class="radio-option">
@@ -107,7 +111,8 @@
                   id="question2-option2" 
                   name="question2"
                   value="fingers"
-                  required />
+                  required 
+                  aria-describedby="error-question2" />
                 <label for="question2-option2">Hairy fingers getting in the way of the mouse</label>
               </div>
               <div class="radio-option">
@@ -116,23 +121,25 @@
                   id="question2-option3" 
                   name="question2"
                   value="crumbles"
-                  required />
+                  required 
+                  aria-describedby="error-question2" />
                 <label for="question2-option3">Cheese crumbles stuck in the keyboard</label>
               </div>
             </div>
-            <div class="error-message" id="error-question2" aria-live="polite"></div>
+            <div class="error-message" id="error-question2" role="alert" aria-live="polite"></div>
           </fieldset>
 
           <fieldset id="question3">
-            <legend>Who has the worst eyesight?</legend>
-            <div role="radiogroup" aria-required="true" aria-invalid="true">
+            <legend id="q3-legend">Who has the worst eyesight?</legend>
+            <div role="radiogroup" aria-labelledby="q3-legend" aria-required="true">
               <div class="radio-option">
                 <input 
                   type="radio" 
                   id="question3-option1" 
                   name="question3"
                   value="smeagol"
-                  required />
+                  required 
+                  aria-describedby="error-question3" />
                 <label for="question3-option1">Smeagol</label>
               </div>
               <div class="radio-option">
@@ -141,7 +148,8 @@
                   id="question3-option2" 
                   name="question3"
                   value="samwise"
-                  required />
+                  required 
+                  aria-describedby="error-question3" />
                 <label for="question3-option2">Samwise Gamgi</label>
               </div>
               <div class="radio-option">
@@ -150,21 +158,24 @@
                   id="question3-option3" 
                   name="question3"
                   value="gandalf"
-                  required />
+                  required 
+                  aria-describedby="error-question3" />
                 <label for="question3-option3">Gandalf Grey</label>
               </div>
             </div>
-            <div class="error-message" id="error-question3" aria-live="polite"></div>
+            <div class="error-message" id="error-question3" role="alert" aria-live="polite"></div>
           </fieldset>
 
-          <div aria-live="polite" id="feedback-region" class="sr-only"></div>
-          <button type="submit" aria-label="Submit quiz answers">Submit</button>
+          <div id="feedback-region" class="sr-only" role="status" aria-live="polite"></div>
+          <button type="submit" aria-label="Submit quiz answers">Submit Quiz</button>
         </form>
       </section>
 
-      <section id="quizResults" aria-live="polite">
-        <h4>Quiz Results</h4>
-        <p>This is the section that will contain the quiz results. It will display the results of the quiz and the score.</p>
+      <section id="quizResults" aria-labelledby="results-heading">
+        <h2 id="results-heading">Quiz Results</h2>
+        <div role="status" aria-live="polite">
+          <p>Your results will appear here after submitting the quiz.</p>
+        </div>
       </section>
     </main>
 
