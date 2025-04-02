@@ -60,8 +60,7 @@ function loadQuestion(): void {
   console.log(currentOption) 
 
   if (quizQuestion) quizQuestion.textContent = getQ.ask;
-  if (quizOptions) quizOptions.innerHTML  = ""; // Clear previous options 
-  
+  if (quizOptions) quizOptions.innerHTML  = ""; // Clear previous options   
 
   getQ.choose.forEach((element, i )=> {
     
@@ -100,14 +99,12 @@ function loadQuestion(): void {
   });
 }
 
-
-
 function checkA(opt: string): void {
 
   console.log("Current question index:", index);
   console.log("Current options:", currentOption)
 
-  const quizFeedback = document.getElementById("quizFeedback");
+  const quizFeedback = document.getElementById("quizFeedback") as HTMLDivElement | null;
   if (quizFeedback) {
     quizFeedback.remove();
   }
@@ -122,7 +119,7 @@ function checkA(opt: string): void {
 
     quizSection.insertAdjacentHTML (
        "beforeend",
-       `<div id="quizFeedback">
+       `<div id="quizFeedback" aria-live="polite">
           <p>Oh no wrong answer, try again or continue to the next question!</p>
           <button id="continueBtn">Continue to the next question</button>
         </div>`);      
@@ -134,44 +131,19 @@ function checkA(opt: string): void {
       continueBtn.addEventListener("click", (event) => {
         event.preventDefault();//Stops form submission from refreshing the page
 
+        //quizFeedback?.remove()
+        const quizFeedback = document.getElementById("quizFeedback") as HTMLDivElement | null;
+        if (quizFeedback) {
+          quizFeedback.remove();
+        }
+
         index++;
-        console.log("hejDå")
+        console.log("hejDå")        
         loadQuestion()
       })
     }
+    
 }
-
-// const retryBtn = document.getElementById("retryBtn") as HTMLButtonElement | null;
-//     if (retryBtn) {
-//       retryBtn.addEventListener("click", (event) => {
-//       event.preventDefault(); //Stops form submission from refreshing the page
-
-//       index = currentQuestion;
-      
-//       console.log("hejhej")
-      
-//       loadQuestion()
-//     })    
-//     }
-
-    // const continueBtn = document.getElementById("continueBtn") as HTMLButtonElement | null;
-
-    // if (continueBtn)  {
-    //   continueBtn.addEventListener("click", (event) => {
-    //     event.preventDefault();//Stops form submission from refreshing the page
-
-    //     index++;
-    //     console.log("hejDå")
-    //     loadQuestion()
-    //   }
-
-    //   )
-    // }
-
-
-
-
-
 
 function endQ(): void {
   quizQuestion?.style.setProperty('display', 'none');
@@ -181,10 +153,6 @@ function endQ(): void {
   restartBtn?.style.setProperty('display', 'block');
   submitAnswer.style.setProperty('display', 'none');
 }
-
-
-
-
 
 loadQuestion();
 

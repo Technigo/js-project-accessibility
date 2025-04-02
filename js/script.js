@@ -82,7 +82,7 @@ function checkA(opt) {
     }
     else {
         console.log("incorrect answer");
-        quizSection.insertAdjacentHTML("beforeend", `<div id="quizFeedback">
+        quizSection.insertAdjacentHTML("beforeend", `<div id="quizFeedback" aria-live="polite">
           <p>Oh no wrong answer, try again or continue to the next question!</p>
           <button id="continueBtn">Continue to the next question</button>
         </div>`);
@@ -91,6 +91,10 @@ function checkA(opt) {
     if (continueBtn) {
         continueBtn.addEventListener("click", (event) => {
             event.preventDefault();
+            const quizFeedback = document.getElementById("quizFeedback");
+            if (quizFeedback) {
+                quizFeedback.remove();
+            }
             index++;
             console.log("hejDå");
             loadQuestion();
