@@ -9,7 +9,8 @@
   --white-color: white;
   --error-color: #e74c3c;
   --success-color: #27ae60;
-  --focus-outline: 4px solid var(--accent-color);
+  --focus-outline-color: #00509e;
+  --focus-outline: 4px solid var(--focus-outline-color);
   --text-color: #042778;
   --border-color: #054fb9;
   --transition-speed: 0.3s;
@@ -595,7 +596,7 @@ nav a:hover {
 }
 
 
-Progress bar .quiz-progress {
+/*Progressbar .quiz-progress {
   margin: 2rem 0;
 }
 
@@ -618,4 +619,4 @@ Progress bar .quiz-progress {
   margin-top: 0.5rem;
   text-align: center;
   font-weight: 500;
-}
+}*/
