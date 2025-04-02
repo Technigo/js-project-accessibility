@@ -179,6 +179,18 @@ input:checked + .slider:before {
   color: var(--background-color);
 }
 
+fieldset {
+  width: 18rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+legend {
+  border: 1px solid black;
+  padding: 1em;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+}
 legend::after {
   content: " *";
   color: var(--error-color);
@@ -240,4 +252,7 @@ legend::after {
 }
 
 @media (min-width: 1024px) {
+  fieldset {
+    width: 50rem;
+  }
 }
