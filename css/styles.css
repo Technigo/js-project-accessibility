@@ -91,10 +91,11 @@ body::after {
 .skip-link:focus {
   top: 0;
   outline: var(--accent-coral);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
 header {
+  position: relative;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
@@ -103,6 +104,9 @@ header {
   padding: 1.5 rem 0;
   box-shadow: var(--shadow-md);
   row-gap: var(--height-sm);
+  background-image: url(https://img.freepik.com/free-vector/dark-green-watercolor-background-design_1034-730.jpg?t=st=1743598047~exp=1743601647~hmac=a8e3094a6da1264cc4401a75e22805fb106d40900567953e46a18eb2cef9b5b1&w=1060);
+  background-repeat: space;
+  background-size: cover;
 }
 
 main h1,
@@ -121,11 +125,14 @@ p {
   color: var(--teal-70);
 }
 
+
 #banner>img {
   display: none;
   width: 100vw;
-  max-height: 300px;
+  max-height: 14rem;
   object-fit: cover;
+  filter: hue-rotate(-40deg);
+  box-shadow: var(--shadow-lg);
 }
 
 a {
