@@ -92,11 +92,6 @@ const quizQuestions = [
     altAnswerThree: "14px for desktop, 10px for mobile",
   },
 ];
-console.log("quizQuestions.length at startup:", quizQuestions.length);
-
-// SELECTORS
-const quizSection = document.querySelector(".quiz-section");
-let quizForm;
 
 //  HERO BUTTON SCROLL
 const ctaBtn = document.querySelector(".cta-btn");
@@ -106,23 +101,22 @@ ctaBtn.addEventListener("click", () => {
 });
 
 // QUIZ QUESTIONS
+const quizSection = document.querySelector(".quiz-section");
+let quizForm;
 let answers = [];
 
 let currentQuestionIndex = 0;
 
 const saveAnswer = (questionIndex, selectedAnswer) => {
   answers[questionIndex] = selectedAnswer;
-  console.log(
-    `Selected Answer for question ${questionIndex + 1}: ${selectedAnswer}`
-  );
 };
 
 const displayQuizQuestions = () => {
   quizSection.innerHTML = "";
 
   quizSection.innerHTML = `
-  <h2 tabindex="0">Accessibility Quiz!</h2>
-  <p tabindex="0">
+  <h2>Accessibility Quiz!</h2>
+  <p>
   Answer the following questions, then click the submit button once you're
   done. You can only select one answer per question.
   </p>
@@ -158,7 +152,7 @@ const displayQuizQuestions = () => {
     quizContainer.innerHTML = `<fieldset class="question-${
       currentQuizQuestion.questionNumber
     }">
-              <legend tabindex="0">${currentQuizQuestion.question}</legend>
+              <legend>${currentQuizQuestion.question}</legend>
               ${quizAnswers
                 .map((answer, i) => {
                   return `<div class="quiz-option">
@@ -173,9 +167,10 @@ const displayQuizQuestions = () => {
                 })
                 .join("")}
             </fieldset>
-            <p id="warning-message" class="hidden" aria-live="polite">
+            <p id="warning-message" aria-live="polite">
               
             </p>
+            <p id="announcer" class="hidden"></p>
             `;
 
     const quizInputs = document.querySelectorAll(
@@ -185,12 +180,14 @@ const displayQuizQuestions = () => {
     quizInputs.forEach((input) => {
       input.addEventListener("change", (e) => {
         saveAnswer(currentQuestionIndex, e.target.value);
-        console.log("Answers array after saving each answer:", answers);
         updateNextButtonState();
       });
     });
 
+    quizInputs[0].focus();
+
     const warningMessage = document.getElementById("warning-message");
+    const announcer = document.getElementById("announcer");
 
     const updateNextButtonState = () => {
       const questionAnswered = Array.from(quizInputs).some(
@@ -222,6 +219,7 @@ const displayQuizQuestions = () => {
 
     if (currentQuestionIndex === quizQuestions.length - 1) {
       nextBtn.textContent = "No more questions";
+      announcer.textContent = "This is the final question.";
       submitBtn.classList.remove("hidden");
       nextBtn.disabled = true;
       submitBtn.disabled = false;
@@ -251,20 +249,14 @@ const displayQuizQuestions = () => {
     }
   });
 
-  document.addEventListener("click", (e) => {
-    if (e.target.classList.contains("submit-btn")) {
-      e.preventDefault();
-      console.log("Submit button clicked!");
-      console.log("final answers array:", answers);
-      displayQuizResults();
-    }
+  quizForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    displayQuizResults();
   });
 };
 
 // QUIZ RESULTS
 const displayQuizResults = () => {
-  console.log("Answers array before filtering:", answers);
-
   const correctAnswers = answers.filter((answer) => answer === "correct");
 
   const result = `${correctAnswers.length} / ${answers.length}`;
@@ -281,6 +273,7 @@ const displayQuizResults = () => {
 
   quizSection.innerHTML = `<h2>Your Results!</h2>
       <p>${resultText} You got ${result}!</p>
+      <p id="announcer" class="hidden">You have finished the quiz, your results are now displayed.</p>
       <div class="btns-container">
         <button class="btn retake-btn">Take the quiz again!</button>
         <button class="btn home-btn">To home!</button>

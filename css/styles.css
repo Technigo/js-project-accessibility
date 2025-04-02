@@ -24,25 +24,27 @@ body {
   margin: 0;
   line-height: 1.6;
 }
+
+.skip-link {
+  position: absolute;
+  top: -45px;
+  left: 0;
+  background: var(--nf-bg-2);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+}
+
 header {
   background: var(--color-featured); /* Featured color */
   padding: 1rem;
-}
-.question {
-  background: var(--bg-white); /* Light grey background */
-  padding: 1.5rem;
-  margin: 1rem 0;
-}
-.quiz-form {
-  font-size: 2rem;
-}
-.quiz-section {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 3rem;
-  color: var(--bg-primary);
-  font-size: 1.2rem;
-  text-align: center;
 }
 nav ul {
   display: flex;
@@ -58,32 +60,44 @@ nav a {
   color: var(--color-primary); /* Dark text for links */
   text-decoration: none;
 }
+
 nav a:hover {
-  color: var(--color-orange); /* Highlight on hover */
+  color: white;
+  transition: all 0.3s ease;
+}
+
+footer nav a {
+  color: white;
+}
+
+footer nav a:hover {
+  color: #ff5500;
 }
 .hero-section {
   background: var(--nf-bg-2); /* Very dark blue */
-  padding: 2rem;
+  padding: 4rem;
   text-align: center;
   color: var(--color-white); /* White text on dark background */
 }
 .hero-section h1 {
   color: var(--bg-primary); /* Blue heading */
-  font-size: 4rem;
+  font-size: 4.5rem;
+  margin-bottom: 4rem;
 }
 .hero-section p {
-  font-size: 1.5rem;
+  font-size: 2rem;
+  margin-bottom: 3rem;
 }
 .about-section {
   background: #333333; /* Light background */
   padding: 2rem;
 }
 .about-section h2 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 2rem;
 }
 .about-section p {
-  font-size: 2.5rem;
+  font-size: 1.7rem;
   margin-bottom: 2rem;
 }
 .team-cards-container {
@@ -116,6 +130,23 @@ nav a:hover {
   font-size: 1.2rem;
   line-height: 1.6;
 }
+
+/* QUIZ SECTION */
+.question {
+  background: var(--bg-white); /* Light grey background */
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+.quiz-form {
+  font-size: 2rem;
+}
+.quiz-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem;
+  color: var(--bg-primary);
+  font-size: 1.2rem;
+}
 .quiz-section {
   /* Light grey */
   padding: 3rem;
@@ -144,28 +175,46 @@ nav a:hover {
   line-height: 1.6;
 }
 legend {
-  font-size: 2.4em;
+  font-size: 1.7rem;
   color: #ffffff;
 }
 label {
-  font-size: 1.5em;
+  font-size: 1.5rem;
   color: #ffffff;
 }
 fieldset {
   padding: 1rem;
   margin-bottom: 2rem;
 }
+
 .quiz-option {
   margin-bottom: 10px;
 }
+
+input[type="radio"] {
+  accent-color: #ff5500;
+}
+
+input[type="radio"]:focus-visible {
+  outline: 2px solid #ff5500;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+input[type="radio"]:focus-visible + label {
+  outline: 2px solid #ff5500;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 .quiz-result-section {
   font-size: 2rem; /* Default text size */
   background: var(--nf-bg-3); /* Dark gray */
   padding: 2rem;
   background-color: #f0a500; /* Featured color */
   color: var(--color-white); /* White text */
-  text-align: center; /* Center text */
-  margin: 2rem auto; /* Centers the section horizontally */
+  /* text-align: center; Center text */
+  /* margin: 2rem auto; Centers the section horizontally */
   max-width: 80%; /* Limits width for better readability */
   border-radius: 12px; /* Soft rounded corners */
 }
@@ -176,17 +225,24 @@ fieldset {
   padding: 1rem;
   border-radius: 8px;
 }
+
 .quiz-content.quiz-section {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  /* align-items: center;
+  justify-content: center; */
   padding: 2rem;
   max-width: 80%;
   margin: 0 auto;
 }
+
+.btns-container {
+  display: flex;
+  gap: 2rem;
+}
+
 .btn {
+  /* display: block; */
   background: #f0a500; /* Dark orange */
   color: #000000; /* White text */
   padding: 0.75rem 1.5rem;
@@ -194,19 +250,26 @@ fieldset {
   border-radius: 8px;
   cursor: pointer;
   margin: 0.5rem;
+  font-size: 16px;
 }
 .btn:hover {
-  background: #ff5500; /* Slightly darker orange for hover */
+  background: #ff5500;
+  transition: all 0.3s ease;
 }
 .btn:focus {
   outline: 3px solid #ff6600; /* Orange outline on focus for accessibility */
+}
+.hidden {
+  display: none;
 }
 footer {
   background: var(--bg-secondary); /* Dark footer background */
   color: var(--color-white); /* White text in footer */
   text-align: center;
   padding: 1rem;
-} /* MEDIA QUEREIES */
+}
+
+/* MEDIA QUEREIES */
 @media (max-width: 768px) {
   .team-cards-container {
     grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
