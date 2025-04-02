@@ -38,7 +38,7 @@
           alt="" 
           role="presentation" />  <!--decorative picture-->
       </section>
-      <section id="introduction">
+      <section id="introduction" aria-label="intro-section">
         <h2>Welcome to our Accessibility quiz!</h2>
         <p>
           Hello there! Thank you for exploring the important topic of web accessibility. Please feel welcome to take the quiz below to assess your understanding of key accessibility principles in web development. Accessibility is fundamental to creating inclusive digital experiences, and we encourage you to share this resource with others who may benefit from learning more.
@@ -96,6 +96,78 @@
       </section>
       <div id="announcer" class="visually-hidden" aria-live="polite"></div>
 
+     <section id="feedback" hidden>
+      <h2>Take our accessibility quiz</h2>
+
+      <div class="quiz-progress" role="status" aria-live="polite">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <p class="progress-text">0 of X questions answered</p>
+      </div>
+    
+      <div
+        class="quiz-instructions"
+        role="group"
+        aria-labelledby="instructions-heading">
+        <h3 id="instructions-heading">Quiz instructions</h3>  
+        <p>Use tab to navigate between sections, space to select an option</p>
+      </div>  
+
+      <form id="quiz-form">
+        <fieldset>
+          <legend>1. What is accessibility?</legend>
+          <div class="radio-group" role="radio-group">
+
+          <div class="radio-option">
+          <input 
+            type="radio" 
+            name="question1" 
+            value="q1-correct"
+            id="q1a1"/>
+          <label 
+            for="q1a1"> 
+            Accessibility refers to the design of products, devices, services and environments for people who experience disabilities, including web development.
+          </label><br>
+        </div>
+
+        <div class="radio-option">
+          <input 
+            type="radio" 
+            name="question1" 
+            value="q1-incorrect"
+            id="q1a2"/>
+          <label 
+            for="q1a2"> 
+              Accessibility is primarily focused on optimizing websites for search engines to improve their ranking.
+          </label><br>
+        </div>
+
+        <div class="radio-option">
+          <input 
+            type="radio" 
+            name="question1" 
+            value="q1-incorrect"
+            id="q1a3"/>
+          <label 
+            for="q1a3"> 
+            Accessibility mainly concerns the visual design of a website, ensuring it is aesthetically pleasing and easy to navigate for all users.
+          </label><br>
+          </div>
+          
+          </div>
+        </fieldset>
+      </form>
+     </section>
+      
+      
+      
+      
+      
+      
+      
+      
+      
       <section id="accessibility-quiz" class="accessibility-quiz" hidden>
         <h2>Accessibility Quiz</h2>
         
