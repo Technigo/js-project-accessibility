@@ -413,7 +413,6 @@ nav a:hover {
 }
 
 /*Media Queries*/
-
 @media (min-width: 320px) and (max-width: 480px) {
 
   #header .header-content {
