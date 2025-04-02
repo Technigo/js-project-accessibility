@@ -1,29 +1,3 @@
-// function displayActiveMenu() {
-//   const menuItems = document.querySelectorAll("ul li");
-//   const currentPath = window.location.pathname;
-
-//   menuItems.forEach((item) => {
-//     const link = item.querySelector("a");
-//     const linkPath = link.getAttribute("href");
-
-//     // Check if the link's href matches the current URL path
-//     if (currentPath.endsWith(linkPath)) {
-//       item.classList.add("active");
-//     } else {
-//       item.classList.remove("active");
-//     }
-//     // Add click event listener (for in-page navigation)
-//     item.addEventListener("click", () => {
-//       // Remove "active" from any other item
-//       document.querySelectorAll("li.active").forEach((activeItem) => {
-//         activeItem.classList.remove("active");
-//       });
-//       // Add "active" to the clicked item
-//       item.classList.add("active");
-//     });
-//   });
-// }
-
 document.addEventListener("DOMContentLoaded", () => {
   const startQuizButton = document.getElementById("start-quiz-button");
   const quizSection = document.querySelector(".quiz-section");
@@ -42,5 +16,37 @@ document.addEventListener("DOMContentLoaded", () => {
       "Could not find one or more of the required elements: startQuizButton, quizSection, introSection"
     );
   }
-  displayActiveMenu();
+
+  const submitQuizButton = document.getElementById("submitQuiz");
+  const resultSection = document.querySelector(".results-section");
+
+  if (submitQuizButton && resultSection) {
+    submitQuizButton.addEventListener("click", () => {
+      // Hide the quiz section
+      quizSection.style.display = "none";
+
+      // Show the result section
+      resultSection.style.display = "block";
+    });
+  }
+
+  const restartQuizButton = document.getElementById("restartQuiz");
+
+  restartQuizButton.addEventListener("click", () => {
+    // Hide the result section
+    resultSection.style.display = "none";
+
+    // Show the quiz section
+    quizSection.style.display = "block";
+  });
+
+  const toIntroButton = document.getElementById("backToHome");
+
+  toIntroButton.addEventListener("click", () => {
+    // Hide the result section
+    resultSection.style.display = "none";
+
+    // Show the intro section
+    introSection.style.display = "block";
+  });
 });

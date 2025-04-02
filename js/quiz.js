@@ -29,48 +29,54 @@ function generateQuiz() {
   let quizContainer = document.getElementById("question-container");
   quizContainer.innerHTML = "";
 
-  questions.forEach((q, index) => {
+  questions.forEach((question, index) => {
     let fieldset = document.createElement("fieldset");
     let legend = document.createElement("legend");
-    legend.textContent = q.question;
+    legend.textContent = question.question;
     fieldset.appendChild(legend);
 
-    q.options.forEach((option, i) => {
-      let radio = document.createElement("input");
-      radio.type = "radio";
-      radio.name = "question" + index;
-      radio.id = `question${index}-option${i}`;
-      radio.value = i;
-      radio.required = true;
-      radio.setAttribute("aria-required", "true");
+    question.options.forEach((option, i) => {
+      let optionContainer = document.createElement("div");
+      optionContainer.classList.add("option-container");
+
+      let radioBtn = document.createElement("input");
+      radioBtn.type = "radio";
+      radioBtn.name = "question" + index;
+      radioBtn.id = `question${index}-option${i}`;
+      radioBtn.value = i;
+      radioBtn.required = true;
+      radioBtn.setAttribute("aria-required", "true");
 
       let label = document.createElement("label");
-      label.htmlFor = radio.id;
+      label.htmlFor = radioBtn.id;
       label.textContent = option.text;
 
-      fieldset.appendChild(radio);
-      fieldset.appendChild(label);
-      fieldset.appendChild(document.createElement("br"));
+      optionContainer.appendChild(radioBtn);
+      optionContainer.appendChild(label);
+      fieldset.appendChild(optionContainer);
     });
 
     quizContainer.appendChild(fieldset);
   });
 }
 
-function checkAnswers(event) {
-  event.preventDefault();
-  let score = 0;
+// function checkAnswers(event) {
+//   event.preventDefault();
+//   let score = 0;
 
-  questions.forEach((q, index) => {
-    let selectedAnswer = document.querySelector(
-      'input[name="question' + index + '"]:checked'
-    );
-    if (selectedAnswer && q.options[parseInt(selectedAnswer.value)].correct) {
-      score++;
-    }
-  });
+//   questions.forEach((question, index) => {
+//     let selectedAnswer = document.querySelector(
+//       'input[name="question' + index + '"]:checked'
+//     );
+//     if (
+//       selectedAnswer &&
+//       question.options[parseInt(selectedAnswer.value)].correct
+//     ) {
+//       score++;
+//     }
+//   });
 
-  alert("Du fick " + score + " av " + questions.length + " rätt!");
-}
+//   alert("Du fick " + score + " av " + questions.length + " rätt!");
+// }
 
-window.onload = () => generateQuiz();
+window.onload = generateQuiz;

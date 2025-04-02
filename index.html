@@ -60,7 +60,6 @@
                 id="question1-option1"
                 required
                 aria-required="true"
-                value="true"
               />
               <label for="question1-option1">answer option 1</label>
             </div>
@@ -174,11 +173,16 @@
       </section>
 
       <section class="results-section" id="results">
-        <img src="" alt="" />
-        <h2>Quiz completed</h2>
+        <img
+          class="party-popper"
+          src="img/party-popper-emoji.png"
+          alt=""
+          role="presentation"
+        />
+        <h2>Quiz completed!</h2>
         <p class="result-message">
           You answered <b id="correct-answers">1</b> out of
-          <b class="total-questions">10</b> questions correctly.
+          <b class="total-questions">10</b> questions correctly. Great effort!
         </p>
         <button
           class="restart-btn"
@@ -187,6 +191,14 @@
           aria-label="Restart quiz"
         >
           Restart Quiz
+        </button>
+        <button
+          class="home-btn"
+          type="button"
+          id="backToHome"
+          aria-label="Go to homepage"
+        >
+          Go to Homepage
         </button>
       </section>
     </main>
