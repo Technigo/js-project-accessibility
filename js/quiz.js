@@ -25,7 +25,7 @@ const questions = [
   },
 ];
 
-function generateQuiz() {
+export function generateQuiz() {
   let quizContainer = document.getElementById("question-container");
   quizContainer.innerHTML = "";
 
@@ -44,7 +44,6 @@ function generateQuiz() {
       radioBtn.name = "question" + index;
       radioBtn.id = `question${index}-option${i}`;
       radioBtn.value = i;
-      radioBtn.required = true;
       radioBtn.setAttribute("aria-required", "true");
 
       let label = document.createElement("label");
@@ -60,23 +59,24 @@ function generateQuiz() {
   });
 }
 
-// function checkAnswers(event) {
-//   event.preventDefault();
-//   let score = 0;
+export function checkAnswers() {
+  // event.preventDefault();
+  let score = 0;
 
-//   questions.forEach((question, index) => {
-//     let selectedAnswer = document.querySelector(
-//       'input[name="question' + index + '"]:checked'
-//     );
-//     if (
-//       selectedAnswer &&
-//       question.options[parseInt(selectedAnswer.value)].correct
-//     ) {
-//       score++;
-//     }
-//   });
+  questions.forEach((question, index) => {
+    let selectedAnswer = document.querySelector(
+      'input[name="question' + index + '"]:checked'
+    );
+    if (
+      selectedAnswer &&
+      question.options[parseInt(selectedAnswer.value)].correct
+    ) {
+      score++;
+    }
+  });
 
-//   alert("Du fick " + score + " av " + questions.length + " rätt!");
-// }
+  let resultMessage = document.getElementById("result-message");
+  resultMessage.textContent = `You answered ${score} out of ${questions.length} questions correctly.`;
+}
 
 window.onload = generateQuiz;

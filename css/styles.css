@@ -5,7 +5,7 @@
   --body-background-color: #ffeedd;
   --accent-color: #0040a3;
   /* Darker blue for better contrast */
-  --button-color: #e74c3c;
+  --primary-color: #b7410e;
   --error-color: #e74c3c;
   --success-color: #27ae60;
   --focus-outline: 3px solid var(--accent-color);
@@ -59,7 +59,7 @@ li.active::after {
   content: "";
   height: 3px;
   width: 100%;
-  background: var(--button-color);
+  background: var(--primary-color);
   left: 0;
   bottom: -10px;
 }
@@ -80,7 +80,6 @@ main {
   max-width: 1400px;
 }
 
-.skip-link,
 .quiz-section,
 .results-section {
   display: none;
@@ -89,7 +88,7 @@ main {
 button {
   padding: 8px 12px;
   border-radius: 5px;
-  background: var(--button-color);
+  background: var(--primary-color);
   color: white;
   border: none;
   cursor: pointer;
@@ -136,6 +135,91 @@ button:hover {
   padding: 16px 8px;
 }
 
-.party-popper {
+/* Images styling */
+.decorative-img {
   height: 68px;
+}
+
+/* Progress bar */
+.progress-bar {
+  background-color: var(--progress-bg);
+  border-radius: 8px;
+  height: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  background-color: var(--primary-color);
+  height: 100%;
+  transition: width 0.3s ease;
+  border-radius: 8px;
+}
+
+/* Skip-link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--accent-color);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+}
+
+/* Enhanced focus styles */
+:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Footer styles */
+footer {
+  width: 100vw;
+  background-color: #335c67;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: grid;
+  gap: 2rem;
+}
+
+.footer-content nav {
+  margin-bottom: 1rem;
+}
+
+.footer-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-content a {
+  text-decoration: none;
+  padding: 0.5rem 0;
+  display: block;
+  transition: opacity var(--transition-speed);
+  color: #b7410e;
+}
+
+.footer-content a:hover {
+  opacity: 0.8;
+}
+
+.footer-info {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }

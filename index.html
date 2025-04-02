@@ -32,8 +32,19 @@
       </section> -->
 
       <section class="intro-section" id="introduction">
-        <h2>Learn to understan everybody's needs</h2>
-        <p>Hej Hej detta är ju rätt så kul!</p>
+        <img class="decorative-img" src="img/intro-icon.png" alt="" />
+        <h2>Is Your Code Really Accessible? Let’s Find Out!</h2>
+        <p>
+          Hey coder! You might be writing clean, efficient code—but is it truly
+          accessible? Making the web inclusive isn’t just a nice bonus, it’s
+          essential! <b> WCAG (Web Content Accessibility Guidelines)</b> helps
+          ensure that everyone, including people with disabilities, can navigate
+          and use digital content. <br /><br />Think you’ve got it covered? Or
+          maybe you’re just getting started? Either way, this quiz will
+          challenge your accessibility knowledge and help you improve your
+          skills! <br /><br />
+          <b>Ready? Let’s go!</b>
+        </p>
         <div class="form-controls intro-section">
           <button
             id="start-quiz-button"
@@ -47,120 +58,21 @@
       </section>
 
       <section class="quiz-section" id="quiz">
-        <h2>Header about the quiz</h2>
-        <p>Question <b>1</b> of <b>10</b></p>
+        <img class="decorative-img" src="img/quiz-icon.png" alt="" />
+        <h2>The A11y Challenge</h2>
+        <div class="quiz-progress" role="status" aria-live="polite">
+          <p class="progress-text">Question <b>1</b> of <b>10</b></p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 0%"></div>
+          </div>
+        </div>
+
         <form onsubmit="checkAnswers(event)">
-          <div id="question-container"></div>
-          <!-- <fieldset class="question-container" id="question-1">
-            <legend>here we write the question</legend>
-            <div>
-              <input
-                type="radio"
-                name="question1"
-                id="question1-option1"
-                required
-                aria-required="true"
-              />
-              <label for="question1-option1">answer option 1</label>
+          <div id="question-container">
+            <div id="question-error" class="error" role="alert" hidden>
+              <p class="error-message"></p>
             </div>
-            <div>
-              <input
-                type="radio"
-                name="question1"
-                id="question1-option2"
-                required
-                aria-required="true"
-                value="false"
-              />
-              <label for="question1-option2">answer option 2</label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                name="question1"
-                id="question1-option3"
-                required
-                aria-required="true"
-                value="false"
-              />
-              <label for="question1-option3">answer option 3</label>
-            </div>
-          </fieldset>
-
-          <fieldset class="question-container" id="question-2">
-            <legend>here we write the question</legend>
-            <div>
-              <input
-                type="radio"
-                name="question2"
-                id="question2-option1"
-                required
-                aria-required="true"
-                value="true"
-              />
-              <label for="question2-option1">answer option 1</label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                name="question2"
-                id="question2-option2"
-                required
-                aria-required="true"
-                value="false"
-              />
-              <label for="question2-option2">answer option 2</label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                name="question2"
-                id="question2-option3"
-                required
-                aria-required="true"
-                value="false"
-              />
-              <label for="question2-option3">answer option 3</label>
-            </div>
-          </fieldset>
-
-          <fieldset class="question-container" id="question-3">
-            <legend>here we write the question</legend>
-            <div>
-              <input
-                type="radio"
-                name="question3"
-                id="question3-option1"
-                required
-                aria-required="true"
-                value="true"
-              />
-              <label for="question3-option1">answer option 1</label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                name="question3"
-                id="question3-option2"
-                required
-                aria-required="true"
-                value="false"
-              />
-              <label for="question3-option2">answer option 2</label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                name="question3"
-                id="question3-option3"
-                required
-                aria-required="true"
-                value="false"
-              />
-              <label for="question3-option3">answer option 3</label>
-            </div>
-          </fieldset> -->
-
+          </div>
           <button
             class="submit-button"
             type="submit"
@@ -174,16 +86,13 @@
 
       <section class="results-section" id="results">
         <img
-          class="party-popper"
+          class="party-popper decorative-img"
           src="img/party-popper-emoji.png"
           alt=""
           role="presentation"
         />
         <h2>Quiz completed!</h2>
-        <p class="result-message">
-          You answered <b id="correct-answers">1</b> out of
-          <b class="total-questions">10</b> questions correctly. Great effort!
-        </p>
+        <p id="result-message"></p>
         <button
           class="restart-btn"
           type="button"
@@ -217,7 +126,7 @@
         </nav>
       </div>
     </footer>
-    <script src="js/quiz.js"></script>
-    <script src="js/main.js"></script>
+    <script type="module" src="js/quiz.js"></script>
+    <script type="module" src="js/main.js"></script>
   </body>
 </html>

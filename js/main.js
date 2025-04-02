@@ -1,3 +1,5 @@
+import { generateQuiz, checkAnswers } from "./quiz.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   const startQuizButton = document.getElementById("start-quiz-button");
   const quizSection = document.querySelector(".quiz-section");
@@ -21,11 +23,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const resultSection = document.querySelector(".results-section");
 
   if (submitQuizButton && resultSection) {
-    submitQuizButton.addEventListener("click", () => {
-      // Hide the quiz section
+    submitQuizButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      checkAnswers();
       quizSection.style.display = "none";
-
-      // Show the result section
       resultSection.style.display = "block";
     });
   }
@@ -37,6 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
     resultSection.style.display = "none";
 
     // Show the quiz section
+    // quizSection.innerHTML = "";
+    generateQuiz();
     quizSection.style.display = "block";
   });
 
