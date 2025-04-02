@@ -109,7 +109,6 @@ form {
   align-items: center;
   flex-direction: column;
   width: 100%;
-  max-width: 600px;
   margin: 0 auto;
   padding: 1rem;
 }
@@ -188,12 +187,22 @@ fieldset {
 legend {
   border: 1px solid black;
   padding: 1em;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   border-radius: 0.5rem;
 }
 legend::after {
   content: " *";
   color: var(--error-color);
+}
+
+label {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+label input {
+  margin: 0;
 }
 
 .error-feedback {
