@@ -258,13 +258,13 @@ input[type='radio'] + label {
   margin-bottom: 3rem;
 }
 
-.feedback-details {
+.quiz-details {
   margin-top: 1rem;
   padding: 1rem;
   border-radius: 4px;
 }
 
-#feedback-form {
+#quiz-form {
   margin-bottom: 3rem;
 }
 

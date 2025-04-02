@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const introSection = document.getElementById('introduction');
     const userInfoSection = document.getElementById('user-info');
     const announcer = document.getElementById('announcer');
-    const quizSection = document.getElementById('accessibility-quiz')
 
     const introContinueButton = document.getElementById('intro-continue');
 
@@ -82,9 +81,22 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isValid) {
         userName = nameInput.value.trim();
         userInfoSection.hidden = true;
-
-        announcer.textContent = "Moved to accessibility quiz section";
         quizSection.hidden = false;
+        quizSection.scrollIntoView({ behavior: 'smooth' });
+        document.querySelector('#quiz-form input[type="radio"]').focus();
+        announcer.textContent = "Moved to accessibility quiz section";
       }
     });
+
+    const quizSection = document.getElementById('temp-quiz');
+    const resultsSection = document.getElementById('results')
+
+    const form = document.getElementById('quiz-form')
+    const resultsContent = document.getElementById('results-content')
+    const feedbackDetails = document.querySelector('.quiz-details')
+    const progressFill = document.querySelector('.progress-fill')
+    const progressText = document.querySelector('.progress-text')
+
+    
+
 });

@@ -94,9 +94,8 @@
           </div>
         </form>
       </section>
-      <div id="announcer" class="visually-hidden" aria-live="polite"></div>
 
-     <section id="feedback" hidden>
+     <section id="temp-quiz" hidden>
       <h2>Take our accessibility quiz</h2>
 
       <div class="quiz-progress" role="status" aria-live="polite">
@@ -157,9 +156,29 @@
           
           </div>
         </fieldset>
+
+        <div class="form-controls">
+          <button
+            type="submit"
+            class="submit-button"
+            aria-describedby="submit-description"
+          >
+            Submit quiz
+        </button>
+        <p id="submit-description" class="visually-hidden">
+          Click to submit your quiz and see the results
+        </p>
+        </div>
       </form>
      </section>
-      
+
+     <section id="results" hidden aria-live="polite">
+        <h2>Thank you</h2>
+        <div id="results-content"></div>
+        <div class="quiz-details"></div>
+     </section>
+
+     <div id="announcer" class="visually-hidden" aria-live="polite"></div>
       
       
       
