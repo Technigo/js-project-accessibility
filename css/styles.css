@@ -113,7 +113,7 @@ body {
 
 #banner img {
   width: 100%;
-  height: auto; 
+  height: auto;
   object-fit: cover;
 }
 
@@ -222,7 +222,7 @@ legend {
 }
 
 input {
- text-align: left;
+  text-align: left;
 }
 
 input[type="radio"] {
@@ -569,17 +569,19 @@ footer {
 
 
 /* 320px to 480px */
-@media (min-width: 320px ) and (max-width: 480px) {
+@media (min-width: 320px) and (max-width: 480px) {
   #header .header-content {
     flex-direction: column;
   }
 
   #header h1 {
-    font-size: 1.5rem; /* 24px */
+    font-size: 1.5rem;
+    /* 24px */
   }
 
   #header nav a {
-    font-size: 1.125rem; /* 18px */
+    font-size: 1.125rem;
+    /* 18px */
   }
 
   .quiz-instructions {
@@ -588,14 +590,15 @@ footer {
 
   .quiz-instructions h2,
   #accessibility-quiz h2 {
-    font-size: 1.25rem; /* 20px */
+    font-size: 1.25rem;
+    /* 20px */
   }
 
   .quiz-instructions p,
   legend,
-  label,
-  .footer-content a  {
-    font-size: 1rem; /* 16px */
+  label {
+    font-size: 1rem;
+    /* 16px */
   }
 }
 
@@ -604,13 +607,15 @@ footer {
   #header .header-content {
     flex-direction: column;
   }
-  
+
   #header h1 {
-    font-size: 1.625rem; /* 26px */
+    font-size: 1.625rem;
+    /* 26px */
   }
 
   #header nav a {
-    font-size: 1.25rem; /* 20px */
+    font-size: 1.25rem;
+    /* 20px */
   }
 
   .quiz-instructions {
@@ -618,25 +623,29 @@ footer {
   }
 
   .quiz-instructions h2,
-  #accessibility-quiz h2  {
-    font-size: 1.375rem; /* 22px */
-    }
-  
+  #accessibility-quiz h2 {
+    font-size: 1.375rem;
+    /* 22px */
+  }
+
   .quiz-instructions p,
   legend,
-  label,
-  .footer-content a  {
-    font-size: 1.125rem; /* 18px */
-    }
+  label {
+    font-size: 1.125rem;
+    /* 18px */
+  }
 }
 
 /* 768px to 1024px */
 @media (min-width: 768px) and (max-width: 1024px) {
   #header h1 {
-    font-size: 1.625rem; /* 26px */
+    font-size: 1.625rem;
+    /* 26px */
   }
+
   nav a {
-    font-size: 1.375rem; /* 22px */
+    font-size: 1.375rem;
+    /* 22px */
   }
 
   .quiz-instructions {
@@ -645,24 +654,28 @@ footer {
 
   .quiz-instructions h2,
   #accessibility-quiz h2 {
-    font-size: 1.375rem; /* 22px */
-    }
+    font-size: 1.375rem;
+    /* 22px */
+  }
 
   .quiz-instructions p,
   legend,
-  label,
-  .footer-content a  {
-    font-size: 1.125rem; /* 18px */
-    }
+  label {
+    font-size: 1.125rem;
+    /* 18px */
+  }
 }
 
 /* 768px to 1024px */
 @media (min-width: 1024px) {
   #header h1 {
-    font-size: 1.75rem; /* 28px */
+    font-size: 1.75rem;
+    /* 28px */
   }
+
   #header nav a {
-    font-size: 1.375rem; /* 22px */
+    font-size: 1.375rem;
+    /* 22px */
   }
 
   .quiz-instructions {
@@ -671,14 +684,14 @@ footer {
 
   .quiz-instructions h2,
   #accessibility-quiz h2 {
-    font-size: 1.5rem; /* 24px */
-    }
+    font-size: 1.5rem;
+    /* 24px */
+  }
 
   .quiz-instructions p,
   legend,
-  label,
-  .footer-content a  {
-    font-size: 1.25rem; /* 20px */
-    }
+  label {
+    font-size: 1.25rem;
+    /* 20px */
+  }
 }
-
