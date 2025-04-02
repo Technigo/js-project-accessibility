@@ -106,7 +106,7 @@ body {
   text-decoration: underline;
 }
 
-/* Instructions section LEAVE*/
+/* Instructions section*/
 #accessibility-quiz {
   margin: 5% 20%;
   border-radius: 8px;
@@ -508,6 +508,10 @@ nav a:hover {
     /* 18px */
   }
 
+  .quiz-card.active p {
+    text-align: left;
+  }
+
   .nav-buttons button,
   #restart-btn {
     width: 7.5rem;
@@ -556,6 +560,11 @@ nav a:hover {
   label {
     font-size: 1.25rem;
     /* 20px */
+  }
+
+  .quiz-instructions p,
+  #introduction p {
+    text-align: left;
   }
 
   .nav-buttons button,
