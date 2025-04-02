@@ -92,6 +92,7 @@ const quizQuestions = [
     altAnswerThree: "14px for desktop, 10px for mobile",
   },
 ];
+console.log("quizQuestions.length at startup:", quizQuestions.length);
 
 // SELECTORS
 const quizSection = document.querySelector(".quiz-section");
@@ -105,7 +106,20 @@ ctaBtn.addEventListener("click", () => {
 });
 
 // QUIZ QUESTIONS
+let answers = [];
+
+let currentQuestionIndex = 0;
+
+const saveAnswer = (questionIndex, selectedAnswer) => {
+  answers[questionIndex] = selectedAnswer;
+  console.log(
+    `Selected Answer for question ${questionIndex + 1}: ${selectedAnswer}`
+  );
+};
+
 const displayQuizQuestions = () => {
+  quizSection.innerHTML = "";
+
   quizSection.innerHTML = `
   <h2 tabindex="0">Accessibility Quiz!</h2>
   <p tabindex="0">
@@ -115,8 +129,8 @@ const displayQuizQuestions = () => {
   <form id="quiz-form">
   <div id="quiz-container"></div>
   <div class="btns-container">
-    <button class="btn next-btn" aria-label="Next-question">Next question</button>
-    <button class="btn prev-btn" aria-label="Previous-question">Previous question</button>
+    <button class="btn next-btn" type="button" aria-label="Next-question">Next question</button>
+    <button class="btn prev-btn" type="button" aria-label="Previous-question">Previous question</button>
     <button class="btn submit-btn" type="submit" aria-label="Submit-button">Submit!</button>  
   </div>
   </form>
@@ -126,8 +140,6 @@ const displayQuizQuestions = () => {
   const nextBtn = document.querySelector(".next-btn");
   const prevBtn = document.querySelector(".prev-btn");
   const submitBtn = document.querySelector(".submit-btn");
-
-  let currentQuestionIndex = 0;
 
   const displayCurrentQuestion = () => {
     const currentQuizQuestion = quizQuestions[currentQuestionIndex];
@@ -169,6 +181,15 @@ const displayQuizQuestions = () => {
     const quizInputs = document.querySelectorAll(
       `input[name="q${currentQuizQuestion.questionNumber}"]`
     );
+
+    quizInputs.forEach((input) => {
+      input.addEventListener("change", (e) => {
+        saveAnswer(currentQuestionIndex, e.target.value);
+        console.log("Answers array after saving each answer:", answers);
+        updateNextButtonState();
+      });
+    });
+
     const warningMessage = document.getElementById("warning-message");
 
     const updateNextButtonState = () => {
@@ -192,15 +213,22 @@ const displayQuizQuestions = () => {
     });
 
     if (currentQuestionIndex === 0) {
+      prevBtn.textContent = "No previous questions";
       prevBtn.disabled = true;
     } else {
+      prevBtn.textContent = "Previous question";
       prevBtn.disabled = false;
     }
 
     if (currentQuestionIndex === quizQuestions.length - 1) {
+      nextBtn.textContent = "No more questions";
       submitBtn.classList.remove("hidden");
+      nextBtn.disabled = true;
+      submitBtn.disabled = false;
     } else {
+      nextBtn.textContent = "Next question";
       submitBtn.classList.add("hidden");
+      submitBtn.disabled = true;
     }
   };
 
@@ -211,6 +239,8 @@ const displayQuizQuestions = () => {
       currentQuestionIndex++;
       displayCurrentQuestion();
       prevBtn.disabled = false;
+    } else if (currentQuestionIndex === quizQuestions.length - 1) {
+      nextBtn.disabled = true;
     }
   });
 
@@ -221,21 +251,19 @@ const displayQuizQuestions = () => {
     }
   });
 
-  quizForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    displayQuizResults();
+  document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("submit-btn")) {
+      e.preventDefault();
+      console.log("Submit button clicked!");
+      console.log("final answers array:", answers);
+      displayQuizResults();
+    }
   });
 };
 
 // QUIZ RESULTS
-let answers = [];
-
 const displayQuizResults = () => {
-  const quizInputs = document.querySelectorAll(".quiz-input:checked");
-
-  quizInputs.forEach((quizInput) => {
-    answers.push(quizInput.value);
-  });
+  console.log("Answers array before filtering:", answers);
 
   const correctAnswers = answers.filter((answer) => answer === "correct");
 
