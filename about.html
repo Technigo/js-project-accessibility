@@ -25,9 +25,9 @@
   <header role="banner"
           id="header">
     <div class="header-content">
-
       <h1>About</h1>
-      <nav role="navigation"
+      <nav id="mina-nav"
+           role="navigation"
            aria-label="Main Navigation">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -38,12 +38,13 @@
   </header>
 
   <main id="main-content"
-        aria-label="">
+        role="main">
     <section id="about"
-             aria-labelledby="about">
+             role="region"
+             aria-labelledby="About-title">
       <h2 id="About-title"> Team Fire Team Two</h2>
       <p>
-        This project is apart of Technigo's Web Bootcamp to further our knowleadge on Web accessibility tool.
+        This project is a part of Technigo's Web Bootcamp to further our knowleadge on Web accessibility tool.
 
         Our Web Accessibility page is an interactive webpage
         that demonstrates key accessibility principles in action. This webpage serves as a practical example
@@ -53,14 +54,16 @@
         This page includes practice required WCAG guidelines, ARIA roles, and best practices for designing inclusive web
         experiences. By engaging with the quiz, users can assess their understanding and identify areas for improvement
         in creating accessible digital content.
-        <br> <br>
+        <br><br>
         Team Fire 2 is made up of Sofia, Varia and Jonny.<br>
         <br>
       </p>
     </section>
 
-    <section>
-      <h2 aria-labelledby="Some Facts about Web Accessibility">Web Accessibility </h2>
+    <section id="facts"
+             role="region"
+             aria-labelledby="facts-title">
+      <h2 id="facts-title">Web Accessibility</h2>
       <p>
         Web accessibility ensures that all users, including those with disabilities, can interact with digital content
         effectively. The Web Content Accessibility Guidelines (WCAG) provide a framework for making websites more
@@ -89,31 +92,25 @@
 
       <div>
         <img src="./img/Levels.png"
-             alt="represents diffrent accessibility logo "
+             alt="Diagram showing WCAG compliance levels A, AA, and AAA with accessibility icons"
              class="informative-image">
         <figcaption hidden>Image contains the compliance of A, AA, AAA Accessibility levels </figcaption>
       </div>
     </section>
-    </section>
-
-
-
   </main>
 
 
   <footer role="contentinfo">
     <div class="footer-content">
-      <nav role="navigation"
+      <nav id="footer-nav"
+           role="navigation"
            aria-label="footer Navigation">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
         </ul>
       </nav>
-
-
-      <p>© 2025 Accessibility Quiz for beginners. All rights rreserved by Jonny, Sofia and Varia.</p>
-
+      <p>© 2025 Accessibility Quiz for Beginners. All rights reserved by Jonny, Sofia, and Varia.</p>
     </div>
   </footer>
 

@@ -23,7 +23,8 @@
   <a href="#main-content"
      class="skip-link">Skip to Content</a>
 
-  <header id="header">
+  <header id="header"
+          role="banner">
     <div class="header-content">
       <h1>Web Accessibility Quiz for beginners</h1>
       <nav role="navigation"
@@ -35,52 +36,51 @@
       </nav>
     </div>
   </header>
-  <section id="banner"
-           role="banner">
-    <img src="./img/keyboard.jpg"
-         alt=""
+  <section role="region">
+    <img id="decorative-img"
+         src="./img/keyboard.jpg"
+         alt="Pictue of keyboard with accessibility keys"
          role="presentation" />
   </section>
-  <main id="main-content">
-    <section id="introduction">
-      <h2>Welcome to the Quiz</h2>
+  <main id="main-content"
+        role="main">
+    <section id="introduction"
+             aria-labelledby="quiz-title">
+      <h2 id="quiz-title">Welcome to the Quiz</h2>
       <p>This quiz is designed to test your knowlege of web accessibility principles,</p>
     </section>
 
     <!-- QUIZ-->
-
     <section id="quizInstructions"
-             aria-labelledby="Quiz Instruction">
+             role="region"
+             aria-labelledby="quiz-heading">
+
       <h3 id="quiz-heading">Accessibility Quiz</h3>
-      <p tabindex="-1">
+      <p>
         Use the Tab key to navigate through options and press Enter to select an answer.
       </p>
-      <!-- <div class="formcontrols intro-section">
-        <button id="intro-continue"
-                type="button"
-                class="submit-button">
-          Continue </button>
-      </div> -->
+
     </section>
 
     <section id="quizSection"
-             aria-labelledby=" Quiz Section">
+             aria-labelledby="Quiz-from">
       <form id="quiz-form">
         <div class="card-header">
           <h2 id="quizQuestion"></h2>
         </div>
         <fieldset id="quizCard">
-          <legend></legend>
+          <legend hidden>Quiz Question</legend>
           <div id="quizOptions">
           </div>
           <div id="quizAnswer"
                hidden>
             Your score: <span id="score">0</span>
           </div>
-          <button type=""
+          <button type="button"
                   aria-live="polite"
                   id="restartBtn"
-                  tabindex="0" hidden>Restart Quiz</button>
+                  tabindex="0"
+                  hidden>Restart Quiz</button>
         </fieldset>
         <div id="submit-container">
           <button type="submit"
@@ -89,7 +89,8 @@
         </div>
       </form>
       <div id="feedback"
-           aria-live="polite"></div>
+           aria-live="polite"
+           aria-describedby="quizQuestion"></div>
 
     </section>
 
