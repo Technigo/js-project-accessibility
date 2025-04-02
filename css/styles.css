@@ -95,6 +95,7 @@ nav a {
   background-color: var(--primary-color);
   color: var(--white-color);
   padding: 2rem 0;
+
 }
 
 #header .header-content {
@@ -102,7 +103,6 @@ nav a {
   margin: 0 auto;
   padding: 0 3rem;
   display: flex;
-
   align-items: center;
   text-align: center;
   justify-content: space-between;
@@ -212,12 +212,12 @@ input[type="radio"] {
   width: 1.1rem;
   height: 1.1rem;
   vertical-align: top;
-  margin-top: 0.3rem;
+  margin-top: 5px;
 }
 
 label {
-  padding-left: 0.5rem;
-  margin-bottom: 0.6rem;
+  padding-left: 8px;
+  margin-bottom: 8px;
   width: 85%;
 }
 
@@ -227,8 +227,8 @@ input[type="radio"]+label {
 }
 
 input[type="radio"]:hover {
-  outline: 0.125rem solid var(--accent-color);
-  outline-offset: 0.125rem;
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
 }
 
 /*Style for navigation w. keyboard*/
@@ -272,7 +272,7 @@ input[type="radio"]:focus-visible+label {
 .next-btn:focus-visible,
 .prev-btn:focus-visible {
   outline: var(--focus-outline);
-  outline-offset: 0.125rem;
+  outline-offset: 2px;
 }
 
 /*Summary card*/
@@ -318,7 +318,7 @@ input[type="radio"]:focus-visible+label {
 
 #restart-btn:focus-visible {
   outline: var(--focus-outline);
-  outline-offset: 0.125rem;
+  outline-offset: 2px;
 }
 
 .error-message {
@@ -340,8 +340,8 @@ input[type="radio"]:focus-visible+label {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  padding-left: 0.625rem;
-  padding-right: 0.625rem;
+  padding-left: 10px;
+  padding-right: 10px;
 
 }
 
@@ -380,7 +380,7 @@ input[type="radio"]:focus-visible+label {
 
 .button-back:focus-visible {
   outline: var(--focus-outline);
-  outline-offset: 0.125rem;
+  outline-offset: 2px;
 }*/
 
 /* Footer */
@@ -389,7 +389,7 @@ input[type="radio"]:focus-visible+label {
   background-color: var(--primary-color);
   color: var(--white-color);
   padding: 2rem 0;
-  margin-top: auto;
+  margin-top: 2rem;
 }
 
 footer nav ul {
@@ -482,6 +482,11 @@ nav a:hover {
     padding: 2em;
   }
 
+  .quiz-instructions p,
+  #introduction p {
+    text-align: left;
+  }
+
   h2 {
     font-size: 1.375rem;
     /* 22px */
@@ -536,7 +541,6 @@ nav a:hover {
     font-size: 1.5rem;
     /* 24px */
   }
-
 
   p,
   legend,
