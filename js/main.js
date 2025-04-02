@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!emailInput.value.trim()) {
         showError(emailInput, emailError, 'Please enter your email address');
         isValid = false;
-        if (!nameError.textCtontent) {
+        if (!nameError.textContent) {
           emailInput.focus();
         }
       } else if (!isValidEmail(emailInput.value.trim())) {
@@ -129,11 +129,46 @@ document.addEventListener('DOMContentLoaded', () => {
     if (userAnswers.question1 === 'q1-correct') {
       detailedFeedback.push('✓ Accessibility: You got this right!')
     } else if (userAnswers.question1 === 'q1-incorrect') {
-      detailedFeedback.push('! Accessibility: We can do better!'
+      detailedFeedback.push('! Accessibility: Try again!'
       );
     }
 
-    const positiveAnswers = ['q1-correct', 'clear']
+    if (userAnswers.question2 === 'q2-correct') {
+      detailedFeedback.push('✓ Semantic HTML: You got this right!')
+    } else if (userAnswers.question2 === 'q2-incorrect') {
+      detailedFeedback.push('! Semantic HTML: Try again!'
+      );
+    }
+
+    if (userAnswers.question3 === 'q3-correct') {
+      detailedFeedback.push('✓ "Skip to content" purpose: You got this right!')
+    } else if (userAnswers.question3 === 'q3-incorrect') {
+      detailedFeedback.push('! "Skip to content" purpose: Try again!'
+      );
+    }
+
+    if (userAnswers.question4 === 'q4-correct') {
+      detailedFeedback.push('✓ What EAA stands for: You got this right!')
+    } else if (userAnswers.question4 === 'q4-incorrect') {
+      detailedFeedback.push('! What EAA stands for: Try again!'
+      );
+    }
+
+    if (userAnswers.question5 === 'q5-correct') {
+      detailedFeedback.push('✓ EEA’s requirements and obligations: You got this right!')
+    } else if (userAnswers.question5 === 'q5-incorrect') {
+      detailedFeedback.push('! EEA’s requirements and obligations: Try again!'
+      );
+    }
+
+    if (userAnswers.question6 === 'q6-correct') {
+      detailedFeedback.push('✓ Purpose of ARIA attributes: You got this right!')
+    } else if (userAnswers.question6 === 'q6-incorrect') {
+      detailedFeedback.push('! Purpose of ARIA attributes: Try again!'
+      );
+    }
+
+    const positiveAnswers = ['q1-correct', 'q2-correct', 'q3-correct', 'q4-correct', 'q5-correct', 'q6-correct'];
 
     const userAnswerValues = Object.values(userAnswers)
 
@@ -145,12 +180,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
     const totalResponses = Object.keys(userAnswers).length;
-    const satisfactionPercentage = Math.round((positiveResponses / totalResponses)*100)
+    const scorePercentage = Math.round((positiveResponses / totalResponses)*100)
 
-    feedback += `Based on your responses, you seem ${satisfactionPercentage}% satisfied with our website.`;
+    feedback += `Based on your responses, you got ${scorePercentage}% questions correct. `;
         feedback += positiveResponses >= totalResponses / 2 
-        ? 'Thank you for your positive feedback!' 
-        : 'We will work hard to improve.';
+        ? 'Congratulations!' 
+        : 'Try again!';
 
     quizSection.hidden = true;
     resultsSection.hidden = false;
