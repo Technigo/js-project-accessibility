@@ -16,7 +16,7 @@
   --transition-speed: 0.3s;
 }
 
-/* Apply box-sizing border-box to all elements. Makes padding and borders be included in the element's total width/height, */
+/* Box-sizing */
 *,
 *::before,
 *::after {
@@ -24,7 +24,7 @@
 }
 
 
-/* Base styles for readability */
+/* Base styles */
 body {
   font-family: "Roboto", sans-serif;
   line-height: 1.6;
@@ -37,7 +37,7 @@ body {
   min-height: 100vh;
 }
 
-/* Base typography sizes */
+/* Base sizes */
 h1 {
   font-size: 1.5rem;
   /* 24px */
@@ -62,10 +62,10 @@ label {
 
 nav a {
   font-size: 1.125rem;
-  /* 18px in rem */
+  /* 18px  */
 }
 
-/* Skip link with enhanced visibility */
+/* Skip link  */
 .skip-link {
   position: absolute;
   top: -2.5rem;
@@ -83,7 +83,6 @@ nav a {
   outline-offset: 2px;
 }
 
-/* Enhanced focus styles */
 :focus-visible {
   outline: var(--focus-outline);
   outline-offset: 2px;
@@ -134,7 +133,7 @@ nav a {
   text-decoration: underline;
 }
 
-/* Instructions section*/
+/* Quiz instructions*/
 #accessibility-quiz {
   margin: 5% 20%;
   border-radius: 0.5rem;
@@ -175,7 +174,7 @@ nav a {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/*Quiz elements*/
+/*Quiz card*/
 .quiz-card {
   display: none;
 }
@@ -329,7 +328,7 @@ input[type="radio"]:focus-visible+label {
 }
 
 
-/* ABOUT PAGE LEAVE*/
+/* About page*/
 .noinfo-image {
   width: 100%;
   height: auto;
