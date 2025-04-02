@@ -29,8 +29,10 @@ const quizOptions = document.getElementById("quizOptions") as HTMLInputElement
 const quizAnswer = document.getElementById("quizAnswer") as HTMLDivElement
 const score = document.getElementById("score") as HTMLSpanElement
 const restartBtn = document.getElementById("restartBtn") as HTMLButtonElement
+
 const submitAnswer = document.getElementById("submitAnswer") as HTMLButtonElement 
 const quizFeedback = document.getElementById("quizFeedback") as HTMLDivElement
+
 
 
 let index = 0, scr = 0;
@@ -60,16 +62,19 @@ function loadQuestion(): void {
   console.log(currentOption) 
 
   if (quizQuestion) quizQuestion.textContent = getQ.ask;
+
   if (quizOptions) quizOptions.innerHTML  = ""; // Clear previous options   
 
   getQ.choose.forEach((element, i )=> {
     
+
     const btn = document.createElement("input");
     btn.type = "radio";
     btn.name = "aria";
     btn.id = `aria-${i}`; // Unique ID for accessibility
     btn.value = `${i + 1}. ${element}`;
-    btn.hidden;    
+    btn.tabIndex = 0;
+
 
     btn.onclick = () => {
       selectedOption = element;
@@ -79,22 +84,24 @@ function loadQuestion(): void {
     const label = document.createElement("label");
     //label.hidden = true;
     label.htmlFor = btn.id;
-    
 
     label.appendChild(btn);
-    label.append(` ${element}`)
+    label.append(` ${element} `)
+
 
     submitAnswer.onclick = (event) => {
 
-    event.preventDefault(); //Stops form submission from refreshing the page
+      event.preventDefault(); //Stops form submission from refreshing the page
 
-    if (selectedOption !== null) {
-      checkA(selectedOption);
-    } else {
-      console.log("No option selected!");
-    }
-  };
-    // Append elements   
+      if (selectedOption !== null) {
+        checkA(selectedOption);
+      } else {
+        console.log("No option selected!");
+      }
+    };
+    // Append elements
+
+
     quizOptions?.appendChild(label);
   });
 }
@@ -115,6 +122,7 @@ function checkA(opt: string): void {
     loadQuestion();
   } else {
     console.log("incorrect answer")
+
     //submitAnswer?.style.setProperty('display', 'none'); //Remove submit when the answer is incorrect
 
     quizSection.insertAdjacentHTML (
@@ -144,6 +152,7 @@ function checkA(opt: string): void {
     }
     
 }
+
 
 function endQ(): void {
   quizQuestion?.style.setProperty('display', 'none');
