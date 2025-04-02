@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
 }
-
 :root {
   --bg-primary: #ffffff; /* White background */
   --color-primary: #333333; /* Dark grey text */
@@ -18,7 +17,6 @@
   --color-white: #ffffff; /* White text */
   --bg-secondary: #222222; /* Dark background for footer */
 }
-
 body {
   background: #2e3a59;
   color: var(--bg-primary); /* White text */
@@ -26,40 +24,26 @@ body {
   margin: 0;
   line-height: 1.6;
 }
-
 header {
   background: var(--color-featured); /* Featured color */
-  padding: 1.5rem;
+  padding: 1rem;
 }
-
-quiz-form {
-  font-size: 2rem;
-}
-
-.skip-link:link,
-.skip-link:visited {
-  color: white;
-  text-decoration: none;
-}
-
-.skip-link:hover,
-.skip-link:active {
-  color: var(--color-featured);
-}
-
 .question {
   background: var(--bg-white); /* Light grey background */
   padding: 1.5rem;
   margin: 1rem 0;
 }
-
-.quiz-question {
-  font-size: 0, 5rem;
-  background-color: #ffffff;
-  padding: 2rem;
-  margin: 1rem 0;
+.quiz-form {
+  font-size: 2rem;
 }
-
+.quiz-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem;
+  color: var(--bg-primary);
+  font-size: 1.2rem;
+  text-align: center;
+}
 nav ul {
   display: flex;
   justify-content: center; /* Centers items horizontally */
@@ -69,85 +53,69 @@ nav ul {
   margin: 0 auto; /* Centers within the parent */
   padding: 0;
 }
-
 nav a {
   font-size: 1.5rem;
   color: var(--color-primary); /* Dark text for links */
   text-decoration: none;
 }
-
 nav a:hover {
   color: var(--color-orange); /* Highlight on hover */
 }
-
 .hero-section {
   background: var(--nf-bg-2); /* Very dark blue */
-  padding: 5rem;
+  padding: 2rem;
   text-align: center;
   color: var(--color-white); /* White text on dark background */
 }
-
 .hero-section h1 {
   color: var(--bg-primary); /* Blue heading */
   font-size: 4rem;
-  margin-bottom: 3rem;
 }
-
 .hero-section p {
   font-size: 1.5rem;
-  margin-bottom: 3rem;
 }
-
 .about-section {
   background: #333333; /* Light background */
   padding: 2rem;
 }
-
 .about-section h2 {
   font-size: 3rem;
   margin-bottom: 2rem;
 }
-
 .about-section p {
-  font-size: 1.3rem;
+  font-size: 2.5rem;
   margin-bottom: 2rem;
 }
-
 .team-cards-container {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   padding: 1rem;
-  background: var(--nf-bg-1); /* Dark blue */
+  background: var(--nf-bg-3);
 }
-
 .team-card {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* fr = relative space */
-  gap: 2rem;
-  background-color: #ffffff;
-  border: 1px solid var(--border-gray);
+  display: grid; /* Keeps content aligned inside */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
   background: var(--bg-4rd);
-  padding: 2rem;
-  margin: 1rem 0;
-  justify-content: left;
+  border: 1px solid var(--border-gray);
+  text-align: center;
 }
-
 .team-card h3 {
   color: var(--color-primary);
   font-size: 2rem;
 }
-
 .team-card img {
   grid-row: span 2;
+  /* Adjusted size for better visibility */
 }
-
 .team-card p {
   color: var(--color-primary);
   font-size: 1.2rem;
   line-height: 1.6;
 }
-
 .quiz-section {
   /* Light grey */
   padding: 3rem;
@@ -155,37 +123,69 @@ nav a:hover {
   color: var(--bg-primary); /* Adjust text color for contrast */
   font-size: 1.2rem;
 }
-
 .quiz-section p {
   margin-bottom: 2rem;
 }
-
+.h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--color-connect); /* Dark blue for headings */
+}
+.p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--bg-primary); /* Dark blue for headings */
+  line-height: 1.6;
+}
+.quiz-section p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--bg-primary); /* Dark blue for headings */
+  line-height: 1.6;
+}
+legend {
+  font-size: 2.4em;
+  color: #ffffff;
+}
+label {
+  font-size: 1.5em;
+  color: #ffffff;
+}
 fieldset {
   padding: 1rem;
   margin-bottom: 2rem;
 }
-
-.quiz-result-section {
-  background: var(--nf--3); /* Dark gray */
-  padding: 2rem;
-  color: var(--color-white); /* White text */
+.quiz-option {
+  margin-bottom: 10px;
 }
-
+.quiz-result-section {
+  font-size: 2rem; /* Default text size */
+  background: var(--nf-bg-3); /* Dark gray */
+  padding: 2rem;
+  background-color: #f0a500; /* Featured color */
+  color: var(--color-white); /* White text */
+  text-align: center; /* Center text */
+  margin: 2rem auto; /* Centers the section horizontally */
+  max-width: 80%; /* Limits width for better readability */
+  border-radius: 12px; /* Soft rounded corners */
+}
 .quiz-result-section p {
   font-size: 1.5rem;
-
   background: var(--color-featured);
   /* Makes text yellow */
   padding: 1rem;
   border-radius: 8px;
 }
-
-.quiz-result-section h2 {
-  color: var(--color-featured); /* Featured color for headings */
+.quiz-content.quiz-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  margin-bottom: 1rem;
+  padding: 2rem;
+  max-width: 80%;
+  margin: 0 auto;
 }
-
 .btn {
   background: #f0a500; /* Dark orange */
   color: #000000; /* White text */
@@ -194,88 +194,40 @@ fieldset {
   border-radius: 8px;
   cursor: pointer;
   margin: 0.5rem;
-  font-size: 1.2rem;
 }
-
 .btn:hover {
   background: #ff5500; /* Slightly darker orange for hover */
 }
-
 .btn:focus {
   outline: 3px solid #ff6600; /* Orange outline on focus for accessibility */
 }
-
 footer {
   background: var(--bg-secondary); /* Dark footer background */
   color: var(--color-white); /* White text in footer */
   text-align: center;
   padding: 1rem;
-}
-
-/* MEDIA QUEREIES */
-@media (max-width: 480px) {
-  body {
-    font-size: 0.875rem;
-  }
-
-  .team-cards-container {
-    grid-template-columns: repeat(2, 1fr); /* Single column layout */
-  }
-
-  .team-card {
-    /* max-width: 100%; */
-    grid-template-columns: 1fr; /* Stack items */
-    text-align: center;
-  }
-
-  .team-card img {
-    width: 100px;
-    height: 100px;
-  }
-
-  .btn {
-    width: 100%;
-  }
-
-  nav ul {
-    flex-direction: column; /* Stack navigation links */
-    align-items: center;
-  }
-}
-
+} /* MEDIA QUEREIES */
 @media (max-width: 768px) {
-  .hero-section {
-    padding: 1.5rem;
-  }
-
   .team-cards-container {
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-  }
-
-  .quiz-section {
-    padding: 1.5rem;
-  }
-
-  .quiz-result-section p {
-    font-size: 1.2rem;
+    grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
   }
 }
-
-@media (min-width: 769px) and (max-width: 1200px) {
+@media (max-width: 480px) {
   .team-cards-container {
-    grid-template-columns: repeat(3, 1fr); /* Three columns */
-  }
-
-  .quiz-section {
-    margin: 0 auto;
+    grid-template-columns: 1fr; /* Single column for small screens */
   }
 }
-@media (min-width: 1201px) {
-  .team-cards-container {
-    grid-template-columns: repeat(2, 1fr); /* Four columns */
+/* Add responsiveness for adjustable text size */
+@media (max-width: 768px) {
+  .quiz-result-section {
+    font-size: 1.5rem; /* Smaller text on tablets */
+    padding: 1.5rem;
   }
-
-  .quiz-section {
-    margin: 0 auto;
+}
+@media (max-width: 480px) {
+  .quiz-result-section {
+    font-size: 1.2rem; /* Even smaller text for mobile */
+    padding: 1rem;
+    max-width: 90%;
   }
 }
