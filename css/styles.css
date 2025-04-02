@@ -24,6 +24,8 @@
 body {
   font-family: arial;
   color: var(--primary-color);
+  margin: 0;
+  padding: 0;
 }
 
 /* Skip link with enhanced visibility */
@@ -49,6 +51,7 @@ header {
   justify-content: center;
   flex-wrap: wrap;
   background-color: var(--accent-color);
+  padding: 1rem;
 }
 
 nav ul {
@@ -162,6 +165,11 @@ input:checked + .slider:before {
 .high-contrast {
   background-color: var(--primary-color);
   color: var(--background-color);
+}
+
+legend::after {
+  content: " *";
+  color: var(--error-color);
 }
 
 #result-container {
