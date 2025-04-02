@@ -188,39 +188,6 @@ nav a {
   text-align: left;
 }
 
-.nav-buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 2rem;
-}
-
-.nav-buttons button {
-  background-color: var(--primary-color);
-  color: var(--white-color);
-  padding: 0.75rem 1rem;
-  border-radius: 0.25rem;
-  font-size: 1rem;
-  width: 6rem;
-  border: 4px solid rgba(248, 248, 249, 0);
-  cursor: pointer;
-}
-
-.nav-buttons button:hover {
-  background-color: var(--accent-color);
-  border: var(--focus-outline);
-}
-
-.next-btn:active,
-.prev-btn:active {
-  transform: scale(0.98);
-}
-
-.next-btn:focus-visible,
-.prev-btn:focus-visible {
-  outline: var(--focus-outline);
-  outline-offset: 0.125rem;
-}
-
 fieldset {
   border: none;
   margin: 1rem 0;
@@ -276,7 +243,40 @@ input[type="radio"]:focus-visible+label {
   border-radius: 0.25rem;
 }
 
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
 
+.nav-buttons button {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 0.75rem 1rem;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  width: 6rem;
+  border: 4px solid rgba(248, 248, 249, 0);
+  cursor: pointer;
+}
+
+.nav-buttons button:hover {
+  background-color: var(--accent-color);
+  border: var(--focus-outline);
+}
+
+.next-btn:active,
+.prev-btn:active {
+  transform: scale(0.98);
+}
+
+.next-btn:focus-visible,
+.prev-btn:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 0.125rem;
+}
+
+/*Summary card*/
 #summary-card h2 {
   text-align: center;
   margin: 0 auto 0.75rem auto;
@@ -356,7 +356,7 @@ input[type="radio"]:focus-visible+label {
   margin: 0 auto 2rem;
 }
 
-.button-back {
+/*.button-back {
   display: block;
   background-color: var(--primary-color);
   width: fit-content;
@@ -382,7 +382,7 @@ input[type="radio"]:focus-visible+label {
 .button-back:focus-visible {
   outline: var(--focus-outline);
   outline-offset: 0.125rem;
-}
+}*/
 
 /* Footer */
 .footer-content {
@@ -441,19 +441,14 @@ nav a:hover {
     width: 90%;
   }
 
-  .quiz-instructions h2,
-  #accessibility-quiz h2,
-  #introduction h2,
-  #summary-card h2 {
+  h2 {
     font-size: 1.375rem;
     /* 22px */
   }
 
-  .quiz-instructions p,
+  p,
   legend,
-  label,
-  #introduction p,
-  #summary-card p {
+  label {
     font-size: 1.125rem;
     /* 18px */
   }
@@ -469,6 +464,10 @@ nav a:hover {
 
 /* 768px to 1024px */
 @media (min-width: 769px) and (max-width: 1024px) {
+  #header .header-content {
+    flex-direction: column;
+  }
+
   #header h1 {
     font-size: 1.625rem;
     /* 26px */
@@ -484,19 +483,14 @@ nav a:hover {
     padding: 2em;
   }
 
-  .quiz-instructions h2,
-  #accessibility-quiz h2,
-  #introduction h2,
-  #summary-card h2 {
+  h2 {
     font-size: 1.375rem;
     /* 22px */
   }
 
-  .quiz-instructions p,
+  p,
   legend,
-  label,
-  #introduction p,
-  #summary-card p {
+  label {
     font-size: 1.125rem;
     /* 18px */
   }
@@ -514,16 +508,9 @@ nav a:hover {
   }
 
   #summary-card h2,
-  #summary-content,
   #summary-content h3,
   #summary-content p {
     text-align: left;
-  }
-
-  footer nav ul {
-    justify-content: flex-end;
-    gap: 4rem;
-    padding-right: 4rem;
   }
 
 }
@@ -545,19 +532,16 @@ nav a:hover {
     padding: 2em;
   }
 
-  .quiz-instructions h2,
-  #accessibility-quiz h2,
-  #introduction h2,
-  #summary-card h2 {
+
+  h2 {
     font-size: 1.5rem;
     /* 24px */
   }
 
-  .quiz-instructions p,
+
+  p,
   legend,
-  label,
-  #introduction p,
-  #summary-card p {
+  label {
     font-size: 1.25rem;
     /* 20px */
   }
@@ -576,7 +560,6 @@ nav a:hover {
   }
 
   #summary-card h2,
-  #summary-content,
   #summary-content h3,
   #summary-content p {
     text-align: left;
