@@ -63,17 +63,27 @@ header {
   justify-content: center;
   flex-wrap: wrap;
   background-color: var(--accent-color);
-  padding: 1rem;
+  padding: 2rem;
+  align-items: center;
 }
 
 nav ul {
   display: flex;
   gap: 1rem;
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 h1 {
-  font-size: 20px;
+  font-size: 25px;
+  padding-right: 25px;
+}
+
+.index-html h1 {
+  display: flex;
+  padding: 0;
+  justify-content: center;
 }
 
 a {
@@ -82,7 +92,7 @@ a {
 
 /* unvisited link */
 a:link {
-  color: var(--primary-color);
+  color: var(--text-color);
 }
 
 /* visited link */
@@ -119,6 +129,7 @@ form {
   display: inline-block;
   width: 60px;
   height: 34px;
+  padding-left: 10px;
 }
 
 /* Hide default HTML checkbox */
@@ -205,6 +216,18 @@ label input {
   margin: 0;
 }
 
+#submit-button {
+  border: none;
+  background: rgb(172, 164, 164);
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  margin: 0.8rem;
+}
+
+#submit-button:hover {
+  background: rgb(203, 203, 228);
+}
+
 .error-feedback {
   border-color: #e74c3c;
   border-style: solid;
@@ -242,11 +265,15 @@ label input {
 }
 
 .presentation {
-  height: 600px;
-  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
 }
 .presentation img {
   max-height: 200px;
+  max-width: 200px;
+  border-radius: 150px;
 }
 #introduction img {
   max-height: 300px;

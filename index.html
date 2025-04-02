@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
 
-  <body>
+  <body class="index-html">
     <a href="#quiz" class="skip-link">Skip to Quiz!</a>
     <header>
       <h1>Web Accessibility Quiz</h1>
@@ -22,10 +22,13 @@
         </ul>
       </nav>
       <!-- Rounded switch -->
-      <label class="switch" aria-label="High contrast toggle">
-        <input type="checkbox" id="toggle" />
-        <span class="slider"></span>
-      </label>
+      <div>
+        <p>Toggle highcontrast mode:</p>
+        <label class="switch" aria-label="High contrast toggle">
+          <input type="checkbox" id="toggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
     </header>
 
     <main id="main-content">
@@ -33,7 +36,8 @@
         <img src="assets/braille.PNG" alt="picture of a braille keyboard" />
         <h2>Accessibility Quiz</h2>
         <p>
-          The quiz was made accessible by applying semantic HTML, which allows for tab navigation.
+          The quiz was made accessible by applying semantic HTML, which allows
+          for tab navigation.
         </p>
       </section>
 
@@ -107,14 +111,17 @@
           <fieldset class="question-3">
             <legend>Who was Louis Braille?</legend>
             <label
-              ><input type="radio" name="question3" value="answer1" /> Inventor of the first wheel chair</label
+              ><input type="radio" name="question3" value="answer1" /> Inventor
+              of the first wheel chair</label
             >
             <label
-              ><input type="radio" name="question3" value="answer2" />Inventor of the first hearing aid</label
+              ><input type="radio" name="question3" value="answer2" />Inventor
+              of the first hearing aid</label
             >
             <label
-              ><input type="radio" name="question3" value="answer3" />Inventor of a tactile system for reading and writing </label
-            >
+              ><input type="radio" name="question3" value="answer3" />Inventor
+              of a tactile system for reading and writing
+            </label>
             <div
               id="feedback-question3"
               aria-label="Feedback for question 3"
