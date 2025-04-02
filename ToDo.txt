@@ -1,3 +1,0 @@
-Add esc. key navigation
-Add the rest of the keyboard navigation
-Make sure the screen reader reads the questions in the quiz.
