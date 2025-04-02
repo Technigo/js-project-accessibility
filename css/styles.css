@@ -39,11 +39,11 @@ body {
 /* Skip link with enhanced visibility */
 .skip-link {
   position: absolute;
-  top: -40px;
+  top: -2.5rem;
   left: 0;
   background: var(--accent-color);
   color: var(--white-color);
-  padding: 8px;
+  padding: 0.5rem;
   z-index: 100;
   transition: top 0.3s;
 }
@@ -129,8 +129,8 @@ body {
   margin: 1rem auto;
   max-width: 600px;
   width: 100%;
-  padding: 1em;
-  border-radius: 0 4px 4px 0;
+  padding: 1rem;
+  border-radius: 0 0.25rem 0.25rem 0;
 }
 
 .quiz-instructions p {
@@ -144,7 +144,7 @@ body {
   padding: 1rem;
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -197,8 +197,8 @@ body {
 
 fieldset {
   border: none;
-  margin: 1em 0;
-  padding: 1em;
+  margin: 1rem 0;
+  padding: 1rem;
   border-radius: 0.25rem;
 }
 
@@ -218,8 +218,8 @@ input {
 input[type="radio"] {
   cursor: pointer;
   accent-color: var(--primary-color);
-  width: 1.1em;
-  height: 1.1em;
+  width: 1.1rem;
+  height: 1.1rem;
   vertical-align: top;
   margin-top: 0.3rem;
 }
@@ -306,8 +306,8 @@ input[type="radio"]:focus-visible+label {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
 
 }
 
