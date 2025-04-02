@@ -79,7 +79,7 @@ const displayAnswers = (totalCorrectAnswers, correctAnswers, userAnswers) => {
   <p>You answered ${totalCorrectAnswers} out of ${correctAnswers.length} questions correctly.</p>`
   displayUserFeedback(userAnswers, correctAnswers) // Call the function to display feedback for each question
   resultsContainer.setAttribute("tabindex", "-1") // Make results section focusable
-  resultsSection.focus() // Set focus to the results section
+  resultsContainer.focus() // Set focus to the results section
 
   announcer.innerHTML = `You answered ${totalCorrectAnswers} out of ${correctAnswers.length} questions correctly.` // Add announcement for screen readers
 }
