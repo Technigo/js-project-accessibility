@@ -10,13 +10,13 @@
   --error-color: #e74c3c;
   --success-color: #27ae60;
   --focus-outline-color: #00509e;
-  --focus-outline: 4px solid var(--focus-outline-color);
+  --focus-outline: 2px solid var(--focus-outline-color);
   --text-color: #042778;
   --border-color: #054fb9;
   --transition-speed: 0.3s;
 }
 
-/* Apply box-sizing border-box to all elements. Makes padding and borders be included in the element's total width/height, */
+/* Box-sizing */
 *,
 *::before,
 *::after {
@@ -24,7 +24,7 @@
 }
 
 
-/* Base styles for readability */
+/* Base styles */
 body {
   font-family: "Roboto", sans-serif;
   line-height: 1.6;
@@ -37,7 +37,7 @@ body {
   min-height: 100vh;
 }
 
-/* Base typography sizes */
+/* Base sizes */
 h1 {
   font-size: 1.5rem;
   /* 24px */
@@ -62,10 +62,10 @@ label {
 
 nav a {
   font-size: 1.125rem;
-  /* 18px in rem */
+  /* 18px  */
 }
 
-/* Skip link with enhanced visibility */
+/* Skip link  */
 .skip-link {
   position: absolute;
   top: -2.5rem;
@@ -83,7 +83,6 @@ nav a {
   outline-offset: 2px;
 }
 
-/* Enhanced focus styles */
 :focus-visible {
   outline: var(--focus-outline);
   outline-offset: 2px;
@@ -96,6 +95,7 @@ nav a {
   background-color: var(--primary-color);
   color: var(--white-color);
   padding: 2rem 0;
+
 }
 
 #header .header-content {
@@ -103,7 +103,6 @@ nav a {
   margin: 0 auto;
   padding: 0 3rem;
   display: flex;
-
   align-items: center;
   text-align: center;
   justify-content: space-between;
@@ -126,7 +125,7 @@ nav a {
   color: var(--white-color);
   text-decoration: none;
   padding: 0.5rem 1rem;
-  border-radius: 0.375rem;
+  border-radius: 6px;
   transition: opacity var(--transition-speed);
 }
 
@@ -134,10 +133,10 @@ nav a {
   text-decoration: underline;
 }
 
-/* Instructions section*/
+/* Quiz instructions*/
 #accessibility-quiz {
   margin: 5% 20%;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   background-color: var(--background-color);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   width: 100%;
@@ -159,7 +158,7 @@ nav a {
   max-width: 600px;
   width: 100%;
   padding: 1rem;
-  border-radius: 0 0.25rem 0.25rem 0;
+  border-radius: 0 4px 4px 0;
 }
 
 .quiz-instructions p {
@@ -171,11 +170,11 @@ nav a {
   padding: 1rem;
   max-width: 100%;
   height: auto;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/*Quiz elements*/
+/*Quiz card*/
 .quiz-card {
   display: none;
 }
@@ -188,6 +187,61 @@ nav a {
   text-align: left;
 }
 
+fieldset {
+  border: none;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+legend {
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  border-radius: 4px;
+}
+
+input {
+  text-align: left;
+}
+
+input[type="radio"] {
+  cursor: pointer;
+  accent-color: var(--primary-color);
+  width: 1.1rem;
+  height: 1.1rem;
+  vertical-align: top;
+  margin-top: 5px;
+}
+
+label {
+  padding-left: 8px;
+  margin-bottom: 8px;
+  width: 85%;
+}
+
+input[type="radio"]+label {
+  display: inline-block;
+  word-wrap: break-word;
+}
+
+input[type="radio"]:hover {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/*Style for navigation w. keyboard*/
+input[type="radio"]:checked+label {
+  background-color: var(--selected-bg-color);
+  border-radius: 4px;
+}
+
+input[type="radio"]:focus-visible+label {
+  outline: var(--focus-outline);
+  border-radius: 4px;
+}
+
 .nav-buttons {
   display: flex;
   justify-content: space-between;
@@ -198,10 +252,10 @@ nav a {
   background-color: var(--primary-color);
   color: var(--white-color);
   padding: 0.75rem 1rem;
-  border-radius: 0.25rem;
+  border-radius: 4px;
   font-size: 1rem;
   width: 6rem;
-  border: 4px solid rgba(248, 248, 249, 0);
+  border: 2px solid rgba(248, 248, 249, 0);
   cursor: pointer;
 }
 
@@ -218,65 +272,10 @@ nav a {
 .next-btn:focus-visible,
 .prev-btn:focus-visible {
   outline: var(--focus-outline);
-  outline-offset: 0.125rem;
+  outline-offset: 2px;
 }
 
-fieldset {
-  border: none;
-  margin: 1rem 0;
-  padding: 1rem;
-  border-radius: 0.25rem;
-}
-
-legend {
-  font-weight: bold;
-  text-align: left;
-  margin-bottom: 1rem;
-  color: var(--text-color);
-  border-radius: 0.25rem;
-}
-
-input {
-  text-align: left;
-}
-
-input[type="radio"] {
-  cursor: pointer;
-  accent-color: var(--primary-color);
-  width: 1.1rem;
-  height: 1.1rem;
-  vertical-align: top;
-  margin-top: 0.3rem;
-}
-
-label {
-  padding-left: 0.5rem;
-  margin-bottom: 0.6rem;
-  width: 85%;
-}
-
-input[type="radio"]+label {
-  display: inline-block;
-  word-wrap: break-word;
-}
-
-input[type="radio"]:hover {
-  outline: 0.125rem solid var(--accent-color);
-  outline-offset: 0.125rem;
-}
-
-/*Style for navigation w. keyboard*/
-input[type="radio"]:checked+label {
-  background-color: var(--selected-bg-color);
-  border-radius: 0.25rem;
-}
-
-input[type="radio"]:focus-visible+label {
-  outline: var(--focus-outline);
-  border-radius: 0.25rem;
-}
-
-
+/*Summary card*/
 #summary-card h2 {
   text-align: center;
   margin: 0 auto 0.75rem auto;
@@ -297,10 +296,10 @@ input[type="radio"]:focus-visible+label {
   background-color: var(--primary-color);
   color: var(--white-color);
   padding: 0.75rem 1rem;
-  border-radius: 0.25rem;
+  border-radius: 4px;
   font-size: 1rem;
   width: 8rem;
-  border: 4px solid rgba(248, 248, 249, 0);
+  border: 2px solid rgba(248, 248, 249, 0);
   cursor: pointer;
   display: block;
   margin: 0 auto;
@@ -319,7 +318,7 @@ input[type="radio"]:focus-visible+label {
 
 #restart-btn:focus-visible {
   outline: var(--focus-outline);
-  outline-offset: 0.125rem;
+  outline-offset: 2px;
 }
 
 .error-message {
@@ -329,7 +328,7 @@ input[type="radio"]:focus-visible+label {
 }
 
 
-/* ABOUT PAGE LEAVE*/
+/* About page*/
 .noinfo-image {
   width: 100%;
   height: auto;
@@ -341,8 +340,8 @@ input[type="radio"]:focus-visible+label {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  padding-left: 0.625rem;
-  padding-right: 0.625rem;
+  padding-left: 10px;
+  padding-right: 10px;
 
 }
 
@@ -356,7 +355,7 @@ input[type="radio"]:focus-visible+label {
   margin: 0 auto 2rem;
 }
 
-.button-back {
+/*.button-back {
   display: block;
   background-color: var(--primary-color);
   width: fit-content;
@@ -364,7 +363,7 @@ input[type="radio"]:focus-visible+label {
   color: var(--white-color);
   margin: 2rem auto;
   padding: 0.75rem 1.5rem;
-  border-radius: 0.25rem;
+  border-radius: 4px;
   font-size: 1rem;
   border: 4px solid rgba(248, 248, 249, 0);
   cursor: pointer;
@@ -381,8 +380,8 @@ input[type="radio"]:focus-visible+label {
 
 .button-back:focus-visible {
   outline: var(--focus-outline);
-  outline-offset: 0.125rem;
-}
+  outline-offset: 2px;
+}*/
 
 /* Footer */
 .footer-content {
@@ -390,7 +389,7 @@ input[type="radio"]:focus-visible+label {
   background-color: var(--primary-color);
   color: var(--white-color);
   padding: 2rem 0;
-  margin-top: auto;
+  margin-top: 2rem;
 }
 
 footer nav ul {
@@ -441,19 +440,14 @@ nav a:hover {
     width: 90%;
   }
 
-  .quiz-instructions h2,
-  #accessibility-quiz h2,
-  #introduction h2,
-  #summary-card h2 {
+  h2 {
     font-size: 1.375rem;
     /* 22px */
   }
 
-  .quiz-instructions p,
+  p,
   legend,
-  label,
-  #introduction p,
-  #summary-card p {
+  label {
     font-size: 1.125rem;
     /* 18px */
   }
@@ -469,6 +463,10 @@ nav a:hover {
 
 /* 768px to 1024px */
 @media (min-width: 769px) and (max-width: 1024px) {
+  #header .header-content {
+    flex-direction: column;
+  }
+
   #header h1 {
     font-size: 1.625rem;
     /* 26px */
@@ -484,19 +482,19 @@ nav a:hover {
     padding: 2em;
   }
 
-  .quiz-instructions h2,
-  #accessibility-quiz h2,
-  #introduction h2,
-  #summary-card h2 {
+  .quiz-instructions p,
+  #introduction p {
+    text-align: left;
+  }
+
+  h2 {
     font-size: 1.375rem;
     /* 22px */
   }
 
-  .quiz-instructions p,
+  p,
   legend,
-  label,
-  #introduction p,
-  #summary-card p {
+  label {
     font-size: 1.125rem;
     /* 18px */
   }
@@ -514,20 +512,12 @@ nav a:hover {
   }
 
   #summary-card h2,
-  #summary-content,
   #summary-content h3,
   #summary-content p {
     text-align: left;
   }
 
-  footer nav ul {
-    justify-content: flex-end;
-    gap: 4rem;
-    padding-right: 4rem;
-  }
-
 }
-
 
 @media (min-width: 1024px) {
   #header h1 {
@@ -542,22 +532,18 @@ nav a:hover {
   }
 
   .quiz-instructions {
-    padding: 2em;
+    padding: 2rem;
+
   }
 
-  .quiz-instructions h2,
-  #accessibility-quiz h2,
-  #introduction h2,
-  #summary-card h2 {
+  h2 {
     font-size: 1.5rem;
     /* 24px */
   }
 
-  .quiz-instructions p,
+  p,
   legend,
-  label,
-  #introduction p,
-  #summary-card p {
+  label {
     font-size: 1.25rem;
     /* 20px */
   }
@@ -576,7 +562,6 @@ nav a:hover {
   }
 
   #summary-card h2,
-  #summary-content,
   #summary-content h3,
   #summary-content p {
     text-align: left;
