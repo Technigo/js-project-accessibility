@@ -5,7 +5,7 @@
   --primary-color: #042778;
   --background-color: rgb(213, 233, 250, 0.5);
   --accent-color: #0073e6;
-  /* Darker blue for better contrast */
+  --white-color: white;
   --error-color: #e74c3c;
   --success-color: #27ae60;
   --focus-outline: 3px solid var(--accent-color);
@@ -44,7 +44,7 @@ body {
   top: -40px;
   left: 0;
   background: var(--accent-color);
-  color: white;
+  color: var(--white-color);
   padding: 8px;
   z-index: 100;
   transition: top 0.3s;
@@ -67,7 +67,7 @@ body {
 #header {
   width: 100vw;
   background-color: var(--primary-color);
-  color: white;
+  color: var(--white-color);
   padding: 2rem 0;
 }
 
@@ -82,7 +82,7 @@ body {
 }
 
 #header h1 {
-  color: white;
+  color: var(--white-color);
   margin: 0;
 }
 
@@ -95,7 +95,7 @@ body {
 }
 
 #header nav a {
-  color: white;
+  color: var(--white-color);
   text-decoration: none;
   padding: 0.5rem 1rem;
   border-radius: 6px;
@@ -126,7 +126,7 @@ body {
   flex-direction: column;
   align-items: center;
   /*text-align: center;*/
-  background-color: #f8f9fa;
+  background-color: var(--white-color);
   color: var(--text-color);
   margin: 1rem auto;
   max-width: 600px;
@@ -142,7 +142,7 @@ body {
 
 
 .info-image {
-  background: white;
+  background: var(--white-color);
   padding: 1rem;
   max-width: 100%;
   height: auto;
@@ -172,7 +172,7 @@ body {
 
 .nav-buttons button {
   background-color: var(--primary-color);
-  color: white;
+  color: var(--white-color);
   padding: 0.75rem 1rem;
   border-radius: 0.25rem;
   font-size: 1rem;
@@ -183,7 +183,7 @@ body {
 
 .nav-buttons button:hover {
   background-color: #0073e6;
-  border: solid 2px #054fb9;
+  border: var(--focus-outline)
 }
 
 .next-btn:active,
@@ -244,7 +244,7 @@ input[type="radio"]:hover {
 
 /*Style for navigation w. keyboard*/
 input[type="radio"]:checked+label {
-  background-color: #e6f0ff;
+  background-color: var(--white-color);
   border-radius: 0.25rem;
 }
 
@@ -265,7 +265,7 @@ input[type="radio"]:focus-visible+label {
 
 #restart-btn {
   background-color: var(--primary-color);
-  color: white;
+  color: var(--white-color);
   padding: 0.75rem 1rem;
   border-radius: 0.25rem;
   font-size: 1rem;
@@ -277,7 +277,7 @@ input[type="radio"]:focus-visible+label {
 
 #restart-btn:hover {
   background-color: #0073e6;
-  border: solid 2px #054fb9;
+  border: var(--focus-outline)
 }
 
 #restart-btn:active {
@@ -292,7 +292,7 @@ input[type="radio"]:focus-visible+label {
 .error-message {
   font-size: 1rem;
   font-weight: 600;
-  color: red;
+  color: var(--error-color);
 }
 
 
@@ -329,7 +329,7 @@ input[type="radio"]:focus-visible+label {
   background-color: var(--primary-color);
   width: fit-content;
   text-decoration: none;
-  color: white;
+  color: var(--white-color);
   margin: 2rem auto;
   padding: 0.75rem 1.5rem;
   border-radius: 0.25rem;
@@ -340,7 +340,7 @@ input[type="radio"]:focus-visible+label {
 
 .button-back:hover {
   background-color: #0073e6;
-  border: solid 2px #054fb9;
+  border: var(--focus-outline)
 }
 
 .button-back:active {
@@ -358,7 +358,7 @@ input[type="radio"]:focus-visible+label {
 .footer-content {
   width: 100vw;
   background-color: var(--primary-color);
-  color: white;
+  color: var(--white-color);
   padding: 2rem 0;
   margin-top: auto;
   font-size: 18px;
@@ -377,7 +377,7 @@ footer nav ul {
 nav a {
   color: var(--accent-color);
   text-decoration: none;
-  color: white;
+  color: var(--white-color);
 }
 
 nav a:hover {
@@ -597,8 +597,7 @@ nav a:hover {
 }
 
 
-/* Progress bar 
-.quiz-progress {
+Progress bar .quiz-progress {
   margin: 2rem 0;
 }
 
@@ -621,4 +620,4 @@ nav a:hover {
   margin-top: 0.5rem;
   text-align: center;
   font-weight: 500;
-}*/
+}
