@@ -17,8 +17,6 @@ const compareAnswers = () => {
   const userAnswers = [] // Array to store user-selected answers
   const numberOfQuestions = 3 // Number of questions in the quiz - in case we want to add more questions in the future - just change this variable
 
-  console.log("Comparing answers...")
-
   // Retrieve user answers
   for (let i = 1; i <= numberOfQuestions; i++) {
     const question = document.querySelector(
@@ -59,10 +57,6 @@ const displayUserFeedback = (userAnswers, correctAnswers) => {
 
     const correctText = correctInput.parentElement.textContent.trim() // Get the text of the correct answer option
 
-    /*console.log(`Question ${questionNumber}:`);
-    console.log(`Your answer: ${userAnswer}`);
-    console.log(`Right answer: ${correct}`);*/
-
     // Display feedback based on the user's answer
     if (userAnswer === correctValue) {
       feedbackDiv.classList.add("success-feedback")
@@ -79,8 +73,10 @@ const displayUserFeedback = (userAnswers, correctAnswers) => {
 
 // Display the results
 const displayAnswers = (totalCorrectAnswers, correctAnswers, userAnswers) => {
-  const resultContainer = document.getElementById("result-container")
+  const resultContainer = document.getElementById("results-container")
   resultContainer.innerHTML = `<h2>Your results:</h2>
   <p>You answered ${totalCorrectAnswers} out of ${correctAnswers.length} questions correctly.</p>`
   displayUserFeedback(userAnswers, correctAnswers) // Call the function to display feedback for each question
+  // Add announcement for screen readers
+  announcer.innerHTML = `You answered ${totalCorrectAnswers} out of ${correctAnswers.length} questions correctly.`
 }
