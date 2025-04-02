@@ -28,7 +28,7 @@ const quizOptions = document.getElementById("quizOptions") as HTMLInputElement
 const quizAnswer = document.getElementById("quizAnswer") as HTMLDivElement
 const score = document.getElementById("score") as HTMLSpanElement
 const restartBtn = document.getElementById("restartBtn") as HTMLButtonElement
-const submitAnswer = document.getElementById("submitAnswer") as HTMLButtonElement 
+const submitAnswer = document.getElementById("submitAnswer") as HTMLButtonElement
 
 
 let index = 0, scr = 0;
@@ -55,16 +55,17 @@ function loadQuestion(): void {
   if (quizQuestion) quizQuestion.textContent = getQ.ask;
   if (quizOptions) quizOptions.innerHTML = ""; // Clear previous options 
 
- let selectedOption: string | null = null;
+  let selectedOption: string | null = null;
 
-  getQ.choose.forEach((element, i )=> {
+  getQ.choose.forEach((element, i) => {
     const btn = document.createElement("input");
     btn.type = "radio";
     btn.name = "aria";
     btn.id = `aria-${i}`; // Unique ID for accessibility
     btn.value = `${i + 1}. ${element}`;
+    btn.tabIndex = 0;
 
-   btn.onclick = () => {
+    btn.onclick = () => {
       selectedOption = element;
       console.log("Selected:", selectedOption);
     };
@@ -72,23 +73,23 @@ function loadQuestion(): void {
     const label = document.createElement("label");
     //label.hidden = true;
     label.htmlFor = btn.id;
-    
 
-  label.appendChild(btn);
-  label.append(` ${element}`)
+
+    label.appendChild(btn);
+    label.append(` ${element} `)
 
     submitAnswer.onclick = (event) => {
 
-    event.preventDefault(); //Stops form submission from refreshing the page
+      event.preventDefault(); //Stops form submission from refreshing the page
 
-    if (selectedOption !== null) {
-      checkA(selectedOption);
-    } else {
-      console.log("No option selected!");
-    }
-  };
+      if (selectedOption !== null) {
+        checkA(selectedOption);
+      } else {
+        console.log("No option selected!");
+      }
+    };
     // Append elements
-   
+
     quizOptions?.appendChild(label);
   });
 }
@@ -97,24 +98,24 @@ function loadQuestion(): void {
 
 function checkA(opt: string): void {
 
-    if (opt === quiz[index].answer) {
-      scr++;
+  if (opt === quiz[index].answer) {
+    scr++;
     index++;
     loadQuestion();
   } else {
     console.log("incorrect answer")
     submitAnswer?.style.setProperty('display', 'none'); //Remove submit when the answer is incorrect
 
-    quizCard.innerHTML =`
-    <h3>Oh no wrong answer</H3>
-    <button id=retryBtn>Click to Retry</button>
-    `;
+    quizCard.innerHTML = `
+      < h3 > Oh no wrong answer </H3>
+        < button id = retryBtn > Click to Retry </button>
+          `;
 
-    
+
     loadQuestion()
 
   }
-   
+
 }
 
 // Function to retry the same question
@@ -130,8 +131,8 @@ function checkA(opt: string): void {
 //     const btn = document.createElement("input");
 //     btn.type = "radio";
 //     btn.name = "aria";
-//     btn.id = `aria-${i}`; // Unique ID for accessibility
-//     btn.value = `${i + 1}. ${element}`;
+//     btn.id = `aria - ${ i } `; // Unique ID for accessibility
+//     btn.value = `${ i + 1 }. ${ element } `;
 
 //    btn.onclick = () => {
 //       selectedOption = element;
@@ -141,10 +142,10 @@ function checkA(opt: string): void {
 //     const label = document.createElement("label");
 //     //label.hidden = true;
 //     label.htmlFor = btn.id;
-    
+
 
 //   label.appendChild(btn);
-//   label.append(` ${element}`)
+//   label.append(` ${ element } `)
 
 //     submitAnswer.onclick = (event) => {
 
@@ -157,7 +158,7 @@ function checkA(opt: string): void {
 //     }
 //   };
 //     // Append elements
-   
+
 //     quizOptions?.appendChild(label);
 //   });
 

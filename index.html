@@ -52,7 +52,7 @@
     <section id="quizInstructions"
              aria-labelledby="Quiz Instruction">
       <h3 id="quiz-heading">Accessibility Quiz</h3>
-      <p tabindex="0">
+      <p tabindex="-1">
         Use the Tab key to navigate through options and press Enter to select an answer.
       </p>
       <!-- <div class="formcontrols intro-section">
@@ -73,15 +73,20 @@
           <legend></legend>
           <div id="quizOptions">
           </div>
-          <div id="quizAnswer" hidden>
-            Your score: <span id="score" >0</span>
+          <div id="quizAnswer"
+               hidden>
+            Your score: <span id="score">0</span>
           </div>
           <button type=""
                   aria-live="polite"
-                  id="restartBtn" hidden>Restart Quiz</button>
+                  id="restartBtn"
+                  tabindex="0">Restart Quiz</button>
         </fieldset>
-<div id="submit-container">
-  <button type="submit" id ="submitAnswer">Submit</Button></div>
+        <div id="submit-container">
+          <button type="submit"
+                  id="submitAnswer"
+                  tabindex="0">Submit</Button>
+        </div>
       </form>
       <div id="feedback"
            aria-live="polite"></div>
