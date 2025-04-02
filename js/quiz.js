@@ -1,3 +1,4 @@
+const announcer = document.getElementById("announcer")
 const submitButton = document.getElementById("submit-button")
 
 submitButton.addEventListener("click", (event) => {
@@ -66,17 +67,19 @@ const displayUserFeedback = (userAnswers, correctAnswers) => {
       feedbackDiv.innerHTML = `<p>You forgot to answer!</p>`
     } else {
       feedbackDiv.classList.add("error-feedback")
-      feedbackDiv.innerHTML = `<p>Wrong. The right answer is ${correctText.toLowerCase()}</p>`
+      feedbackDiv.innerHTML = `<p>Wrong. The right answer is ${correctText.toLowerCase()}.</p>`
     }
   }
 }
 
 // Display the results
 const displayAnswers = (totalCorrectAnswers, correctAnswers, userAnswers) => {
-  const resultContainer = document.getElementById("results-container")
-  resultContainer.innerHTML = `<h2>Your results:</h2>
+  const resultsContainer = document.getElementById("results-container")
+  resultsContainer.innerHTML = `<h2>Your results:</h2>
   <p>You answered ${totalCorrectAnswers} out of ${correctAnswers.length} questions correctly.</p>`
   displayUserFeedback(userAnswers, correctAnswers) // Call the function to display feedback for each question
-  // Add announcement for screen readers
-  announcer.innerHTML = `You answered ${totalCorrectAnswers} out of ${correctAnswers.length} questions correctly.`
+  resultsContainer.setAttribute("tabindex", "-1") // Make results section focusable
+  resultsSection.focus() // Set focus to the results section
+
+  announcer.innerHTML = `You answered ${totalCorrectAnswers} out of ${correctAnswers.length} questions correctly.` // Add announcement for screen readers
 }
