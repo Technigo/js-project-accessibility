@@ -8,6 +8,7 @@ const ANSWERS = {
 // DOM Elements
 const quizForm = document.getElementById('quiz-form');
 const feedbackRegion = document.getElementById('feedback-region');
+const quizResults = document.querySelector('#quizResults [role="status"]');
 const errorMessages = {
   question1: document.getElementById('error-question1'),
   question2: document.getElementById('error-question2'),
@@ -52,10 +53,13 @@ quizForm.addEventListener('submit', (e) => {
 
   // Show results
   if (errors.length > 0) {
-    feedbackRegion.textContent = 'Please answer all questions: ' + errors.join(', ');
+    quizResults.innerHTML = '<p>Please answer all questions: ' + errors.join(', ') + '</p>';
   } else {
-    feedbackRegion.textContent = 'Your score: ' + score + ' out of 3';
+    quizResults.innerHTML = '<p>Your score: ' + score + ' out of 3</p>';
   }
+  
+  // Scroll to results section
+  quizResults.closest('section').scrollIntoView({ behavior: 'smooth' });
 });
 
 // Get all interactive elements
@@ -85,6 +89,14 @@ document.addEventListener('keydown', (e) => {
       if (activeElement.tagName === 'BUTTON') {
         e.preventDefault();
         activeElement.click();
+      } else if (activeElement.closest('[role="radiogroup"]')) {
+        e.preventDefault();
+        const radioGroup = activeElement.closest('[role="radiogroup"]');
+        const radioButtons = radioGroup.querySelectorAll('input[type="radio"]');
+        const currentIndex = Array.from(radioButtons).findIndex(radio => radio.checked);
+        const nextIndex = (currentIndex + 1) % radioButtons.length;
+        radioButtons[nextIndex].checked = true;
+        radioButtons[nextIndex].focus();
       }
       break;
       
@@ -94,8 +106,9 @@ document.addEventListener('keydown', (e) => {
       if (activeElement.closest('[role="radiogroup"]')) {
         const radioGroup = activeElement.closest('[role="radiogroup"]');
         const radioButtons = radioGroup.querySelectorAll('input[type="radio"]');
-        const currentIndex = Array.from(radioButtons).indexOf(activeElement);
+        const currentIndex = Array.from(radioButtons).findIndex(radio => radio.checked);
         const nextIndex = (currentIndex + 1) % radioButtons.length;
+        radioButtons[nextIndex].checked = true;
         radioButtons[nextIndex].focus();
       }
       break;
@@ -106,8 +119,9 @@ document.addEventListener('keydown', (e) => {
       if (activeElement.closest('[role="radiogroup"]')) {
         const radioGroup = activeElement.closest('[role="radiogroup"]');
         const radioButtons = radioGroup.querySelectorAll('input[type="radio"]');
-        const currentIndex = Array.from(radioButtons).indexOf(activeElement);
+        const currentIndex = Array.from(radioButtons).findIndex(radio => radio.checked);
         const prevIndex = (currentIndex - 1 + radioButtons.length) % radioButtons.length;
+        radioButtons[prevIndex].checked = true;
         radioButtons[prevIndex].focus();
       }
       break;
@@ -117,6 +131,7 @@ document.addEventListener('keydown', (e) => {
       if (activeElement.closest('[role="radiogroup"]')) {
         const radioGroup = activeElement.closest('[role="radiogroup"]');
         const firstRadio = radioGroup.querySelector('input[type="radio"]');
+        firstRadio.checked = true;
         firstRadio.focus();
       }
       break;
@@ -127,6 +142,7 @@ document.addEventListener('keydown', (e) => {
         const radioGroup = activeElement.closest('[role="radiogroup"]');
         const radioButtons = radioGroup.querySelectorAll('input[type="radio"]');
         const lastRadio = radioButtons[radioButtons.length - 1];
+        lastRadio.checked = true;
         lastRadio.focus();
       }
       break;
@@ -147,4 +163,33 @@ allRadioButtons.forEach((radio) => {
       errorMessage.classList.remove('correct', 'incorrect');
     }
   });
+});
+
+// Announce questions when focused
+document.querySelectorAll('fieldset').forEach((fieldset) => {
+  fieldset.addEventListener('focus', () => {
+    const legend = fieldset.querySelector('legend');
+    if (legend) {
+      // Create a live region announcement
+      const announcement = document.createElement('div');
+      announcement.setAttribute('role', 'status');
+      announcement.setAttribute('aria-live', 'polite');
+      announcement.style.position = 'absolute';
+      announcement.style.width = '1px';
+      announcement.style.height = '1px';
+      announcement.style.padding = '0';
+      announcement.style.margin = '-1px';
+      announcement.style.overflow = 'hidden';
+      announcement.style.clip = 'rect(0, 0, 0, 0)';
+      announcement.style.whiteSpace = 'nowrap';
+      announcement.style.border = '0';
+      announcement.textContent = legend.textContent;
+      document.body.appendChild(announcement);
+      
+      // Remove after announcement
+      setTimeout(() => {
+        document.body.removeChild(announcement);
+      }, 1000);
+    }
+  }, true);
 });
