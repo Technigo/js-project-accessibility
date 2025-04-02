@@ -519,7 +519,7 @@ nav a:hover {
 
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   #header h1 {
     font-size: 1.75rem;
     /* 28px */
@@ -570,6 +570,7 @@ nav a:hover {
   footer nav ul {
     justify-content: flex-end;
     gap: 4rem;
-    padding-right: 15rem;
+    padding-right: 5rem;
   }
+
 }
