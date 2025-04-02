@@ -92,6 +92,7 @@ const quizQuestions = [
     altAnswerThree: "14px for desktop, 10px for mobile",
   },
 ];
+console.log("quizQuestions.length at startup:", quizQuestions.length);
 
 // SELECTORS
 const quizSection = document.querySelector(".quiz-section");
@@ -105,68 +106,164 @@ ctaBtn.addEventListener("click", () => {
 });
 
 // QUIZ QUESTIONS
+let answers = [];
+
+let currentQuestionIndex = 0;
+
+const saveAnswer = (questionIndex, selectedAnswer) => {
+  answers[questionIndex] = selectedAnswer;
+  console.log(
+    `Selected Answer for question ${questionIndex + 1}: ${selectedAnswer}`
+  );
+};
+
 const displayQuizQuestions = () => {
+  quizSection.innerHTML = "";
+
   quizSection.innerHTML = `
-  <h2>Accessibility Quiz!</h2>
-  <p>
+  <h2 tabindex="0">Accessibility Quiz!</h2>
+  <p tabindex="0">
   Answer the following questions, then click the submit button once you're
   done. You can only select one answer per question.
   </p>
   <form id="quiz-form">
   <div id="quiz-container"></div>
-  <button class="btn" type="submit">Submit!</button>
+  <div class="btns-container">
+    <button class="btn next-btn" type="button" aria-label="Next-question">Next question</button>
+    <button class="btn prev-btn" type="button" aria-label="Previous-question">Previous question</button>
+    <button class="btn submit-btn" type="submit" aria-label="Submit-button">Submit!</button>  
+  </div>
   </form>
   `;
 
   quizForm = document.getElementById("quiz-form");
+  const nextBtn = document.querySelector(".next-btn");
+  const prevBtn = document.querySelector(".prev-btn");
+  const submitBtn = document.querySelector(".submit-btn");
 
-  quizQuestions.forEach((quizQuestion) => {
+  const displayCurrentQuestion = () => {
+    const currentQuizQuestion = quizQuestions[currentQuestionIndex];
+
     let quizAnswers = [
-      { label: quizQuestion.altAnswerOne, value: "wrong" },
-      { label: quizQuestion.altAnswerTwo, value: "wrong" },
-      { label: quizQuestion.correctAnswer, value: "correct" },
-      { label: quizQuestion.altAnswerThree, value: "wrong" },
+      { label: currentQuizQuestion.altAnswerOne, value: "wrong" },
+      { label: currentQuizQuestion.altAnswerTwo, value: "wrong" },
+      { label: currentQuizQuestion.correctAnswer, value: "correct" },
+      { label: currentQuizQuestion.altAnswerThree, value: "wrong" },
     ];
 
     quizAnswers = quizAnswers.sort(() => Math.random() - 0.5);
 
     const quizContainer = document.getElementById("quiz-container");
 
-    quizContainer.innerHTML += `<fieldset class="question-${
-      quizQuestion.questionNumber
+    quizContainer.innerHTML = `<fieldset class="question-${
+      currentQuizQuestion.questionNumber
     }">
-            <legend>${quizQuestion.question}</legend>
-            ${quizAnswers
-              .map((answer, i) => {
-                return `<div class="quiz-option">
-              <input class="quiz-input" aria-controls="answer-section" type="radio" id="option-${
-                i + 1
-              }" name="q${quizQuestion.questionNumber}" value="${
-                  answer.value
-                }" required />
-              <label for="option-${i + 1}">${answer.label}</label>
-            </div>
-          `;
-              })
-              .join("")}
-          </fieldset>`;
+              <legend tabindex="0">${currentQuizQuestion.question}</legend>
+              ${quizAnswers
+                .map((answer, i) => {
+                  return `<div class="quiz-option">
+                <input class="quiz-input" aria-controls="answer-section" type="radio" id="option-${
+                  i + 1
+                }" name="q${currentQuizQuestion.questionNumber}" value="${
+                    answer.value
+                  }" required />
+                <label for="option-${i + 1}">${answer.label}</label>
+              </div>
+            `;
+                })
+                .join("")}
+            </fieldset>
+            <p id="warning-message" class="hidden" aria-live="polite">
+              
+            </p>
+            `;
+
+    const quizInputs = document.querySelectorAll(
+      `input[name="q${currentQuizQuestion.questionNumber}"]`
+    );
+
+    quizInputs.forEach((input) => {
+      input.addEventListener("change", (e) => {
+        saveAnswer(currentQuestionIndex, e.target.value);
+        console.log("Answers array after saving each answer:", answers);
+        updateNextButtonState();
+      });
+    });
+
+    const warningMessage = document.getElementById("warning-message");
+
+    const updateNextButtonState = () => {
+      const questionAnswered = Array.from(quizInputs).some(
+        (input) => input.checked
+      );
+      nextBtn.disabled = !questionAnswered;
+
+      if (!questionAnswered) {
+        warningMessage.textContent =
+          "Please select an answer before proceeding.";
+      } else {
+        warningMessage.textContent = "";
+      }
+    };
+
+    updateNextButtonState();
+
+    quizInputs.forEach((input) => {
+      input.addEventListener("change", updateNextButtonState);
+    });
+
+    if (currentQuestionIndex === 0) {
+      prevBtn.textContent = "No previous questions";
+      prevBtn.disabled = true;
+    } else {
+      prevBtn.textContent = "Previous question";
+      prevBtn.disabled = false;
+    }
+
+    if (currentQuestionIndex === quizQuestions.length - 1) {
+      nextBtn.textContent = "No more questions";
+      submitBtn.classList.remove("hidden");
+      nextBtn.disabled = true;
+      submitBtn.disabled = false;
+    } else {
+      nextBtn.textContent = "Next question";
+      submitBtn.classList.add("hidden");
+      submitBtn.disabled = true;
+    }
+  };
+
+  displayCurrentQuestion();
+
+  nextBtn.addEventListener("click", () => {
+    if (currentQuestionIndex < quizQuestions.length - 1) {
+      currentQuestionIndex++;
+      displayCurrentQuestion();
+      prevBtn.disabled = false;
+    } else if (currentQuestionIndex === quizQuestions.length - 1) {
+      nextBtn.disabled = true;
+    }
   });
 
-  quizForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    displaQuizResults();
+  prevBtn.addEventListener("click", () => {
+    if (currentQuestionIndex > 0) {
+      currentQuestionIndex--;
+      displayCurrentQuestion();
+    }
+  });
+
+  document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("submit-btn")) {
+      e.preventDefault();
+      console.log("Submit button clicked!");
+      console.log("final answers array:", answers);
+      displayQuizResults();
+    }
   });
 };
 
 // QUIZ RESULTS
-const displaQuizResults = () => {
-  const quizInputs = document.querySelectorAll(".quiz-input:checked");
-
-  let answers = [];
-
-  quizInputs.forEach((quizInput) => {
-    answers.push(quizInput.value);
-  });
+const displayQuizResults = () => {
+  console.log("Answers array before filtering:", answers);
 
   const correctAnswers = answers.filter((answer) => answer === "correct");
 
@@ -192,7 +289,12 @@ const displaQuizResults = () => {
   const retakeQuizBtn = document.querySelector(".retake-btn");
   const toHomeBtn = document.querySelector(".home-btn");
 
-  retakeQuizBtn.addEventListener("click", displayQuizQuestions);
+  retakeQuizBtn.addEventListener("click", () => {
+    answers = [];
+    currentQuestionIndex = 0;
+    displayQuizQuestions();
+  });
+
   toHomeBtn.addEventListener("click", () => {
     const homeSection = document.getElementById("home-content");
     homeSection.scrollIntoView({ behavior: "smooth" });
