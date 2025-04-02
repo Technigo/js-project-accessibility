@@ -76,14 +76,15 @@ const displayResults = (totalCorrectAnswers, correctAnswers, userAnswers) => {
   const resultsContainer = document.getElementById("results-container")
   resultsContainer.innerHTML = `<h2>Your results:</h2>`
   if (totalCorrectAnswers >= 2) {
-    resultsContainer.innerHTML = `Great job! You answered ${totalCorrectAnswers} out of ${correctAnswers.length} questions correctly. You know something about accessibility!`
-    announcer.innerHTML = `Great job! You answered ${totalCorrectAnswers} out of ${correctAnswers.length} questions correctly. You know something about accessibility!` // Add announcement for screen readers
+    resultsContainer.innerHTML = `<h2>Your results:</h2> <p>Great job! You answered ${totalCorrectAnswers} out of ${correctAnswers.length} questions correctly. You know something about accessibility!</p>`
+    announcer.innerHTML = `<h2>Your results:</h2> <p>Great job! You answered ${totalCorrectAnswers} out of ${correctAnswers.length} questions correctly. You know something about accessibility!</p>` // Add announcement for screen readers
   } else {
-    resultsContainer.innerHTML = `You answered ${totalCorrectAnswers} out of ${correctAnswers.length} questions correctly. You could learn more about accessibility!`
-    announcer.innerHTML = `You answered ${totalCorrectAnswers} out of ${correctAnswers.length} questions correctly. You could learn more about accessibility!` // Add announcement for screen readers
+    resultsContainer.innerHTML = `<h2>Your results:</h2> <p>You answered ${totalCorrectAnswers} out of ${correctAnswers.length} questions correctly. You could learn more about accessibility!</p>`
+    announcer.innerHTML = `<h2>Your results:</h2> <p>You answered ${totalCorrectAnswers} out of ${correctAnswers.length} questions correctly. You could learn more about accessibility!</p>` // Add announcement for screen readers
   }
   resultsContainer.setAttribute("tabindex", "-1") // Make results section focusable
   resultsContainer.focus() // Set focus to the results section
+  displayUserFeedback(userAnswers, correctAnswers) // Call the function to display feedback for each question
 }
 
 // Display the results
