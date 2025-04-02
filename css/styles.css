@@ -5,15 +5,13 @@
   --primary-color: #042778;
   --background-color: rgb(213, 233, 250, 0.5);
   --accent-color: #0073e6;
+  --selected-bg-color: #e6f0ff;
   --white-color: white;
   --error-color: #e74c3c;
   --success-color: #27ae60;
-  --focus-outline: 3px solid var(--accent-color);
-  --focus-ring-color: rgba(0, 115, 230, 0.5);
-  --progress-bg: #0073e6;
+  --focus-outline: 4px solid var(--accent-color);
   --text-color: #042778;
   --border-color: #054fb9;
-  --hover-bg: rgba(0, 0, 0, 0.05);
   --transition-speed: 0.3s;
 }
 
@@ -182,8 +180,8 @@ body {
 }
 
 .nav-buttons button:hover {
-  background-color: #0073e6;
-  border: var(--focus-outline)
+  background-color: var(--accent-color);
+  border: var(--focus-outline);
 }
 
 .next-btn:active,
@@ -244,7 +242,7 @@ input[type="radio"]:hover {
 
 /*Style for navigation w. keyboard*/
 input[type="radio"]:checked+label {
-  background-color: var(--white-color);
+  background-color: var(--selected-bg-color);
   border-radius: 0.25rem;
 }
 
@@ -276,7 +274,7 @@ input[type="radio"]:focus-visible+label {
 }
 
 #restart-btn:hover {
-  background-color: #0073e6;
+  background-color: var(--accent-color);
   border: var(--focus-outline)
 }
 
@@ -339,7 +337,7 @@ input[type="radio"]:focus-visible+label {
 }
 
 .button-back:hover {
-  background-color: #0073e6;
+  background-color: var(--accent-color);
   border: var(--focus-outline)
 }
 
@@ -602,7 +600,7 @@ Progress bar .quiz-progress {
 }
 
 .progress-bar {
-  background-color: var(--progress-bg);
+  background-color: var(--accent-color);
   border-radius: 8px;
   height: 20px;
   overflow: hidden;
