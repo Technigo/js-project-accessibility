@@ -1,7 +1,7 @@
 :root {
   --primary-color: #000000;
   --background-color: #ffffff;
-  --accent-color: #5389db;
+  --accent-color: #31bdfe;
   /* Darker blue for better contrast */
   --error-color: #e74c3c;
   --success-color: #27ae60;
@@ -236,10 +236,12 @@ legend::after {
   height: 600px;
   width: 400px;
 }
-
-.presentation img,
-#introduction img {
+.presentation img {
   max-height: 200px;
+}
+#introduction img {
+  max-height: 300px;
+  width: 100%;
 }
 
 @media (min-width: 600px) {
