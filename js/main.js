@@ -1,8 +1,8 @@
 // Quiz answers - most unlikely alternatives
 const ANSWERS = {
-  question1: 'tom',      // Tom Bombadil (ADHD)
-  question2: 'crumbles', // Cheese crumbles
-  question3: 'gandalf'   // Gandalf Grey
+  question1: 'tom',
+  question2: 'crumbles',
+  question3: 'gandalf'
 };
 
 // DOM Elements
@@ -20,22 +20,25 @@ quizForm.addEventListener('submit', (e) => {
   
   // Get all selected answers
   const answers = {
-    question1: document.querySelector('input[name="question1"]:checked')?.value,
-    question2: document.querySelector('input[name="question2"]:checked')?.value,
-    question3: document.querySelector('input[name="question3"]:checked')?.value
+    question1: document.querySelector('input[name="question1"]:checked') ? document.querySelector('input[name="question1"]:checked').value : null,
+    question2: document.querySelector('input[name="question2"]:checked') ? document.querySelector('input[name="question2"]:checked').value : null,
+    question3: document.querySelector('input[name="question3"]:checked') ? document.querySelector('input[name="question3"]:checked').value : null
   };
 
   // Validate answers
   let score = 0;
   let errors = [];
 
-  // Check each answer
-  Object.keys(answers).forEach(question => {
-    if (!answers[question]) {
-      errors.push(`Please answer question ${question.replace('question', '')}`);
+  // Check each answer using a for loop
+  for (let i = 1; i <= 3; i++) {
+    const question = 'question' + i;
+    const selectedAnswer = answers[question];
+
+    if (!selectedAnswer) {
+      errors.push('Please answer question ' + i);
       errorMessages[question].textContent = 'Please select an answer';
       errorMessages[question].style.display = 'block';
-    } else if (answers[question] === ANSWERS[question]) {
+    } else if (selectedAnswer === ANSWERS[question]) {
       score++;
       errorMessages[question].textContent = 'Correct!';
       errorMessages[question].style.display = 'block';
@@ -45,51 +48,58 @@ quizForm.addEventListener('submit', (e) => {
       errorMessages[question].style.display = 'block';
       errorMessages[question].classList.add('incorrect');
     }
-  });
+  }
 
-  // Announce results
+  // Show results
   if (errors.length > 0) {
-    feedbackRegion.textContent = `Please answer all questions: ${errors.join(', ')}`;
+    feedbackRegion.textContent = 'Please answer all questions: ' + errors.join(', ');
   } else {
-    feedbackRegion.textContent = `Your score: ${score} out of 3`;
+    feedbackRegion.textContent = 'Your score: ' + score + ' out of 3';
   }
 });
 
-// Keyboard navigation for radio groups
-document.querySelectorAll('[role="radiogroup"]').forEach(radiogroup => {
+// Add keyboard controls for radio buttons
+const radioGroups = document.querySelectorAll('[role="radiogroup"]');
+
+radioGroups.forEach((radiogroup) => {
   const radioButtons = radiogroup.querySelectorAll('input[type="radio"]');
   let currentIndex = 0;
 
   radiogroup.addEventListener('keydown', (e) => {
-    switch(e.key) {
-      case 'ArrowRight':
-      case 'ArrowDown':
-        e.preventDefault();
-        currentIndex = (currentIndex + 1) % radioButtons.length;
-        radioButtons[currentIndex].focus();
-        break;
-      case 'ArrowLeft':
-      case 'ArrowUp':
-        e.preventDefault();
-        currentIndex = (currentIndex - 1 + radioButtons.length) % radioButtons.length;
-        radioButtons[currentIndex].focus();
-        break;
+    // Handle right and down arrows
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      e.preventDefault();
+      currentIndex++;
+      
+      // Loop back to start if we reach the end
+      if (currentIndex >= radioButtons.length) {
+        currentIndex = 0;
+      }
+      radioButtons[currentIndex].focus();
+    }
+    
+    // Handle left and up arrows
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      currentIndex--;
+      
+      // Loop to end if we go before the start
+      if (currentIndex < 0) {
+        currentIndex = radioButtons.length - 1;
+      }
+      radioButtons[currentIndex].focus();
     }
   });
 });
 
-// Focus management for error messages
-function focusError(messageElement) {
-  if (messageElement && messageElement.textContent) {
-    messageElement.focus();
-  }
-}
+// Clear error messages when selecting a new answer
+const allRadioButtons = document.querySelectorAll('input[type="radio"]');
 
-// Clear error messages when user selects an answer
-document.querySelectorAll('input[type="radio"]').forEach(radio => {
+allRadioButtons.forEach((radio) => {
   radio.addEventListener('change', () => {
     const questionId = radio.name;
     const errorMessage = errorMessages[questionId];
+    
     if (errorMessage) {
       errorMessage.textContent = '';
       errorMessage.style.display = 'none';
