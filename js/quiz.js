@@ -82,6 +82,8 @@ const displayResults = (totalCorrectAnswers, correctAnswers, userAnswers) => {
     resultsContainer.innerHTML = `You answered ${totalCorrectAnswers} out of ${correctAnswers.length} questions correctly. You could learn more about accessibility!`
     announcer.innerHTML = `You answered ${totalCorrectAnswers} out of ${correctAnswers.length} questions correctly. You could learn more about accessibility!` // Add announcement for screen readers
   }
+  resultsContainer.setAttribute("tabindex", "-1") // Make results section focusable
+  resultsContainer.focus() // Set focus to the results section
 }
 
 // Display the results
