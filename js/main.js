@@ -58,38 +58,79 @@ quizForm.addEventListener('submit', (e) => {
   }
 });
 
-// Add keyboard controls for radio buttons
-const radioGroups = document.querySelectorAll('[role="radiogroup"]');
+// Get all interactive elements
+const interactiveElements = {
+  links: document.querySelectorAll('a'),
+  radioButtons: document.querySelectorAll('input[type="radio"]'),
+  submitButton: document.querySelector('button[type="submit"]'),
+  radioGroups: document.querySelectorAll('[role="radiogroup"]')
+};
 
-radioGroups.forEach((radiogroup) => {
-  const radioButtons = radiogroup.querySelectorAll('input[type="radio"]');
-  let currentIndex = 0;
-
-  radiogroup.addEventListener('keydown', (e) => {
-    // Handle right and down arrows
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-      e.preventDefault();
-      currentIndex++;
+// Handle keyboard navigation
+document.addEventListener('keydown', (e) => {
+  const activeElement = document.activeElement;
+  
+  switch(e.key) {
+    case 'Tab':
+      break;
       
-      // Loop back to start if we reach the end
-      if (currentIndex >= radioButtons.length) {
-        currentIndex = 0;
+    case 'Enter':
+      if (activeElement.tagName === 'A') {
+        e.preventDefault();
+        activeElement.click();
       }
-      radioButtons[currentIndex].focus();
-    }
-    
-    // Handle left and up arrows
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-      e.preventDefault();
-      currentIndex--;
+      break;
       
-      // Loop to end if we go before the start
-      if (currentIndex < 0) {
-        currentIndex = radioButtons.length - 1;
+    case ' ':
+      if (activeElement.tagName === 'BUTTON') {
+        e.preventDefault();
+        activeElement.click();
       }
-      radioButtons[currentIndex].focus();
-    }
-  });
+      break;
+      
+    case 'ArrowRight':
+    case 'ArrowDown':
+      e.preventDefault();
+      if (activeElement.closest('[role="radiogroup"]')) {
+        const radioGroup = activeElement.closest('[role="radiogroup"]');
+        const radioButtons = radioGroup.querySelectorAll('input[type="radio"]');
+        const currentIndex = Array.from(radioButtons).indexOf(activeElement);
+        const nextIndex = (currentIndex + 1) % radioButtons.length;
+        radioButtons[nextIndex].focus();
+      }
+      break;
+      
+    case 'ArrowLeft':
+    case 'ArrowUp':
+      e.preventDefault();
+      if (activeElement.closest('[role="radiogroup"]')) {
+        const radioGroup = activeElement.closest('[role="radiogroup"]');
+        const radioButtons = radioGroup.querySelectorAll('input[type="radio"]');
+        const currentIndex = Array.from(radioButtons).indexOf(activeElement);
+        const prevIndex = (currentIndex - 1 + radioButtons.length) % radioButtons.length;
+        radioButtons[prevIndex].focus();
+      }
+      break;
+      
+    case 'Home':
+      e.preventDefault();
+      if (activeElement.closest('[role="radiogroup"]')) {
+        const radioGroup = activeElement.closest('[role="radiogroup"]');
+        const firstRadio = radioGroup.querySelector('input[type="radio"]');
+        firstRadio.focus();
+      }
+      break;
+      
+    case 'End':
+      e.preventDefault();
+      if (activeElement.closest('[role="radiogroup"]')) {
+        const radioGroup = activeElement.closest('[role="radiogroup"]');
+        const radioButtons = radioGroup.querySelectorAll('input[type="radio"]');
+        const lastRadio = radioButtons[radioButtons.length - 1];
+        lastRadio.focus();
+      }
+      break;
+  }
 });
 
 // Clear error messages when selecting a new answer
