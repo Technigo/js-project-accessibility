@@ -519,7 +519,6 @@ nav a:hover {
 
 }
 
-
 @media (min-width: 1024px) {
   #header h1 {
     font-size: 1.75rem;
@@ -533,9 +532,9 @@ nav a:hover {
   }
 
   .quiz-instructions {
-    padding: 2em;
-  }
+    padding: 2rem;
 
+  }
 
   h2 {
     font-size: 1.5rem;
