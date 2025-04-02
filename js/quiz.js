@@ -1,11 +1,14 @@
+const submitButton = document.getElementById("submit-button")
+
+submitButton.addEventListener("click", (event) => {
+  event.preventDefault() // Prevent the form from reloading the page
+  console.log("Submit button clicked")
+  submitAnswers()
+})
+
 const submitAnswers = (event) => {
-  const submitButton = document.getElementById("submit-button")
-  submitButton.addEventListener("click", (event) => {
-    event.preventDefault() // Prevent the form from reloading the page
-    console.log("Submit button clicked")
-    // Call the function to compare answers
-    compareAnswers()
-  })
+  // Call the function to compare answers
+  compareAnswers()
 }
 
 const compareAnswers = () => {
@@ -54,26 +57,28 @@ const displayUserFeedback = (userAnswers, correctAnswers) => {
       `input[name="question${questionNumber}"][value="${correctValue}"]`
     )
 
-    const correctText = correctInput.parentElement.textContent.trim()
-    // Get the text of the correct answer option
+    const correctText = correctInput.parentElement.textContent.trim() // Get the text of the correct answer option
 
     /*console.log(`Question ${questionNumber}:`);
     console.log(`Your answer: ${userAnswer}`);
     console.log(`Right answer: ${correct}`);*/
 
+    // Display feedback based on the user's answer
     if (userAnswer === correctValue) {
-      feedbackDiv.innerHTML = `<p style="color: black; border: 2px solid; border-color: green;">Yes! You got this! ${correctText} is correct!</p>`
+      feedbackDiv.classList.add("success-feedback")
+      feedbackDiv.innerHTML = `<p>Yes! You got this! ${correctText} is correct!</p>`
     } else if (userAnswer === null) {
-      feedbackDiv.innerHTML = `<p style="color: black; border: 2px solid; border-color: red;">You forgot to answer!</p>`
+      feedbackDiv.classList.add("error-feedback")
+      feedbackDiv.innerHTML = `<p>You forgot to answer!</p>`
     } else {
-      feedbackDiv.innerHTML = `<p style="color: black; border: 2px solid; border-color: red;">Wrong. The right answer is ${correctText.toLowerCase()}</p>`
+      feedbackDiv.classList.add("error-feedback")
+      feedbackDiv.innerHTML = `<p>Wrong. The right answer is ${correctText.toLowerCase()}</p>`
     }
   }
 }
 
 // Display the results
 const displayAnswers = (totalCorrectAnswers, correctAnswers, userAnswers) => {
-  console.log("Displaying results")
   const resultContainer = document.getElementById("result-container")
   resultContainer.innerHTML = `<h2>Your results:</h2>
   <p>You answered ${totalCorrectAnswers} out of ${correctAnswers.length} questions correctly.</p>`
