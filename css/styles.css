@@ -237,9 +237,13 @@ legend::after {
   width: 400px;
 }
 
-.presentation img,
-#introduction img {
+.presentation img {
   max-height: 200px;
+}
+
+#introduction img {
+  max-height: 300px;
+  width: 100%;
 }
 
 @media (min-width: 600px) {
