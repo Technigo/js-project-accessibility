@@ -310,11 +310,23 @@ input[type="radio"]:focus-visible+label {
 .progress-text {
   margin-top: 0.5rem;
   text-align: center;
-  word-wrap: break-word;
-  margin: 2rem auto 0.5rem auto;
+  font-weight: 500;
 }
 
-#summary-card p {
+.error-message {
+  font-size: 1rem;
+  font-weight: 600;
+  /* not final color, just testing */
+  color: red; 
+}
+
+.error-container {
+  margin-top: 2rem;
+}
+
+/* Submit button Jasmin commented out because we now have it as a nav button
+.form-controls {
+  margin-top: 2rem;
   text-align: center;
   margin: 0 auto 0.5rem auto;
 }

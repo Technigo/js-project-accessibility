@@ -149,6 +149,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const currentCard = cards[currentIndex];
     const selectedAnswer = getSelectedAnswer();
+    const errorContainer = document.querySelectorAll('.error-container')[currentIndex];
 
     // Check if error message already exists and remove it if it does
     const existingError = currentCard.querySelector(".error-message");
@@ -159,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // If no answer selected create an error message
     if (!selectedAnswer) {
       const errorMessage = createErrorMessage();
-      currentCard.appendChild(errorMessage);
+      errorContainer.appendChild(errorMessage);
       return;
     }
 
