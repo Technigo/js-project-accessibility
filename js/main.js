@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const getSelectedAnswer = () => {
     const selectedOption = document.querySelector(`.quiz-card.active input[type="radio"]:checked`);
-    return selectedOption ? selectedOption.value : null; 
+    return selectedOption ? selectedOption.value : null;
   };
 
 
@@ -80,11 +80,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const summaryContent = document.getElementById("summary-content");
     summaryContent.innerHTML = "";
 
-    let correctCount = 0; 
+    let correctCount = 0;
     Object.keys(userAnswers).forEach(index => {
       const answer = userAnswers[index];
       const resultText = answer.isCorrect ? "Correct ✅" : "Incorrect ❌";
-      if(answer.isCorrect) {
+      if (answer.isCorrect) {
         correctCount++;
       }
 
@@ -99,15 +99,15 @@ document.addEventListener('DOMContentLoaded', function () {
     restartButton.addEventListener("click", () => {
       currentIndex = 0;
       userAnswers = {};
-      
+
       summaryCard.classList.remove("active");
-      
+
       document.querySelectorAll('input[type="radio"]:checked').forEach((radio) => {
         radio.checked = false;
       });
 
       showCard(currentIndex);
-      
+
     });
 
     showCard(cards.length);
@@ -135,19 +135,19 @@ document.addEventListener('DOMContentLoaded', function () {
     // Store user's answer and correctness
     const correctAnswer = correctAnswers[currentIndex];
     userAnswers[currentIndex] = {
-        selected: selectedAnswer,
-        isCorrect: selectedAnswer === correctAnswer
+      selected: selectedAnswer,
+      isCorrect: selectedAnswer === correctAnswer
     };
 
     if (currentIndex < cards.length) {
-      currentIndex++; 
+      currentIndex++;
     }
 
     // If at the end, show summary
     if (currentIndex === cards.length) {
       showSummary();
     } else {
-        showCard(currentIndex);
+      showCard(currentIndex);
     }
   }
 
