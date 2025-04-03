@@ -44,13 +44,38 @@ function loadQuestion() {
     getQ.choose.forEach((element, i) => {
         const btn = document.createElement("input");
         btn.type = "radio";
-        btn.name = "aria";
-        btn.id = `aria-${i}`;
+        btn.name = "option";
+        btn.id = `option-${i}`;
         btn.value = `${i + 1}. ${element}`;
-        btn.hidden;
+
+        btn.tabIndex = 0;
+        btn.setAttribute("aria-labelledby", `labeel-${i}`);
+        btn.setAttribute("role", "radio");
+        if (i === 0) {
+            btn.checked = true;
+            selectedOption = element;
+        }
+        btn.addEventListener("keydown", (event) => {
+            const radioButtons = document.querySelectorAll('input[name="option"]');
+            const currentIndex = Array.from(radioButtons).indexOf(btn);
+            if (event.key === "ArrowDown" || event.key === "ArrowRight") {
+                event.preventDefault();
+                const nextIndex = (currentIndex + 1) % radioButtons.length;
+                radioButtons[nextIndex].focus();
+                radioButtons[nextIndex].checked = true;
+                selectedOption = radioButtons[nextIndex].value;
+            }
+            else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
+                event.preventDefault();
+                const prevIndex = (currentIndex - 1 + radioButtons.length) % radioButtons.length;
+                radioButtons[prevIndex].focus();
+                radioButtons[prevIndex].checked = true;
+                selectedOption = radioButtons[prevIndex].value;
+            }
+        });
+
         btn.onclick = () => {
             selectedOption = element;
-            console.log("Selected:", selectedOption);
         };
         const label = document.createElement("label");
         label.htmlFor = btn.id;
@@ -62,31 +87,44 @@ function loadQuestion() {
                 checkA(selectedOption);
             }
             else {
-                console.log("No option selected!");
+                quizSection.insertAdjacentHTML("beforeend", `<div id="quizFeedback" aria-live="polite">
+           <p>No option is selecten, please select an option and click submit!</p>         
+         </div>`);
             }
         };
         quizOptions === null || quizOptions === void 0 ? void 0 : quizOptions.appendChild(label);
     });
+    trapFocus();
 }
 function checkA(opt) {
-    console.log("Current question index:", index);
-    console.log("Current options:", currentOption);
+
+
     const quizFeedback = document.getElementById("quizFeedback");
     if (quizFeedback) {
         quizFeedback.remove();
     }
     if (opt === quiz[index].answer) {
         scr++;
-        index++;
-        loadQuestion();
+        quizSection.insertAdjacentHTML("beforeend", `<div id="quizFeedback" aria-live="polite">
+         <p>Correct answer!</p>
+         <button id="continueBtn">Continue to the next question</button>
+       </div>`);
     }
-    else {
-        console.log("incorrect answer");
+
+    else if (opt !== quiz[index].answer) {
+
         quizSection.insertAdjacentHTML("beforeend", `<div id="quizFeedback" aria-live="polite">
           <p>Oh no wrong answer, try again or continue to the next question!</p>
           <button id="continueBtn">Continue to the next question</button>
         </div>`);
     }
+
+    else if (selectedOption !== null) {
+        quizSection.insertAdjacentHTML("beforeend", `<div id="quizFeedback" aria-live="polite">
+         <p>No option is selecten, please select an option and click submit!</p>         
+       </div>`);
+    }
+
     const continueBtn = document.getElementById("continueBtn");
     if (continueBtn) {
         continueBtn.addEventListener("click", (event) => {
@@ -96,7 +134,8 @@ function checkA(opt) {
                 quizFeedback.remove();
             }
             index++;
-            console.log("hejDå");
+
+
             loadQuestion();
         });
     }
@@ -111,3 +150,24 @@ function endQ() {
     submitAnswer.style.setProperty('display', 'none');
 }
 loadQuestion();
+function trapFocus() {
+    const focusableElements = quizCard.querySelectorAll('input, button');
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+    quizCard.addEventListener("keydown", (event) => {
+        if (event.key === "Tab") {
+            if (event.shiftKey) {
+                if (document.activeElement === firstElement) {
+                    event.preventDefault();
+                    lastElement.focus();
+                }
+            }
+            else {
+                if (document.activeElement === lastElement) {
+                    event.preventDefault();
+                    firstElement.focus();
+                }
+            }
+        }
+    });
+}
