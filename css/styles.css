@@ -9,7 +9,7 @@
   --white-color: white;
   --error-color: #e74c3c;
   --focus-outline-color: #00509e;
-  --focus-outline: 2px solid var(--focus-outline-color);
+  --focus-outline: 2px solid var(--accent-color);
   --text-color: #042778;
   --border-color: #054fb9;
   --transition-speed: 0.3s;
@@ -250,13 +250,12 @@ input[type="radio"]:focus-visible+label {
   border-radius: 4px;
   font-size: 1em;
   width: 6em;
-  border: 2px solid rgba(248, 248, 249, 0);
   cursor: pointer;
 }
 
 .nav-buttons button:hover {
   background-color: var(--accent-color);
-  border: var(--focus-outline);
+  border: 2px solid var(--primary-color)
 }
 
 .next-btn:active,
@@ -334,7 +333,6 @@ input[type="radio"]:focus-visible+label {
   border-radius: 4px;
   font-size: 1rem;
   width: 8rem;
-  border: 2px solid rgba(248, 248, 249, 0);
   cursor: pointer;
   display: block;
   margin: 0 auto;
@@ -343,7 +341,7 @@ input[type="radio"]:focus-visible+label {
 
 #restart-btn:hover {
   background-color: var(--accent-color);
-  border: var(--focus-outline)
+  border: 2px solid var(--primary-color)
 }
 
 #restart-btn:active {
@@ -511,7 +509,7 @@ nav a:hover {
     width: 9rem;
   }
 
-  #summary-card {
+  #summary-content {
     padding-left: 4rem;
   }
 
@@ -573,7 +571,7 @@ nav a:hover {
     width: 9rem;
   }
 
-  #summary-card {
+  #summary-content {
     padding-left: 4rem;
   }
 
