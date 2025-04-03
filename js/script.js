@@ -80,7 +80,7 @@ function loadQuestion() {
             }
             else {
                 quizSection.insertAdjacentHTML("beforeend", `<div id="quizFeedback" aria-live="polite">
-           <p>No option is selecten, please select an option and click submit!</p>         
+           <p tabindex="0">No option is selecten, please select an option and click submit!</p>         
          </div>`);
             }
         };
@@ -96,19 +96,19 @@ function checkA(opt) {
     if (opt === quiz[index].answer) {
         scr++;
         quizSection.insertAdjacentHTML("beforeend", `<div id="quizFeedback" aria-live="polite">
-         <p>Correct answer!</p>
+         <p tabindex="0">Correct answer!</p>
          <button id="continueBtn">Continue to the next question</button>
        </div>`);
     }
     else if (opt !== quiz[index].answer) {
         quizSection.insertAdjacentHTML("beforeend", `<div id="quizFeedback" aria-live="polite">
-          <p>Oh no wrong answer, try again or continue to the next question!</p>
+          <p tabindex="0">Oh no wrong answer, try again or continue to the next question!</p>
           <button id="continueBtn">Continue to the next question</button>
         </div>`);
     }
     else if (selectedOption !== null) {
         quizSection.insertAdjacentHTML("beforeend", `<div id="quizFeedback" aria-live="polite">
-         <p>No option is selecten, please select an option and click submit!</p>         
+         <p tabindex="0">No option is selecten, please select an option and click submit!</p>         
        </div>`);
     }
     const continueBtn = document.getElementById("continueBtn");
