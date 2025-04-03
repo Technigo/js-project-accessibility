@@ -22,7 +22,9 @@ const quiz: quizData[] = [
   }
 ]
 
+
 //DOM Selectors
+
 const quizSection = document.getElementById("quizSection") as HTMLSelectElement
 const quizCard = document.getElementById("quizCard") as HTMLFieldSetElement
 const quizQuestion = document.getElementById("quizQuestion") as HTMLHeadElement
@@ -30,11 +32,17 @@ const quizOptions = document.getElementById("quizOptions") as HTMLInputElement
 const quizAnswer = document.getElementById("quizAnswer") as HTMLDivElement
 const score = document.getElementById("score") as HTMLSpanElement
 const restartBtn = document.getElementById("restartBtn") as HTMLButtonElement
-const submitAnswer = document.getElementById("submitAnswer") as HTMLButtonElement
+
+
+const submitAnswer = document.getElementById("submitAnswer") as HTMLButtonElement 
 const quizFeedback = document.getElementById("quizFeedback") as HTMLDivElement
+
+
 
 let index = 0, scr = 0;
 let selectedOption: string | null = null;
+let currentQuestion = 0;
+let currentOption: string[] = [];
 
 //instructions for screen readers at the start of the quiz
 const quizInstructions = document.getElementById("quizInstructions");
@@ -45,11 +53,19 @@ function loadQuestion(): void {
   if (index >= quiz.length) return endQ();  // End if no more questions
 
   const getQ = quiz[index];
+  currentQuestion = index; //Store current question, to go back to
+  currentOption = getQ.choose //Store current options, to go back to 
+  console.log(currentOption) 
 
   if (quizQuestion) quizQuestion.textContent = getQ.ask;
-  if (quizOptions) quizOptions.innerHTML = ""; // Clear previous options 
 
-  getQ.choose.forEach((element, i) => {
+
+  if (quizOptions) quizOptions.innerHTML  = ""; // Clear previous options   
+
+  getQ.choose.forEach((element, i )=> {
+    
+
+
     const btn = document.createElement("input");
     btn.type = "radio";
     btn.name = "option";
@@ -88,6 +104,7 @@ function loadQuestion(): void {
       }
     });
 
+
     btn.onclick = () => {
       selectedOption = element;
     };
@@ -97,6 +114,7 @@ function loadQuestion(): void {
 
     label.appendChild(btn);
     label.append(` ${element}`)
+
 
     submitAnswer.onclick = (event) => {
       event.preventDefault(); //Stops form submission from refreshing the page
@@ -112,9 +130,12 @@ function loadQuestion(): void {
       }
     };
 
+
     // Append elements   
+
     quizOptions?.appendChild(label);
   });
+
 
   trapFocus();
 }
@@ -122,13 +143,16 @@ function loadQuestion(): void {
 //Check if the answer is correct or not and show a feedback message
 function checkA(opt: string): void {
   //Remove quiz feedback
+
   const quizFeedback = document.getElementById("quizFeedback") as HTMLDivElement | null;
   if (quizFeedback) {
     quizFeedback.remove();
   }
 
   if (opt === quiz[index].answer) {
+
     scr++;  
+
     quizSection.insertAdjacentHTML(
       "beforeend",
       `<div id="quizFeedback" aria-live="polite">
