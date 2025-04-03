@@ -22,7 +22,12 @@ body {
   color: var(--bg-primary); /* White text */
   font-family: sans-serif;
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.5;
+}
+
+.content-container {
+  max-width: 2500px;
+  margin: 0 auto;
 }
 
 .skip-link {
@@ -46,15 +51,17 @@ header {
   background: var(--color-featured); /* Featured color */
   padding: 1rem;
 }
+
 nav ul {
   display: flex;
   justify-content: center; /* Centers items horizontally */
   align-items: center; /* Aligns items vertically */
-  gap: 1rem;
+  gap: 2rem;
   list-style: none;
   margin: 0 auto; /* Centers within the parent */
   padding: 0;
 }
+
 nav a {
   font-size: 1.5rem;
   color: var(--color-primary); /* Dark text for links */
@@ -73,32 +80,34 @@ footer nav a {
 footer nav a:hover {
   color: #ff5500;
 }
+
 .hero-section {
   background: var(--nf-bg-2); /* Very dark blue */
-  padding: 4rem;
+  padding: 6rem 3rem;
   text-align: center;
   color: var(--color-white); /* White text on dark background */
 }
+
 .hero-section h1 {
   color: var(--bg-primary); /* Blue heading */
   font-size: 4.5rem;
-  margin-bottom: 4rem;
+  margin-bottom: 7rem;
 }
 .hero-section p {
   font-size: 2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
 }
 .about-section {
   background: #333333; /* Light background */
-  padding: 2rem;
+  padding: 3rem;
 }
 .about-section h2 {
   font-size: 2.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 }
 .about-section p {
   font-size: 1.7rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 .team-cards-container {
   display: grid;
@@ -116,19 +125,21 @@ footer nav a:hover {
   background: var(--bg-4rd);
   border: 1px solid var(--border-gray);
   text-align: center;
+  max-width: 100%;
 }
+
 .team-card h3 {
   color: var(--color-primary);
   font-size: 2rem;
 }
+
 .team-card img {
-  grid-row: span 2;
-  /* Adjusted size for better visibility */
+  max-width: 100%;
 }
+
 .team-card p {
   color: var(--color-primary);
   font-size: 1.2rem;
-  line-height: 1.6;
 }
 
 /* QUIZ SECTION */
@@ -166,13 +177,11 @@ footer nav a:hover {
   font-size: 1.5rem;
   margin-bottom: 2rem;
   color: var(--bg-primary); /* Dark blue for headings */
-  line-height: 1.6;
 }
 .quiz-section p {
   font-size: 1.5rem;
   margin-bottom: 2rem;
   color: var(--bg-primary); /* Dark blue for headings */
-  line-height: 1.6;
 }
 legend {
   font-size: 1.7rem;
@@ -242,7 +251,6 @@ input[type="radio"]:focus-visible + label {
 }
 
 .btn {
-  /* display: block; */
   background: #f0a500; /* Dark orange */
   color: #000000; /* White text */
   padding: 0.75rem 1.5rem;
@@ -250,7 +258,7 @@ input[type="radio"]:focus-visible + label {
   border-radius: 8px;
   cursor: pointer;
   margin: 0.5rem;
-  font-size: 16px;
+  font-size: 1.4rem;
 }
 .btn:hover {
   background: #ff5500;
@@ -272,21 +280,27 @@ footer {
 /* MEDIA QUEREIES */
 @media (max-width: 768px) {
   .team-cards-container {
-    grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
+    grid-template-columns: repeat(1, 1fr); /* Two columns on smaller screens */
   }
 }
+
 @media (max-width: 480px) {
-  .team-cards-container {
-    grid-template-columns: 1fr; /* Single column for small screens */
-  }
+  /* .team-cards-container {
+    grid-template-columns: repeat(1, 1fr);
+  } */
 }
+
 /* Add responsiveness for adjustable text size */
 @media (max-width: 768px) {
+  html {
+    font-size: 80%;
+  }
   .quiz-result-section {
     font-size: 1.5rem; /* Smaller text on tablets */
     padding: 1.5rem;
   }
 }
+
 @media (max-width: 480px) {
   .quiz-result-section {
     font-size: 1.2rem; /* Even smaller text for mobile */

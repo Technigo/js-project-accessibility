@@ -155,8 +155,8 @@ const displayQuizQuestions = () => {
               <legend>${currentQuizQuestion.question}</legend>
               ${quizAnswers
                 .map((answer, i) => {
-                  return `<div class="quiz-option">
-                <input class="quiz-input" aria-controls="answer-section" type="radio" id="option-${
+                  return `<div class="quiz-option"  >
+                <input class="quiz-input" role="radio" type="radio" id="option-${
                   i + 1
                 }" name="q${currentQuizQuestion.questionNumber}" value="${
                     answer.value
@@ -170,7 +170,7 @@ const displayQuizQuestions = () => {
             <p id="warning-message" aria-live="polite">
               
             </p>
-            <p id="announcer" class="hidden"></p>
+            <p id="announcer" class="hidden" aria-live="polite"></p>
             `;
 
     const quizInputs = document.querySelectorAll(
@@ -273,7 +273,7 @@ const displayQuizResults = () => {
 
   quizSection.innerHTML = `<h2>Your Results!</h2>
       <p>${resultText} You got ${result}!</p>
-      <p id="announcer" class="hidden">You have finished the quiz, your results are now displayed.</p>
+      <p id="announcer" class="hidden" aria-live="polite">You have finished the quiz, your results are now displayed.</p>
       <div class="btns-container">
         <button class="btn retake-btn">Take the quiz again!</button>
         <button class="btn home-btn">To home!</button>
