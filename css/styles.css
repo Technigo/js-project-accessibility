@@ -50,6 +50,8 @@ nav {
 
 nav ul {
   display: flex;
+  font-family: Rubik, sans-serif;
+  font-weight: bold;
   font-size: 20px;
   color: var(--text-color);
   gap: 1rem;
@@ -62,11 +64,19 @@ h1 {
   display: flex;
   padding: 0;
   justify-content: center;
+  font-family: Rubik, sans-serif;
   font-size: 25px;
 }
 
 h2 {
+  font-family: Rubik, sans-serif;
   color: var(--text-color);
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color var(--transition-speed);
 }
 
 a:link {
@@ -75,7 +85,7 @@ a:link {
 }
 
 a:visited {
-  color: var(--primary-color);
+  color: var(--text-color);
 }
 
 a:hover {
@@ -209,16 +219,13 @@ form {
   z-index: 999;
 }
 
-.toggle-element {
-  position: static;
-}
-
 /* The switch - the box around the slider */
 .switch {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
+  margin-left: 4rem;
 }
 
 /* Hide default HTML checkbox */
@@ -285,7 +292,7 @@ input:checked + .slider:before {
 }
 
 .high-contrast h1,
-h2 {
+.high-contrast h2 {
   color: var(--primary-color);
 }
 
