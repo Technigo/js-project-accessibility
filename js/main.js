@@ -73,9 +73,6 @@ function loadQuestion(index) {
   // Clear previous question
   questionContent.innerHTML = "";
 
-  // progressText.innerHTML = `<b>${questionsData.length}</b> questions total`;
-  // progressFill.style.width = "0%"; // Start at 0%
-
   // Create legend with question text
   const legend = document.createElement("legend");
   legend.textContent = currentQuestion.question;
@@ -111,6 +108,7 @@ function loadQuestion(index) {
       userAnswers[index] = optionIndex;
       hideError();
       updateNavigationButtons();
+      updateProgress(currentQuestionIndex);
     });
 
     radioOption.appendChild(input);
@@ -135,8 +133,13 @@ function updateProgress(index) {
   // Update text
   progressText.innerHTML = `Question <b>${currentQuestionNum}</b> of <b>${totalQuestions}</b>`;
 
+  // Count how many questions have been answered
+  const answeredQuestions = userAnswers.filter(
+    (answer) => answer !== null
+  ).length;
+
   // Update progress bar
-  const progressPercentage = (currentQuestionNum / totalQuestions) * 100;
+  const progressPercentage = (answeredQuestions / totalQuestions) * 100;
   progressFill.style.width = `${progressPercentage}%`;
 }
 
@@ -205,7 +208,6 @@ function handleQuizSubmit(event) {
 
 // Calculate and display results
 function showResults() {
-  // Hide quiz section and show results section
   quizSection.hidden = true;
   resultsSection.hidden = false;
 
