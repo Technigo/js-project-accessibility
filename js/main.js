@@ -77,13 +77,18 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       });
 
+  // const createErrorMessage = () => {
+  //   const errorMessage = document.createElement("div");
+  //   errorMessage.classList.add("error-message");
+  //   errorMessage.setAttribute("aria-live", "polite");
+  //   errorMessage.textContent = "Please select an answer before proceeding.";
+  //   return errorMessage;
+  // };
+
   const createErrorMessage = () => {
-    const errorMessage = document.createElement("div");
-    errorMessage.classList.add("error-message");
-    errorMessage.setAttribute("aria-live", "polite");
-    errorMessage.textContent = "Please select an answer before proceeding.";
-    return errorMessage;
-  };
+    const errorContainer = document.querySelectorAll('.error-container')[currentIndex];
+    errorContainer.textContent = "Please select an answer before proceeding";
+  }
 
   const showSummary = () => {
     let summaryCard = document.getElementById("summary-card");
@@ -152,15 +157,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const errorContainer = document.querySelectorAll('.error-container')[currentIndex];
 
     // Check if error message already exists and remove it if it does
-    const existingError = currentCard.querySelector(".error-message");
-    if (existingError) {
-      existingError.remove();
-    }
+    // const existingError = currentCard.querySelector(".error-message");
+    // if (existingError) {
+    //   existingError.remove();
+    // }
 
     // If no answer selected create an error message
+    // if (!selectedAnswer) {
+    //   const errorMessage = createErrorMessage();
+    //   errorContainer.appendChild(errorMessage);
+    //   return;
+    // }
+
     if (!selectedAnswer) {
-      const errorMessage = createErrorMessage();
-      errorContainer.appendChild(errorMessage);
+      createErrorMessage();
       return;
     }
 
