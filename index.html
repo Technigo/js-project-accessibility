@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Strength in Diversity</title>
+    <title>Home</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,122 +14,135 @@
   </head>
   <body>
     <a href="#quiz-form" class="skip-link">Skip to Content</a>
-
     <header>
-      <h1>Strength in Diversity</h1>
-      <nav>
+      <h1>Accessibility</h1>
+      <nav role="navigation" aria-label="Main menu">
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
         </ul>
       </nav>
     </header>
+    <div class="wrapper">
+      <main role="main">
+        <section class="banner" role="banner"></section>
 
-    <main role="main">
-      <section id="home">
-        <h2>How This UI is Accessible</h2>
-        <p>
-          This quiz follows accessibility principles by using semantic HTML,
-          keyboard-friendly interactions, and screen reader-friendly markup.
-        </p>
-        <img src="/images/decorative.svg" alt="" />
-        <img
-          src="/images/accessible-form-example.svg"
-          alt="Hands that creating a symbol of a heart"
-        />
-      </section>
+        <section id="quiz-introduction" class="quiz-introduction">
+          <div class="quiz-introduction-container">
+            <h2>Start the Accessibility Quiz</h2>
+            <p>
+              It’s time to level up your skills and dive into the world of web
+              accessibility.<span aria-hidden="true">💻✨</span>
 
-      <section id="about">
-        <h2>Empowering People with Disabilities</h2>
-        <p>
-          Our goal is to empower each of you to champion the prioritization of
-          Accessibilityon the web and help provide all people with equal
-          opportunities.
-        </p>
-      </section>
+              <!-- How well do you
+              know WCAG, color contrast, keyboard navigation, and inclusive
+              design? -->
+            </p>
+            <p>
+              This quiz is a chance to learn something new – and every step
+              toward better accessibility makes the internet a fairer place for
+              all
+              <span aria-hidden="true">❤️</span> Ready? Let’s go!
+              <span aria-hidden="true">🚀</span>
+            </p>
+            <p>
+              ps. This quiz follows accessibility principles by using semantic
+              HTML, keyboard-friendly interactions, and screen reader-friendly
+              markup.
+            </p>
+          </div>
 
-      <section id="quiz">
-        <form id="quiz-form" tabindex="0">
-          <h2>Accessibility Quiz</h2>
-          <p id="form-intro" class="sr-only">
-            This is a quiz with 2 questions about Accessibility. Use Tab to
-            start and Arrow keys to navigate.
-          </p>
-          <fieldset>
-            <legend id="question1-legend">
-              What is the purpose of alt text on images?
-            </legend>
-            <input
-              type="radio"
-              name="question1"
-              value="a"
-              id="question1-a"
-              aria-describedby="question1-legend"
-            />
-            <label for="question1-a">Adds captions to videos</label>
-            <br />
+          <div class="quiz-control">
+            <button id="intro-continue" type="button" class="submit-button">
+              Start Quiz
+            </button>
+          </div>
+        </section>
 
-            <label for="question1-b">
+        <section id="quiz" hidden>
+          <form id="quiz-form">
+            <h2>Accessibility Quiz</h2>
+            <p id="form-intro" class="sr-only">
+              This is a quiz with 2 questions about Accessibility. Use Tab to
+              start and Arrow keys to navigate.
+            </p>
+            <fieldset hidden>
+              <legend id="question1-legend">
+                What is the purpose of alt text on images?
+              </legend>
               <input
                 type="radio"
                 name="question1"
-                value="b"
-                id="question1-b"
-              />Describes images to screen readers</label
-            >
-            <br />
+                value="a"
+                id="question1-a"
+                aria-describedby="question1-legend"
+              />
+              <label for="question1-a">Adds captions to videos</label>
+              <br />
 
-            <label for="question1-c">
-              <input
-                type="radio"
-                name="question1"
-                value="c"
-                id="question1-c"
-              />Changes the image color</label
-            >
-          </fieldset>
-          <fieldset>
-            <legend id="question2-legend">
-              Which element is used to group related form controls?
-            </legend>
-            <input
-              type="radio"
-              name="question2"
-              value="a"
-              id="question2-a"
-              aria-describedby="question1-legend"
-            />
-            <label for="question2-a">Adds captions to videos</label>
-            <br />
+              <label for="question1-b">
+                <input
+                  type="radio"
+                  name="question1"
+                  value="b"
+                  id="question1-b"
+                />Describes images to screen readers</label
+              >
+              <br />
 
-            <label for="question2-b">
-              <input
-                type="radio"
-                name="question2"
-                value="b"
-                id="question2-b"
-              />Describes images to screen readers</label
-            >
-            <br />
+              <label for="question1-c">
+                <input
+                  type="radio"
+                  name="question1"
+                  value="c"
+                  id="question1-c"
+                />Changes the image color</label
+              >
+            </fieldset>
 
-            <label for="question2-c">
+            <fieldset hidden>
+              <legend id="question2-legend">
+                Which element is used to group related form controls?
+              </legend>
               <input
                 type="radio"
                 name="question2"
-                value="c"
-                id="question1-c"
-              />Changes the image color</label
-            >
-          </fieldset>
+                value="a"
+                id="question2-a"
+                aria-describedby="question1-legend"
+              />
+              <label for="question2-a">Adds captions to videos</label>
+              <br />
 
-          <button type="submit">Submit Quiz</button>
-        </form>
-        <div id="feedback" aria-live="polite" class="sr-only">
-          You got 2 out of 3 correct!
-          <!--Kommer genereras av js sen men bara för att testa och automatiskt läsas av SR??-->
-        </div>
-      </section>
-    </main>
+              <label for="question2-b">
+                <input
+                  type="radio"
+                  name="question2"
+                  value="b"
+                  id="question2-b"
+                />Describes images to screen readers</label
+              >
+              <br />
+
+              <label for="question2-c">
+                <input
+                  type="radio"
+                  name="question2"
+                  value="c"
+                  id="question1-c"
+                />Changes the image color</label
+              >
+            </fieldset>
+
+            <button type="submit">Submit Quiz</button>
+          </form>
+          <div id="feedback" aria-live="polite" class="sr-only">
+            You got 2 out of 3 correct!
+            <!--Kommer genereras av js sen men bara för att testa och automatiskt läsas av SR??-->
+          </div>
+        </section>
+      </main>
+    </div>
 
     <script src="js/main.js"></script>
   </body>
