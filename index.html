@@ -3,25 +3,32 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0" />
   <title>Web Accessibility Quiz for beginners</title>
-  <link rel="stylesheet" href="css/styles.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
+  <link rel="stylesheet"
+        href="css/styles.css" />
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 
 </head>
 <!-- -->
 
 <body>
-  <a href="#main-content" class="skip-link">Skip to Content</a>
+  <a href="#main-content"
+     class="skip-link">Skip to Content</a>
 
-  <header id="header" role="banner">
+  <header id="header"
+          role="banner">
     <div class="header-content">
       <h1>Web Accessibility Quiz for beginners</h1>
-      <nav role="navigation" aria-label="Main navigation">
+      <nav role="navigation"
+           aria-label="Main navigation">
         <ul>
           <li><a href="index.html">Home</a></Li>
           <li><a href="about.html">About</a></li>
@@ -29,18 +36,24 @@
       </nav>
     </div>
   </header>
-  <section role="region">
-    <img id="decorative-img" src="./img/keyboard.jpg" alt="Pictue of keyboard with accessibility keys"
-      role="presentation" />
+  <section>
+    <img id="decorative-img"
+         src="./img/keyboard.jpg"
+         alt=""
+         role="presentation" />
   </section>
-  <main id="main-content" role="main">
-    <section id="introduction" aria-labelledby="quiz-title">
+  <main id="main-content"
+        role="main">
+    <section id="introduction"
+             aria-labelledby="quiz-title">
       <h2 id="quiz-title">Welcome to the Quiz</h2>
       <p>This quiz is designed to test your knowlege of web accessibility principles,</p>
     </section>
 
     <!-- QUIZ-->
-    <section id="quizInstructions" role="region" aria-labelledby="quiz-heading">
+    <section id="quizInstructions"
+             role="region"
+             aria-labelledby="quiz-heading">
 
       <h3 id="quiz-heading">Accessibility Quiz</h3>
       <p tabindex="0">
@@ -49,7 +62,8 @@
 
     </section>
 
-    <section id="quizSection" aria-labelledby="Quiz-from">
+    <section id="quizSection"
+             aria-labelledby="Quiz-from">
       <form id="quiz-form">
         <div class="card-header">
           <h2 id="quizQuestion"></h2>
@@ -58,16 +72,23 @@
           <legend hidden>Quiz Question</legend>
           <div id="quizOptions">
           </div>
-          <div id="quizAnswer" hidden>
+          <div id="quizAnswer"
+               hidden>
             Your score: <span id="score">0</span>
           </div>
-          <button type="button" aria-live="polite" id="restartBtn" hidden>Restart Quiz</button>
+          <button type="button"
+                  aria-live="polite"
+                  id="restartBtn"
+                  hidden>Restart Quiz</button>
         </fieldset>
         <div id="submit-container">
-          <button type="submit" id="submitAnswer">Submit</Button>
+          <button type="submit"
+                  id="submitAnswer">Submit</Button>
         </div>
       </form>
-      <div id="feedback" aria-live="polite" aria-describedby="quizQuestion"></div>
+      <div id="feedback"
+           aria-live="polite"
+           aria-describedby="quizQuestion"></div>
 
     </section>
 
@@ -75,7 +96,8 @@
 
   <footer role="contentinfo">
     <div class="footer-content">
-      <nav role="navigation" aria-label="footer Navigation">
+      <nav role="navigation"
+           aria-label="footer Navigation">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
