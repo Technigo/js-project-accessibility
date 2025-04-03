@@ -2,11 +2,11 @@
 :root {
   --primary-color: #1F5C63;         
   --background-color: #ffffff;     
-  --accent-color: #194A4F;         
+  --accent-color: #000000;        
   --error-color: #e74c3c;           
   --success-color: #27ae60;         
   --focus-outline: 3px solid var(--accent-color);
-  --focus-ring-color: rgba(25, 74, 79, 0.5); 
+  --focus-ring-color: rgba(25, 74, 79, 0.698); 
   --progress-bg: #edf2f7;           
   --text-color: #2c3e50;            
   --border-color: #e2e8f0;         
@@ -73,7 +73,7 @@ body {
   top: -40px;
   left: 0;
   background: var(--accent-color);
-  color: white;
+  color: #ffffff;
   padding: 8px;
   z-index: 100;
   transition: top 0.3s;
@@ -82,14 +82,14 @@ body {
 .skip-link:focus {
   top: 0;
   outline: var(--focus-outline);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
 /* Enhanced focus styles */
 :focus-visible {
   outline: var(--focus-outline);
-  outline-offset: 2px;
-  border-radius: 2px;
+  outline-offset: 3px;
+  border-radius: 3px;
 }
 
 /* Progress bar styles */
@@ -312,7 +312,7 @@ input[type='radio'] + label {
   input,
   select,
   textarea {
-    border: 2px solid var(--text-color);
+    border: 3px solid var(--text-color);
     background-color: var(--background-color);
     color: var(--text-color);
   }
@@ -644,6 +644,8 @@ nav a:hover {
     gap: 1rem;
   }
 }
+/* 
+commenting out accordion CSS - we do not use accordion
 
 /* Accordion Styles */
 .accordion-container {
@@ -756,7 +758,8 @@ nav a:hover {
 .high-contrast-mode .accordion-button:hover {
   background-color: var(--primary-color);
   color: white;
-}
+} 
+/* END commenting out accordion CSS - we do not use accordion*/ 
 
 /* Footer styles */
 footer {
