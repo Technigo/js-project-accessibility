@@ -104,7 +104,7 @@ header {
   padding: 1.5 rem 0;
   box-shadow: var(--shadow-md);
   row-gap: var(--height-sm);
-  background-image: url(https://img.freepik.com/free-vector/dark-green-watercolor-background-design_1034-730.jpg?t=st=1743598047~exp=1743601647~hmac=a8e3094a6da1264cc4401a75e22805fb106d40900567953e46a18eb2cef9b5b1&w=1060);
+  background-image: url("/img/header-img.jpg");
   background-repeat: space;
   background-size: cover;
 }
