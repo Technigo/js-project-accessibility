@@ -72,7 +72,7 @@ function loadQuestion(): void {
     btn.id = `option-${i}`; // Unique ID for accessibility
     btn.value = `${i + 1}. ${element}`;
     //btn.tabIndex = 0;
-    btn.setAttribute("aria-labelledby", `labeel-${i}`); //V Uses aria-labelledby for better screen reader support
+    btn.setAttribute("aria-labelledby", `label-${i}`); //V Uses aria-labelledby for better screen reader support
     btn.setAttribute("role", "radio"); //V 
     
 
@@ -121,13 +121,7 @@ function loadQuestion(): void {
 
       if (selectedOption !== null) {
         checkA(selectedOption);
-      } else {
-        quizSection.insertAdjacentHTML(
-          "beforeend",
-          `<div id="quizFeedback" aria-live="polite">
-           <p tabindex="0">No option is selecten, please select an option and click submit!</p>         
-         </div>`)
-      }
+      } 
     };
 
 
@@ -166,13 +160,7 @@ function checkA(opt: string): void {
           <p tabindex="0">Oh no wrong answer, try again or continue to the next question!</p>
           <button id="continueBtn">Continue to the next question</button>
         </div>`);
-  } else if (selectedOption !== null) {
-    quizSection.insertAdjacentHTML(
-      "beforeend",
-      `<div id="quizFeedback" aria-live="polite">
-         <p tabindex="0">No option is selecten, please select an option and click submit!</p>         
-       </div>`)
-  }
+  } 
 
   //Click to continue to the next question
   const continueBtn = document.getElementById("continueBtn") as HTMLButtonElement | null;
