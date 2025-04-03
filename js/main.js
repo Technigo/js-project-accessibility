@@ -28,6 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.skip-link').addEventListener('click', (e) => {
     introSection.classList.add('show-focus');
     e.target.scrollIntoView({ behavior: 'smooth', block: 'start' }); //Osäker på denna det var något för mobil
+    setTimeout(() => {
+      startBtn.focus();
+    }, 100);
   });
 
   //Döljer quizet från start
@@ -79,6 +82,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       announcer.textContent = 'Ops! Did you forgot to select an answer?';
       currentFieldset.scrollIntoView({ behavior: 'smooth' });
+
+      const firstRadio = currentFieldset.querySelector('input[type="radio"]');
+      if (firstRadio) {
+        firstRadio.focus();
+      }
       return;
     }
 
@@ -154,6 +162,8 @@ document.addEventListener('DOMContentLoaded', () => {
     //Visa section quiz-result
     resultSection.style.display = 'block';
     resultSection.setAttribute('aria-hidden', 'false');
+    // Sätt fokus på result
+    resultSection.focus();
 
     //samla användarens svar
     const formData = new FormData(form);
@@ -269,13 +279,17 @@ function startQuiz() {
   score = 0;
   answeredQuestions.clear();
 
-  // Dölj introsektionen och visa quiz-sektionen
+  // Dölj introsektionen
   introSection.style.display = 'none';
-  quizSection.style.display = 'block';
+  introSection.setAttribute('aria-hidden', 'true');
 
   //Dölj result sectionen
   resultSection.style.display = 'none';
   resultSection.setAttribute('aria-hidden', 'true');
+
+  //visa quiz-sektionen
+  quizSection.style.display = 'block';
+  quizSection.setAttribute('aria-hidden', 'false');
 
   // Visa endast första fieldset och dölj resten
   fieldsets.forEach((fs, index) => {
@@ -289,7 +303,7 @@ function startQuiz() {
   });
 
   // Sätt fokus på första input i första fieldset
-  const firstInput = fieldsets[0].querySelector('input');
+  const firstInput = fieldsets[0].querySelector('input[type="radio"]');
   if (firstInput) firstInput.focus();
 
   // Uppdatera progressindikatorerna
