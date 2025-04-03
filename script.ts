@@ -38,7 +38,7 @@ let index = 0, scr = 0;
 let selectedOption: string | null = null;
 let currentQuestion = 0;
 let currentOption: string[] = [];
-let getQ = quiz[index];
+//let getQ = quiz, number,[] = [];
 
 //instructions for screen readers at the start of the quiz
 const quizInstructions = document.getElementById("quizInstructions");
@@ -48,133 +48,73 @@ const quizInstructions = document.getElementById("quizInstructions");
 function loadQuestion(): void {  
   if (index >= quiz.length) return endQ();  // End if no more questions
 
-  // const getQ = quiz[index];
+  const getQ = quiz[index];
   currentQuestion = index; //Store current question, to go back to
   currentOption = getQ.choose //Store current options, to go back to    
 
   if (quizQuestion) quizQuestion.textContent = getQ.ask;
 
   if (quizOptions) quizOptions.innerHTML  = ""; // Clear previous options   
+  
+  getQ.choose.forEach((element, i )=> {
+    const btn = document.createElement("input");
+    btn.type = "radio";
+    btn.name = "option";
+    btn.id = `option-${i}`; // Unique ID for accessibility
+    btn.value = `${i + 1}. ${element}`;    
+    btn.setAttribute("aria-labelledby", `label-${i}`); //V Uses aria-labelledby for better screen reader support
+    btn.setAttribute("role", "radio"); //V     
 
-  // getQ.choose.forEach((element, i )=> {
-  //   // const btn = document.createElement("input");
-  //   btn.type = "radio";
-  //   btn.name = "option";
-  //   btn.id = `option-${i}`; // Unique ID for accessibility
-  //   btn.value = `${i + 1}. ${element}`;    
-  //   btn.setAttribute("aria-labelledby", `label-${i}`); //V Uses aria-labelledby for better screen reader support
-  //   btn.setAttribute("role", "radio"); //V     
-
-  //   // V for the first radio button selected by deefault
-  //   if (i === 0) {
-  //     btn.checked = true;
-  //     btn.focus()
-  //     selectedOption = element;
-  //   }
-
-  //   // Allow arrow key navigation
-  //   btn.addEventListener("keydown", (event) => {
-  //     const radioButtons = document.querySelectorAll<HTMLInputElement>('input[name="option"]');
-  //     const currentIndex = Array.from(radioButtons).indexOf(btn);
-
-  //     if (event.key === "ArrowDown" || event.key === "ArrowRight") {
-  //       event.preventDefault();
-  //       const nextIndex = (currentIndex + 1) % radioButtons.length;
-  //       radioButtons[nextIndex].focus();
-  //       radioButtons[nextIndex].checked = true;
-  //       selectedOption = radioButtons[nextIndex].value;
-  //     } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
-  //       event.preventDefault();
-  //       const prevIndex = (currentIndex - 1 + radioButtons.length) % radioButtons.length;
-  //       radioButtons[prevIndex].focus();
-  //       radioButtons[prevIndex].checked = true;
-  //       selectedOption = radioButtons[prevIndex].value;
-  //     }
-  //   });
-
-  //   btn.onclick = () => {
-  //     selectedOption = element;
-  //   };
-
-  //   const label = document.createElement("label");
-  //   label.htmlFor = btn.id;
-
-  //   label.appendChild(btn);
-  //   label.append(` ${element}`)
-
-  //   submitAnswer.onclick = (event) => {
-  //     event.preventDefault(); //Stops form submission from refreshing the page
-
-  //     if (selectedOption !== null) {
-  //       checkA(selectedOption);
-  //     } 
-  //   };
-
-  //   // Append elements
-  //   quizOptions?.appendChild(label);
-  // });
-
-  trapFocus();
-}
-
-function createOptions (getQ: { choose: string[] }): void {
-getQ.choose.forEach((element, i )=> {
-  const btn = document.createElement("input") as HTMLInputElement;
-  btn.type = "radio";
-  btn.name = "option";
-  btn.id = `option-${i}`; // Unique ID for accessibility
-  btn.value = `${i + 1}. ${element}`;    
-  btn.setAttribute("aria-labelledby", `label-${i}`); //V Uses aria-labelledby for better screen reader support
-  btn.setAttribute("role", "radio"); //V     
-
-  // V for the first radio button selected by deefault
-  if (i === 0) {
-    btn.checked = true;
-    btn.focus()
-    selectedOption = element;
-  }
-
-  // Allow arrow key navigation
-  btn.addEventListener("keydown", (event) => {
-    const radioButtons = document.querySelectorAll<HTMLInputElement>('input[name="option"]');
-    const currentIndex = Array.from(radioButtons).indexOf(btn);
-
-    if (event.key === "ArrowDown" || event.key === "ArrowRight") {
-      event.preventDefault();
-      const nextIndex = (currentIndex + 1) % radioButtons.length;
-      radioButtons[nextIndex].focus();
-      radioButtons[nextIndex].checked = true;
-      selectedOption = radioButtons[nextIndex].value;
-    } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
-      event.preventDefault();
-      const prevIndex = (currentIndex - 1 + radioButtons.length) % radioButtons.length;
-      radioButtons[prevIndex].focus();
-      radioButtons[prevIndex].checked = true;
-      selectedOption = radioButtons[prevIndex].value;
+    // V for the first radio button selected by deefault
+    if (i === 0) {
+      btn.checked = true;
+      btn.focus()
+      selectedOption = element;
     }
+
+    // Allow arrow key navigation
+    btn.addEventListener("keydown", (event) => {
+      const radioButtons = document.querySelectorAll<HTMLInputElement>('input[name="option"]');
+      const currentIndex = Array.from(radioButtons).indexOf(btn);
+
+      if (event.key === "ArrowDown" || event.key === "ArrowRight") {
+        event.preventDefault();
+        const nextIndex = (currentIndex + 1) % radioButtons.length;
+        radioButtons[nextIndex].focus();
+        radioButtons[nextIndex].checked = true;
+        selectedOption = radioButtons[nextIndex].value;
+      } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
+        event.preventDefault();
+        const prevIndex = (currentIndex - 1 + radioButtons.length) % radioButtons.length;
+        radioButtons[prevIndex].focus();
+        radioButtons[prevIndex].checked = true;
+        selectedOption = radioButtons[prevIndex].value;
+      }
+    });
+
+    btn.onclick = () => {
+      selectedOption = element;
+    };
+
+    const label = document.createElement("label");
+    label.htmlFor = btn.id;
+
+    label.appendChild(btn);
+    label.append(` ${element}`)
+
+    // submitAnswer.onclick = (event) => {
+    //   event.preventDefault(); //Stops form submission from refreshing the page
+
+    //   if (selectedOption !== null) {
+    //     checkA(selectedOption);
+    //   } 
+    // };
+
+    // Append elements
+    quizOptions?.appendChild(label);
   });
 
-  btn.onclick = () => {
-    selectedOption = element;
-  };
-
-  const label = document.createElement("label");
-  label.htmlFor = btn.id;
-
-  label.appendChild(btn);
-  label.append(` ${element}`)
-
-  // submitAnswer.onclick = (event) => {
-  //   event.preventDefault(); //Stops form submission from refreshing the page
-
-  //   if (selectedOption !== null) {
-  //     checkA(selectedOption);
-  //   } 
-  // };
-
-  // Append elements
-  quizOptions?.appendChild(label);
-});
+  trapFocus();
 }
 
 //Submit answer

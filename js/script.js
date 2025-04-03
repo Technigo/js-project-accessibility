@@ -28,20 +28,17 @@ let index = 0, scr = 0;
 let selectedOption = null;
 let currentQuestion = 0;
 let currentOption = [];
-let getQ = quiz[index];
 const quizInstructions = document.getElementById("quizInstructions");
 function loadQuestion() {
     if (index >= quiz.length)
         return endQ();
+    const getQ = quiz[index];
     currentQuestion = index;
     currentOption = getQ.choose;
     if (quizQuestion)
         quizQuestion.textContent = getQ.ask;
     if (quizOptions)
         quizOptions.innerHTML = "";
-    trapFocus();
-}
-function createOptions(getQ) {
     getQ.choose.forEach((element, i) => {
         const btn = document.createElement("input");
         btn.type = "radio";
@@ -82,6 +79,7 @@ function createOptions(getQ) {
         label.append(` ${element}`);
         quizOptions === null || quizOptions === void 0 ? void 0 : quizOptions.appendChild(label);
     });
+    trapFocus();
 }
 submitAnswer.onclick = (event) => {
     event.preventDefault();
