@@ -276,14 +276,6 @@ input[type="radio"]:focus-visible+label {
   margin: 0 auto 0.75rem auto;
 }
 
-#summary-card {
-  padding-left: 4rem;
-}
-
-#summary-card {
-  padding-left: 4rem;
-}
-
 #summary-card h3 {
   text-align: center;
   word-wrap: break-word;
@@ -324,9 +316,9 @@ input[type="radio"]:focus-visible+label {
 }
 
 .error-message {
+  color: var(--error-color);
   font-size: 1rem;
   font-weight: 600;
-  color: var(--error-color);
   padding-left: 0.5rem;
 }
 
@@ -518,6 +510,10 @@ nav a:hover {
     width: 9rem;
   }
 
+  #summary-card {
+    padding-left: 4rem;
+  }
+
   #summary-card h2,
   #summary-content h3,
   #summary-content p {
@@ -574,6 +570,10 @@ nav a:hover {
 
   #restart-btn {
     width: 9rem;
+  }
+
+  #summary-card {
+    padding-left: 4rem;
   }
 
   #summary-card h2,
