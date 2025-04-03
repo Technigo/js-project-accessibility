@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const announcer = document.getElementById('announcer');
     const intronContinueButton = document.getElementById('intro-continue');
     const UserInfoForm = document.getElementById('user-info-form');
+
     intronContinueButton.addEventListener('click', () => {
 
         introsection.hidden = true;
@@ -15,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const emailInput = document.getElementById('email');
-    const UserInfoInput = document.getElementById('user-info-form');
+
     const nameInput = document.getElementById('name');
     const emailError = document.getElementById('email-error');
     const nameError = document.getElementById('name-error');
@@ -65,36 +66,42 @@ document.addEventListener('DOMContentLoaded', () => {
     UserInfoForm.addEventListener('submit', (e) => {
         e.preventDefault();
         let isValid = true;
-        if(!nameInput.value.trim()){
-            showError(nameInput,nameError,'Please enter your name.');
+        if (!nameInput.value.trim()) {
+            showError(nameInput, nameError, 'Please enter your name.');
             isValid = false;
             nameInput.focus();
-        }else{
-            clearError(nameInput,nameError);
+        } else {
+            clearError(nameInput, nameError);
         }
 
 
-        if(!emailInput.value.trim()){
-            showError(emailInput,emailError,'Please enter your email address.');
+        if (!emailInput.value.trim()) {
+            showError(emailInput, emailError, 'Please enter your email address.');
             isValid = false;
-            if(!nameError.textContent){
-                emailInput.focus(); 
+            if (!nameError.textContent) {
+                emailInput.focus();
             }
-            
-        }else if(!isValidEmail(emailInput.value.trim())){
-            showError(emailInput,emailError,'Please enter a valid email address.');
+
+        } else if (!isValidEmail(emailInput.value.trim())) {
+            showError(emailInput, emailError, 'Please enter a valid email address.');
             isValid = false;
-            if(!nameError.textContent){
-                emailInput.focus(); 
+            if (!nameError.textContent) {
+                emailInput.focus();
             }
         }
-        else{
-            clearError(emailInput,emailError);
+        else {
+            clearError(emailInput, emailError);
         }
 
         if (isValid) {
             userName = nameInput.value.trim();
             userInnfoSection.hidden = true;
+
+
+            feedbackSection.hidden = false;
+            feedbackSection.scrollIntoView({ behavior: 'smooth' });
+
+            document.querySelector('#feedback-form input[type="radio"]').focus();
             const welcomeMessage = `we move to feedback section, ${userName}!`;
             announcer.textContent = welcomeMessage;
             document.getElementById('welcome').textContent = welcomeMessage;
@@ -102,5 +109,100 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
     });
+
+
+
+
+    const feedbackSection = document.getElementById('feedback');
+    const resultsection = document.getElementById('results');
+
+    const feedbackForm = document.getElementById('feedback-form');
+    const resultContent = document.getElementById('results-content');
+    const feedbackDetails = document.querySelector('.feedback-details');
+    const progressFill = document.querySelector('.progress-fill');
+    const progressText = document.querySelector('.progress-text');
+    const answeredQuestions = new Set();
+
+
+    function updateProgress() {
+        const totalQuestions = 2;
+
+        const answeredCount = answeredQuestions.size;
+        const percentage = (answeredCount / totalQuestions) * 100;
+
+
+        progressFill.style.width = `${percentage}%`;
+        progressText.textContent = `${answeredCount} out of ${totalQuestions} questions answered`;
+        announcer.textContent = `${answeredCount} out of ${totalQuestions} questions answered`;
+    }
+
+    feedbackForm.querySelectorAll('input[type="radio"]').forEach((radio) => {
+        radio.addEventListener('change', () => {
+            const questionname = radio.name;
+            answeredQuestions.add(questionname);
+            updateProgress();
+        });
+    });
+    feedbackForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(feedbackForm);
+        const userAnswer = Object.fromEntries(formData);
+
+        let feedback = `Thank yiu for your feedback, ${userName}!`;
+
+        const detailedFeedback = [];
+
+        if (userAnswer.navigation === 'easy') {
+
+
+            detailedFeedback.push('Navigation:you find that site easy to navigate Easy');
+        } else if (userAnswer.navigation === 'difficult') {
+            detailedFeedback.push('Navigation:you fond that site difficult to navigate Difficult');
+        }
+
+
+
+
+        if (userAnswer.readerbility === 'clear') {
+
+            detailedFeedback.push('readerbility:you fond that site easy to navigate clear');
+
+        } else if (userAnswer.readerbility === 'unclear') {
+
+            detailedFeedback.push('readerbility:you fond that site difficult to navigate unclear');
+
+        }
+
+
+
+        const positiveAnswers = ['easy', 'clear'];
+        const userAnswerValues = Object.values(userAnswer);
+        let positiveResposes = 0;
+
+        for (const answer of userAnswerValues) {
+            if (positiveAnswers.includes(answer)) {
+                positiveResposes += 1;
+            }
+        }
+
+
+        const totaResposes = Object.keys(userAnswer).length;
+        const satisfactionPercentage = Math.round((positiveResposes / totaResposes) * 100);
+
+        const satisfactionMessage = `Your satisfaction level is ${satisfactionPercentage}%`;
+        feedback += ` ${satisfactionMessage}`;
+
+        feedback += positiveResposes >= totaResposes / 2 ? 'Great! We are glad you are satisfied!' : 'We are sorry to hear that you are not satisfied.';
+        feedbackSection.hidden = true;
+        resultsection.hidden = false;
+        resultContent.textContent = feedback;
+        feedbackDetails.innerHTML = detailedFeedback.map((text) => `<p>${text}</p>`).join('');
+
+        resultsection.setAttribute('tabindex', '-1');
+        resultsection.focus();
+        announcer.textContent = 'Feedback submitted successfully!';
+    });
+
+
 
 });
