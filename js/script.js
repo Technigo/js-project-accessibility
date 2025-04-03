@@ -26,12 +26,17 @@ const submitAnswer = document.getElementById("submitAnswer");
 const quizFeedback = document.getElementById("quizFeedback");
 let index = 0, scr = 0;
 let selectedOption = null;
+let currentQuestion = 0;
+let currentOption = [];
 const quizInstructions = document.getElementById("quizInstructions");
 quizInstructions === null || quizInstructions === void 0 ? void 0 : quizInstructions.focus();
 function loadQuestion() {
     if (index >= quiz.length)
         return endQ();
     const getQ = quiz[index];
+    currentQuestion = index;
+    currentOption = getQ.choose;
+    console.log(currentOption);
     if (quizQuestion)
         quizQuestion.textContent = getQ.ask;
     if (quizOptions)
@@ -42,6 +47,7 @@ function loadQuestion() {
         btn.name = "option";
         btn.id = `option-${i}`;
         btn.value = `${i + 1}. ${element}`;
+
         btn.tabIndex = 0;
         btn.setAttribute("aria-labelledby", `labeel-${i}`);
         btn.setAttribute("role", "radio");
@@ -67,6 +73,7 @@ function loadQuestion() {
                 selectedOption = radioButtons[prevIndex].value;
             }
         });
+
         btn.onclick = () => {
             selectedOption = element;
         };
@@ -90,6 +97,8 @@ function loadQuestion() {
     trapFocus();
 }
 function checkA(opt) {
+
+
     const quizFeedback = document.getElementById("quizFeedback");
     if (quizFeedback) {
         quizFeedback.remove();
@@ -101,17 +110,21 @@ function checkA(opt) {
          <button id="continueBtn">Continue to the next question</button>
        </div>`);
     }
+
     else if (opt !== quiz[index].answer) {
+
         quizSection.insertAdjacentHTML("beforeend", `<div id="quizFeedback" aria-live="polite">
           <p>Oh no wrong answer, try again or continue to the next question!</p>
           <button id="continueBtn">Continue to the next question</button>
         </div>`);
     }
+
     else if (selectedOption !== null) {
         quizSection.insertAdjacentHTML("beforeend", `<div id="quizFeedback" aria-live="polite">
          <p>No option is selecten, please select an option and click submit!</p>         
        </div>`);
     }
+
     const continueBtn = document.getElementById("continueBtn");
     if (continueBtn) {
         continueBtn.addEventListener("click", (event) => {
@@ -121,6 +134,8 @@ function checkA(opt) {
                 quizFeedback.remove();
             }
             index++;
+
+
             loadQuestion();
         });
     }
