@@ -145,10 +145,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     feedbackForm.addEventListener('submit', (e) => {
         e.preventDefault();
+        let isValid = true;
+
         const formData = new FormData(feedbackForm);
         const userAnswer = Object.fromEntries(formData);
 
-        let feedback = `Thank yiu for your feedback, ${userName}!`;
+        if (!userAnswer.navigation) {
+            isValid = false;
+            alert('Please select an option for Navigation.');
+        }
+    
+        if (!userAnswer.readerbility) {
+            isValid = false;
+            alert('Please select an option for Content Readability.');
+        }
+    
+        if (!isValid) {
+            return;
+        }
+
+        let feedback = `Thank you for your feedback, ${userName}!`;
 
         const detailedFeedback = [];
 
@@ -205,4 +221,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+});
+
+document.querySelectorAll('fieldset').forEach((fieldset) => {
+    fieldset.addEventListener('keydown', (event) => {
+        const radios = Array.from(fieldset.querySelectorAll('input[type="radio"]'));
+        const currentIndex = radios.findIndex(radio => radio === document.activeElement);
+
+        if (currentIndex === -1) return; // No radio is focused
+
+        if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+            event.preventDefault();
+            const nextIndex = (currentIndex + 1) % radios.length;
+            radios[nextIndex].focus();
+        } else if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
+            event.preventDefault();
+            const prevIndex = (currentIndex - 1 + radios.length) % radios.length;
+            radios[prevIndex].focus();
+        }
+    });
 });

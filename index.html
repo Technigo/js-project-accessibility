@@ -21,6 +21,9 @@
           <li>
             <a href="about.html">About</a>
           </li>
+          <li>
+            <a href="contact.html">Contact</a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -28,8 +31,13 @@
 
   <main id="main-content">
     <section id="banner" role="banner">
-      <img src="assets/banner.jpg" alt="" role="presentation" />
+      <img src="assets/banner.jpeg" alt="" role="presentation" />
     </section>
+    <div class="hero-images">
+      <img src="assets/accebilityimagetrue.png" alt="Accessibility illustration" />
+      <img src="assets/accebilityimagefalse.png" alt="" />
+    </div>
+    
     <section id="introduction">
       <h2>Introduction</h2>
       <p>
@@ -42,112 +50,112 @@
         </button>
       </div>
     </section>
-  
-
-
-  <section id="user-info" hidden>
-    <h2>Your information</h2>
-    <form id="user-info-form" action="">
-      <div class="form-control">
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name" aria-required="true" aria-describedby="name-error"
-          placeholder="Example: John Doe" />
-        <div id="name-error" class="error" role="alert" hidden></div>
-      </div>
-
-      <div class="form-control">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" aria-required="true" aria-describedby="email-hint email-error"
-          placeholder="Example: name@recampl.com" autocomplete="given-name" />
-
-        <div id="email-hint" class="hint">Example : name@gmail.com</div>
-        <div id="email-error" class="error" role="alert" hidden></div>
-      </div>
-
-      <div class="form-control">
-        <button type="submit" class="submit">continue to feedback</button>
-
-      </div>
-    </form>
-  </section>
 
 
 
+    <section id="user-info" hidden>
+      <h2>Your information</h2>
+      <form id="user-info-form" action="">
+        <div class="form-control">
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name" aria-required="true" aria-describedby="name-error"
+            placeholder="Example: John Doe" />
+          <div id="name-error" class="error" role="alert" hidden></div>
+        </div>
 
+        <div class="form-control">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" aria-required="true" aria-describedby="email-hint email-error"
+            placeholder="Example: name@recampl.com" />
 
+          <div id="email-hint" class="hint">Example : name@gmail.com</div>
+          <div id="email-error" class="error" role="alert" hidden></div>
+        </div>
 
-  <section id="feedback" hidden>
-    <h2>Share your experience</h2>
-
-    <div class="quiz-progress" role="status" aria-live="polite">
-      <div class="progress-bar">
-        <div class="progress-fill" style="width: 0%"></div>
-      </div>
-      <p class="progress-text">0 of 4 questions aswered</p>
-    </div>
-
-    <div class="quiz-instructions" role="group" aria-labelledby="instructions-heading">
-      <h3 id="instructuions-heading"> instructions</h3>
-      <p>Use tab to navigate nbetween , space to select an option </p>
-    </div>
-
-    <form id="feedback-form">
-      <fieldset>
-        <legend>Content readerbility</legend>
-        <div class="radio-group" role="radiogroup">
-
-          <div class="radio-option">
-            <input type="radio" name="readerbility" value="clear" id="read-clear" />
-            <label for="nav-clear">Easy to navigate</label>
-          </div>
-
-          <div class="radio-option">
-            <input type="radio" name="readerbility" value="unclear" id="read-unclear" />
-            <label for="read-unclear">Difficult to read and understnd</label>
-          </div>
+        <div class="form-control">
+          <button type="submit" class="submit">continue to feedback</button>
 
         </div>
-      </fieldset>
+      </form>
+    </section>
 
 
 
-      <fieldset>
-        <legend>Navigation</legend>
-        <div class="radio-group" role="radio-group">
 
-          <div class="radio-option">
-            <input type="radio" name="navigation" value="easy" id="nav-easy" />
-            <label for="nav-easy">Easy to navigate</label>
-          </div>
 
-          <div class="radio-option">
-            <input type="radio" name="navigation" value="difficult" id="nav-difficult" />
-            <label for="nav-difficult">Difficult to navigate</label>
-          </div>
 
+    <section id="feedback" hidden>
+      <h2>Accessibility Quiz</h2>
+
+      <div class="quiz-progress" role="status" aria-live="polite">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
         </div>
-      </fieldset>
-
-
-      <div class="form-control">
-        <button type="submit" class="submit-button" aria-describedby="submit-description">Submit feedback</button>
-        <p id="submit-description" class="visually-hidden">click to submit your answers see the summry</p>
+        <p class="progress-text">0 of 4 questions aswered</p>
       </div>
-    </form>
 
-  </section>
+      <div class="quiz-instructions" role="group" aria-labelledby="instructions-heading" id="instructions">
+        <h3 id="instructuions-heading"> instructions</h3>
+        <p>Use tab to navigate nbetween , space to select an option </p>
+      </div>
+
+      <form id="feedback-form">
+        <fieldset>
+          <legend>Content readerbility</legend>
+          <div class="radio-group" role="radiogroup" aria-required="true">
+
+            <div class="radio-option">
+              <input type="radio" name="readerbility" value="clear" id="read-clear" />
+              <label for="read-clear">Easy to navigate</label>
+            </div>
+
+            <div class="radio-option">
+              <input type="radio" name="readerbility" value="unclear" id="read-unclear" />
+              <label for="read-unclear">Difficult to read and understnd</label>
+            </div>
+
+          </div>
+        </fieldset>
 
 
-  <section id="results" hidden aria-live="polite">
-    <h2>Thank you</h2>
-    <div id="results-content"></div>
-    <div class="feedback-details"></div>
-  </section>
+
+        <fieldset>
+          <legend>Navigation</legend>
+          <div class="radio-group" role="radio-group" aria-required="true">
+
+            <div class="radio-option">
+              <input type="radio" name="navigation" value="easy" id="nav-easy" />
+              <label for="nav-easy">Easy to navigate</label>
+            </div>
+
+            <div class="radio-option">
+              <input type="radio" name="navigation" value="difficult" id="nav-difficult" />
+              <label for="nav-difficult">Difficult to navigate</label>
+            </div>
+
+          </div>
+        </fieldset>
+
+
+        <div class="form-control">
+          <button type="submit" class="submit-button" aria-describedby="submit-description">Submit feedback</button>
+          <p id="submit-description" class="visually-hidden">click to submit your answers see the summry</p>
+        </div>
+      </form>
+
+    </section>
+
+
+    <section id="results" hidden aria-live="polite">
+      <h2>Thank you</h2>
+      <div id="results-content"></div>
+      <div class="feedback-details"></div>
+    </section>
 
 
 
-  <div id="announcer" class="visually-hidden" aria-live="polite"></div>
-</main>
+    <div id="announcer" class="visually-hidden" aria-live="polite"></div>
+  </main>
   <footer role="contentinfo">
     <div class="footer-content">
       <nav role="navigation" aria-label="Footer menu">
@@ -157,6 +165,9 @@
           </li>
           <li>
             <a href="about.html">About</a>
+          </li>
+          <li>
+            <a href="contact.html">Contact</a>
           </li>
         </ul>
       </nav>
