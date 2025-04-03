@@ -281,7 +281,34 @@ input[type="radio"]:focus-visible+label {
   margin: 0 auto 0.75rem auto;
 }
 
-#summary-card h3 {
+input[type="radio"]:focus-visible+label {
+  outline: var(--focus-outline);
+  border-radius: 0.25rem;
+}
+
+/* Progress bar */
+.quiz-progress {
+  margin: 2rem 0;
+}
+
+.progress-bar {
+  background-color: var(--progress-bg);
+  border-radius: 8px;
+  height: 20px;
+  margin: 0 2rem 0 2rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  background-color: var(--primary-color);
+  height: 100%;
+  transition: width 0.3s ease;
+  border-radius: 8px;
+}
+
+.progress-text {
+  margin-top: 0.5rem;
   text-align: center;
   word-wrap: break-word;
   margin: 2rem auto 0.5rem auto;

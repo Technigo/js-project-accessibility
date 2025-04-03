@@ -51,6 +51,31 @@ document.addEventListener('DOMContentLoaded', function () {
     return selectedOption ? selectedOption.value : null;
   };
 
+  // Progress bar logic
+
+  const form = document.getElementById('accessibility-quiz');
+  const progressBar = document.querySelector(".quiz-progress");
+  const progressFill = document.querySelector('.progress-fill');
+  const progressText = document.querySelector('.progress-text');
+  let answeredQuestions = new Set();
+
+  const updateProgress = () => {
+        const totalQuestions = 6; 
+        const answeredCount = answeredQuestions.size;
+        const percentage = (answeredCount / totalQuestions) * 100;
+
+        progressFill.style.width = `${percentage}%`;
+        progressText.textContent = `${answeredCount} of ${totalQuestions} questions answered`;
+        announcer.textContent = `${answeredCount} of ${totalQuestions} questions answered`;
+      }
+
+  form.querySelectorAll('input[type="radio"]').forEach((radio) => {
+        radio.addEventListener('change', () => {
+          const questionName = radio.name; 
+          answeredQuestions.add(questionName);
+          updateProgress();
+        });
+      });
 
   const createErrorMessage = () => {
     const errorMessage = document.createElement("div");
@@ -62,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const showSummary = () => {
     let summaryCard = document.getElementById("summary-card");
+    progressBar.setAttribute("hidden", "true");
 
     if (!summaryCard) {
       summaryCard = document.createElement("fieldset");
@@ -69,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
       summaryCard.classList.add("quiz-card");
       summaryCard.innerHTML = `
         <h2>Your results:</h2>
-        <div id="summary-content"></div>
+        <div id="summary-content" aria-live="polite"></div>
         <button type="button" id="restart-btn">Restart Quiz</button>
       `;
       document.getElementById("accessibility-quiz").appendChild(summaryCard);
@@ -99,15 +125,20 @@ document.addEventListener('DOMContentLoaded', function () {
     restartButton.addEventListener("click", () => {
       currentIndex = 0;
       userAnswers = {};
-
+      
+      progressBar.removeAttribute("hidden");
       summaryCard.classList.remove("active");
 
       document.querySelectorAll('input[type="radio"]:checked').forEach((radio) => {
         radio.checked = false;
       });
 
+      answeredQuestions.clear();
+
       showCard(currentIndex);
 
+      updateProgress();
+      
     });
 
     showCard(cards.length);
