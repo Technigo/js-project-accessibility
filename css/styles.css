@@ -10,8 +10,8 @@
   --border-color: black;
   --hover-bg: rgba(0, 0, 0, 0.05);
   --transition-speed: 0.3s;
-  --high-contrast-bg: #000;
-  --high-contrast-text: #fff;
+  --high-contrast-bg: #282459;
+  --high-contrast-text: #000000;
   --button_radius: 0.75em;
 }
 
@@ -40,8 +40,19 @@ header {
   position: relative;
 }
 
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
 nav ul {
   display: flex;
+  font-size: 20px;
+  color: var(--text-color);
   gap: 1rem;
   list-style: none;
   padding: 0;
@@ -62,12 +73,9 @@ h1 {
   justify-content: center;
 }
 
-a {
-  text-decoration: none;
-}
-
 a:link {
   color: var(--text-color);
+  text-decoration: none;
 }
 
 a:visited {
@@ -122,7 +130,6 @@ a:hover {
   text-align: center;
   padding: 0.3rem 0;
   border-radius: 0.2rem;
-
   /* Position the tooltip text */
   position: absolute;
   z-index: 10;
@@ -278,12 +285,12 @@ input:checked + .slider:before {
 
 .high-contrast {
   background-color: var(--high-contrast-bg);
-  color: var(--high-contrast-text);
+  color: var(--primary-color);
 }
 
 .high-contrast h1,
 h2 {
-  color: var(--high-contrast-text);
+  color: var(--primary-color);
 }
 
 .high-contrast fieldset {
@@ -297,6 +304,20 @@ h2 {
   color: var(--high-contrast-text);
 }
 
+.high-contrast #submit-button {
+  background-color: var(--high-contrast-bg);
+  color: var(--primary-color);
+  border: 1px solid var(--high-contrast-text);
+  border-right: 3px solid var(--high-contrast-text);
+  border-bottom: 3px solid var(--high-contrast-text);
+}
+
+.high-contrast #submit-button:hover {
+  background-color: var(--high-contrast-text);
+  color: var(--primary-color);
+  border: 3px solid var(--high-contrast-bg);
+}
+
 fieldset {
   border: 1px solid var(--border-color);
   border-right: 4px solid var(--border-color);
@@ -306,7 +327,6 @@ fieldset {
   margin: 0.5rem;
   border-radius: 0.5rem;
   background-color: var(--primary-color);
-  /* box-shadow: 0.1rem 0.1rem 0.2rem #2c2c2c; */
 }
 
 legend {
@@ -354,13 +374,13 @@ label input {
 .error-feedback {
   display: inline-block;
   border-bottom: 3px solid var(--error-color);
-  padding-bottom: 0.2em; /* skapar avstånd från texten */
+  padding-bottom: 0.2em;
 }
 
 .success-feedback {
   display: inline-block;
   border-bottom: 3px solid var(--success-color);
-  padding-bottom: 0.2em; /* skapar avstånd från texten */
+  padding-bottom: 0.2em;
 }
 
 #result-container {
@@ -419,9 +439,8 @@ footer {
 @media (min-width: 600px) {
   .banner img {
     width: 100%;
-    height: 0vh; /* Bilden fyller hela höjden */
-    object-fit: cover; /* Croppar så att bilden täcker */
-    object-position: center; /* (valfritt) styr vilket område som syns */
+    object-fit: cover;
+    object-position: center;
   }
 
   h1 {
