@@ -292,13 +292,6 @@ input[type="radio"]:focus-visible+label {
   margin: 0 auto 0.5rem auto;
 }
 
-
-/*Summary card
-#summary-card h2 {
-  text-align: center;
-  margin: 0 auto 12px auto;
-}*/
-
 /*input[type="radio"]:focus-visible+label {
   outline: var(--focus-outline);
   border-radius: 0.25rem;
@@ -498,11 +491,6 @@ nav a:hover {
     padding: 2em;
   }
 
-  .quiz-instructions p,
-  #introduction p {
-    text-align: left;
-  }
-
   h2 {
     font-size: 1.375rem;
     /* 22px */
@@ -563,11 +551,6 @@ nav a:hover {
   label {
     font-size: 1.25rem;
     /* 20px */
-  }
-
-  .quiz-instructions p,
-  #introduction p {
-    text-align: left;
   }
 
   .nav-buttons button {
