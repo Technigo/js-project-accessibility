@@ -183,9 +183,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const scorePercentage = Math.round((positiveResponses / totalResponses)*100)
 
     feedback += `Based on your responses, you got ${scorePercentage}% questions correct. `;
-        feedback += positiveResponses >= totalResponses / 6 
-        ? 'Congratulations!' 
-        : 'Try again!';
+        feedback += positiveResponses >= totalResponses / 2 
+        ? 'Congratulations! You are a great a11y ally 😊' 
+        : 'No worries, you can try again!';
 
     quizSection.hidden = true;
     resultsSection.hidden = false;
