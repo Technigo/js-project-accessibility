@@ -83,19 +83,32 @@ main {
 
 /* Buttons */
 
-button {
+button:hover {
+  background: #540b0e;
+  color: white;
+  border: 3px solid #540b0e;
+}
+
+.primary-button,
+.secondary-button {
   padding: 8px 12px;
   border-radius: 5px;
-  background: var(--primary-color);
-  color: white;
   border: none;
   cursor: pointer;
   font-size: 16px;
   font-weight: 800;
 }
 
-button:hover {
-  background: #540b0e;
+.primary-button {
+  background: var(--primary-color);
+  color: white;
+  border: 3px solid var(--primary-color);
+}
+
+.secondary-button {
+  background-color: white;
+  color: var(--primary-color);
+  border: 3px solid var(--primary-color);
 }
 
 /* Skip-link */
@@ -127,7 +140,7 @@ button:hover {
   border: none;
 }
 
-.quiz-section fieldset legend {
+.question-content legend {
   font-weight: 800;
   font-size: 18px;
 }
@@ -141,10 +154,18 @@ button:hover {
   display: flex;
   align-items: center;
 }
-.option-container:hover {
+.option-container:hover:focus {
   background: var(--hover-bg);
 }
 
+.radio-option {
+  border: 2px solid var(--border-color);
+  border-radius: 15px;
+}
+
+.radio-option:hover {
+  background: var(--hover-bg);
+}
 .quiz-section fieldset label {
   cursor: pointer;
   width: 95%;
@@ -155,7 +176,7 @@ button:hover {
 
 /* Images styling */
 .decorative-img {
-  height: 68px;
+  height: 80px;
 }
 
 /* Progress bar */
@@ -172,4 +193,12 @@ button:hover {
   height: 100%;
   transition: width 0.3s ease;
   border-radius: 8px;
+}
+
+/* Error message */
+.error-message {
+  padding: 16px;
+  background-color: rgba(183, 65, 14, 0.5);
+  border-radius: 15px;
+  color: black;
 }

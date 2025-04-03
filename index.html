@@ -29,17 +29,22 @@
     <main id="main-content">
       <section class="intro-section" id="introduction">
         <img class="decorative-img" src="img/intro-icon.png" alt="" />
-        <h2>Is Your Code Really Accessible? Let’s Find Out!</h2>
+        <h2>Is Your Code Truly Accessible? Test Your Knowledge</h2>
         <p>
-          Hey coder! You might be writing clean, efficient code—but is it truly
-          accessible? Making the web inclusive isn’t just a nice bonus, it’s
-          essential! <b> WCAG (Web Content Accessibility Guidelines)</b> helps
-          ensure that everyone, including people with disabilities, can navigate
-          and use digital content. <br /><br />Think you’ve got it covered? Or
-          maybe you’re just getting started? Either way, this quiz will
-          challenge your accessibility knowledge and help you improve your
-          skills! <br /><br />
-          <b>Ready? Let’s go!</b>
+          Creating an inclusive digital experience is not just an option—it is a
+          responsibility. Web accessibility ensures that everyone, including
+          people with disabilities, can navigate, understand, and interact with
+          online content. Adhering to the
+          <b> WCAG (Web Content Accessibility Guidelines)</b> helps make the web
+          more usable for all. <br /><br />How well do you understand
+          accessibility best practices? Whether you are an experienced developer
+          or just beginning to explore inclusive design, this quiz will assess
+          your knowledge and provide valuable insights to help you improve.
+          <br /><br />
+          <b
+            >Are you ready to enhance your accessibility skills? Start the quiz
+            now!</b
+          >
         </p>
         <div class="form-controls intro-section">
           <button
@@ -69,13 +74,13 @@
             <fieldset>
               <div class="question-content"></div>
               <div id="question-error" class="error" role="alert" hidden>
-                <p class="error-message"></p>
+                <p class="error-message" role="alert"></p>
               </div>
             </fieldset>
           </div>
           <div class="form-controls">
             <button
-              class="previous-button"
+              class="previous-button secondary-button"
               type="button"
               id="previousQuestion"
               aria-label="Previous question"
@@ -83,7 +88,7 @@
               Previous Question
             </button>
             <button
-              class="next-button"
+              class="next-button primary-button"
               type="button"
               id="nextQuestion"
               aria-label="Next question"
@@ -91,7 +96,7 @@
               Next Question
             </button>
             <button
-              class="submit-button"
+              class="submit-button primary-button"
               type="submit"
               id="submitQuiz"
               aria-label="Submit quiz"
@@ -111,9 +116,13 @@
         />
         <h2>Quiz completed!</h2>
         <div class="result-content" id="result-content"></div>
-        <div class="feedback-details" id="feedback-details"></div>
+        <div class="feedback-details" id="feedback-details">
+          <div class="accordion">
+            <div class="accordion-item"></div>
+          </div>
+        </div>
         <button
-          class="restart-button"
+          class="restart-button primary-button"
           type="button"
           id="restartQuiz"
           aria-label="Restart quiz"
@@ -121,7 +130,7 @@
           Restart Quiz
         </button>
         <button
-          class="home-button"
+          class="home-button secondary-button"
           type="button"
           id="backToHome"
           aria-label="Go to homepage"
