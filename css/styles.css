@@ -472,9 +472,6 @@ nav a:hover {
 
 /* 768px to 1024px */
 @media (min-width: 769px) and (max-width: 1024px) {
-  #header .header-content {
-    flex-direction: column;
-  }
 
   #header h1 {
     font-size: 1.625rem;
@@ -522,6 +519,11 @@ nav a:hover {
     padding-left: 0.5rem;
   }
 
+  footer nav ul {
+    justify-content: flex-end;
+    gap: 4rem;
+    padding-right: 5rem;
+  }
 }
 
 @media (min-width: 1025px) {
