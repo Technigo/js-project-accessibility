@@ -227,4 +227,30 @@ restartBtn.addEventListener("click", () => {
   loadQuestion()
 })
 
+function changeFont(event: Event): void {
+  const selectElement = event.target as HTMLSelectElement;
+  const selectedFont = selectElement.value;
+
+  // Reset all fonts to default
+  document.body.classList.remove('font1', 'font2');
+
+  // Apply the selected font
+  if (selectedFont === 'font1') {
+    document.body.classList.add('font1');
+  } else if (selectedFont === 'font2') {
+    document.body.classList.add('font2');
+  }
+}
+
+// Set up the font toggle
+document.addEventListener('DOMContentLoaded', () => {
+  const fontToggle = document.getElementById('font-toggle') as HTMLSelectElement;
+
+  // Add event listener for font selection change
+  fontToggle.addEventListener('change', changeFont);
+
+  // Optional: focus on the select dropdown to improve accessibility
+  fontToggle.focus();
+});
+
 loadQuestion();

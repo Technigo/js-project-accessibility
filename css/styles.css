@@ -31,6 +31,9 @@
   /* Fonts */
   --default-font: "Roboto", sans-serif;
   --secondary-font: "Roboto Mono", sans-serif;
+  --third-font: "Atkinson Hyperlegible Mono", sans-serif;
+
+
 
   /* More readability */
   --default-font-size: 1rem;
@@ -97,6 +100,14 @@ header {
   background-size: cover;
 }
 
+.font1 {
+  font-family: var(--secondary-font);
+}
+
+.font2 {
+  font-family: var(--third-font);
+}
+
 main h1,
 h2,
 h3 {
@@ -132,6 +143,15 @@ nav ul {
   gap: 1em;
   list-style-type: none;
   padding: 0;
+}
+
+select {
+  background-color: var(--teal-30);
+  color: var(--teal-90);
+  font-family: var(--default-font);
+  font-size: var(--default-font-size);
+  font-weight: 600;
+  border-radius: .5rem;
 }
 
 #quizInstructions {
