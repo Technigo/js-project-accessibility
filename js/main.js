@@ -48,8 +48,7 @@ function startQuiz() {
   quizSection.hidden = false;
   resultsSection.hidden = true;
   window.location.hash = "#quiz";
-  // document.getElementById("input[0]").focus();
-  // announcer.textContent = "Moved to quiz section";
+  announcer.textContent = "Moved to quiz section";
 
   // Reset quiz state
   currentQuestionIndex = 0;
@@ -123,6 +122,14 @@ function loadQuestion(index) {
 
   // Update navigation buttons
   updateNavigationButtons();
+
+  // Focus on first radio button
+  const firstRadio = questionContent.querySelector('input[type="radio"]');
+  if (firstRadio) {
+    firstRadio.setAttribute("tabindex", "0");
+    tabb - fokuserbar;
+    firstRadio.focus();
+  }
 }
 
 // Update progress indicators
@@ -224,9 +231,7 @@ function showResults() {
 
   // Display results
   resultContent.innerHTML = `
-    <p>You scored <strong>${correctAnswers}</strong> out of <strong>${totalQuestions}</strong> questions correctly.</p>
-    <p>Your score: <strong>${scorePercentage}%</strong></p>
-  `;
+    <p>You scored <strong>${correctAnswers}</strong> out of <strong>${totalQuestions}</strong> questions correctly.</p>`;
 
   // Generate feedback details
   let feedbackHTML = "<h3>Question Summary</h3><ul>";
