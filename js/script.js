@@ -27,7 +27,6 @@ const quizFeedback = document.getElementById("quizFeedback");
 let index = 0, scr = 0;
 let selectedOption = null;
 const quizInstructions = document.getElementById("quizInstructions");
-quizInstructions === null || quizInstructions === void 0 ? void 0 : quizInstructions.focus();
 function loadQuestion() {
     if (index >= quiz.length)
         return endQ();
@@ -42,11 +41,11 @@ function loadQuestion() {
         btn.name = "option";
         btn.id = `option-${i}`;
         btn.value = `${i + 1}. ${element}`;
-        btn.tabIndex = 0;
         btn.setAttribute("aria-labelledby", `labeel-${i}`);
         btn.setAttribute("role", "radio");
         if (i === 0) {
             btn.checked = true;
+            btn.focus();
             selectedOption = element;
         }
         btn.addEventListener("keydown", (event) => {
@@ -134,7 +133,6 @@ function endQ() {
     restartBtn === null || restartBtn === void 0 ? void 0 : restartBtn.style.setProperty('display', 'block');
     submitAnswer.style.setProperty('display', 'none');
 }
-loadQuestion();
 function trapFocus() {
     const focusableElements = quizCard.querySelectorAll('input, button');
     const firstElement = focusableElements[0];
@@ -156,3 +154,16 @@ function trapFocus() {
         }
     });
 }
+if (restartBtn) {
+    restartBtn.addEventListener("click", () => {
+        index = 0;
+        scr = 0;
+        quizQuestion === null || quizQuestion === void 0 ? void 0 : quizQuestion.style.setProperty("display", "block");
+        quizOptions === null || quizOptions === void 0 ? void 0 : quizOptions.style.setProperty("display", "block");
+        quizAnswer === null || quizAnswer === void 0 ? void 0 : quizAnswer.style.setProperty("display", "none");
+        restartBtn === null || restartBtn === void 0 ? void 0 : restartBtn.style.setProperty("display", "none");
+        submitAnswer === null || submitAnswer === void 0 ? void 0 : submitAnswer.style.setProperty("display", "block");
+        loadQuestion();
+    });
+}
+loadQuestion();
