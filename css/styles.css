@@ -331,7 +331,8 @@ input[type="radio"]:focus-visible+label {
 /* About page*/
 .noinfo-image {
   width: 100%;
-  height: auto;
+  aspect-ratio: 2.48 / 1;
+  /*to better cls*/
   object-fit: cover;
 }
 
@@ -342,6 +343,8 @@ input[type="radio"]:focus-visible+label {
   text-align: center;
   padding-left: 10px;
   padding-right: 10px;
+  min-height: 300px;
+  /*for better cls*/
 
 }
 
