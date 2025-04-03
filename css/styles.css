@@ -161,6 +161,11 @@ main {
   color: var(--tea-70);
 }
 
+.visually-hidden {
+  position: absolute;
+  left: -9999px;
+}
+
 section {
   display: flex;
   flex-direction: column;
@@ -318,9 +323,12 @@ footer {
 .footer-content {
   text-wrap: wrap;
   padding: 0 2rem;
+  color: var(--background-light);
 }
 
-
+footer p {
+  color: var(--background-light);
+}
 
 @media (min-width: 52rem) {
 
