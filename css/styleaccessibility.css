@@ -3,7 +3,6 @@
 * {
 	margin:0;
 	padding:0;
-}
 
 html, body, form, fieldset, table, textarea {
 	font: 100% 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -179,9 +178,6 @@ header nav ul li a:hover, header nav ul li a:focus {
 	font-size:100%;
 }
 
-#search input[type=text]:focus {
-	
-}
 
 #search input[type=image] {
 	width: 16px;
@@ -442,9 +438,6 @@ footer a:focus {
 	padding:0px 7px;
 }
 
-#footerlinks ul li:not(:first-child) {
-	
-}
 
 #footerlinks ul li a {
 	padding:0 0 2px 22px;

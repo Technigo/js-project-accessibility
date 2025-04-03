@@ -1,309 +1,280 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Leave feedback</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="accordion.js" /> 
- </head>
-  <body>
-  < href="main-content" class="skip-link">Skip to main content</a>  
- <header>
- <div class = "header-content">
-    <h1>Website Feedback</h1>
-    <nav role="navigation" aria-label=""Main menu">
-    <ul>
-        <li>
-            <a href="index">Home</a>
-            </li>
-            <li>
-                <a href="index.html">About></a>
-            </li>
-            </ul>
-    </nav>
- </div>   
- </header>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Leave feedback</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="style.accessibility.css" />
+<link rel="stylesheet" href="style.accessibility2.css"/>
+<script src="index2.js"></script>
+<script src="accordion.js"></script>
+<script src="main.js"></script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>  
+<header>
+<div class = "header-content">
+<h1>Website Feedback</h1>
+<nav role="navigation" aria-label="Main menu">
+<ul>
+<li>
+<a href="index.html">Home</a>
+</li>
+<li>
+<a href="index2.html">About</a>
+</li>
+</ul>
+</nav>
+</div>   
+</header>
 
- <main id="main-content">
+<main id="main-content">
 <section id="banner" role="banner">
-    <img src=""assets/banner.jpg"
-    alt="" role="presentation" />
-</section>>
+<img src="assets/banner.jpg" alt="" role="presentation" />
+</section>
 <section id="introduction">
-    <h2>Introduction</h2>
-    <p> We value your feedback! Help us improve our wibsite by sharing your experience.
-    </p>
+<h2>Introduction</h2>
+<p> We value your feedback! Help us improve our wibsite by sharing your experience.</p>
+<p> We value your feedback! Help us improve our website by sharing your experience.</p>
 <div class="form-controls intro-section">
-    <button id=intro-continue">type="button" class="submit-button">
-    Continue
-    </button>
+<button id="intro-continue" type="button" class="submit-button">Continue</button>
 </div>
-<section id = user-info"hidden>
-    <h2> Your information </h2>
-    <form id ="user-info-form">
-    <div class="form-control">
-        <label for="name":Name:</label>
-        <input type="text" id = "name" name="name"
-        aria -requred="true"
-        aria - descriedby="name-error"
-        placeholder = "Example : John Doe">
-        />
-        <div id ="name-error" class="error"
-        rele="alert" hidden></div>
-    </div>
-    <div class ="form-control"
-    <label for ="email : </label>
-        <input type="email" id="email"
-        name=""email"
-        aria - required = "true"
-        aria -describedby = "email-hint email-error"
-        placeholder="Example":name@example/>
-        div id = "email-hint" class = "hint"> Example : name@example.com</div>
-    </div>
+<section id="user-info" hidden>
+<label for="name">Name:</label>
+<input id="name" name="name" type="text" aria-required="true" aria-describedby="name-error" />
+<div id="name-error" class="error" role="alert" hidden></div>
+<label for="email">Email:</label>
+name=""email"
+aria - required = "true"
+aria-required="true"
+aria-describedby="email-hint email-error"
+placeholder="Example: name@example.com" />
+<label for="email">Email:</label>
+<input id="email" name="email" type="email" aria-required="true" aria-describedby="email-error" placeholder="Example: name@example.com" />
+<div class="quiz-progress" role="status" aria-live="polite">
+<div class="progres-bar">
+<div class="progress-fill"style="width: 0%"></div>
 </div>
-<
+<p class"progress-text">0 of 4 questions answered</p>
+<p class="progress-text">0 of 4 questions answered</p>
+<div class="quiz-instructions" 
+role="group"
+aria-labeledby="instructions-heading">
+aria-labelledby="instructions-heading">
+<div class="progress-fill" style="width: 0%;"></div>
+</div>
+<form id="feedback-form">
+<fieldset>
+<legend>Website Navigation Experience</legend>
+<div class="radio-group"> role="radiogroup">
+<p class="progress-text">0 of 4 questions answered</p>
+<div class="radio-group" role="radiogroup">
+type="radio"
+name="navigation"
+value="easy"
+id"nav-easy"
+/>
+id="nav-easy"
+</div>
+<div class="radio-option">
+<input
+<div class="radio-group" role="radiogroup">
+name="navigation"
+value="difficult"
+id"nav-difficult"
+/>
+id="nav-difficult"
+<input type="radio" name="navigation" value="easy" id="nav-easy" />
+<input type="radio" name="navigation" value="difficult" id="nav-difficult" />
+<div class="radio-option">
+<input
+type="radio"
+name="readability"
+value="unclear"
+id"read-unclear"
+/>
+id="read-unclear"
+</div>
+</div>
+</fieldset>
+
+<div class="form-controls">
+<button type=""submit" class=""submit-button" aria-describedBy="submit-description" >Submit feedback</button>
+<p id="submit-description" class="visually-hidden">Click to submit your feedback and see the summary </p>
+<button type="submit" class="submit-button" aria-describedby="submit-description">Submit feedback</button>
+</div>
+</form>
 </section>
+<section id="results" hidden aria-live="polite">
+<h2>Thank you</h2>
+<div id="results-content"
+></div>
+<div class="feedback-details" ></div>
 </section>
- </main>
- <footer role="contentinfo">
-    <div class=""footer-content">
-        <nav role=""navigation" aria-label= aria-label="Footer menu">
-        <ul>
-            <li>
-                <a href="index.html">Home</a>
-                </li>
-            </li>
-            <a href="about.html">About>About</a>
-        </li>
-        </ul>
-    </nav>
+
+<div id="announcer" class="visually-hidden" aria-live="polite"></div>
+<button type="submit" class="submit-button" aria-describedby="submit-description">Submit feedback</button>
+<footer role="contentinfo">
+<div class=""footer-content">
+<nav role=""navigation" aria-label= aria-label="Footer menu">
+<ul>
+<nav role="navigation" aria-label="Footer menu">
+<a href="index.html">Home</a>
+</li>
+</li>
+<button type="submit" class="submit-button" aria-describedby="submit-description">Submit feedback</button>
+</li>
+<a href="about.html">About</a>
+</nav>
  </footer>
  
  <script src="js/main.js"></script>
+ <script src="js/keyboardnavigation.js"></script>
+ <script src="js/accordion.js"></script>
 
-      
-  <a href="#main-content" class=skip-link">Skip to main content</a> 
-    <header id="header>
-        <div class="header"></header>
-        <h1>About Us</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</li>
-                <li><a href="about.html">About</li>
-                </ul>
-                </header>
-                <main id"main-content">
-                <section id="about">
-            <h2>About Our Website Feedback Initiative.</h2>
-                <p>
-             We are committed to making our website accessible to everyone. Your feeback help us improve and create a better experience for all users.
-             </p>
-             <div class="hero-images">
-                <img 
-                src="assets/accessibility-image.png"
-                alt="Accessibility illustration"
-                />
-                </div>
-                <div class="accordion-item">
-                    <h3>Accessibility Features</h3>
-/>
-             </div>  
-
-             <div class="accordion-item">
-                <h3>Accessibilty Features</h3>
-             <div class=""accordion">
-                <div class="accordion-item">
-                    <h3>Accessibility Features</h3>
-                    <div class=""accordion">
-                    <div class="accordion">
-                        <h4>
-                            <button class="accordion-button" aria-expanded="false">
-                                aria-controls="accordion-content-1">
-                                >
-                                Screen Reader Compatibility
-                                <span class="accordion-icon" aria-hidden"true"></span>
-                                </button>
-                        </h4>
-                        <div id="content-1"> class="accordion-content"> hidden>
-                        <p>Our website is fully compatible with screen readers</p>
-                    </div>
-                    </div>
-
-                    <div class"accordion-item">
-                    <h4>
-                        <button 
-                        class="accordion-button"
-                        aria-expanded="false"
-                        aria-controls="content-2"
->
-                    </div>
-                    <h4>Keyboard navigation</h4>
-                    <span class="accordion-icon" aria-hidden="true"></span>
-                </button>
-            </h4>
-            <div id="content-2" class="accordion-content" hidden>
-                <p>All interactive elements are accessibible via keyboard navigation.</p>
-</div>
-                    <p>
-                        Our website is fully navigable using a keyboard. You can use the 
-                        Tab key movee between links and Shift * Tab to move back.
-
-                    </p>
-                </div>
-                <script src=."js/accordion.js"></script>
-                <div>
-                    <div class="accordion-item">
-                        <h3>Accessibilty Features</h3>
-                     <div class=""accordion">
-                        <div class="accordion-item">
-                            <h3>Accessibility Features</h3>
-                            <div class=""accordion">
-                            <div class="accordion">
-                                <h4>
-                                    <button class="accordion-button" aria-expanded="false">
-                                        aria-controls="accordion-content-1">
-                                        Screen Reader Compatibility
-                                        <span class="accordion-icon" aria-hidden"true"></span>
-                                        </button>
-                                </h4>
-                                <div id="content-1"> class="accordion-content"> hidden>
-                                <p>Our website is fully compatible with screen readers</p> 
-                </div>
-            <p>
-            Our website is designed with accessibility in mind. We strive to
-            make our content available to everyone, regardless of ability.    
-            </p>
-            <div class="hero-images">
-                <img
-            </div>>    
-            </h2>    
-                </section>    
-                </main>
-        <div class="header-content">
-            <h1>Website feedback</h1>
-            <nav role="navigation" aria-label="Main menu">
-               <ul>
-                <li>
-                < href="index.html">Home</a>
-            </href>Home   
-                </li>
-                <li>
-                <a href="about.html" >About</a>    
-                </li>
-               </ul> 
-            </nav>
-        </div>
-    </header>
-  <main id"main-content">  
-    <p>This is the starting point.</p>
-    </main>
-    <footer role="contentinfo">
-    <div class="footer-content">
-        <nav role="navigation" aria-label="Footer menu">
-            <ul>
-                <li>
-                    <a href 
-                    <div class="header-content">
-                        <h1>Website feedback</h1>
-                        <nav role="navigation" aria-label="Main menu">
-                           <ul>
-                            <li>
-                                <href="index.html">Home </href>
-                            </li>
-
-                           </ul> 
-                </li>
-    </div>    
-    </footer>
-    <script src="js/main.js"></script>
-  </body>
-</html>
-      
-
-<--Use semantic HTML-->-->
-  <header>
-    <nav aria -label = "Main Navigation">
-        <ul>
-            <li> <a href ="/"Home>Home</a>a></li>li>
-        <li> <a href = "/" about">About</a></li>
-    <li <a href ="sevices">services</a></li>
+<nav role="navigation" aria-label="Footer menu">
+<a href="#main-content" class=skip-link">Skip to main content</a> 
+<header id="header>
+<div class="header"></header>
+h1>About Us</h1>
+<nav>
+<ul>
+<nav role="navigation" aria-label="Footer menu">
+<li><a href="index2.html">About</li>
 </ul>
-</nav>
-<main>
-<!main> content here__>
+</header>
+<main id"main-content">
+<section id="about">
+<h2>About Our Website Feedback Initiative.</h2>
+<p>
+We are committed to making our website accessible to everyone. Your feeback help us improve and create a better experience for all users.
+</p>
+<div class="hero-images">
+<img 
+src="assets/accessibility-image.png"
+alt="Accessibility illustration"
+                
+/>
+</div>
+<div class="accordion-item">
+<header id="header">
+<div class="header">
+<h1>About Us</h1>
+
+<div class="accordion-item">
+<h3>Accessibilty Features</h3>
+<div class=""accordion">
+<div class="accordion-item">
+<h3>Accessibility Features</h3>
+<div class=""accordion">
+<div class="accordion">
+<h4>
+<button class="accordion-button" aria-expanded="false">
+aria-controls="accordion-content-1">
+>
+Screen Reader Compatibility
+<span class="accordion-icon" aria-hidden"true"></span>
+</button>
+</h4>
+<div id="content-1"> class="accordion-content"> hidden>
+<p>Our website is fully compatible with screen readers</p>
+</div>
+</div>
+
+<div class"accordion-item">
+<h4>
+<button 
+class="accordion-button"
+aria-expanded="false"
+aria-controls="content-2"
+>
+</div>
+<h4>Keyboard navigation</h4>
+<span class="accordion-icon" aria-hidden="true"></span>
+</button>
+</h4>
+<div id="content-2" class="accordion-content" hidden>
+<p>All interactive elements are accessibible via keyboard navigation.</p>
+</div>
+<p>
+Our website is fully navigable using a keyboard. You can use the 
+Tab key movee between links and Shift * Tab to move back.
+
+</p>
+</div>
+<script src=."js/accordion.js"></script>
+<div>
+<div class="accordion-item">
+<h3>Accessibilty Features</h3>
+<div class=""accordion">
+<div class="accordion-item">
+<h3>Accessibility Features</h3>
+<div class=""accordion">
+<div class="accordion">
+<h4>
+<button class="accordion-button" aria-expanded="false">
+aria-controls="accordion-content-1">
+Screen Reader Compatibility
+<span class="accordion-icon" aria-hidden"true"></span>
+</button>
+</h4>
+<div id="content-1"> class="accordion-content"> hidden>
+<p>Our website is fully compatible with screen readers</p> 
+</div>
+<p>
+Our website is designed with accessibility in mind. We strive to
+make our content available to everyone, regardless of ability.    
+</p>
+<div class="hero-images">
+<img
+</div>>    
+</h2>    
+</section>    
 </main>
-<footer>
-<footer>
-    <nav aria-label=""Footer navigation">
-    <ul>
-        <li><a href ="/privacy">Privacy Policy</a><</li>
-    <li><a href ="/terms">Terms of Service</a><7li>
-        <li><a href =/contact">Contact</a></li>
-    </ul>
-    </nav>
-    <nav>
-        <li><a href="/">Home</a><li>
-        </li><a href="/about">About</a></li>
-    </ul>
-    </nav>
-<header>"Web Accessibility Quiz"</header>
-Main Navigation
-        #Home index.html
-        #about easter global
-        <h2>
-            <img src = "images. easter-1247634_1280" alt = "Web Accessibility Quiz"ignore by screenreaders/> 
-            <img src = "images. australian-shepherd-2208371_1280" alt = "Web Accessibility Quiz"informative image descriptive text/>
-            
-            <fieldset>
-                <Three multiple choicee questions>
-                <legend> When is easter 2025?</legend>
-                <Ansver choises>
-                <Ansver value = "1">April 20th 
-                <Ansver value = "2">April 21th
-                <Answer value = "3">April 22th
-                <legend> what is pascha?</legend>>    
-                <Ansver choises>
-                    <Anver value = "1"> type of bread
-                    <Ansver value = "2"> type of cheese
-                    <Anver value = "3"> type of dessert
-                        <legend>What is grilled asparugus?</legend>
-                        <Answer choises>
-                            <Answer value = "1">type of fruit</Answer>
-                            <Answer value = "2">type of vegetable</Answer>
-                            <Answer value = "3">type of meet</Answer>
-                            <
-      
-                        </Answer>
-                    </Anver> 
-                    </Ansver>    
-                    </Anver>
-                </Ansver>
-                </Answer>
-                </Ansver>
-                    </Ansver>
-                    <input type="radio">
-                    <submit button>
-                        <input type = "submit" value = "Submit">
-                        <aria -live = "polite">
-                            <focus-visible>Submit</focus-visible>
-                        </aria -live>
-                    </submit button>
-                <legend>Menu</legend>
-            <ul>
-                <li><a href="index.phb">Home</a></li>
-                <li><a href="about">About</a></li>
-                <li><a href="contact>">Contact></a></li>
-            </ul>
-            <legend>Menu></legend>
-        </fieldset>
-        <legend>Menu></legend>
-        <focus-visible>Menu</focus-visible>
-        <nav aria-label = "Menu"Main Navigation">
-            <aria -live = "polite">
-             
-<form>
-<link rel="stylesheet" href="forms/index.html" />
-<link rel="stylesheet" href="forms/index2.html"
-</form>
+<div class="header-content">
+<h1>Website feedback</h1>
+<nav role="navigation" aria-label="Main menu">
+<ul>
+<li>
+< href="index.html">Home</a>
+</href>Home   
+</li>
+<li>
+<a href="about.html" >About</a>    
+</li>
+</ul> 
+</nav>
+</div>
+</header>
+<main id"main-content">  
+<p>This is the starting point.</p>
+</main>
+<footer role="contentinfo">
+<div class="footer-content">
+<nav role="navigation" aria-label="Footer menu">
+<ul>
+<li>
+<a href 
+<div class="header-content">
+<h1>Website feedback</h1>
+<nav role="navigation" aria-label="Main menu">
+<ul>
+<li>
+<href="index.html">Home </href>
+</li>
+
+</ul> 
+</li>
+</div>    
+</footer>
+<script src="js/main.js"></script>
+<script src="js/jsaccordion.js"></script>
+<script src="js/keyboardnavigation.js"></script>
+</body>
 </html>
+      
+
+
+<a href="index.html">Home</a>
