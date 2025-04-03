@@ -1,17 +1,17 @@
 :root {
-  --primary-color: #000000;
-  --background-color: #ffffff;
-  --accent-color: #31bdfe;
-  /* Darker blue for better contrast */
-  --error-color: #e74c3c;
-  --success-color: #27ae60;
+  --primary-color: #f9f9f9;
+  --background-color: #fca788;
+  --accent-color: #f77f5b;
+  --error-color: #801024;
+  --success-color: #274a34;
   --focus-outline: 3px solid var(--accent-color);
-  --focus-ring-color: rgba(0, 86, 179, 0.5);
-  --progress-bg: #edf2f7;
-  --text-color: #2c3e50;
-  --border-color: #e2e8f0;
+  --focus-ring-color: #282459;
+  --text-color: #2c2c2c;
+  --border-color: black;
   --hover-bg: rgba(0, 0, 0, 0.05);
   --transition-speed: 0.3s;
+
+  --button_radius: 0.75em;
 }
 
 /* Apply box-sizing border-box to all elements */
@@ -21,9 +21,11 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: arial;
-  color: var(--primary-color);
+.index-html,
+.about-html body {
+  font-family: "Noto Sans", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
   margin: 0;
   padding: 0;
 }
@@ -33,8 +35,8 @@ body {
   position: absolute;
   top: -40px;
   left: 0;
-  background: var(--success-color);
-  color: white;
+  background: var(--background-color);
+  color: var(--text-color);
   padding: 8px;
   z-index: 100;
   transition: top 0.3s;
@@ -45,6 +47,7 @@ body {
   outline: var(--focus-outline);
   outline-offset: 2px;
 }
+
 /* Remove? */
 .visually-hidden {
   position: absolute;
@@ -58,12 +61,59 @@ body {
   border: 0;
 }
 
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 7rem;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 0.3rem 0;
+  border-radius: 0.2rem;
+  
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 10;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
 header {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   flex-wrap: wrap;
-  background-color: var(--accent-color);
-  padding: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   align-items: center;
 }
 
@@ -77,7 +127,6 @@ nav ul {
 
 h1 {
   font-size: 25px;
-  padding-right: 25px;
 }
 
 .index-html h1 {
@@ -102,7 +151,32 @@ a:visited {
 
 /* mouse over link */
 a:hover {
-  color: hotpink;
+  color: var(--accent-color);
+}
+
+/* Full-width banner */
+#banner {
+  margin: -20px -20px 2rem;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+}
+
+#banner img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+#introduction {
+  display: flex;
+  flex-direction: column; /* Mobile first */
+  align-items: center;
+  gap: 1rem;
 }
 
 section {
@@ -121,6 +195,12 @@ form {
   width: 100%;
   margin: 0 auto;
   padding: 1rem;
+}
+
+.toggle-element {
+  position: absolute;
+  right: 70px;
+  top: 70px;
 }
 
 /* The switch - the box around the slider */
@@ -162,19 +242,19 @@ form {
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: white;
+  background-color: var(--primary-color);
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
 /* When the slider is activated */
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: var(--success-color);
 }
 
 /* Focus effect */
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+  box-shadow: 0 0 1px var(--background-color);
 }
 
 /* When the button is activated - move the slider */
@@ -190,17 +270,28 @@ input:checked + .slider:before {
 }
 
 fieldset {
-  width: 18rem;
+  border: 1px solid var(--border-color);
+  border-right: 4px solid var(--border-color);
+  border-bottom: 5px solid var(--border-color);
+  width: 100%;
+  max-width: 18rem;
   margin: 0.5rem;
   border-radius: 0.5rem;
+  background-color: var(--primary-color);
+  /* box-shadow: 0.1rem 0.1rem 0.2rem #2c2c2c; */
 }
 
 legend {
-  border: 1px solid black;
+  background-color: var(--primary-color);
+  border: 1px solid var(--border-color);
+  border-right: 3px solid var(--border-color);
+  border-bottom: 3px solid var(--border-color);
   padding: 1em;
   margin-bottom: 0.5rem;
   border-radius: 0.5rem;
+  font-weight: bold;
 }
+
 legend::after {
   content: " *";
   color: var(--error-color);
@@ -217,29 +308,30 @@ label input {
 }
 
 #submit-button {
-  border: none;
-  background: rgb(172, 164, 164);
-  border-radius: 0.5rem;
+  font-size: 17px;
+  border: 1px solid var(--border-color);
+  border-right: 3px solid var(--border-color);
+  border-bottom: 3px solid var(--border-color);
+  background: var(--accent-color);
+  border-radius: var(--button_radius);
   padding: 0.8rem;
   margin: 0.8rem;
 }
 
 #submit-button:hover {
-  background: rgb(203, 203, 228);
+  background: var(--primary-color);
 }
 
 .error-feedback {
-  border-color: #e74c3c;
-  border-style: solid;
-  border-width: 3px;
-  padding: 0.3rem;
+  display: inline-block;
+  border-bottom: 3px solid var(--error-color);
+  padding-bottom: 0.2em; /* skapar avstånd från texten */
 }
 
 .success-feedback {
-  border-color: #27ae60;
-  border-style: solid;
-  border-width: 3px;
-  padding: 0.3rem;
+  display: inline-block;
+  border-bottom: 3px solid var(--success-color);
+  padding-bottom: 0.2em; /* skapar avstånd från texten */
 }
 
 #result-container {
@@ -247,14 +339,15 @@ label input {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: var(--primary-color);
 }
 
-#result-container h2 {
+#results-container h2 {
   margin: 1rem 0;
   padding: 0;
 }
 
-#result-container p {
+#results-container p {
   margin: 0;
   padding: 0;
 }
@@ -275,27 +368,24 @@ label input {
   max-width: 200px;
   border-radius: 150px;
 }
-#introduction img {
-  max-height: 300px;
-  width: 100%;
-}
-
-#introduction img {
-  max-height: 300px;
-  width: 100%;
-}
 
 @media (min-width: 600px) {
+  .banner img {
+    width: 100%;
+    height: 0vh; /* Bilden fyller hela höjden */
+    object-fit: cover; /* Croppar så att bilden täcker */
+    object-position: center; /* (valfritt) styr vilket område som syns */
+  }
+
   h1 {
     font-size: 2.5rem;
   }
-  section .introduction {
-    flex-direction: row;
-  }
-}
 
-@media (min-width: 1024px) {
+#introduction {
+    max-width: 600px;
+  }
+
   fieldset {
-    width: 50rem;
+    max-width: 600px;
   }
 }

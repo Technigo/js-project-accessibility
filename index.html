@@ -5,12 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web Accessibility Quiz</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body class="index-html">
     <a href="#quiz" class="skip-link">Skip to Quiz!</a>
     <header>
       <h1>Web Accessibility Quiz</h1>
+      <!-- Rounded switch -->
+      <div class="tooltip">
+        <label class="switch" aria-label="High contrast toggle">
+          <input type="checkbox" id="toggle" />
+          <span class="slider"></span>
+        </label>
+        <span class="tooltiptext">Toggle High Contrast</span>
+      </div>
       <nav role="navigation" aria-label="Main menu">
         <ul>
           <li>
@@ -21,23 +35,20 @@
           </li>
         </ul>
       </nav>
-      <!-- Rounded switch -->
-      <div>
-        <p>Toggle highcontrast mode:</p>
-        <label class="switch" aria-label="High contrast toggle">
-          <input type="checkbox" id="toggle" />
-          <span class="slider"></span>
-        </label>
-      </div>
     </header>
 
     <main id="main-content">
+      <section id="banner" role="banner" alt="">
+        <img src="assets/banner.png" alt="Robot arm and human hand fist bump" />
+      </section>
       <section id="introduction">
-        <img src="assets/braille.PNG" alt="picture of a braille keyboard" />
         <h2>Accessibility Quiz</h2>
         <p>
-          The quiz was made accessible by applying semantic HTML, which allows
-          for tab navigation.
+          The quiz was made accessible using semantic HTML elements, enabling
+          smooth navigation with assistive technologies like screen readers. You
+          can navigate through the quiz using your keyboard: Use Tab to move
+          between elements, press Spacebar to select an answer, press Enter to
+          submit the quiz.
         </p>
       </section>
 
@@ -134,7 +145,7 @@
 
       <section
         id="results-container"
-        aria-label="Your result!"
+        aria-label="Your results!"
         aria-live="polite"
       ></section>
 
