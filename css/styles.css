@@ -8,7 +8,6 @@
   --focus-ring-color: #282459;
   --text-color: #2c2c2c;
   --border-color: black;
-  --hover-bg: rgba(0, 0, 0, 0.05);
   --transition-speed: 0.3s;
   --high-contrast-bg: #282459;
   --high-contrast-text: #000000;
@@ -56,21 +55,18 @@ nav ul {
   gap: 1rem;
   list-style: none;
   padding: 0;
-  margin: 0.2re;
-}
-
-h1 {
-  font-size: 25px;
-}
-
-h2 {
-  align-items: center;
+  margin: 0.2rem;
 }
 
 h1 {
   display: flex;
   padding: 0;
   justify-content: center;
+  font-size: 25px;
+}
+
+h2 {
+  color: var(--text-color);
 }
 
 a:link {
@@ -180,12 +176,12 @@ a:hover {
 
 #introduction {
   display: flex;
-  flex-direction: column; /* Mobile first */
+  flex-direction: column;
   align-items: center;
   gap: 1rem;
-  max-width: 600px; /* sätter en trevlig bredd */
-  margin: 0 auto; /* centrerar elementet horisontellt */
-  padding: 1rem; /* lite luft runt */
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
 section {
@@ -214,7 +210,7 @@ form {
 }
 
 .toggle-element {
-  position: static; /* Change from absolute to avoid interference */
+  position: static;
 }
 
 /* The switch - the box around the slider */
@@ -291,6 +287,20 @@ input:checked + .slider:before {
 .high-contrast h1,
 h2 {
   color: var(--primary-color);
+}
+
+.high-contrast a:link {
+  color: var(--primary-color);
+}
+.high-contrast a:visited {
+  color: var(--primary-color);
+}
+.high-contrast a:hover {
+  color: var(--high-contrast-text);
+}
+.high-contrast .tooltip .tooltiptext {
+  background-color: var(--primary-color);
+  color: var(--text-color);
 }
 
 .high-contrast fieldset {
