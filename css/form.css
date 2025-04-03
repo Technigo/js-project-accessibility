@@ -89,6 +89,44 @@ fieldset.error {
   margin-top: 0.5rem;
 }
 
+.correct {
+  color: green;
+  font-weight: bold;
+}
+
+.incorrect {
+  color: red;
+  font-weight: bold;
+}
+
+.review-question {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  background-color: #f9f9f9;
+}
+
+.step {
+  height: 16px;
+  width: 16px;
+  margin: 0 4px;
+  background-color: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.step.active {
+  background-color: #04aa6d;
+  opacity: 1;
+}
+
+.step.completed {
+  background-color: #2e8b57; /* lite mörkare grönt */
+  opacity: 1;
+}
 /* .radio-group {
   margin: 1em 0;
 } */

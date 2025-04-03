@@ -30,7 +30,10 @@
         <section class="banner" role="banner"></section>
 
         <section id="quiz-introduction" class="quiz-introduction">
-          <div class="quiz-introduction-container">
+          <div
+            class="quiz-introduction-container"
+            id="quiz-introduction-container"
+          >
             <h2>Start the Accessibility Quiz</h2>
             <p>
               It’s time to level up your skills and dive into the world of web
@@ -123,9 +126,9 @@
                 name="question2"
                 value="a"
                 id="question2-a"
-                aria-describedby="question1-legend"
+                aria-describedby="question2-legend"
               />
-              <label for="question2-a">Adds captions to videos</label>
+              <label for="question2-a">div</label>
               <br />
 
               <label for="question2-b">
@@ -134,7 +137,7 @@
                   name="question2"
                   value="b"
                   id="question2-b"
-                />Describes images to screen readers</label
+                />span</label
               >
               <br />
 
@@ -143,18 +146,55 @@
                   type="radio"
                   name="question2"
                   value="c"
-                  id="question1-c"
-                />Changes the image color</label
+                  id="question2-c"
+                />Button</label
               >
             </fieldset>
 
-            <div>
-              <span class="step"></span>
-              <span class="step"></span>
-              <span class="step"></span>
-              <span class="step"></span>
-            </div>
+            <fieldset
+              id="third-question-section"
+              class="tab"
+              aria-hidden="true"
+              role="tabpanel"
+              aria-required="true"
+            >
+              <legend id="question3-legend">
+                What does aria-live="polite" do?
+              </legend>
+              <input
+                type="radio"
+                name="question3"
+                value="a"
+                id="question3-a"
+                aria-describedby="question3-legend"
+              />
+              <label for="question3-a">Hides content from screen readers</label>
+              <br />
 
+              <label for="question3-b">
+                <input
+                  type="radio"
+                  name="question3"
+                  value="b"
+                  id="question3-b"
+                />Politely reads dynamic changes to users</label
+              >
+              <br />
+
+              <label for="question3-c">
+                <input
+                  type="radio"
+                  name="question3"
+                  value="c"
+                  id="question3-c"
+                />Adds background music</label
+              >
+            </fieldset>
+
+            <div class="quiz-progress">
+              <div id="progress-steps"></div>
+              <p id="progress-text" aria-live="polite" class="sr-only"></p>
+            </div>
             <div id="btn-container">
               <button
                 type="button"
@@ -164,13 +204,18 @@
               >
                 Previous
               </button>
-              <button type="button" id="nextBtn">SNext</button>
+              <button type="submit" id="nextBtn">Next</button>
             </div>
           </form>
-          <div id="feedback" aria-live="polite" class="sr-only">
-            <!--Kommer genereras av js sen men bara för att testa och automatiskt läsas av SR??-->
-          </div>
         </section>
+
+        <section id="quiz-result" style="display: none" aria-hidden="true">
+          <h2>Quiz Completed 🎉</h2>
+          <p id="quiz-score"></p>
+          <div id="quiz-review"></div>
+          <button type="button" id="restartBtn">Restart Quiz</button>
+        </section>
+
         <div id="announcer" class="sr-only" aria-live="polite"></div>
       </main>
     </div>

@@ -92,11 +92,10 @@ input:focus-visible {
   color: var(--text-black);
 }
 
-#quiz-form:focus-visible,
-#quiz-form.show-focus {
+#quiz-introduction:focus-visible,
+#quiz-introduction.show-focus {
   outline: 3px solid var(--melon);
-  background-color: var(--melon);
-  color: var(--light-yellow);
+  background-color: #ffffff;
 }
 
 .skip-link {
