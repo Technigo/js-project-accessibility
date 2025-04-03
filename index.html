@@ -50,7 +50,7 @@
              aria-labelledby="quiz-title">
       <h2 id="quiz-title"
           tabindex="0">Welcome to the Quiz</h2>
-      <p tabindex="0">This quiz is designed to test your knowledge of web accessibility principles.</p>
+      <p>This quiz is designed to test your knowledge of web accessibility principles.</p>
     </section>
 
     <!-- QUIZ -->
@@ -59,8 +59,7 @@
              aria-labelledby="quiz-heading">
       <h3 id="quiz-heading"
           tabindex="0">Accessibility Quiz</h3>
-      <p role="alert"
-         tabindex="0">
+      <p>
         Use the Arrow keys to navigate through options, press Space to select an answer, and press Enter to submit.
       </p>
     </section>
@@ -73,12 +72,11 @@
         </div>
         <fieldset id="quizCard">
           <legend class="visually-hidden">Quiz Question</legend>
-          <div id="quizOptions"
-               tabindex="0"></div>
+          <div id="quizOptions"></div>
           <div id="quizAnswer"
                hidden>
             Your score: <span id="score"
-                  tabindex="0">0</span>
+                  aria-live="polite">0</span>
           </div>
           <button type="button"
                   id="restartBtn"
@@ -97,8 +95,7 @@
            tabindex="0"></div>
     </section>
   </main>
-
-  <footer>
+  <footer role="contentinfo">
     <div class="footer-content">
       <nav aria-label="Footer Navigation">
         <ul>

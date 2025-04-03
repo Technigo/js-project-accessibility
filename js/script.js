@@ -45,6 +45,7 @@ function loadQuestion() {
         btn.name = "option";
         btn.id = `option-${i}`;
         btn.value = `${i + 1}. ${element}`;
+        btn.tabIndex = -1;
         btn.setAttribute("aria-labelledby", `label-${i}`);
         btn.setAttribute("role", "radio");
         if (i === 0) {
@@ -76,6 +77,7 @@ function loadQuestion() {
         const label = document.createElement("label");
         label.htmlFor = btn.id;
         label.id = `label-${i}`;
+        label.tabIndex = 0;
         label.appendChild(btn);
         label.append(` ${element}`);
         quizOptions === null || quizOptions === void 0 ? void 0 : quizOptions.appendChild(label);
