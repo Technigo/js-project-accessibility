@@ -12,11 +12,9 @@
   --transition-speed: 0.3s;
   --high-contrast-bg: #000;
   --high-contrast-text: #fff;
-
   --button_radius: 0.75em;
 }
 
-/* Apply box-sizing border-box to all elements */
 *,
 *::before,
 *::after {
@@ -31,7 +29,55 @@ body {
   padding: 0;
 }
 
-/* Skip link with enhanced visibility */
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  align-items: center;
+  position: relative;
+}
+
+nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0.2re;
+}
+
+h1 {
+  font-size: 25px;
+}
+
+h2 {
+  align-items: center;
+}
+
+h1 {
+  display: flex;
+  padding: 0;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link {
+  color: var(--text-color);
+}
+
+a:visited {
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
 .skip-link {
   position: absolute;
   top: -40px;
@@ -107,58 +153,6 @@ body {
   opacity: 1;
 }
 
-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  align-items: center;
-  position: relative;
-}
-
-nav ul {
-  display: flex;
-  gap: 1rem;
-  list-style: none;
-  padding: 0;
-  margin: 0.2re;
-}
-
-h1 {
-  font-size: 25px;
-}
-
-h2 {
-  align-items: center;
-}
-
-h1 {
-  display: flex;
-  padding: 0;
-  justify-content: center;
-}
-
-a {
-  text-decoration: none;
-}
-
-/* unvisited link */
-a:link {
-  color: var(--text-color);
-}
-
-/* visited link */
-a:visited {
-  color: var(--primary-color);
-}
-
-/* mouse over link */
-a:hover {
-  color: var(--accent-color);
-}
-
 /* Full-width banner */
 #banner {
   margin: -20px -20px 2rem;
@@ -205,10 +199,15 @@ form {
   padding: 1rem;
 }
 
+#toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 999;
+}
+
 .toggle-element {
-  position: absolute;
-  right: 100px;
-  top: 70px;
+  position: static; /* Change from absolute to avoid interference */
 }
 
 /* The switch - the box around the slider */
@@ -217,7 +216,6 @@ form {
   display: inline-block;
   width: 60px;
   height: 34px;
-  padding-left: 10px;
 }
 
 /* Hide default HTML checkbox */
@@ -289,13 +287,14 @@ h2 {
 }
 
 .high-contrast fieldset {
-  color: var(--high-contrast-text)
+  color: var(--high-contrast-text);
+}
 
 .high-contrast fieldset legend,
 .high-contrast fieldset label,
 .high-contrast fieldset p,
 .high-contrast fieldset span {
-  color: var(--primary-color);
+  color: var(--high-contrast-text);
 }
 
 fieldset {
