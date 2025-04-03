@@ -393,6 +393,10 @@ input[type='radio'] + label {
   nav ul {
     gap: 0.75rem;
   }
+
+  .intro-section {
+    flex-direction: column;
+  }
 }
 
 /* User Info Form */
