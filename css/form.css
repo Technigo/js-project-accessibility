@@ -78,6 +78,17 @@ legend {
   border-radius: 4px;
 }
 
+fieldset.error {
+  border: 2px solid red;
+  padding: 1rem;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
 /* .radio-group {
   margin: 1em 0;
 } */
