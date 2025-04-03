@@ -199,6 +199,8 @@ document.addEventListener('DOMContentLoaded', () => {
     resultsSection.focus();
     announcer.textContent =
       'Quiz submitted. Your results are now displayed.';
+
+      confetti();
   });
 
 });
