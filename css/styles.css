@@ -281,6 +281,10 @@ input[type="radio"]:focus-visible+label {
   margin: 0 auto 0.75rem auto;
 }
 
+#summary-card {
+  padding-left: 4rem;
+}
+
 input[type="radio"]:focus-visible+label {
   outline: var(--focus-outline);
   border-radius: 0.25rem;
