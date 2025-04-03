@@ -46,11 +46,11 @@ let currentOption: string[] = [];
 
 //instructions for screen readers at the start of the quiz
 const quizInstructions = document.getElementById("quizInstructions");
-quizInstructions?.focus(); // Focus on instructions first
+//quizInstructions?.focus(); // Focus on instructions first
 
 //Function to load the question
-function loadQuestion(): void {
-  if (index >= quiz.length) return endQ(); // End if no more questions
+function loadQuestion(): void {  
+  if (index >= quiz.length) return endQ();  // End if no more questions
 
   const getQ = quiz[index];
   currentQuestion = index; //Store current question, to go back to
@@ -71,13 +71,15 @@ function loadQuestion(): void {
     btn.name = "option";
     btn.id = `option-${i}`; // Unique ID for accessibility
     btn.value = `${i + 1}. ${element}`;
-    btn.tabIndex = 0;
+    //btn.tabIndex = 0;
     btn.setAttribute("aria-labelledby", `labeel-${i}`); //V Uses aria-labelledby for better screen reader support
     btn.setAttribute("role", "radio"); //V 
+    
 
-    // V  for thee fiirst radio button selected by deefault
+    // V for the first radio button selected by deefault
     if (i === 0) {
       btn.checked = true;
+      btn.focus()
       selectedOption = element;
 
     }
@@ -123,7 +125,7 @@ function loadQuestion(): void {
         quizSection.insertAdjacentHTML(
           "beforeend",
           `<div id="quizFeedback" aria-live="polite">
-           <p>No option is selecten, please select an option and click submit!</p>         
+           <p tabindex="0">No option is selecten, please select an option and click submit!</p>         
          </div>`)
       }
     };
@@ -136,9 +138,9 @@ function loadQuestion(): void {
 
 
   trapFocus();
-
 }
 
+//Check if the answer is correct or not and show a feedback message
 function checkA(opt: string): void {
   //Remove quiz feedback
 
@@ -148,31 +150,31 @@ function checkA(opt: string): void {
   }
 
   if (opt === quiz[index].answer) {
-    scr++;
 
-    // index++;
-    // loadQuestion();
+    scr++;  
+
     quizSection.insertAdjacentHTML(
       "beforeend",
       `<div id="quizFeedback" aria-live="polite">
-         <p>Correct answer!</p>
+         <p tabindex="0">Correct answer!</p>
          <button id="continueBtn">Continue to the next question</button>
        </div>`);
   } else if (opt !== quiz[index].answer) {
     quizSection.insertAdjacentHTML(
       "beforeend",
       `<div id="quizFeedback" aria-live="polite">
-          <p>Oh no wrong answer, try again or continue to the next question!</p>
+          <p tabindex="0">Oh no wrong answer, try again or continue to the next question!</p>
           <button id="continueBtn">Continue to the next question</button>
         </div>`);
   } else if (selectedOption !== null) {
     quizSection.insertAdjacentHTML(
       "beforeend",
       `<div id="quizFeedback" aria-live="polite">
-         <p>No option is selecten, please select an option and click submit!</p>         
+         <p tabindex="0">No option is selecten, please select an option and click submit!</p>         
        </div>`)
   }
 
+  //Click to continue to the next question
   const continueBtn = document.getElementById("continueBtn") as HTMLButtonElement | null;
   if (continueBtn) {
     continueBtn.addEventListener("click", (event) => {
@@ -190,6 +192,7 @@ function checkA(opt: string): void {
   }
 }
 
+//Funcion to get to the end of the quiz
 function endQ(): void {
   quizQuestion?.style.setProperty('display', 'none');
   quizOptions?.style.setProperty('display', 'none');
@@ -199,9 +202,7 @@ function endQ(): void {
   submitAnswer.style.setProperty('display', 'none');
 }
 
-loadQuestion();
-
-// V  trrap focus
+// V  trap focus
 function trapFocus() {
   const focusableElements = quizCard.querySelectorAll<HTMLElement>(
     'input, button'
@@ -228,3 +229,21 @@ function trapFocus() {
   });
 }
 
+//Click to restart the quiz
+if(restartBtn) {
+  restartBtn.addEventListener("click", () => {
+    index = 0;
+    scr = 0;
+    
+    // Reset UI visibility
+    quizQuestion?.style.setProperty("display", "block");
+    quizOptions?.style.setProperty("display", "block");
+    quizAnswer?.style.setProperty("display", "none");
+    restartBtn?.style.setProperty("display", "none");
+    submitAnswer?.style.setProperty("display", "block");  
+  
+    loadQuestion()
+  })
+  }  
+
+loadQuestion();
