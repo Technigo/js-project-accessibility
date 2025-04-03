@@ -10,6 +10,8 @@
   --border-color: black;
   --hover-bg: rgba(0, 0, 0, 0.05);
   --transition-speed: 0.3s;
+  --high-contrast-bg: #000;
+  --high-contrast-text: #fff;
 
   --button_radius: 0.75em;
 }
@@ -47,7 +49,6 @@ body {
   outline-offset: 2px;
 }
 
-/* Remove? */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -278,14 +279,23 @@ input:checked + .slider:before {
 }
 
 .high-contrast {
-  background-color: var(--text-color);
-  color: var(--primary-color);
+  background-color: var(--high-contrast-bg);
+  color: var(--high-contrast-text);
 }
 
 .high-contrast h1,
-h2,
-p {
-  color: var(--text-color);
+h2 {
+  color: var(--high-contrast-text);
+}
+
+.high-contrast fieldset {
+  color: var(--high-contrast-text)
+
+.high-contrast fieldset legend,
+.high-contrast fieldset label,
+.high-contrast fieldset p,
+.high-contrast fieldset span {
+  color: var(--primary-color);
 }
 
 fieldset {
