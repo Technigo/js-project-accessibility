@@ -5,7 +5,8 @@ const startBtn = document.getElementById('intro-continue');
 const quizSection = document.getElementById('quiz');
 const fieldsets = document.querySelectorAll('form fieldset.tab'); //lista av frågorna
 const nextBtn = document.getElementById('nextBtn');
-const announcer = document.getElementById('announcer');
+let announcer = document.getElementById('announcer');
+const prevBtn = document.getElementById('prevBtn');
 
 //Variabler
 let currentStep = 0;
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fs.style.display = 'none';
   });
 
-  // Starta quizet
+  //START-BUTTON Starta quizet
   startBtn.addEventListener('click', () => {
     introSection.style.display = 'none';
     quizSection.style.display = 'block';
@@ -36,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (firstInput) firstInput.focus();
   });
 
-  //Klicka sig till nästa tab/flik
+  //NEXT-BUTTOM Klicka sig till nästa tab/flik
   nextBtn.addEventListener('click', () => {
     //Kontrollera att frågan är besvarad
     const currentFieldset = fieldsets[currentStep];
@@ -77,12 +78,58 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const firstInput = nextFieldset.querySelector('input');
       if (firstInput) firstInput.focus();
+      updatePrevButtonVisibility();
     } else {
       console.log('Quiz done! 🎉');
+      // Dölj Previous-knappen också
+      nextBtn.blur(); // Ta bort fokus från knappen innan vi gömmer den
+      prevBtn.style.display = 'none';
+      prevBtn.setAttribute('aria-hidden', 'true');
+
+      // (valfritt) Dölj även Next-knappen om du vill
+      nextBtn.blur(); // Ta bort fokus från knappen innan vi gömmer den
+      nextBtn.style.display = 'none';
+      nextBtn.setAttribute('aria-hidden', 'true');
     }
+  });
+
+  //PREVIOUS BUTTON
+  prevBtn.addEventListener('click', () => {
+    const currentFieldset = fieldsets[currentStep];
+    currentFieldset.style.display = 'none';
+    currentFieldset.setAttribute('aria-hidden', 'true');
+
+    currentStep--;
+
+    const previousFieldset = fieldsets[currentStep];
+    previousFieldset.style.display = 'block';
+    previousFieldset.setAttribute('aria-hidden', 'false');
+
+    const firstInput = previousFieldset.querySelector('input');
+    if (firstInput) firstInput.focus();
+
+    //rensa eventulla errormeddelanden eller announcers
+    previousFieldset.classList.remove('error');
+    const errorMsg = previousFieldset.querySelector('.error-message');
+    if (errorMsg) errorMsg.remove();
+
+    announcer = '';
+
+    updatePrevButtonVisibility();
   });
 
   //Submita quizet
 
   //Feedback och resultat till användaren
 });
+
+const updatePrevButtonVisibility = () => {
+  if (currentStep === 0) {
+    nextBtn.blur(); // Ta bort fokus från knappen innan vi gömmer den
+    prevBtn.style.display = 'none';
+    prevBtn.setAttribute('aria-hidden', 'true');
+  } else {
+    prevBtn.style.display = 'inline';
+    prevBtn.setAttribute('aria-hidden', 'false');
+  }
+};
