@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/form.css" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -53,20 +55,26 @@
           </div>
 
           <div class="quiz-control">
-            <button id="intro-continue" type="button" class="submit-button">
+            <button id="intro-continue" type="button" class="start-quiz">
               Start Quiz
             </button>
           </div>
         </section>
 
-        <section id="quiz" hidden>
+        <section id="quiz">
           <form id="quiz-form">
             <h2>Accessibility Quiz</h2>
             <p id="form-intro" class="sr-only">
               This is a quiz with 2 questions about Accessibility. Use Tab to
               start and Arrow keys to navigate.
             </p>
-            <fieldset hidden>
+            <fieldset
+              id="first-question-section"
+              class="tab"
+              aria-hidden="true"
+              role="tabpanel"
+              aria-required="true"
+            >
               <legend id="question1-legend">
                 What is the purpose of alt text on images?
               </legend>
@@ -100,7 +108,13 @@
               >
             </fieldset>
 
-            <fieldset hidden>
+            <fieldset
+              id="second-question-section"
+              class="tab"
+              aria-hidden="true"
+              role="tabpanel"
+              aria-required="true"
+            >
               <legend id="question2-legend">
                 Which element is used to group related form controls?
               </legend>
@@ -134,13 +148,23 @@
               >
             </fieldset>
 
-            <button type="submit">Submit Quiz</button>
+            <div>
+              <span class="step"></span>
+              <span class="step"></span>
+              <span class="step"></span>
+              <span class="step"></span>
+            </div>
+
+            <div id="btn-container">
+              <button type="button" id="prevBtn">Previous</button>
+              <button type="button" id="nextBtn">SNext</button>
+            </div>
           </form>
           <div id="feedback" aria-live="polite" class="sr-only">
-            You got 2 out of 3 correct!
             <!--Kommer genereras av js sen men bara för att testa och automatiskt läsas av SR??-->
           </div>
         </section>
+        <div id="announcer" class="sr-only" aria-live="polite"></div>
       </main>
     </div>
 
