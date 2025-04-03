@@ -21,93 +21,98 @@
 
 <body>
   <a href="#main-content"
-     class="skip-link">Skip to Content</a>
+     class="skip-link"
+     tabindex="0">Skip to Content</a>
 
-  <header id="header"
-          role="banner">
+  <header id="header">
     <div class="header-content">
-      <h1>Web Accessibility Quiz for beginners</h1>
-      <nav role="navigation"
-           aria-label="Main navigation">
+      <h1 tabindex="0">Web Accessibility Quiz for Beginners</h1>
+      <nav aria-label="Main navigation">
         <ul>
-          <li><a href="index.html">Home</a></Li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="index.html"
+               tabindex="0">Home</a></li>
+          <li><a href="about.html"
+               tabindex="0">About</a></li>
         </ul>
       </nav>
     </div>
   </header>
+
   <section>
-    <img id="decorative-img"
-         src="./img/keyboard.jpg"
+    <img src="./img/keyboard.jpg"
          alt=""
-         role="presentation" />
+         role="presentation"
+         id="decorative-img" />
   </section>
-  <main id="main-content"
-        role="main">
+
+  <main id="main-content">
     <section id="introduction"
              aria-labelledby="quiz-title">
-      <h2 id="quiz-title">Welcome to the Quiz</h2>
-      <p>This quiz is designed to test your knowlege of web accessibility principles,</p>
+      <h2 id="quiz-title"
+          tabindex="0">Welcome to the Quiz</h2>
+      <p tabindex="0">This quiz is designed to test your knowledge of web accessibility principles.</p>
     </section>
 
-    <!-- QUIZ-->
+    <!-- QUIZ -->
     <section id="quizInstructions"
              role="region"
              aria-labelledby="quiz-heading">
-
-      <h3 id="quiz-heading">Accessibility Quiz</h3>
-      <p tabindex="0">
+      <h3 id="quiz-heading"
+          tabindex="0">Accessibility Quiz</h3>
+      <p role="alert"
+         tabindex="0">
         Use the Arrow keys to navigate through options, press Space to select an answer, and press Enter to submit.
       </p>
-
     </section>
 
-    <section id="quizSection"
-             aria-labelledby="Quiz-from">
+    <section id="quizSection">
       <form id="quiz-form">
         <div class="card-header">
-          <h2 id="quizQuestion"></h2>
+          <h2 id="quizQuestion"
+              tabindex="0"></h2>
         </div>
         <fieldset id="quizCard">
-          <legend hidden>Quiz Question</legend>
-          <div id="quizOptions">
-          </div>
+          <legend class="visually-hidden">Quiz Question</legend>
+          <div id="quizOptions"
+               tabindex="0"></div>
           <div id="quizAnswer"
                hidden>
-            Your score: <span id="score">0</span>
+            Your score: <span id="score"
+                  tabindex="0">0</span>
           </div>
           <button type="button"
-                  aria-live="polite"
                   id="restartBtn"
-                  hidden>Restart Quiz</button>
+                  hidden
+                  tabindex="0">Restart Quiz</button>
         </fieldset>
         <div id="submit-container">
           <button type="submit"
-                  id="submitAnswer">Submit</Button>
+                  id="submitAnswer"
+                  tabindex="0">Submit</button>
         </div>
       </form>
       <div id="feedback"
            aria-live="polite"
-           aria-describedby="quizQuestion"></div>
-
+           aria-describedby="quizQuestion"
+           tabindex="0"></div>
     </section>
-
   </main>
 
-  <footer role="contentinfo">
+  <footer>
     <div class="footer-content">
-      <nav role="navigation"
-           aria-label="footer Navigation">
+      <nav aria-label="Footer Navigation">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="index.html"
+               tabindex="0">Home</a></li>
+          <li><a href="about.html"
+               tabindex="0">About</a></li>
         </ul>
       </nav>
-      <p>© 2025 Accessibility Quiz for beginners by Jonny, Sofia and Varia.</p>
+      <p tabindex="0">© 2025 Accessibility Quiz for Beginners by Jonny, Sofia, and Varia.</p>
     </div>
   </footer>
 
-  <script src=" js/script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 
 </html>
