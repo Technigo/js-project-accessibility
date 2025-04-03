@@ -66,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         progressFill.style.width = `${percentage}%`;
         progressText.textContent = `${answeredCount} of ${totalQuestions} questions answered`;
-        announcer.textContent = `${answeredCount} of ${totalQuestions} questions answered`;
       }
 
   form.querySelectorAll('input[type="radio"]').forEach((radio) => {
@@ -77,17 +76,12 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       });
 
-  // const createErrorMessage = () => {
-  //   const errorMessage = document.createElement("div");
-  //   errorMessage.classList.add("error-message");
-  //   errorMessage.setAttribute("aria-live", "polite");
-  //   errorMessage.textContent = "Please select an answer before proceeding.";
-  //   return errorMessage;
-  // };
-
   const createErrorMessage = () => {
     const errorContainer = document.querySelectorAll('.error-container')[currentIndex];
-    errorContainer.textContent = "Please select an answer before proceeding";
+    let errorMessage = document.createElement("p");
+    errorMessage.classList.add("error-message");
+    errorMessage.textContent = "Please select an answer before proceeding.";
+    errorContainer.appendChild(errorMessage);
   }
 
   const showSummary = () => {
@@ -156,18 +150,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const selectedAnswer = getSelectedAnswer();
     const errorContainer = document.querySelectorAll('.error-container')[currentIndex];
 
-    // Check if error message already exists and remove it if it does
-    // const existingError = currentCard.querySelector(".error-message");
-    // if (existingError) {
-    //   existingError.remove();
-    // }
-
-    // If no answer selected create an error message
-    // if (!selectedAnswer) {
-    //   const errorMessage = createErrorMessage();
-    //   errorContainer.appendChild(errorMessage);
-    //   return;
-    // }
+     if (errorContainer.querySelector(".error-message")) {
+       let error = errorContainer.querySelector(".error-message");
+       error.remove();
+     }
 
     if (!selectedAnswer) {
       createErrorMessage();
