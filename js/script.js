@@ -28,18 +28,20 @@ let index = 0, scr = 0;
 let selectedOption = null;
 let currentQuestion = 0;
 let currentOption = [];
+let getQ = quiz[index];
 const quizInstructions = document.getElementById("quizInstructions");
 function loadQuestion() {
     if (index >= quiz.length)
         return endQ();
-    const getQ = quiz[index];
     currentQuestion = index;
     currentOption = getQ.choose;
-    console.log(currentOption);
     if (quizQuestion)
         quizQuestion.textContent = getQ.ask;
     if (quizOptions)
         quizOptions.innerHTML = "";
+    trapFocus();
+}
+function createOptions(getQ) {
     getQ.choose.forEach((element, i) => {
         const btn = document.createElement("input");
         btn.type = "radio";
@@ -78,16 +80,15 @@ function loadQuestion() {
         label.htmlFor = btn.id;
         label.appendChild(btn);
         label.append(` ${element}`);
-        submitAnswer.onclick = (event) => {
-            event.preventDefault();
-            if (selectedOption !== null) {
-                checkA(selectedOption);
-            }
-        };
         quizOptions === null || quizOptions === void 0 ? void 0 : quizOptions.appendChild(label);
     });
-    trapFocus();
 }
+submitAnswer.onclick = (event) => {
+    event.preventDefault();
+    if (selectedOption !== null) {
+        checkA(selectedOption);
+    }
+};
 function checkA(opt) {
     const quizFeedback = document.getElementById("quizFeedback");
     if (quizFeedback) {
@@ -149,16 +150,14 @@ function trapFocus() {
         }
     });
 }
-if (restartBtn) {
-    restartBtn.addEventListener("click", () => {
-        index = 0;
-        scr = 0;
-        quizQuestion === null || quizQuestion === void 0 ? void 0 : quizQuestion.style.setProperty("display", "block");
-        quizOptions === null || quizOptions === void 0 ? void 0 : quizOptions.style.setProperty("display", "block");
-        quizAnswer === null || quizAnswer === void 0 ? void 0 : quizAnswer.style.setProperty("display", "none");
-        restartBtn === null || restartBtn === void 0 ? void 0 : restartBtn.style.setProperty("display", "none");
-        submitAnswer === null || submitAnswer === void 0 ? void 0 : submitAnswer.style.setProperty("display", "block");
-        loadQuestion();
-    });
-}
+restartBtn.addEventListener("click", () => {
+    index = 0;
+    scr = 0;
+    quizQuestion === null || quizQuestion === void 0 ? void 0 : quizQuestion.style.setProperty("display", "block");
+    quizOptions === null || quizOptions === void 0 ? void 0 : quizOptions.style.setProperty("display", "block");
+    quizAnswer === null || quizAnswer === void 0 ? void 0 : quizAnswer.style.setProperty("display", "none");
+    restartBtn === null || restartBtn === void 0 ? void 0 : restartBtn.style.setProperty("display", "none");
+    submitAnswer === null || submitAnswer === void 0 ? void 0 : submitAnswer.style.setProperty("display", "block");
+    loadQuestion();
+});
 loadQuestion();
