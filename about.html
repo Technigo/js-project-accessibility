@@ -1,10 +1,121 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About</title>
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body></body>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0" />
+  <title>About</title>
+  <link rel="stylesheet"
+        href="css/styles.css" />
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+  <a href="#main-content"
+     class="skip-link">Skip to Content</a>
+
+  <header role="banner"
+          id="header">
+    <div class="header-content">
+      <h1>About</h1>
+      <nav id="mina-nav"
+           role="navigation"
+           aria-label="Main Navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content"
+        role="main">
+    <section id="about"
+             role="region"
+             aria-labelledby="About-title">
+      <h2 id="About-title"> Team Fire Team Two</h2>
+      <p>
+        This project is a part of Technigo's Web Bootcamp to further our knowleadge on Web accessibility tool.
+
+        Our Web Accessibility page is an interactive webpage
+        that demonstrates key accessibility principles in action. This webpage serves as a practical example
+        of inclusive design, incorporating features such as keyboard navigation, screen reader compatibility, and color
+        contrast adjustments.
+
+        This page includes practice required WCAG guidelines, ARIA roles, and best practices for designing inclusive web
+        experiences. By engaging with the quiz, users can assess their understanding and identify areas for improvement
+        in creating accessible digital content.
+        <br><br>
+        Team Fire 2 is made up of Sofia, Varia and Jonny.<br>
+        <br>
+      </p>
+    </section>
+
+    <section id="facts"
+             role="region"
+             aria-labelledby="facts-title">
+      <h2 id="facts-title">Web Accessibility</h2>
+      <p>
+        Web accessibility ensures that all users, including those with disabilities, can interact with digital content
+        effectively. The Web Content Accessibility Guidelines (WCAG) provide a framework for making websites more
+        inclusive, covering areas like alt text for images, color contrast, and keyboard navigation.
+
+        Alt text is essential for screen readers but should be avoided for decorative images by using alt="" .
+        Informational images need descriptive alt text, while functional images (like icons) require alt text describing
+        their purpose, such as alt= "Search".
+
+        WCAG has three compliance levels: A, covering basic requirements like alt text; AA, ensuring better
+        accessibility with features like proper color contrast; and AAA, the highest standard, including advanced
+        features like sign language interpretation for videos. Most websites aim for AA compliance to balance
+        accessibility and practicality.
+
+        Clear language is key to accessibility. For example, “Flowers symbolize emotions and culture” is easier to
+        understand than abstract phrases like “nature’s drip—bold and meaningful.” Simple, direct language benefits
+        users with cognitive disabilities and screen reader users.
+
+        Other best practices include keyboard-friendly navigation, ensuring text has at least a 4.5:1 contrast ratio,
+        and adding captions or transcripts for multimedia content. ARIA attributes like aria-label help improve screen
+        reader navigation.
+
+        By following WCAG guidelines, developers can create digital experiences that are inclusive, accessible, and
+        user-friendly for everyone. Accessibility is about more than compliance—it’s about equal access for all.
+      </p>
+
+      <div>
+        <img src="./img/Levels.png"
+             alt="Diagram showing WCAG compliance levels A, AA, and AAA with accessibility icons"
+             class="informative-image">
+        <figcaption hidden>Image contains the compliance of A, AA, AAA Accessibility levels </figcaption>
+      </div>
+    </section>
+  </main>
+
+
+  <footer role="contentinfo">
+    <div class="footer-content">
+      <nav id="footer-nav"
+           role="navigation"
+           aria-label="footer Navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+      <p>© 2025 Accessibility Quiz for Beginners. All rights reserved by Jonny, Sofia, and Varia.</p>
+    </div>
+  </footer>
+
+
+  <script src=" js/main.js"></script>
+</body>
+
 </html>
