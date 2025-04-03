@@ -13,8 +13,9 @@
   <link rel="preconnect"
         href="https://fonts.gstatic.com"
         crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+  rel="stylesheet">
 
 </head>
 
@@ -32,6 +33,18 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
+          <li> <label aria-labelledby="font-toggle"
+                   for="font-toggle"
+                   class="visually-hidden">Change Font:</label>
+            <select id="font-toggle">
+              <option value=""
+                      disabled
+                      selected>Change page font</option>
+              <option value="default">Default Font</option>
+              <option value="font1">Roboto Mono</option>
+              <option value="font2">Hyperlegible Mono</option>
+            </select>
+          </li>
         </ul>
       </nav>
     </div>
