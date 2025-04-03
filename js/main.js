@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const scorePercentage = Math.round((positiveResponses / totalResponses)*100)
 
     feedback += `Based on your responses, you got ${scorePercentage}% questions correct. `;
-        feedback += positiveResponses >= totalResponses / 2 
+        feedback += positiveResponses >= totalResponses / 6 
         ? 'Congratulations!' 
         : 'Try again!';
 
@@ -200,6 +200,5 @@ document.addEventListener('DOMContentLoaded', () => {
     announcer.textContent =
       'Quiz submitted. Your results are now displayed.';
   });
-  
 
 });
