@@ -61,6 +61,13 @@
       >
       <form id="accessibility-quiz">
         <h2>Accessibility Quiz</h2>
+        <!-- Progress bar -->
+        <div class="quiz-progress" role="status" aria-live="polite">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 0%"></div>
+          </div>
+          <p class="progress-text">0 of 6 questions answered</p>
+        </div>
 
         <fieldset
           class="quiz-card"
@@ -93,6 +100,8 @@
             value="Auto playing videos"
           />
           <label for="question-one-c">Auto playing videos</label>
+
+          <div class="error-container" role="status" aria-live="assertive"></div>
 
           <div class="nav-buttons">
             <button
@@ -134,6 +143,8 @@
             value="Long, dense text"
           />
           <label for="question-two-c">Long, dense text</label>
+
+          <div class="error-container" aria-live="polite"></div>
 
           <div class="nav-buttons">
             <button
@@ -179,6 +190,9 @@
             value="Text over background images"
           />
           <label for="question-three-c">Text over background images</label>
+
+          <div class="error-container" aria-live="polite"></div>
+
           <div class="nav-buttons">
             <button
               type="button"
@@ -223,6 +237,9 @@
             value="Complex text layout"
           />
           <label for="question-four-c">Complex text layout</label>
+
+          <div class="error-container" aria-live="polite"></div>
+
           <div class="nav-buttons">
             <button
               type="button"
@@ -268,6 +285,8 @@
           />
           <label for="question-five-c">Sound-only cues</label>
 
+          <div class="error-container" aria-live="polite"></div>
+
           <div class="nav-buttons">
             <button
               type="button"
@@ -312,6 +331,8 @@
             value="Tiny clickable areas"
           />
           <label for="question-six-c">Tiny clickable areas</label>
+
+          <div class="error-container" aria-live="polite"></div>
 
           <div class="nav-buttons">
             <button
