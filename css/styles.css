@@ -60,6 +60,7 @@ body {
   background-color: var(--background-color);
   margin: 0;
   font-size: 16px;
+  min-width: auto;
   max-width: 800px;
   margin: 0 auto;
   display: flex;
@@ -95,14 +96,6 @@ body {
 /* Progress bar styles */
 .quiz-progress {
   margin: 2rem 0;
-}
-/* Images */
-.decorative-image,
-.info-image {
-  max-width: 15rem;
-  height: auto;
-  margin: 1rem 0;
-  border-radius: 4px;
 }
 
 .progress-bar {
@@ -489,26 +482,10 @@ input[type='radio'] + label {
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.info-image {
   padding: 1rem;
   background: white;
 }
 
-@media (min-width: 768px) {
-  .hero-images {
-    flex-direction: row;
-    justify-content: center;
-    gap: 3rem;
-  }
-
-  .decorative-image,
-  .info-image {
-    width: 45%;
-    max-width: 400px;
-  }
-}
 
 /* Full-width banner */
 #banner {
@@ -537,7 +514,7 @@ nav ul {
   list-style: none;
   padding: 0;
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 nav a {
@@ -571,13 +548,7 @@ nav a:hover {
   line-height: 1.8;
   color: #34495e;
   margin-bottom: 2rem;
-  max-width: 700px;
-}
-
-#about .hero-images {
-  margin: 3rem 0;
-  display: flex;
-  justify-content: center;
+  max-width: 800px;
 }
 
 #about .hero-images img {
@@ -635,10 +606,10 @@ nav a:hover {
 }
 
 #header nav a:hover {
-  opacity: 0.8;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.391);
 }
 
+/* Media Queries */
 @media (max-width: 600px) {
   #header {
     padding: 1.5rem 0;
@@ -646,6 +617,24 @@ nav a:hover {
 
   #header nav ul {
     gap: 1rem;
+  }
+
+  #header .header-content {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-images {
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  .decorative-image,
+  .info-image {
+    width: 55%;
   }
 }
 
@@ -665,6 +654,7 @@ footer {
   margin: 0 auto;
   padding: 0 1rem;
   display: grid;
+  justify-content: center;
   gap: 2rem;
 }
 
