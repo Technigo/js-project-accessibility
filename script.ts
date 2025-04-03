@@ -30,7 +30,7 @@ const quizOptions = document.getElementById("quizOptions") as HTMLInputElement
 const quizAnswer = document.getElementById("quizAnswer") as HTMLDivElement
 const score = document.getElementById("score") as HTMLSpanElement
 const restartBtn = document.getElementById("restartBtn") as HTMLButtonElement
-const submitAnswer = document.getElementById("submitAnswer") as HTMLButtonElement 
+const submitAnswer = document.getElementById("submitAnswer") as HTMLButtonElement
 const quizFeedback = document.getElementById("quizFeedback") as HTMLDivElement
 //const btn = document.createElement("input") as HTMLButtonElement
 
@@ -45,7 +45,7 @@ const quizInstructions = document.getElementById("quizInstructions");
 //quizInstructions?.focus(); // Focus on instructions first
 
 //Function to load the question
-function loadQuestion(): void {  
+function loadQuestion(): void {
   if (index >= quiz.length) return endQ();  // End if no more questions
 
   const getQ = quiz[index];
@@ -54,14 +54,14 @@ function loadQuestion(): void {
 
   if (quizQuestion) quizQuestion.textContent = getQ.ask;
 
-  if (quizOptions) quizOptions.innerHTML  = ""; // Clear previous options   
-  
-  getQ.choose.forEach((element, i )=> {
+  if (quizOptions) quizOptions.innerHTML = ""; // Clear previous options   
+
+  getQ.choose.forEach((element, i) => {
     const btn = document.createElement("input");
     btn.type = "radio";
     btn.name = "option";
     btn.id = `option-${i}`; // Unique ID for accessibility
-    btn.value = `${i + 1}. ${element}`;    
+    btn.value = `${i + 1}. ${element}`;
     btn.setAttribute("aria-labelledby", `label-${i}`); //V Uses aria-labelledby for better screen reader support
     btn.setAttribute("role", "radio"); //V     
 
@@ -98,6 +98,7 @@ function loadQuestion(): void {
 
     const label = document.createElement("label");
     label.htmlFor = btn.id;
+    label.id = `label-${i}`;
 
     label.appendChild(btn);
     label.append(` ${element}`)
@@ -123,7 +124,7 @@ submitAnswer.onclick = (event) => {
 
   if (selectedOption !== null) {
     checkA(selectedOption);
-  } 
+  }
 };
 
 //Check if the answer is correct or not and show a feedback message
@@ -137,7 +138,7 @@ function checkA(opt: string): void {
 
   if (opt === quiz[index].answer) {
 
-    scr++;  
+    scr++;
 
     quizSection.insertAdjacentHTML(
       "beforeend",
@@ -152,7 +153,7 @@ function checkA(opt: string): void {
           <p tabindex="0">Oh no wrong answer, try again or continue to the next question!</p>
           <button id="continueBtn">Continue to the next question</button>
         </div>`);
-  } 
+  }
 
   //Click to continue to the next question
   const continueBtn = document.getElementById("continueBtn") as HTMLButtonElement | null;
@@ -210,18 +211,18 @@ function trapFocus() {
 }
 
 //Click to restart the quiz
-  restartBtn.addEventListener("click", () => {
-    index = 0;
-    scr = 0;
-    
-    // Reset UI visibility
-    quizQuestion?.style.setProperty("display", "block");
-    quizOptions?.style.setProperty("display", "block");
-    quizAnswer?.style.setProperty("display", "none");
-    restartBtn?.style.setProperty("display", "none");
-    submitAnswer?.style.setProperty("display", "block");  
-  
-    loadQuestion()
-  })  
+restartBtn.addEventListener("click", () => {
+  index = 0;
+  scr = 0;
+
+  // Reset UI visibility
+  quizQuestion?.style.setProperty("display", "block");
+  quizOptions?.style.setProperty("display", "block");
+  quizAnswer?.style.setProperty("display", "none");
+  restartBtn?.style.setProperty("display", "none");
+  submitAnswer?.style.setProperty("display", "block");
+
+  loadQuestion()
+})
 
 loadQuestion();

@@ -75,6 +75,7 @@ function loadQuestion() {
         };
         const label = document.createElement("label");
         label.htmlFor = btn.id;
+        label.id = `label-${i}`;
         label.appendChild(btn);
         label.append(` ${element}`);
         quizOptions === null || quizOptions === void 0 ? void 0 : quizOptions.appendChild(label);
