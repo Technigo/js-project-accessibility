@@ -8,6 +8,8 @@ const nextBtn = document.getElementById('nextBtn');
 let announcer = document.getElementById('announcer');
 const prevBtn = document.getElementById('prevBtn');
 const progressText = document.getElementById('progress-text');
+const restartBtn = document.getElementById('restartBtn');
+const resultSection = document.getElementById('quiz-result');
 
 //Variabler
 let currentStep = 0;
@@ -15,16 +17,10 @@ let score = 0;
 let answeredQuestions = new Set();
 
 const correctAnswers = {
-  question1: 'b', // Describes images to screen readers
-  question2: 'b', // <fieldset>
-  question3: 'b', // Politely reads dynamic changes to users
-  // question4: 'b', // Helps search engines and assistive tech
-  // question5: 'c', // <button>
-  // question6: 'b', // Arrow keys within a group
-  // question7: 'c', // Jump past repeated content
-  // question8: 'b', // 4.5:1
-  // question9: 'b', // Adds to normal tab order
-  // question10: 'c', // Everyone
+  'What is the purpose of alt text on images?':
+    'Describes images to screen readers',
+  'Which element is used to group related form controls?': '<fieldset>',
+  'What does aria-live="polite" do?': 'Politely reads dynamic changes to users',
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -42,17 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //START-BUTTON Starta quizet
   startBtn.addEventListener('click', () => {
-    introSection.style.display = 'none';
-    quizSection.style.display = 'block';
+    startQuiz();
+  });
 
-    const firstFieldset = fieldsets[0];
-    firstFieldset.style.display = 'block';
-    firstFieldset.setAttribute('aria-hidden', 'false');
-
-    const firstInput = fieldsets[0].querySelector('input');
-    if (firstInput) firstInput.focus();
-
-    updateStepIndicator();
+  restartBtn.addEventListener('click', () => {
+    startQuiz();
   });
 
   //Progress punkter
@@ -110,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const nextFieldset = fieldsets[currentStep];
       nextFieldset.style.display = 'block';
       nextFieldset.setAttribute('aria-hidden', 'false');
+      announcer.textContent = 'Moved to the next question'; //Ej testat denna!
 
       const firstInput = nextFieldset.querySelector('input');
       if (firstInput) firstInput.focus();
@@ -161,7 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
     quizSection.setAttribute('aria-hidden', 'true');
 
     //Visa section quiz-result
-    const resultSection = document.getElementById('quiz-result');
     resultSection.style.display = 'block';
     resultSection.setAttribute('aria-hidden', 'false');
 
@@ -182,9 +172,44 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById(
       'quiz-score'
     ).textContent = `You got ${score} out of ${totalQuestions} correct.`;
-  });
 
-  console.log('Antal frågor:', fieldsets.length);
+    const overviewContainer = document.getElementById('quiz-overview');
+    overviewContainer.innerHTML = ''; // Rensa eventuell tidigare innehåll
+
+    for (const key in correctAnswers) {
+      // Skapa en container för varje fråga
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('question-overview');
+
+      // Visa fråga-identifierare eller fråga-text om du har det
+      const questionTitle = document.createElement('h3');
+      questionTitle.textContent = key; // Om du vill visa något mer beskrivande, kan du skapa en mappning från key till fråga-text
+      questionDiv.appendChild(questionTitle);
+
+      // Hämta användarens svar. Om inget svar finns, skriv "No answer"
+      const userAnswer = userAnswers[key] || 'No answer';
+      const isCorrect = userAnswer === correctAnswers[key];
+
+      // Visa användarens svar med status
+      const userAnswerP = document.createElement('p');
+      userAnswerP.textContent = `Your answer: ${userAnswer} (${
+        isCorrect ? 'Correct' : 'Incorrect'
+      })`;
+      questionDiv.appendChild(userAnswerP);
+
+      // Om svaret är fel, visa det korrekta svaret
+      if (!isCorrect) {
+        const correctAnswerP = document.createElement('p');
+        correctAnswerP.textContent = `Correct answer: ${correctAnswers[key]}`;
+        questionDiv.appendChild(correctAnswerP);
+      }
+
+      overviewContainer.appendChild(questionDiv);
+    }
+    // Uppdatera ARIA live-regionen med feedback så att skärmläsare meddelar användaren om poängen
+    const feedback = document.getElementById('feedback');
+    feedback.textContent = `Quiz submitted. You got ${score} out of ${totalQuestions} correct.`;
+  });
 });
 
 //Kontrollerar om previous-knappen ska synas eller inte
@@ -236,3 +261,40 @@ const updateProgressText = () => {
 
   progressText.textContent = `${answeredCount} of ${totalQuestions} questions answered`;
 };
+
+function startQuiz() {
+  // Återställ quizet
+  form.reset();
+  currentStep = 0;
+  score = 0;
+  answeredQuestions.clear();
+
+  // Dölj introsektionen och visa quiz-sektionen
+  introSection.style.display = 'none';
+  quizSection.style.display = 'block';
+
+  //Dölj result sectionen
+  resultSection.style.display = 'none';
+  resultSection.setAttribute('aria-hidden', 'true');
+
+  // Visa endast första fieldset och dölj resten
+  fieldsets.forEach((fs, index) => {
+    if (index === 0) {
+      fs.style.display = 'block';
+      fs.setAttribute('aria-hidden', 'false');
+    } else {
+      fs.style.display = 'none';
+      fs.setAttribute('aria-hidden', 'true');
+    }
+  });
+
+  // Sätt fokus på första input i första fieldset
+  const firstInput = fieldsets[0].querySelector('input');
+  if (firstInput) firstInput.focus();
+
+  // Uppdatera progressindikatorerna
+  updateStepIndicator();
+  updateNextButtonText();
+  updatePrevButtonVisibility();
+  updateProgressText();
+}

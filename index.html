@@ -83,8 +83,8 @@
               </legend>
               <input
                 type="radio"
-                name="question1"
-                value="a"
+                name="What is the purpose of alt text on images?"
+                value="Adds captions to videos"
                 id="question1-a"
                 aria-describedby="question1-legend"
               />
@@ -94,8 +94,8 @@
               <label for="question1-b">
                 <input
                   type="radio"
-                  name="question1"
-                  value="b"
+                  name="What is the purpose of alt text on images?"
+                  value="Describes images to screen readers"
                   id="question1-b"
                 />Describes images to screen readers</label
               >
@@ -104,8 +104,8 @@
               <label for="question1-c">
                 <input
                   type="radio"
-                  name="question1"
-                  value="c"
+                  name="What is the purpose of alt text on images?"
+                  value="Changes the image color"
                   id="question1-c"
                 />Changes the image color</label
               >
@@ -123,32 +123,34 @@
               </legend>
               <input
                 type="radio"
-                name="question2"
-                value="a"
+                name="Which element is used to group related form controls?"
+                value="<div>"
                 id="question2-a"
                 aria-describedby="question2-legend"
               />
-              <label for="question2-a">div</label>
+              <label for="question2-a"> &lt;div&gt;</label>
               <br />
 
               <label for="question2-b">
                 <input
                   type="radio"
-                  name="question2"
-                  value="b"
+                  name="Which element is used to group related form controls?"
+                  value="<fieldset>"
                   id="question2-b"
-                />span</label
-              >
+                />
+                &lt;fieldset&gt;
+              </label>
               <br />
 
               <label for="question2-c">
                 <input
                   type="radio"
-                  name="question2"
-                  value="c"
+                  name="Which element is used to group related form controls?"
+                  value="<section>"
                   id="question2-c"
-                />Button</label
-              >
+                />
+                &lt;section&gt;
+              </label>
             </fieldset>
 
             <fieldset
@@ -163,8 +165,8 @@
               </legend>
               <input
                 type="radio"
-                name="question3"
-                value="a"
+                name='What does aria-live="polite" do?'
+                value="Hides content from screen readers"
                 id="question3-a"
                 aria-describedby="question3-legend"
               />
@@ -174,21 +176,23 @@
               <label for="question3-b">
                 <input
                   type="radio"
-                  name="question3"
-                  value="b"
+                  name='What does aria-live="polite" do?'
+                  value="Politely reads dynamic changes to users"
                   id="question3-b"
-                />Politely reads dynamic changes to users</label
-              >
+                />
+                Politely reads dynamic changes to users
+              </label>
               <br />
 
               <label for="question3-c">
                 <input
                   type="radio"
-                  name="question3"
-                  value="c"
+                  name='What does aria-live="polite" do?'
+                  value="Adds background music"
                   id="question3-c"
-                />Adds background music</label
-              >
+                />
+                Adds background music
+              </label>
             </fieldset>
 
             <div class="quiz-progress">
@@ -212,8 +216,9 @@
         <section id="quiz-result" style="display: none" aria-hidden="true">
           <h2>Quiz Completed 🎉</h2>
           <p id="quiz-score"></p>
-          <div id="quiz-review"></div>
+          <div id="quiz-overview"></div>
           <button type="button" id="restartBtn">Restart Quiz</button>
+          <div id="feedback" aria-live="assertive" class="sr-only"></div>
         </section>
 
         <div id="announcer" class="sr-only" aria-live="polite"></div>
