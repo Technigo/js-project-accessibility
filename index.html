@@ -41,6 +41,7 @@
 
   <main id="main-content">
 
+
     <section class="quiz-instructions">
       <h2>
         Welcome to our quiz
@@ -50,8 +51,7 @@
         questions. Labeling for screen reader support.
         Keyboard navigation is fully supported, allowing users to move through the quiz without a mouse. Overall, the
         design is
-        simple, clear, and inclusive for all users. <br><br>This quiz is part of our mission to help more people
-        understand what
+        simple, clear, and inclusive for all users. <br><br>This quiz is part of our mission to help more people understand what
         accessibility really means, and how disability can affect the way people experience the world.
       </p>
       <img
@@ -61,13 +61,20 @@
       >
       <form id="accessibility-quiz">
         <h2>Accessibility Quiz</h2>
+        <!-- Progress bar -->
+        <div class="quiz-progress" role="status" aria-live="polite">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 0%"></div>
+          </div>
+          <p class="progress-text" role="status" aria-live="polite">0 of 6 questions answered</p>
+        </div>
 
         <fieldset
           class="quiz-card"
           aria-label="Question-1"
         >
 
-          <legend tabindex="0"> 1. Meet Camilla.
+          <legend> 1. Meet Camilla.
             Camilla uses a screen reader. What helps her most on a website?</legend>
 
           <input
@@ -94,6 +101,8 @@
           />
           <label for="question-one-c">Auto playing videos</label>
 
+          <div class="error-container" role="status" aria-live="assertive"></div>
+
           <div class="nav-buttons">
             <button
               type="button"
@@ -108,7 +117,7 @@
           aria-label="Question-2"
         >
 
-          <legend tabindex="0">2. Meet Priya.
+          <legend>2. Meet Priya.
             Priya has ADHD. What helps her stay focused?</legend>
 
           <input
@@ -135,6 +144,8 @@
           />
           <label for="question-two-c">Long, dense text</label>
 
+          <div class="error-container" aria-live="polite"></div>
+
           <div class="nav-buttons">
             <button
               type="button"
@@ -152,7 +163,7 @@
           aria-label="Question-3"
         >
 
-          <legend tabindex="0">3. Meet Lisa.
+          <legend>3. Meet Lisa.
             Lisa has low vision. What helps her most?
           </legend>
 
@@ -179,6 +190,9 @@
             value="Text over background images"
           />
           <label for="question-three-c">Text over background images</label>
+
+          <div class="error-container" aria-live="polite"></div>
+
           <div class="nav-buttons">
             <button
               type="button"
@@ -196,7 +210,7 @@
           aria-label="Question-4"
         >
 
-          <legend tabindex="0"> 4. Meet Erik.
+          <legend> 4. Meet Erik.
             Erik has dyslexia. What supports easier reading?
           </legend>
 
@@ -223,6 +237,9 @@
             value="Complex text layout"
           />
           <label for="question-four-c">Complex text layout</label>
+
+          <div class="error-container" aria-live="polite"></div>
+
           <div class="nav-buttons">
             <button
               type="button"
@@ -240,7 +257,7 @@
           aria-label="Question-5"
         >
 
-          <legend tabindex="0"> 5. Meet Anders.
+          <legend> 5. Meet Anders.
             Anders has hearing loss. What helps him on video sites?
           </legend>
 
@@ -268,6 +285,8 @@
           />
           <label for="question-five-c">Sound-only cues</label>
 
+          <div class="error-container" aria-live="polite"></div>
+
           <div class="nav-buttons">
             <button
               type="button"
@@ -285,7 +304,7 @@
           aria-label="Question-6"
         >
 
-          <legend tabindex="0">6. Meet Nour.
+          <legend>6. Meet Nour.
             Nour has limited mobility and uses a keyboard. What helps most?
           </legend>
 
@@ -313,6 +332,8 @@
           />
           <label for="question-six-c">Tiny clickable areas</label>
 
+          <div class="error-container" aria-live="polite"></div>
+
           <div class="nav-buttons">
             <button
               type="button"
@@ -323,6 +344,7 @@
               class="next-btn"
             >Finish</button>
           </div>
+
 
         </fieldset>
 
