@@ -1,4 +1,4 @@
-/* Base styles with accessibility considerations */
+/* Base color styles - with accessibility considerations */
 :root {
   --header-background-color: #335c67;
   --main-background-color: #ffffff;
@@ -6,8 +6,8 @@
   --accent-color: #0040a3;
   /* Darker blue for better contrast */
   --primary-color: #b7410e;
-  --error-color: #e74c3c;
-  --success-color: #27ae60;
+  /* --error-color: #e74c3c;
+  --success-color: #27ae60; */
   --focus-outline: 3px solid var(--accent-color);
   --focus-ring-color: rgba(0, 86, 179, 0.5);
   --progress-bg: #edf2f7;
@@ -22,14 +22,14 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
   margin: 0;
-  font-family: "Roboto", sans-serif;
   background: var(--body-background-color);
 }
-
+/* ---Header--- */
 header {
   background: var(--header-background-color);
   padding: 36px 64px;
@@ -69,6 +69,7 @@ header ul li a {
   text-decoration: none;
 }
 
+/*  Main  */
 main {
   margin: 16px 64px;
   padding: 24px;
@@ -80,10 +81,7 @@ main {
   max-width: 1400px;
 }
 
-.quiz-section,
-.results-section {
-  display: none;
-}
+/* Buttons */
 
 button {
   padding: 8px 12px;
@@ -99,6 +97,26 @@ button {
 button:hover {
   background: #540b0e;
 }
+
+/* Skip-link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--accent-color);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+}
+
+/* Quiz form */
 .quiz-section form {
   margin-top: 32px;
 }
@@ -154,72 +172,4 @@ button:hover {
   height: 100%;
   transition: width 0.3s ease;
   border-radius: 8px;
-}
-
-/* Skip-link */
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: var(--accent-color);
-  color: white;
-  padding: 8px;
-  z-index: 100;
-  transition: top 0.3s;
-}
-
-.skip-link:focus {
-  top: 0;
-  outline: var(--focus-outline);
-  outline-offset: 2px;
-}
-
-/* Enhanced focus styles */
-:focus-visible {
-  outline: var(--focus-outline);
-  outline-offset: 2px;
-  border-radius: 2px;
-}
-
-/* Footer styles */
-footer {
-  width: 100vw;
-  background-color: #335c67;
-}
-
-.footer-content {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 1rem;
-  display: grid;
-  gap: 2rem;
-}
-
-.footer-content nav {
-  margin-bottom: 1rem;
-}
-
-.footer-content ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-content a {
-  text-decoration: none;
-  padding: 0.5rem 0;
-  display: block;
-  transition: opacity var(--transition-speed);
-  color: #b7410e;
-}
-
-.footer-content a:hover {
-  opacity: 0.8;
-}
-
-.footer-info {
-  grid-column: 1 / -1;
-  text-align: center;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }

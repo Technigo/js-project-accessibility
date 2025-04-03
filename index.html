@@ -16,7 +16,7 @@
         <nav role="navigation" aria-label="Main navigation">
           <ul>
             <li class="active">
-              <a href="index.html">Home</a>
+              <a href="index.html" aria-current="page">Home</a>
             </li>
             <li>
               <a href="about.html">About</a>
@@ -27,10 +27,6 @@
     </header>
 
     <main id="main-content">
-      <!-- <section id="banner" role="banner">
-        <img src="" alt="" role="presentation" />
-      </section> -->
-
       <section class="intro-section" id="introduction">
         <img class="decorative-img" src="img/intro-icon.png" alt="" />
         <h2>Is Your Code Really Accessible? Let’s Find Out!</h2>
@@ -49,7 +45,7 @@
           <button
             id="start-quiz-button"
             type="button"
-            class="submit-button"
+            class="submit-button primary-button"
             aria-label="Start quiz"
           >
             Start Quiz
@@ -57,34 +53,56 @@
         </div>
       </section>
 
-      <section class="quiz-section" id="quiz">
-        <img class="decorative-img" src="img/quiz-icon.png" alt="" />
+      <section class="quiz-section" id="quiz" hidden>
+        <img class="decorative-img" src="" alt="" />
         <h2>The A11y Challenge</h2>
+
         <div class="quiz-progress" role="status" aria-live="polite">
-          <p class="progress-text">Question <b>1</b> of <b>10</b></p>
+          <p class="progress-text">Question <b>1</b> of <b>5</b></p>
           <div class="progress-bar">
             <div class="progress-fill" style="width: 0%"></div>
           </div>
         </div>
 
-        <form onsubmit="checkAnswers(event)">
+        <form id="quiz-form">
           <div id="question-container">
-            <div id="question-error" class="error" role="alert" hidden>
-              <p class="error-message"></p>
-            </div>
+            <fieldset>
+              <div class="question-content"></div>
+              <div id="question-error" class="error" role="alert" hidden>
+                <p class="error-message"></p>
+              </div>
+            </fieldset>
           </div>
-          <button
-            class="submit-button"
-            type="submit"
-            id="submitQuiz"
-            aria-label="Submit quiz"
-          >
-            Submit Quiz
-          </button>
+          <div class="form-controls">
+            <button
+              class="previous-button"
+              type="button"
+              id="previousQuestion"
+              aria-label="Previous question"
+            >
+              Previous Question
+            </button>
+            <button
+              class="next-button"
+              type="button"
+              id="nextQuestion"
+              aria-label="Next question"
+            >
+              Next Question
+            </button>
+            <button
+              class="submit-button"
+              type="submit"
+              id="submitQuiz"
+              aria-label="Submit quiz"
+            >
+              Submit Quiz
+            </button>
+          </div>
         </form>
       </section>
 
-      <section class="results-section" id="results">
+      <section class="results-section" id="results" aria-live="polite" hidden>
         <img
           class="party-popper decorative-img"
           src="img/party-popper-emoji.png"
@@ -92,9 +110,10 @@
           role="presentation"
         />
         <h2>Quiz completed!</h2>
-        <p id="result-message"></p>
+        <div class="result-content" id="result-content"></div>
+        <div class="feedback-details" id="feedback-details"></div>
         <button
-          class="restart-btn"
+          class="restart-button"
           type="button"
           id="restartQuiz"
           aria-label="Restart quiz"
@@ -102,7 +121,7 @@
           Restart Quiz
         </button>
         <button
-          class="home-btn"
+          class="home-button"
           type="button"
           id="backToHome"
           aria-label="Go to homepage"
@@ -110,6 +129,7 @@
           Go to Homepage
         </button>
       </section>
+      <div id="announcer" class="visually-hidden" aria-live="polite"></div>
     </main>
 
     <footer role="contentinfo">
@@ -126,7 +146,8 @@
         </nav>
       </div>
     </footer>
-    <script type="module" src="js/quiz.js"></script>
-    <script type="module" src="js/main.js"></script>
+
+    <script src="js/quiz.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
