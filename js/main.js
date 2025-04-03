@@ -93,6 +93,9 @@ const quizQuestions = [
   },
 ];
 
+// DARK MODE BUTTON FUNCTIONALITY
+//  need a btn that toggles darkmode
+
 //  HERO BUTTON SCROLL
 const ctaBtn = document.querySelector(".cta-btn");
 ctaBtn.addEventListener("click", () => {
@@ -184,8 +187,6 @@ const displayQuizQuestions = () => {
       });
     });
 
-    quizInputs[0].focus();
-
     const warningMessage = document.getElementById("warning-message");
     const announcer = document.getElementById("announcer");
 
@@ -203,10 +204,15 @@ const displayQuizQuestions = () => {
       }
     };
 
+    // need to put this somehwhere else so that quiz isnt focused immediately on page load/reload
+    quizInputs[0].focus();
+
     updateNextButtonState();
 
     quizInputs.forEach((input) => {
-      input.addEventListener("change", updateNextButtonState);
+      input.addEventListener("change", () => {
+        updateNextButtonState();
+      });
     });
 
     if (currentQuestionIndex === 0) {

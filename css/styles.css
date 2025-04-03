@@ -68,6 +68,12 @@ nav a {
   text-decoration: none;
 }
 
+nav a:focus-visible {
+  outline: 2px solid #ff5500;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 nav a:hover {
   color: white;
   transition: all 0.3s ease;
@@ -114,7 +120,6 @@ footer nav a:hover {
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   padding: 1rem;
-  background: var(--nf-bg-3);
 }
 .team-card {
   display: grid; /* Keeps content aligned inside */
@@ -262,7 +267,8 @@ input[type="radio"]:focus-visible + label {
 }
 .btn:hover {
   background: #ff5500;
-  transition: all 0.3s ease;
+  transform: translate(3px, -3px);
+  transition: all 0.3s ease-in-out;
 }
 .btn:focus {
   outline: 3px solid #ff6600; /* Orange outline on focus for accessibility */
@@ -275,6 +281,59 @@ footer {
   color: var(--color-white); /* White text in footer */
   text-align: center;
   padding: 1rem;
+}
+
+/* HIGH CONTRAST MODE */
+
+body.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+body.dark-mode header {
+  background-color: white;
+}
+
+body.dark-mode nav a {
+  color: black;
+}
+
+body.dark-mode nav a:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+body.dark-mode .hero-section {
+  background-color: black;
+  color: white;
+}
+
+body.dark-mode .btn {
+  background-color: white;
+  color: black;
+}
+
+body.dark-mode .about-section {
+  background-color: black;
+  color: white;
+}
+
+body.dark-mode .team-card h3 {
+  color: black;
+}
+
+body.dark-mode footer {
+  background-color: white;
+  color: black;
+}
+
+body.dark-mode footer nav a {
+  color: black;
+}
+
+body.dark-mode footer nav a:hover {
+  color: black;
+  text-decoration: underline;
 }
 
 /* MEDIA QUEREIES */
