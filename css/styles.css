@@ -274,7 +274,6 @@ input[type="radio"]:focus-visible+label {
 #summary-card h2 {
   text-align: center;
   margin: 0 auto 0.75rem auto;
-  padding-left: 4rem;
 }
 
 #summary-content h3 {
@@ -511,7 +510,11 @@ nav a:hover {
     width: 9rem;
   }
 
-  #summary-card {
+  #summary-content {
+    padding-left: 4rem;
+  }
+
+  #summary-card h2 {
     padding-left: 4rem;
   }
 
@@ -573,7 +576,11 @@ nav a:hover {
     width: 9rem;
   }
 
-  #summary-card {
+  #summary-content {
+    padding-left: 4rem;
+  }
+
+  #summary-card h2 {
     padding-left: 4rem;
   }
 
