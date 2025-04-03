@@ -43,6 +43,30 @@ function loadQuestion() {
         btn.id = `option-${i}`;
         btn.value = `${i + 1}. ${element}`;
         btn.tabIndex = 0;
+        btn.setAttribute("aria-labelledby", `labeel-${i}`);
+        btn.setAttribute("role", "radio");
+        if (i === 0) {
+            btn.checked = true;
+            selectedOption = element;
+        }
+        btn.addEventListener("keydown", (event) => {
+            const radioButtons = document.querySelectorAll('input[name="option"]');
+            const currentIndex = Array.from(radioButtons).indexOf(btn);
+            if (event.key === "ArrowDown" || event.key === "ArrowRight") {
+                event.preventDefault();
+                const nextIndex = (currentIndex + 1) % radioButtons.length;
+                radioButtons[nextIndex].focus();
+                radioButtons[nextIndex].checked = true;
+                selectedOption = radioButtons[nextIndex].value;
+            }
+            else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
+                event.preventDefault();
+                const prevIndex = (currentIndex - 1 + radioButtons.length) % radioButtons.length;
+                radioButtons[prevIndex].focus();
+                radioButtons[prevIndex].checked = true;
+                selectedOption = radioButtons[prevIndex].value;
+            }
+        });
         btn.onclick = () => {
             selectedOption = element;
         };
@@ -63,6 +87,7 @@ function loadQuestion() {
         };
         quizOptions === null || quizOptions === void 0 ? void 0 : quizOptions.appendChild(label);
     });
+    trapFocus();
 }
 function checkA(opt) {
     const quizFeedback = document.getElementById("quizFeedback");
@@ -110,3 +135,24 @@ function endQ() {
     submitAnswer.style.setProperty('display', 'none');
 }
 loadQuestion();
+function trapFocus() {
+    const focusableElements = quizCard.querySelectorAll('input, button');
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+    quizCard.addEventListener("keydown", (event) => {
+        if (event.key === "Tab") {
+            if (event.shiftKey) {
+                if (document.activeElement === firstElement) {
+                    event.preventDefault();
+                    lastElement.focus();
+                }
+            }
+            else {
+                if (document.activeElement === lastElement) {
+                    event.preventDefault();
+                    firstElement.focus();
+                }
+            }
+        }
+    });
+}
