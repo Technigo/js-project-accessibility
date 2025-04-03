@@ -21,8 +21,7 @@
   box-sizing: border-box;
 }
 
-.index-html,
-.about-html body {
+body {
   font-family: "Noto Sans", sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
@@ -76,7 +75,7 @@
   text-align: center;
   padding: 0.3rem 0;
   border-radius: 0.2rem;
-  
+
   /* Position the tooltip text */
   position: absolute;
   z-index: 10;
@@ -115,6 +114,7 @@ header {
   padding-top: 2rem;
   padding-bottom: 2rem;
   align-items: center;
+  position: relative;
 }
 
 nav ul {
@@ -122,14 +122,18 @@ nav ul {
   gap: 1rem;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0.2re;
 }
 
 h1 {
   font-size: 25px;
 }
 
-.index-html h1 {
+h2 {
+  align-items: center;
+}
+
+h1 {
   display: flex;
   padding: 0;
   justify-content: center;
@@ -177,6 +181,9 @@ a:hover {
   flex-direction: column; /* Mobile first */
   align-items: center;
   gap: 1rem;
+  max-width: 600px; /* sätter en trevlig bredd */
+  margin: 0 auto; /* centrerar elementet horisontellt */
+  padding: 1rem; /* lite luft runt */
 }
 
 section {
@@ -199,7 +206,7 @@ form {
 
 .toggle-element {
   position: absolute;
-  right: 70px;
+  right: 100px;
   top: 70px;
 }
 
@@ -217,6 +224,12 @@ form {
   opacity: 0;
   width: 0;
   height: 0;
+}
+
+/* Not working */
+.switch:focus {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
 }
 
 /* The slider */
@@ -265,8 +278,14 @@ input:checked + .slider:before {
 }
 
 .high-contrast {
-  background-color: var(--primary-color);
-  color: var(--background-color);
+  background-color: var(--text-color);
+  color: var(--primary-color);
+}
+
+.high-contrast h1,
+h2,
+p {
+  color: var(--text-color);
 }
 
 fieldset {
@@ -309,6 +328,7 @@ label input {
 
 #submit-button {
   font-size: 17px;
+  font-weight: bold;
   border: 1px solid var(--border-color);
   border-right: 3px solid var(--border-color);
   border-bottom: 3px solid var(--border-color);
@@ -363,10 +383,28 @@ label input {
   align-items: center;
   padding: 1rem;
 }
+
 .presentation img {
   max-height: 200px;
   max-width: 200px;
   border-radius: 150px;
+  margin-bottom: 10px;
+}
+
+.presentation h2,
+p {
+  margin: 0.5rem;
+  padding: 0;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  align-items: center;
 }
 
 @media (min-width: 600px) {
@@ -381,8 +419,14 @@ label input {
     font-size: 2.5rem;
   }
 
-#introduction {
+  #introduction {
     max-width: 600px;
+  }
+
+  .presentation {
+    max-width: 600px;
+    flex-direction: row;
+    gap: 0.8rem;
   }
 
   fieldset {

@@ -13,9 +13,17 @@
     />
   </head>
 
-  <body class="about-html">
+  <body>
     <a href="#main-content" class="skip-link">Skip to main content!</a>
     <header>
+      <!-- Rounded switch -->
+      <div class="tooltip">
+        <label class="switch" aria-label="High contrast toggle">
+          <input type="checkbox" id="toggle" />
+          <span class="slider"></span>
+        </label>
+        <span class="tooltiptext">Toggle High Contrast</span>
+      </div>
       <h1>About</h1>
       <nav role="navigation" aria-label="Main menu">
         <ul>
@@ -27,47 +35,42 @@
           </li>
         </ul>
       </nav>
-      <!-- Rounded switch -->
-      <label class="switch" aria-label="High contrast toggle">
-        <input type="checkbox" id="toggle" />
-        <span class="slider round"></span>
-      </label>
     </header>
 
     <main id="main-content">
       <section class="team">
         <article class="presentation">
           <img src="assets/linda.jpg" alt="picture of Linda" />
-          <h2>Linda</h2>
           <p>
-            Hey! I'm Linda, a student at Technigo. I believe accessibility is
-            essential — not only because the internet should be available to
-            everyone, but also because it enhances the user experience for all.
+            Hey! I'm <strong>Linda</strong>, a student at Technigo. I believe
+            accessibility is essential — not only because the internet should be
+            available to everyone, but also because it enhances the user
+            experience for all. <br /><br />
+            <a href="https://github.com/LindaSchonfeldt"
+              >View Lindas other projects here!</a
+            >
           </p>
-          <a href="https://github.com/LindaSchonfeldt"
-            >View Lindas other projects here</a
-          >
           <!--Gör om till länk-->
         </article>
         <article class="presentation">
           <img src="assets/cathi.jpg" alt="picture of Cathi" />
-          <h2>Cathi</h2>
           <p>
-            Hi! My name is Cathi and I am currently studying JavaScript at
-            Technigo. I have always dreamed about learning programming and in
-            January i finally took the chance. I think that this project, Web
-            Accessibility, that we're working on right now is super important.
-            The www is for all!
+            Hi! My name is <strong>Cathi</strong> and I am currently studying
+            JavaScript at Technigo. I have always dreamed about learning
+            programming and in January i finally took the chance. I think that
+            this project, Web Accessibility, that we're working on right now is
+            super important. The www is for all! <br /><br />
+            <a href="https://github.com/violacathrine"
+              >View Cathis other projects here</a
+            >
           </p>
-          <a href="https://github.com/violacathrine"
-            >View Cathis other projects here</a
-          >
-          <!--Gör om till länk-->
         </article>
       </section>
     </main>
 
-    <footer id="footer-menu"></footer>
+    <footer id="footer-menu">
+      <p>Copyright 2025 © Linda & Cathi</p>
+    </footer>
     <script src="js/main.js"></script>
   </body>
 </html>

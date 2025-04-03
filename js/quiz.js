@@ -61,7 +61,7 @@ const displayUserFeedback = (userAnswers, correctAnswers) => {
     // Display feedback based on the user's answer
     if (userAnswer === correctValue) {
       feedbackDiv.classList.add("success-feedback");
-      feedbackDiv.innerHTML = `<p><strong>Correct!</strong> You got this! "${correctText}" is correct!</p>`;
+      feedbackDiv.innerHTML = `<p><strong>Correct!</strong> "${correctText}" is the right answer!</p>`;
     } else if (userAnswer === null) {
       feedbackDiv.classList.add("error-feedback");
       feedbackDiv.innerHTML = `<p>You forgot to answer!</p>`;
