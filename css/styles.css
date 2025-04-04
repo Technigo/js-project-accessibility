@@ -294,6 +294,12 @@ input:checked + .slider:before {
 .high-contrast a:hover {
   color: var(--high-contrast-text);
 }
+
+.high.contrast .skip-link {
+  background: var(--high-contrast-bg);
+  color: var(--high-contrast-text);
+}
+
 .high-contrast .tooltip .tooltiptext {
   background-color: var(--primary-color);
   color: var(--text-color);
