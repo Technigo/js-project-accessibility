@@ -1,13 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title</title>
+    <title>Accessibility Quiz</title>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
+
   <body>
-    <p>This is the starting point.</p>
+    <a href="#quiz-content" class="skip-link">Skip to Quiz</a>
+    <button class="btn dark-mode-btn" id="dark-mode-btn">
+      Toggle dark/light mode
+    </button>
+    <header>
+      <nav role="navigation" aria-label="Main menu">
+        <ul>
+          <li>
+            <a href="#home-content">Home</a>
+          </li>
+          <li>
+            <a href="#about-content">About</a>
+          </li>
+          <li>
+            <a href="#quiz-content">Quiz</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="content-container" role="presentation">
+      <main class="hero-section" id="home-content">
+        <!-- <section id="banner" role="banner">
+          <img src="assets/banner.jpg" alt="" role="presentation" />
+        </section> -->
+
+        <h1>Test Your Web Accessibility Knowledge!</h1>
+        <p>
+          Put your web accessibility skills to the test with our quick quiz!
+        </p>
+        <button class="btn cta-btn">Take the quiz!</button>
+      </main>
+
+      <section class="about-section" id="about-content">
+        <h2>About Us!</h2>
+        <p>
+          Meet the team behind the quiz! We're passionate about web
+          accessibility and dedicated to creating resources that promote a more
+          inclusive internet for all.
+        </p>
+        <div class="team-cards-container" role="presentation">
+          <div class="team-card">
+            <img
+              src="https://images.pexels.com/photos/8534247/pexels-photo-8534247.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              alt="Photo of team member"
+            />
+            <h3>Therese</h3>
+            <p>
+              Therese is a front-end developer who’s passionate about building
+              accessible, user-centric designs that make the web easier to
+              navigate for everyone.
+            </p>
+          </div>
+          <div class="team-card">
+            <img
+              src="https://images.pexels.com/photos/8534247/pexels-photo-8534247.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              alt="Photo of team member"
+            />
+            <h3>Darius</h3>
+            <p>
+              Darius specialises in front-end development, crafting clean,
+              intuitive user interfaces that ensure an inclusive experience
+              across all devices and platforms
+            </p>
+          </div>
+          <div class="team-card">
+            <img
+              src="https://images.pexels.com/photos/8534247/pexels-photo-8534247.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              alt="Photo of team member"
+            />
+            <h3>Christina</h3>
+            <p>
+              Christina focuses on creating responsive, accessible web
+              experiences, working to ensure that every user, regardless of
+              ability, can enjoy seamless interaction with websites.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="quiz-section" id="quiz-content">
+        <h2>Accessibility Quiz!</h2>
+        <p>
+          Answer the following questions using space to select an option, then
+          click the submit button once you're done. You can only select one
+          answer per question.
+        </p>
+        <form id="quiz-form">
+          <div id="quiz-container"></div>
+        </form>
+      </section>
+    </div>
+    <footer role="contentinfo">
+      <div class="footer-content">
+        <nav role="navigation" aria-label="Footer menu">
+          <ul>
+            <li>
+              <a href="#home-content">Home</a>
+            </li>
+            <li>
+              <a href="#about-content">About</a>
+            </li>
+            <li>
+              <a href="#quiz-content">Quiz</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
     <script src="js/main.js"></script>
   </body>
 </html>

@@ -1,9 +1,9 @@
 # Web Accessibility Project
 
-A basic web server template focused on web accessibility practices.
+A web accessibility quiz built to use and test web accessibility practices.
 
-### Installation
+Team: Therese, Darius, Christina
 
-1. Fork this repository by clicking the "Fork" button at the top right of the GitHub repository page.
+### Deployed site
 
-2. Clone your forked repository
+accessibility-quiz-wind-3.netlify.app

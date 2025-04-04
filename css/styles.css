@@ -1,0 +1,369 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --bg-primary: #ffffff; /* White background */
+  --color-primary: #333333; /* Dark grey text */
+  --color-featured: #f0a500; /* Featured color (yellow/orange) */
+  --color-connect: #f2f2f3; /* Dark blue for headings */
+  --bg-white: #f9f9f9; /* Light grey background */
+  --border-gray: #cccccc; /* Light grey borders */
+  --bg-4rd: #f1f1f1; /* Light grey for cards */
+  --nf-bg-1: #2e3a59; /* Dark blue for quiz section */
+  --nf-bg-2: #1a1c2c; /* Very dark blue for hero section */
+  --nf-bg-3: #343a40; /* Dark gray for results section */
+  --color-orange: #ff6600; /* Dark orange for buttons */
+  --color-white: #ffffff; /* White text */
+  --bg-secondary: #222222; /* Dark background for footer */
+}
+body {
+  background: #2e3a59;
+  color: var(--bg-primary); /* White text */
+  font-family: sans-serif;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.content-container {
+  max-width: 2500px;
+  margin: 0 auto;
+}
+
+.skip-link {
+  position: absolute;
+  top: -45px;
+  left: 0;
+  background: var(--nf-bg-2);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+}
+
+header {
+  background: var(--color-featured); /* Featured color */
+  padding: 1rem;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center; /* Centers items horizontally */
+  align-items: center; /* Aligns items vertically */
+  gap: 2rem;
+  list-style: none;
+  margin: 0 auto; /* Centers within the parent */
+  padding: 0;
+}
+
+nav a {
+  font-size: 1.5rem;
+  color: var(--color-primary); /* Dark text for links */
+  text-decoration: none;
+}
+
+nav a:focus-visible {
+  outline: 2px solid #ff5500;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+nav a:hover {
+  color: white;
+  transition: all 0.3s ease;
+}
+
+footer nav a {
+  color: white;
+}
+
+footer nav a:hover {
+  color: #ff5500;
+}
+
+.hero-section {
+  background: var(--nf-bg-2); /* Very dark blue */
+  padding: 6rem 3rem;
+  text-align: center;
+  color: var(--color-white); /* White text on dark background */
+}
+
+.hero-section h1 {
+  color: var(--bg-primary); /* Blue heading */
+  font-size: 4.5rem;
+  margin-bottom: 7rem;
+}
+.hero-section p {
+  font-size: 2rem;
+  margin-bottom: 5rem;
+}
+.about-section {
+  background: #333333; /* Light background */
+  padding: 3rem;
+}
+.about-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 4rem;
+}
+.about-section p {
+  font-size: 1.7rem;
+  margin-bottom: 3rem;
+}
+.team-cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+.team-card {
+  display: grid; /* Keeps content aligned inside */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: var(--bg-4rd);
+  border: 1px solid var(--border-gray);
+  text-align: center;
+  max-width: 100%;
+}
+
+.team-card h3 {
+  color: var(--color-primary);
+  font-size: 2rem;
+}
+
+.team-card img {
+  max-width: 100%;
+}
+
+.team-card p {
+  color: var(--color-primary);
+  font-size: 1.2rem;
+}
+
+/* QUIZ SECTION */
+.question {
+  background: var(--bg-white); /* Light grey background */
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+.quiz-form {
+  font-size: 2rem;
+}
+.quiz-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem;
+  color: var(--bg-primary);
+  font-size: 1.2rem;
+}
+.quiz-section {
+  /* Light grey */
+  padding: 3rem;
+  /* Very dark blue for hero section */
+  color: var(--bg-primary); /* Adjust text color for contrast */
+  font-size: 1.2rem;
+}
+.quiz-section p {
+  margin-bottom: 2rem;
+}
+.h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--color-connect); /* Dark blue for headings */
+}
+.p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--bg-primary); /* Dark blue for headings */
+}
+.quiz-section p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--bg-primary); /* Dark blue for headings */
+}
+legend {
+  font-size: 1.7rem;
+  color: #ffffff;
+}
+label {
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+fieldset {
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.quiz-option {
+  margin-bottom: 10px;
+}
+
+input[type="radio"] {
+  accent-color: #ff5500;
+}
+
+input[type="radio"]:focus-visible {
+  outline: 2px solid #ff5500;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+input[type="radio"]:focus-visible + label {
+  outline: 2px solid #ff5500;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.quiz-result-section {
+  font-size: 2rem; /* Default text size */
+  background: var(--nf-bg-3); /* Dark gray */
+  padding: 2rem;
+  background-color: #f0a500; /* Featured color */
+  color: var(--color-white); /* White text */
+  /* text-align: center; Center text */
+  /* margin: 2rem auto; Centers the section horizontally */
+  max-width: 80%; /* Limits width for better readability */
+  border-radius: 12px; /* Soft rounded corners */
+}
+.quiz-result-section p {
+  font-size: 1.5rem;
+  background: var(--color-featured);
+  /* Makes text yellow */
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.quiz-content.quiz-section {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center;
+  justify-content: center; */
+  padding: 2rem;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.btns-container {
+  display: flex;
+  gap: 2rem;
+}
+
+.btn {
+  background: #f0a500; /* Dark orange */
+  color: #000000; /* White text */
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0.5rem;
+  font-size: 1.4rem;
+}
+.btn:hover {
+  background: #ff5500;
+  transform: translate(3px, -3px);
+  transition: all 0.3s ease-in-out;
+}
+.btn:focus {
+  outline: 3px solid #ff6600; /* Orange outline on focus for accessibility */
+}
+.hidden {
+  display: none;
+}
+footer {
+  background: var(--bg-secondary); /* Dark footer background */
+  color: var(--color-white); /* White text in footer */
+  text-align: center;
+  padding: 1rem;
+}
+
+/* HIGH CONTRAST MODE */
+
+body.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+body.dark-mode header {
+  background-color: white;
+}
+
+body.dark-mode nav a {
+  color: black;
+}
+
+body.dark-mode nav a:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+body.dark-mode .hero-section {
+  background-color: black;
+  color: white;
+}
+
+body.dark-mode .btn {
+  background-color: white;
+  color: black;
+}
+
+body.dark-mode .about-section {
+  background-color: black;
+  color: white;
+}
+
+body.dark-mode .team-card h3 {
+  color: black;
+}
+
+body.dark-mode footer {
+  background-color: white;
+  color: black;
+}
+
+body.dark-mode footer nav a {
+  color: black;
+}
+
+body.dark-mode footer nav a:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+/* MEDIA QUEREIES */
+@media (max-width: 768px) {
+  .team-cards-container {
+    grid-template-columns: repeat(1, 1fr); /* Two columns on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  /* .team-cards-container {
+    grid-template-columns: repeat(1, 1fr);
+  } */
+}
+
+/* Add responsiveness for adjustable text size */
+@media (max-width: 768px) {
+  html {
+    font-size: 80%;
+  }
+  .quiz-result-section {
+    font-size: 1.5rem; /* Smaller text on tablets */
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .quiz-result-section {
+    font-size: 1.2rem; /* Even smaller text for mobile */
+    padding: 1rem;
+    max-width: 90%;
+  }
+}
