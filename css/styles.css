@@ -181,6 +181,12 @@ section {
 
 }
 
+section p {
+
+  padding: 0 .5rem;
+
+}
+
 #introduction {
   padding: 0 1rem;
 }
@@ -317,6 +323,12 @@ footer p {
 
   main {
     text-align: left;
+  }
+
+  section p {
+
+    padding: 0 6rem;
+
   }
 
   #decorative-img {
