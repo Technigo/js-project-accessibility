@@ -45,6 +45,7 @@ function loadQuestion() {
         btn.name = "option";
         btn.id = `option-${i}`;
         btn.value = `${i + 1}. ${element}`;
+        btn.tabIndex = -1;
         btn.setAttribute("aria-labelledby", `label-${i}`);
         btn.setAttribute("role", "radio");
         if (i === 0) {
@@ -75,6 +76,8 @@ function loadQuestion() {
         };
         const label = document.createElement("label");
         label.htmlFor = btn.id;
+        label.id = `label-${i}`;
+        label.tabIndex = 0;
         label.appendChild(btn);
         label.append(` ${element}`);
         quizOptions === null || quizOptions === void 0 ? void 0 : quizOptions.appendChild(label);
@@ -157,5 +160,21 @@ restartBtn.addEventListener("click", () => {
     restartBtn === null || restartBtn === void 0 ? void 0 : restartBtn.style.setProperty("display", "none");
     submitAnswer === null || submitAnswer === void 0 ? void 0 : submitAnswer.style.setProperty("display", "block");
     loadQuestion();
+});
+function changeFont(event) {
+    const selectElement = event.target;
+    const selectedFont = selectElement.value;
+    document.body.classList.remove('font1', 'font2');
+    if (selectedFont === 'font1') {
+        document.body.classList.add('font1');
+    }
+    else if (selectedFont === 'font2') {
+        document.body.classList.add('font2');
+    }
+}
+document.addEventListener('DOMContentLoaded', () => {
+    const fontToggle = document.getElementById('font-toggle');
+    fontToggle.addEventListener('change', changeFont);
+    fontToggle.focus();
 });
 loadQuestion();

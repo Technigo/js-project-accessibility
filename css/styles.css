@@ -1,14 +1,11 @@
 :root {
-  /*Teal Shades */
-
+  /* Teal Shades */
   --teal-90: #022b30;
   --teal-70: #005d5d;
-  /*below 50 use text-dark above use text light*/
-
   --teal-50: #009d9a;
   --teal-30: #3ddbd9;
 
-  /* Accent Color - Coral  */
+  /* Accent Color - Coral */
   --accent-coral: #ea7348;
 
   /* Supporting Contrast Colors */
@@ -16,7 +13,7 @@
   --light-gray: #EAEAEA;
 
   --background-light: #D9FDFD;
-  --backgorund-dark: #022b30;
+  --background-dark: #022b30;
 
   --text-light: #D9FDFD;
   --text-dark: #081a1c;
@@ -31,15 +28,16 @@
   --height-md: 3rem;
   --height-lg: 4rem;
 
-  /*font*/
+  /* Fonts */
   --default-font: "Roboto", sans-serif;
   --secondary-font: "Roboto Mono", sans-serif;
+  --third-font: "Atkinson Hyperlegible Mono", sans-serif;
 
-  /* more readability*/
+
+
+  /* More readability */
   --default-font-size: 1rem;
-
 }
-
 
 /* Apply box-sizing border-box to all elements */
 *,
@@ -50,12 +48,13 @@
 }
 
 :focus {
-  outline: 2px solid var(--accent-coral);
+  border: var(--accent-coral) 3px solid;
+  outline: none;
 }
 
 body {
-
   display: flex;
+  width: 100dvw;
   flex-direction: column;
   font-family: var(--default-font);
   background-color: var(--background-light);
@@ -68,14 +67,9 @@ body {
 body::after {
   content: '';
   display: block;
-
-  /* Set same as footer's height */
 }
 
-.header-content {
-  margin: 0 15vw;
-}
-
+/* Skip link */
 .skip-link {
   position: absolute;
   top: -40px;
@@ -90,23 +84,28 @@ body::after {
 
 .skip-link:focus {
   top: 0;
-  outline: var(--accent-coral);
-  outline-offset: 3px;
+
 }
 
 header {
   position: relative;
   width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
   background-color: var(--teal-70);
   color: var(--text-light);
-  padding: 1.5 rem 0;
+  padding: 0 15vw;
   box-shadow: var(--shadow-md);
   row-gap: var(--height-sm);
   background-image: url("/img/header-img.jpg");
   background-repeat: space;
   background-size: cover;
+}
+
+.font1 {
+  font-family: var(--secondary-font);
+}
+
+.font2 {
+  font-family: var(--third-font);
 }
 
 main h1,
@@ -117,14 +116,12 @@ h3 {
 }
 
 .card-header h2 {
-
   color: var(--text-light);
 }
 
 p {
   color: var(--teal-70);
 }
-
 
 #decorative-img {
   display: none;
@@ -140,7 +137,6 @@ a {
   text-decoration: none;
 }
 
-
 nav ul {
   display: flex;
   flex-direction: row;
@@ -149,16 +145,29 @@ nav ul {
   padding: 0;
 }
 
+select {
+  background-color: var(--teal-30);
+  color: var(--teal-90);
+  font-family: var(--default-font);
+  font-size: var(--default-font-size);
+  font-weight: 600;
+  border-radius: .5rem;
+}
+
 #quizInstructions {
   display: none;
-
 }
 
 main {
   justify-content: space-evenly;
   text-align: justify;
   flex: 1;
-  color: var(--tea-70);
+  color: var(--teal-70);
+}
+
+.visually-hidden {
+  position: absolute;
+  left: -9999px;
 }
 
 section {
@@ -169,11 +178,12 @@ section {
   align-content: center;
   margin-bottom: 2rem;
   padding: 0 2rem;
+
 }
 
-#facts {
-  gap: var(--height-sm);
-  margin-bottom: 0;
+section p {
+
+  padding: 0 .5rem;
 
 }
 
@@ -182,7 +192,7 @@ section {
 }
 
 #quizSection {
-  padding: clamp(0 10rem, 75%, 20rem);
+  padding: clamp(0 1rem, 75%, 20rem);
 }
 
 #quiz-form {
@@ -192,24 +202,21 @@ section {
   border: var(--teal-70) 3px solid;
   border-radius: 1rem;
   box-shadow: var(--shadow-lg);
-  margin: clamp(.5rem, 50%, 1rem)
+  margin: clamp(0, 35%, 1rem);
+  min-width: 300px;
 }
-
 
 .card-header {
   background-color: var(--teal-70);
-  border: var(--teal-70) 2cqmin solid;
+  border: var(--teal-70) 2px solid;
   width: 100%;
   text-align: center;
   color: var(--text-light);
   margin: 0;
   border-top-left-radius: .75rem;
   border-top-right-radius: .75rem;
-  padding: clamp(.5rem, 50%, 1.5rem);
-
+  padding: 1rem
 }
-
-
 
 fieldset {
   display: flex;
@@ -225,7 +232,6 @@ fieldset {
 label input[type="radio"] {
   height: 1rem;
   width: 1rem;
-  border: 2px solid var(--accent-coral);
   cursor: pointer;
   color: var(--accent-coral);
 }
@@ -243,25 +249,13 @@ label {
   padding: .5rem;
   border-radius: .5rem;
   color: var(--background-light);
-  text-wrap: wrap;
 }
 
-label :focus {
-  display: flex;
-  justify-items: center;
-  position: relative;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 300;
-  column-gap: 1rem;
-  background-color: var(---70);
-  color: var(--background-light);
-  border-color: 2px solid (--accent-coral);
-
-}
 
 label:hover {
-  border-color: 2px solid (--accent-coral);
+
+  background-color: var(--accent-coral);
+  color: var(--background-dark);
 }
 
 #quizOptions {
@@ -278,20 +272,19 @@ button {
   background-color: var(--teal-70);
   color: var(--text-light);
   box-shadow: var(--shadow-md);
-  border-radius: 1rem;
+  border-radius: .5rem;
   border: var(--teal-70) 1px solid;
   font-size: var(--default-font);
   height: var(--height-sm);
   font-weight: 600;
   margin-bottom: 2rem;
   width: 100%;
-  padding: 0 2rem;
+  padding: 1 2rem;
 }
 
-botton:hover {
+button:hover {
   background: var(--accent-coral);
   color: #022b30;
-
 }
 
 .informative-image {
@@ -308,29 +301,34 @@ footer {
   bottom: 0;
   width: 100vw;
   height: auto;
-  padding: 0 2rem;
+  padding: 0 15vw;
   background-color: var(--teal-70);
-  bottom: 0;
   color: var(--text-light);
-  padding: 0
 }
 
 .footer-content {
   text-wrap: wrap;
   padding: 0 2rem;
+  color: var(--background-light);
 }
 
+footer p {
+  color: var(--background-light);
+}
 
-
+/* Media Queries */
 @media (min-width: 52rem) {
 
-  H2,
-  h3 {
-    transform: scale(125%);
-  }
+
 
   main {
     text-align: left;
+  }
+
+  section p {
+
+    padding: 0 6rem;
+
   }
 
   #decorative-img {
@@ -338,11 +336,19 @@ footer {
   }
 
   .card-header {
-    padding: 0 3rem;
+    padding: 1rem 3rem;
   }
 
   #quizSection {
-    padding: 0 20rem;
+    flex-direction: column;
+
+    padding: 0 15rem;
+
+  }
+
+  #quiz-form {
+    max-width: 50vw;
+
   }
 
   #quizInstructions {
@@ -350,10 +356,12 @@ footer {
     text-align: center;
   }
 
+  label {
+    width: 15vw;
+  }
 
   .informative-image {
     width: 75dvw;
     margin-bottom: var(--height-sm);
   }
-
 }
