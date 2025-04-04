@@ -1,8 +1,7 @@
-// Quiz answers - most unlikely alternatives
 const ANSWERS = {
   question1: 'tom',
   question2: 'crumbles',
-  question3: 'gandalf'
+  question3: 'smeagol'
 };
 
 // DOM Elements
@@ -15,22 +14,22 @@ const errorMessages = {
   question3: document.getElementById('error-question3')
 };
 
-// Handle form submission
+// form submission
 quizForm.addEventListener('submit', (e) => {
   e.preventDefault();
   
-  // Get all selected answers
+  
   const answers = {
     question1: document.querySelector('input[name="question1"]:checked') ? document.querySelector('input[name="question1"]:checked').value : null,
     question2: document.querySelector('input[name="question2"]:checked') ? document.querySelector('input[name="question2"]:checked').value : null,
     question3: document.querySelector('input[name="question3"]:checked') ? document.querySelector('input[name="question3"]:checked').value : null
   };
 
-  // Validate answers
+  
   let score = 0;
   let errors = [];
 
-  // Check each answer using a for loop
+  
   for (let i = 1; i <= 3; i++) {
     const question = 'question' + i;
     const selectedAnswer = answers[question];
@@ -51,18 +50,17 @@ quizForm.addEventListener('submit', (e) => {
     }
   }
 
-  // Show results
+  
   if (errors.length > 0) {
     quizResults.innerHTML = '<p>Please answer all questions: ' + errors.join(', ') + '</p>';
   } else {
     quizResults.innerHTML = '<p>Your score: ' + score + ' out of 3</p>';
   }
   
-  // Scroll to results section
+  
   quizResults.closest('section').scrollIntoView({ behavior: 'smooth' });
 });
 
-// Get all interactive elements
 const interactiveElements = {
   links: document.querySelectorAll('a'),
   radioButtons: document.querySelectorAll('input[type="radio"]'),
@@ -70,7 +68,7 @@ const interactiveElements = {
   radioGroups: document.querySelectorAll('[role="radiogroup"]')
 };
 
-// Handle keyboard navigation
+// keyboard navigation
 document.addEventListener('keydown', (e) => {
   const activeElement = document.activeElement;
   
@@ -149,7 +147,6 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-// Clear error messages when selecting a new answer
 const allRadioButtons = document.querySelectorAll('input[type="radio"]');
 
 allRadioButtons.forEach((radio) => {
