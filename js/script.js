@@ -80,6 +80,12 @@ function loadQuestion() {
         label.tabIndex = 0;
         label.appendChild(btn);
         label.append(` ${element}`);
+        label.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                btn.click();
+            }
+        });
         quizOptions === null || quizOptions === void 0 ? void 0 : quizOptions.appendChild(label);
     });
     trapFocus();

@@ -105,6 +105,13 @@ function loadQuestion(): void {
     label.appendChild(btn);
     label.append(` ${element}`)
 
+    label.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        btn.click(); // Ensure the button is clicked, not the label
+      }
+    });
+
     // submitAnswer.onclick = (event) => {
     //   event.preventDefault(); //Stops form submission from refreshing the page
 
