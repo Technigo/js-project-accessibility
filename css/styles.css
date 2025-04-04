@@ -236,6 +236,11 @@ label input[type="radio"] {
   color: var(--accent-coral);
 }
 
+label input[type="radio"]:focus {
+
+  border: var(--accent-coral) 2px solid;
+}
+
 label {
   display: flex;
   justify-items: center;
