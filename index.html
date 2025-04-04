@@ -25,21 +25,21 @@
         </ul>
       </nav>
     </header>
+    <section class="banner" aria-hidden="true"></section>
+
     <div class="wrapper">
       <main role="main">
-        <section class="banner" aria-hidden="true"></section>
-
         <section id="quiz-introduction" class="quiz-introduction">
           <div
             class="quiz-introduction-container"
             id="quiz-introduction-container"
           >
-            <h2>The Accessibility Quiz</h2>
             <img
               src="/images/diveristy.svg"
               style="height: 500px"
               alt="Illustration of a developer making a website more accessible."
             />
+            <h2>The Accessibility Quiz</h2>
 
             <p>
               It’s time to level up your skills and dive into the world of web
@@ -61,12 +61,12 @@
               HTML, keyboard-friendly interactions, and screen reader-friendly
               markup.
             </p>
-          </div>
 
-          <div class="quiz-control">
-            <button id="intro-continue" type="button" class="start-quiz">
-              Start Quiz
-            </button>
+            <div class="quiz-control">
+              <button id="intro-continue" type="button" class="start-quiz">
+                Start Quiz
+              </button>
+            </div>
           </div>
         </section>
 
@@ -87,14 +87,18 @@
               <legend id="question1-legend">
                 What is the purpose of alt text on images?
               </legend>
-              <input
-                type="radio"
-                name="What is the purpose of alt text on images?"
-                value="Adds captions to videos"
-                id="question1-a"
-                aria-describedby="question1-legend"
-              />
-              <label for="question1-a">Adds captions to videos</label>
+
+              <label for="question1-a">
+                <input
+                  type="radio"
+                  name="What is the purpose of alt text on images?"
+                  value="Adds captions to videos"
+                  id="question1-a"
+                  aria-describedby="question1-legend"
+                />
+                Adds captions to videos
+              </label>
+
               <br />
 
               <label for="question1-b">
@@ -127,14 +131,17 @@
               <legend id="question2-legend">
                 Which element is used to group related form controls?
               </legend>
-              <input
-                type="radio"
-                name="Which element is used to group related form controls?"
-                value="<div>"
-                id="question2-a"
-                aria-describedby="question2-legend"
-              />
-              <label for="question2-a"> &lt;div&gt;</label>
+              <label for="question2-a">
+                <input
+                  type="radio"
+                  name="Which element is used to group related form controls?"
+                  value="<div>"
+                  id="question2-a"
+                  aria-describedby="question2-legend"
+                />
+                &lt;div&gt;</label
+              >
+
               <br />
 
               <label for="question2-b">
@@ -169,14 +176,16 @@
               <legend id="question3-legend">
                 What does aria-live="polite" do?
               </legend>
-              <input
-                type="radio"
-                name='What does aria-live="polite" do?'
-                value="Hides content from screen readers"
-                id="question3-a"
-                aria-describedby="question3-legend"
-              />
-              <label for="question3-a">Hides content from screen readers</label>
+              <label for="question3-a">
+                <input
+                  type="radio"
+                  name='What does aria-live="polite" do?'
+                  value="Hides content from screen readers"
+                  id="question3-a"
+                  aria-describedby="question3-legend"
+                />
+                Hides content from screen readers</label
+              >
               <br />
 
               <label for="question3-b">
@@ -203,7 +212,7 @@
 
             <div class="quiz-progress">
               <div id="progress-steps"></div>
-              <p id="progress-text" aria-live="polite" class="sr-only"></p>
+              <p id="progress-text" aria-live="polite"></p>
             </div>
             <div id="btn-container">
               <button
