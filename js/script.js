@@ -175,6 +175,5 @@ function changeFont(event) {
 document.addEventListener('DOMContentLoaded', () => {
     const fontToggle = document.getElementById('font-toggle');
     fontToggle.addEventListener('change', changeFont);
-    fontToggle.focus();
 });
 loadQuestion();

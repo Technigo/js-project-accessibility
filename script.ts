@@ -32,7 +32,6 @@ const score = document.getElementById("score") as HTMLSpanElement
 const restartBtn = document.getElementById("restartBtn") as HTMLButtonElement
 const submitAnswer = document.getElementById("submitAnswer") as HTMLButtonElement
 const quizFeedback = document.getElementById("quizFeedback") as HTMLDivElement
-//const btn = document.createElement("input") as HTMLButtonElement
 
 let index = 0, scr = 0;
 let selectedOption: string | null = null;
@@ -249,8 +248,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add event listener for font selection change
   fontToggle.addEventListener('change', changeFont);
 
-  // Optional: focus on the select dropdown to improve accessibility
-  fontToggle.focus();
 });
 
 loadQuestion();
