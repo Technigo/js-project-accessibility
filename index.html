@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <a href="#main" class="skip-link" aria-label="Skip to main content">Skip to main content</a>
+    <a href="#main" class="skip-link">Skip to main content</a>
     <header id="header" role="banner">
       <div class="header-content">
         <h1>Web Accessibility Quiz</h1>
@@ -28,7 +28,7 @@
       <section id="quizIntroduction" aria-labelledby="intro-heading">
         <h2 id="intro-heading">Introduction</h2>
         <p>Welcome to our Web Accessibility Quiz! This interactive quiz will help you learn about web accessibility features while having fun with a Lord of the Rings theme. Each question explores different aspects of accessibility challenges and solutions.</p>
-        <div class="image-container" aria-label="Decorative images">
+        <div class="image-container">
           <img 
             src="images/mountains.jpg" 
             id="mountains" 
@@ -46,7 +46,7 @@
 
       <section id="quizQuestions" aria-labelledby="quiz-heading">
         <h2 id="quiz-heading">Lord of the Rings Accessibility Quiz</h2>
-        <form id="quiz-form" novalidate aria-label="Quiz questions">
+        <form id="quiz-form" novalidate>
           <fieldset id="question1">
             <legend id="q1-legend">Who would have the hardest time using a computer, seen to their disability?</legend>
             <div role="radiogroup" aria-labelledby="q1-legend" aria-required="true" tabindex="0">
@@ -167,7 +167,7 @@
           </fieldset>
 
           <div id="feedback-region" class="sr-only" role="status" aria-live="polite"></div>
-          <button type="submit" aria-label="Submit quiz answers">Submit Quiz</button>
+          <button type="submit">Submit Quiz</button>
         </form>
       </section>
 
