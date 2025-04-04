@@ -8,15 +8,12 @@
   --focus-ring-color: #282459;
   --text-color: #2c2c2c;
   --border-color: black;
-  --hover-bg: rgba(0, 0, 0, 0.05);
   --transition-speed: 0.3s;
-  --high-contrast-bg: #000;
-  --high-contrast-text: #fff;
-
+  --high-contrast-bg: #282459;
+  --high-contrast-text: #000000;
   --button_radius: 0.75em;
 }
 
-/* Apply box-sizing border-box to all elements */
 *,
 *::before,
 *::after {
@@ -31,7 +28,70 @@ body {
   padding: 0;
 }
 
-/* Skip link with enhanced visibility */
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  align-items: center;
+  position: relative;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+nav ul {
+  display: flex;
+  font-family: Rubik, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  color: var(--text-color);
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0.2rem;
+}
+
+h1 {
+  display: flex;
+  padding: 0;
+  justify-content: center;
+  font-family: Rubik, sans-serif;
+  font-size: 25px;
+}
+
+h2 {
+  font-family: Rubik, sans-serif;
+  color: var(--text-color);
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+
+a:link {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--text-color);
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
 .skip-link {
   position: absolute;
   top: -40px;
@@ -76,7 +136,6 @@ body {
   text-align: center;
   padding: 0.3rem 0;
   border-radius: 0.2rem;
-
   /* Position the tooltip text */
   position: absolute;
   z-index: 10;
@@ -107,58 +166,6 @@ body {
   opacity: 1;
 }
 
-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  align-items: center;
-  position: relative;
-}
-
-nav ul {
-  display: flex;
-  gap: 1rem;
-  list-style: none;
-  padding: 0;
-  margin: 0.2re;
-}
-
-h1 {
-  font-size: 25px;
-}
-
-h2 {
-  align-items: center;
-}
-
-h1 {
-  display: flex;
-  padding: 0;
-  justify-content: center;
-}
-
-a {
-  text-decoration: none;
-}
-
-/* unvisited link */
-a:link {
-  color: var(--text-color);
-}
-
-/* visited link */
-a:visited {
-  color: var(--primary-color);
-}
-
-/* mouse over link */
-a:hover {
-  color: var(--accent-color);
-}
-
 /* Full-width banner */
 #banner {
   margin: -20px -20px 2rem;
@@ -179,12 +186,12 @@ a:hover {
 
 #introduction {
   display: flex;
-  flex-direction: column; /* Mobile first */
+  flex-direction: column;
   align-items: center;
   gap: 1rem;
-  max-width: 600px; /* sätter en trevlig bredd */
-  margin: 0 auto; /* centrerar elementet horisontellt */
-  padding: 1rem; /* lite luft runt */
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
 section {
@@ -205,10 +212,11 @@ form {
   padding: 1rem;
 }
 
-.toggle-element {
-  position: absolute;
-  right: 100px;
-  top: 70px;
+#toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 999;
 }
 
 /* The switch - the box around the slider */
@@ -217,7 +225,7 @@ form {
   display: inline-block;
   width: 60px;
   height: 34px;
-  padding-left: 10px;
+  margin-left: 4rem;
 }
 
 /* Hide default HTML checkbox */
@@ -280,12 +288,26 @@ input:checked + .slider:before {
 
 .high-contrast {
   background-color: var(--high-contrast-bg);
-  color: var(--high-contrast-text);
+  color: var(--primary-color);
 }
 
 .high-contrast h1,
-h2 {
+.high-contrast h2 {
+  color: var(--primary-color);
+}
+
+.high-contrast a:link {
+  color: var(--primary-color);
+}
+.high-contrast a:visited {
+  color: var(--primary-color);
+}
+.high-contrast a:hover {
   color: var(--high-contrast-text);
+}
+.high-contrast .tooltip .tooltiptext {
+  background-color: var(--primary-color);
+  color: var(--text-color);
 }
 
 .high-contrast fieldset {
@@ -296,7 +318,21 @@ h2 {
 .high-contrast fieldset label,
 .high-contrast fieldset p,
 .high-contrast fieldset span {
-  color: var(--primary-color)
+  color: var(--high-contrast-text);
+}
+
+.high-contrast #submit-button {
+  background-color: var(--high-contrast-bg);
+  color: var(--primary-color);
+  border: 1px solid var(--high-contrast-text);
+  border-right: 3px solid var(--high-contrast-text);
+  border-bottom: 3px solid var(--high-contrast-text);
+}
+
+.high-contrast #submit-button:hover {
+  background-color: var(--high-contrast-text);
+  color: var(--primary-color);
+  border: 3px solid var(--high-contrast-bg);
 }
 
 fieldset {
@@ -308,7 +344,6 @@ fieldset {
   margin: 0.5rem;
   border-radius: 0.5rem;
   background-color: var(--primary-color);
-  /* box-shadow: 0.1rem 0.1rem 0.2rem #2c2c2c; */
 }
 
 legend {
@@ -356,7 +391,7 @@ label input {
 .error-feedback {
   display: inline-block;
   border-bottom: 3px solid var(--error-color);
-  padding-bottom: 0.2em; 
+  padding-bottom: 0.2em;
 }
 
 .success-feedback {
@@ -421,9 +456,8 @@ footer {
 @media (min-width: 600px) {
   .banner img {
     width: 100%;
-    height: 0vh; /* Bilden fyller hela höjden */
-    object-fit: cover; /* Croppar så att bilden täcker */
-    object-position: center; /* (valfritt) styr vilket område som syns */
+    object-fit: cover;
+    object-position: center;
   }
 
   h1 {

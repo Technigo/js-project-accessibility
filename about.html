@@ -8,6 +8,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
       href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
@@ -16,15 +22,7 @@
   <body>
     <a href="#main-content" class="skip-link">Skip to main content!</a>
     <header>
-      <!-- Rounded switch -->
-      <div class="tooltip">
-        <label class="switch" aria-label="High contrast toggle">
-          <input type="checkbox" id="toggle" />
-          <span class="slider"></span>
-        </label>
-        <span class="tooltiptext">Toggle High Contrast</span>
-      </div>
-      <h1>About</h1>
+      <h1>Web Accessibility Quiz</h1>
       <nav role="navigation" aria-label="Main menu">
         <ul>
           <li>
@@ -34,35 +32,38 @@
             <a href="about.html">About</a>
           </li>
         </ul>
+        <div class="tooltip">
+          <label class="switch" aria-label="High contrast toggle">
+            <input type="checkbox" id="toggle" />
+            <span class="slider"></span>
+          </label>
+          <span class="tooltiptext">Toggle High Contrast</span>
+        </div>
       </nav>
     </header>
 
     <main id="main-content">
       <section class="team">
         <article class="presentation">
-          <img src="assets/linda.jpg" alt="picture of Linda" />
+          <img src="assets/linda.jpg" alt="" />
           <p>
             Hey! I'm <strong>Linda</strong>, a student at Technigo. I believe
             accessibility is essential — not only because the internet should be
             available to everyone, but also because it enhances the user
             experience for all. <br /><br />
-            <a href="https://github.com/LindaSchonfeldt"
-              >View Lindas other projects here!</a
-            >
+            <a href="https://github.com/LindaSchonfeldt">Visit Lindas Github</a>
           </p>
           <!--Gör om till länk-->
         </article>
         <article class="presentation">
-          <img src="assets/cathi.jpg" alt="picture of Cathi" />
+          <img src="assets/cathi.jpg" alt="" />
           <p>
             Hi! My name is <strong>Cathi</strong> and I am currently studying
             JavaScript at Technigo. I have always dreamed about learning
             programming and in January i finally took the chance. I think that
             this project, Web Accessibility, that we're working on right now is
             super important. The www is for all! <br /><br />
-            <a href="https://github.com/violacathrine"
-              >View Cathis other projects here</a
-            >
+            <a href="https://github.com/violacathrine">Visit Cathis Github</a>
           </p>
         </article>
       </section>
