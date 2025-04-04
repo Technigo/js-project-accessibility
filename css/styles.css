@@ -289,13 +289,14 @@ h2 {
 }
 
 .high-contrast fieldset {
-  color: var(--high-contrast-text)
+  color: var(--high-contrast-text);
+}
 
 .high-contrast fieldset legend,
 .high-contrast fieldset label,
 .high-contrast fieldset p,
 .high-contrast fieldset span {
-  color: var(--primary-color);
+  color: var(--primary-color)
 }
 
 fieldset {
@@ -355,13 +356,13 @@ label input {
 .error-feedback {
   display: inline-block;
   border-bottom: 3px solid var(--error-color);
-  padding-bottom: 0.2em; /* skapar avstånd från texten */
+  padding-bottom: 0.2em; 
 }
 
 .success-feedback {
   display: inline-block;
   border-bottom: 3px solid var(--success-color);
-  padding-bottom: 0.2em; /* skapar avstånd från texten */
+  padding-bottom: 0.2em;
 }
 
 #result-container {
