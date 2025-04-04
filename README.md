@@ -1,9 +1,9 @@
 # Web Accessibility Project
 
-A basic web server template focused on web accessibility practices.
+We built this website as a project focused on web accessibility. The goal was to learn how to develop inclusive digital experiences that work for everyone, regardless of their functional ability.  
+We worked with semantic HTML, proper use of ARIA attributes, clear color contrast, keyboard navigation, and responsive design.  
+The project is built with HTML, CSS, and JavaScript, and is published via Netlify.
 
-### Installation
+# Live site
 
-1. Fork this repository by clicking the "Fork" button at the top right of the GitHub repository page.
-
-2. Clone your forked repository
+https://accessibility-project.netlify.app/

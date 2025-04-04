@@ -14,12 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Restore the toggle state from localStorage so the state doesn't change on reloading the page
   const isHighContrast = localStorage.getItem("highContrast") === "true"
   if (isHighContrast) {
-    console.log("Applying saved high-contrast mode")
     toggle.classList.add("active")
     toggle.checked = true
     body.classList.add("high-contrast")
   } else {
-    console.log("Starting in default mode")
     toggle.classList.remove("active")
     toggle.checked = false // To make the toggle visually reflect the state
     body.classList.remove("high-contrast")
@@ -35,15 +33,11 @@ const toggleContrast = () => {
   const body = document.body
   const toggle = document.getElementById("toggle")
 
-  console.log("High contrast switch toggled")
-
   if (!toggle.classList.contains("active")) {
-    console.log("Activating high contrast")
     toggle.classList.add("active")
     body.classList.add("high-contrast")
     localStorage.setItem("highContrast", "true") // Save preference to localStorage
   } else {
-    console.log("Deactivating high contrast")
     toggle.classList.remove("active")
     body.classList.remove("high-contrast")
     localStorage.setItem("highContrast", "false") // Save preference to localStorage

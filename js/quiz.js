@@ -3,7 +3,6 @@ const submitButton = document.getElementById("submit-button");
 
 submitButton.addEventListener("click", (event) => {
   event.preventDefault(); // Prevent the form from reloading the page
-  console.log("Submit button clicked");
   submitAnswers();
 });
 
@@ -64,7 +63,7 @@ const displayUserFeedback = (userAnswers, correctAnswers) => {
       feedbackDiv.innerHTML = `<p><strong>Correct!</strong> "${correctText}" is the right answer!</p>`;
     } else if (userAnswer === null) {
       feedbackDiv.classList.add("error-feedback");
-      feedbackDiv.innerHTML = `<p>You forgot to answer!</p>`;
+      feedbackDiv.innerHTML = `<p><strong>You forgot to answer!</strong></p>`;
     } else {
       feedbackDiv.classList.add("error-feedback");
       feedbackDiv.innerHTML = `<p><strong>Wrong!</strong> The right answer is "${correctText.toLowerCase()}".</p>`;

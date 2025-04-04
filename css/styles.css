@@ -4,7 +4,7 @@
   --accent-color: #f77f5b;
   --error-color: #801024;
   --success-color: #274a34;
-  --focus-outline: 3px solid var(--accent-color);
+  --focus-outline: 3px solid #000;
   --focus-ring-color: #282459;
   --text-color: #2c2c2c;
   --border-color: black;
@@ -90,7 +90,7 @@ a:hover {
   position: absolute;
   top: -40px;
   left: 0;
-  background: var(--background-color);
+  background: var(--primary-color);
   color: var(--text-color);
   padding: 8px;
   z-index: 100;
@@ -100,7 +100,6 @@ a:hover {
 .skip-link:focus {
   top: 0;
   outline: var(--focus-outline);
-  outline-offset: 2px;
 }
 
 .visually-hidden {
@@ -282,9 +281,9 @@ input:checked + .slider:before {
   color: var(--high-contrast-text);
 }
 
-.high.contrast .skip-link {
-  background: var(--high-contrast-bg);
-  color: var(--high-contrast-text);
+.high-contrast .skip-link {
+  background: var(--high-contrast-text);
+  color: var(--primary-color); 
 }
 
 .high-contrast .tooltip .tooltiptext {
@@ -322,7 +321,6 @@ input:checked + .slider:before {
 }
 
 /* Quiz form styles*/
-
 fieldset {
   border: 1px solid var(--border-color);
   border-right: 4px solid var(--border-color);
@@ -343,11 +341,6 @@ legend {
   margin-bottom: 0.5rem;
   border-radius: 0.5rem;
   font-weight: bold;
-}
-
-legend::after {
-  content: " *";
-  color: var(--error-color);
 }
 
 label {
@@ -434,12 +427,16 @@ p {
 
 footer {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
   padding-top: 2rem;
   padding-bottom: 2rem;
   align-items: center;
+}
+
+svg {
+  width: 18px;
+  height: auto;
 }
 
 @media (min-width: 600px) {
