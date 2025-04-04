@@ -225,9 +225,10 @@ form {
 }
 
 /* Not working */
-.switch:focus {
-  outline: var(--focus-outline);
+.switch input:focus + .slider {
+  outline: 2px solid;
   outline-offset: 2px;
+  outline-color: var(--focus-outline);
 }
 
 /* The slider */
