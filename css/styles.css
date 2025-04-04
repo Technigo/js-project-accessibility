@@ -1,0 +1,465 @@
+:root {
+  --primary-color: #f9f9f9;
+  --background-color: #fca788;
+  --accent-color: #f77f5b;
+  --error-color: #801024;
+  --success-color: #274a34;
+  --focus-outline: 3px solid #000;
+  --focus-ring-color: #282459;
+  --text-color: #2c2c2c;
+  --border-color: black;
+  --transition-speed: 0.3s;
+  --high-contrast-bg: #282459;
+  --high-contrast-text: #000000;
+  --button_radius: 0.75em;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Sans", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  align-items: center;
+  position: relative;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+nav ul {
+  display: flex;
+  font-family: Rubik, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  color: var(--text-color);
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0.2rem;
+}
+
+h1 {
+  display: flex;
+  padding: 0;
+  justify-content: center;
+  font-family: Rubik, sans-serif;
+  font-size: 25px;
+}
+
+h2 {
+  font-family: Rubik, sans-serif;
+  color: var(--text-color);
+  margin-bottom: 0.2rem;
+}
+
+a,
+a:link,
+a:visited {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary-color);
+  color: var(--text-color);
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: var(--focus-outline);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 7rem;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 0.3rem 0;
+  border-radius: 0.2rem;
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 10;
+  top: 130%;
+  left: 50%;
+  margin-left: -60px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Full-width banner */
+#banner {
+  margin: -20px -20px 2rem;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+}
+
+#banner img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+#introduction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+#toggle-element {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 999;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-left: 2rem;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  border-radius: 34px;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+/* The actual moveable "button" */
+.slider:before {
+  position: absolute;
+  border-radius: 50%;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--primary-color);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+/* When the slider is activated */
+input:checked + .slider {
+  background-color: var(--success-color);
+}
+
+/* Focus effect */
+.switch input:focus-visible + .slider {
+  box-shadow: 0 0 0 3px var(--text-color);
+}
+
+/* When the button is activated - move the slider */
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* High contrast mode styles */
+.high-contrast {
+  background-color: var(--high-contrast-bg);
+  color: var(--primary-color);
+}
+
+.high-contrast h1,
+.high-contrast h2 {
+  color: var(--primary-color);
+}
+
+.high-contrast a:link,
+.high-contrast a:visited {
+  color: var(--primary-color);
+}
+
+.high-contrast a:hover {
+  color: var(--high-contrast-text);
+}
+
+.high-contrast .skip-link {
+  background: var(--high-contrast-text);
+  color: var(--primary-color); 
+}
+
+.high-contrast .tooltip .tooltiptext {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+.high-contrast .switch input:focus-visible + .slider {
+  box-shadow: 0 0 0 3px var(--primary-color);
+}
+
+.high-contrast fieldset {
+  color: var(--high-contrast-text);
+}
+
+.high-contrast fieldset legend,
+.high-contrast fieldset label,
+.high-contrast fieldset p,
+.high-contrast fieldset span {
+  color: var(--high-contrast-text);
+}
+
+.high-contrast #submit-button {
+  background-color: var(--high-contrast-bg);
+  color: var(--primary-color);
+  border: 1px solid var(--high-contrast-text);
+  border-right: 3px solid var(--high-contrast-text);
+  border-bottom: 3px solid var(--high-contrast-text);
+}
+
+.high-contrast #submit-button:hover {
+  background-color: var(--high-contrast-text);
+  color: var(--primary-color);
+  border: 3px solid var(--high-contrast-bg);
+}
+
+/* Quiz form styles*/
+fieldset {
+  border: 1px solid var(--border-color);
+  border-right: 4px solid var(--border-color);
+  border-bottom: 5px solid var(--border-color);
+  width: 100%;
+  max-width: 18rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: var(--primary-color);
+}
+
+legend {
+  background-color: var(--primary-color);
+  border: 1px solid var(--border-color);
+  border-right: 3px solid var(--border-color);
+  border-bottom: 3px solid var(--border-color);
+  padding: 1em;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+}
+
+label {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+label input {
+  margin: 0;
+}
+
+#submit-button {
+  font-size: 17px;
+  font-weight: bold;
+  border: 1px solid var(--border-color);
+  border-right: 3px solid var(--border-color);
+  border-bottom: 3px solid var(--border-color);
+  background: var(--accent-color);
+  border-radius: var(--button_radius);
+  padding: 0.8rem;
+  margin: 0.8rem;
+}
+
+#submit-button:hover {
+  background: var(--primary-color);
+}
+
+.error-feedback {
+  display: inline-block;
+  border-bottom: 3px solid var(--error-color);
+  padding-bottom: 0.2em;
+}
+
+.success-feedback {
+  display: inline-block;
+  border-bottom: 3px solid var(--success-color);
+  padding-bottom: 0.2em;
+}
+
+#result-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--primary-color);
+}
+
+#results-container h2 {
+  margin: 1rem 0;
+  padding: 0;
+}
+
+#results-container p {
+  margin: 0;
+  padding: 0;
+}
+
+/* About-page styling*/
+.team {
+  justify-content: center;
+  flex-direction: row;
+}
+
+.presentation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.presentation img {
+  max-height: 200px;
+  max-width: 200px;
+  border-radius: 150px;
+  margin-bottom: 10px;
+}
+
+.presentation h2,
+p {
+  margin: 0.5rem;
+  padding: 0;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  align-items: center;
+}
+
+svg {
+  width: 18px;
+  height: auto;
+}
+
+@media (min-width: 600px) {
+  .banner img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  #introduction {
+    max-width: 600px;
+  }
+
+  .presentation {
+    max-width: 600px;
+    flex-direction: row;
+    gap: 0.8rem;
+  }
+
+  fieldset {
+    max-width: 600px;
+  }
+}
