@@ -94,7 +94,15 @@ const quizQuestions = [
 ];
 
 // DARK MODE BUTTON FUNCTIONALITY
-//  need a btn that toggles darkmode
+const darkLightFunc = () => {
+  const darkModeBtn = document.getElementById("dark-mode-btn");
+  darkModeBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const element = document.body;
+    element.classList.toggle("dark-mode");
+  });
+};
+darkLightFunc();
 
 //  HERO BUTTON SCROLL
 const ctaBtn = document.querySelector(".cta-btn");
@@ -204,16 +212,11 @@ const displayQuizQuestions = () => {
       }
     };
 
-    // need to put this somehwhere else so that quiz isnt focused immediately on page load/reload
-    quizInputs[0].focus();
-
     updateNextButtonState();
 
-    quizInputs.forEach((input) => {
-      input.addEventListener("change", () => {
-        updateNextButtonState();
-      });
-    });
+    if (currentQuestionIndex === 0 && quizInputs.length > 0) {
+      quizInputs[0].focus();
+    }
 
     if (currentQuestionIndex === 0) {
       prevBtn.textContent = "No previous questions";
