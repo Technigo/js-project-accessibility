@@ -61,7 +61,7 @@ function loadQuestion(): void {
     btn.name = "option";
     btn.id = `option-${i}`; // Unique ID for accessibility
     btn.value = `${i + 1}. ${element}`;
-    btn.tabIndex = -1;
+    btn.tabIndex = 0;
     btn.setAttribute("aria-labelledby", `label-${i}`); //V Uses aria-labelledby for better screen reader support
     btn.setAttribute("role", "radio"); //V     
 
@@ -99,7 +99,8 @@ function loadQuestion(): void {
     const label = document.createElement("label");
     label.htmlFor = btn.id;
     label.id = `label-${i}`;
-    label.tabIndex = 0;
+    //label.tabIndex = 0;
+    label.onkeyup = enterSubmit(event);
 
     label.appendChild(btn);
     label.append(` ${element}`)
