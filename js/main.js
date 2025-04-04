@@ -160,23 +160,20 @@ const displayQuizQuestions = () => {
 
     const quizContainer = document.getElementById("quiz-container");
 
-    quizContainer.innerHTML = `<fieldset class="question-${
-      currentQuizQuestion.questionNumber
-    }">
+    quizContainer.innerHTML = `<fieldset class="question-${currentQuizQuestion.questionNumber
+      }">
               <legend>${currentQuizQuestion.question}</legend>
               ${quizAnswers
-                .map((answer, i) => {
-                  return `<div class="quiz-option"  >
-                <input class="quiz-input" role="radio" type="radio" id="option-${
-                  i + 1
-                }" name="q${currentQuizQuestion.questionNumber}" value="${
-                    answer.value
-                  }" required />
+        .map((answer, i) => {
+          return `<div class="quiz-option"  >
+                <input class="quiz-input" role="radio" type="radio" id="option-${i + 1
+            }" name="q${currentQuizQuestion.questionNumber}" value="${answer.value
+            }" required />
                 <label for="option-${i + 1}">${answer.label}</label>
               </div>
             `;
-                })
-                .join("")}
+        })
+        .join("")}
             </fieldset>
             <p id="warning-message" aria-live="polite">
               
@@ -214,9 +211,9 @@ const displayQuizQuestions = () => {
 
     updateNextButtonState();
 
-    if (currentQuestionIndex === 0 && quizInputs.length > 0) {
-      quizInputs[0].focus();
-    }
+    // if (currentQuestionIndex === 0 && quizInputs.length > 0) {
+    //   quizInputs[0].focus();
+    // }
 
     if (currentQuestionIndex === 0) {
       prevBtn.textContent = "No previous questions";
@@ -245,6 +242,10 @@ const displayQuizQuestions = () => {
     if (currentQuestionIndex < quizQuestions.length - 1) {
       currentQuestionIndex++;
       displayCurrentQuestion();
+      const quizInputs = document.querySelectorAll(`.quiz-input`);
+      if (quizInputs.length > 0) {
+        quizInputs[0].focus();
+      };
       prevBtn.disabled = false;
     } else if (currentQuestionIndex === quizQuestions.length - 1) {
       nextBtn.disabled = true;
