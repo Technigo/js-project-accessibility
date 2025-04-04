@@ -74,19 +74,12 @@ h2 {
   margin-bottom: 0.2rem;
 }
 
-a {
+a,
+a:link,
+a:visited {
   color: var(--text-color);
   text-decoration: none;
   transition: color var(--transition-speed);
-}
-
-a:link {
-  color: var(--text-color);
-  text-decoration: none;
-}
-
-a:visited {
-  color: var(--text-color);
 }
 
 a:hover {
@@ -224,12 +217,12 @@ form {
   height: 0;
 }
 
-/* Not working */
+/* Not working
 .switch input:focus + .slider {
   outline: 2px solid;
   outline-offset: 2px;
   outline-color: var(--focus-outline);
-}
+}*/
 
 /* The slider */
 .slider {
@@ -265,8 +258,8 @@ input:checked + .slider {
 }
 
 /* Focus effect */
-input:focus + .slider {
-  box-shadow: 0 0 1px var(--background-color);
+.switch input:focus-visible + .slider {
+  box-shadow: 0 0 0 3px var(--text-color);
 }
 
 /* When the button is activated - move the slider */
@@ -276,6 +269,7 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
+/* High contrast mode styles */
 .high-contrast {
   background-color: var(--high-contrast-bg);
   color: var(--primary-color);
@@ -286,12 +280,11 @@ input:checked + .slider:before {
   color: var(--primary-color);
 }
 
-.high-contrast a:link {
-  color: var(--primary-color);
-}
+.high-contrast a:link,
 .high-contrast a:visited {
   color: var(--primary-color);
 }
+
 .high-contrast a:hover {
   color: var(--high-contrast-text);
 }
@@ -304,6 +297,10 @@ input:checked + .slider:before {
 .high-contrast .tooltip .tooltiptext {
   background-color: var(--primary-color);
   color: var(--text-color);
+}
+
+.high-contrast .switch input:focus-visible + .slider {
+  box-shadow: 0 0 0 3px var(--primary-color);
 }
 
 .high-contrast fieldset {
