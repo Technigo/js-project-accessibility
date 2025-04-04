@@ -217,13 +217,6 @@ form {
   height: 0;
 }
 
-/* Not working
-.switch input:focus + .slider {
-  outline: 2px solid;
-  outline-offset: 2px;
-  outline-color: var(--focus-outline);
-}*/
-
 /* The slider */
 .slider {
   position: absolute;
@@ -328,6 +321,8 @@ input:checked + .slider:before {
   border: 3px solid var(--high-contrast-bg);
 }
 
+/* Quiz form styles*/
+
 fieldset {
   border: 1px solid var(--border-color);
   border-right: 4px solid var(--border-color);
@@ -411,6 +406,7 @@ label input {
   padding: 0;
 }
 
+/* About-page styling*/
 .team {
   justify-content: center;
   flex-direction: row;
