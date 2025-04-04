@@ -71,6 +71,7 @@ h1 {
 h2 {
   font-family: Rubik, sans-serif;
   color: var(--text-color);
+  margin-bottom: 0.2rem;
 }
 
 a {
@@ -225,7 +226,7 @@ form {
   display: inline-block;
   width: 60px;
   height: 34px;
-  margin-left: 4rem;
+  margin-left: 2rem;
 }
 
 /* Hide default HTML checkbox */
