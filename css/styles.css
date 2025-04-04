@@ -1,13 +1,16 @@
 :root {
-  --text-light-yellow: #fefee3ff;
+  /* --text-light-yellow: #fefee3ff; */
   --text-white: #ffffff;
   --text-black: #000000;
-  --dark-spring-green: #2c6e49ff;
-  --sea-green: #4c956cff;
+  /* --dark-spring-green: #2c6e49ff;
+  /* --sea-green: #4c956cff; */
 
-  --light-yellow: #fefee3ff;
+  /* --light-yellow: #fefee3ff;
   --melon: #ffc9b9ff;
-  --persian-orange: #d68c45ff;
+  --persian-orange: #d68c45ff;  */
+  --sea-green: #4c956cff;
+  --light-red: #ee442f;
+  --dark--blue: #18253b;
 }
 
 * {
@@ -18,7 +21,7 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: #fefee3ff;
+  background-color: white;
   color: #18253b;
   font-size: 1rem;
 }
@@ -81,15 +84,16 @@ nav a {
 }
 
 nav a:hover {
-  background-color: var(--melon);
+  background-color: var(--dark--blue);
+  color: #ffffff;
 }
 
 button:focus-visible,
 a:focus-visible,
 input:focus-visible {
-  outline: 3px solid var(--sea-green);
-  background-color: var(--melon);
-  color: var(--text-black);
+  outline: 3px solid var(--dark--blue);
+  background-color: var(--sea-green);
+  color: #ffffff;
 }
 
 #quiz-introduction:focus-visible,
@@ -111,7 +115,9 @@ input:focus-visible {
 }
 
 .skip-link:focus {
-  top: 1px;
+  top: 0;
+  outline: var(--focus-outline);
+  outline-offset: 2px;
 }
 
 .sr-only {
@@ -127,7 +133,7 @@ input:focus-visible {
 }
 
 button {
-  background-color: var(--dark-spring-green);
+  background-color: var(--sea-green);
   color: white;
   font-weight: bold;
   font-size: 1rem;
