@@ -1,0 +1,14 @@
+:root {
+  --primary: #fdeb3f;
+  --secondary: #121212;
+  --complementary: #FFFFFF;
+  --font-primary: #121212;
+  --font-primary-fixed: #121212;
+}
+
+.dark-mode {
+  --primary: #121212;
+  --secondary: #FFFFFF;
+  --complementary: #121212;
+  --font-primary: #FFFFFF;
+}

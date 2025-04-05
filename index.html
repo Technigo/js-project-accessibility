@@ -1,13 +1,375 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title</title>
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <p>This is the starting point.</p>
-    <script src="js/main.js"></script>
-  </body>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>Web Accessibility Quiz</title>
+  <link
+    rel="stylesheet"
+    href="css/color-palette.css"
+  />
+  <link
+    rel="stylesheet"
+    href="css/styles.css"
+  />
+  <!-- font awesome icons -->
+  <script
+    src="https://kit.fontawesome.com/beb1bc6f21.js"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="./dist/js/questions.js"
+    defer
+  ></script>
+  <script
+    src="./dist/js/main.js"
+    defer
+  ></script>
+</head>
+
+<body id="body">
+  <a
+    id="skip-to-main"
+    tabindex="0"
+    href="#main-content"
+    class="skip-link"
+  >Skip to main content</a>
+
+  <!-- #region --- Header  ----->
+  <header>
+    <button
+      id="menu-icon"
+      class="fas fa-bars"
+      aria-live="assertive"
+      aria-haspopup="true"
+      aria-expanded="false"
+      aria-controls="Menu"
+      aria-label="Open main menu"
+    ></button>
+
+    <nav
+      role="navigation"
+      aria-label="Main Menu"
+      id="nav-links"
+    >
+      <ul>
+        <li>
+          <a
+            id="index-page"
+            href="index.html"
+            tabindex="0"
+            aria-current="page"
+          >Home</a>
+        </li>
+        <li>
+          <a
+            id="about-page"
+            href="about.html"
+            tabindex="0"
+          >About</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- #endregion -->
+
+  <main id="main-content">
+    <!-- #region --- Start page  ----->
+    <section
+      id="start-page"
+      class="card"
+      role="region"
+      aria-labelledby="start-title"
+    >
+      <div
+        class="speech-bubble"
+        id="question container"
+      >
+        <img
+          src="./img/speech-bubble.webp"
+          alt="Speach bubble"
+          aria-hidden="true"
+        />
+
+        <div class="title-text">
+          <h1
+            id="start-title"
+            class="bubble-text"
+            tabindex="0"
+          >
+            Web Accessibility Quiz
+          </h1>
+        </div>
+      </div>
+
+      <p
+        class="page-description"
+        tabindex="0"
+      >
+        This quiz will test your knowledge of web accessibility principles and
+        best practices. Good luck!
+      </p>
+
+      <button
+        tabindex="0"
+        type="button"
+        id="start-quiz-btn"
+        class="submit-btn"
+      >
+        Start Quiz
+      </button>
+    </section>
+
+    <!-- #endregion -->
+
+    <!-- #region --- Quiz Container  ----->
+    <section
+      id="quiz-container"
+      class="card hide"
+      aria-labelledby="question-title"
+    >
+      <h2
+        tabindex="0"
+        id="question-title"
+        class=""
+      >
+        Question 1/3
+      </h2>
+
+      <div
+        class="speech-bubble"
+        id="question-container"
+      >
+        <img
+          src="./img/speech-bubble.webp"
+          alt="Speach bubble"
+          aria-hidden="true"
+        />
+        <div class="title-text">
+          <h3
+            id="question-text"
+            class="bubble-text"
+            tabindex="0"
+          >
+            Which of the following is NOT a principle of the WCAG?
+          </h3>
+        </div>
+      </div>
+
+      <form id="selection-form">
+        <fieldset aria-describedby="legend">
+          <!-- Lable fix -->
+          <legend
+            id="legend"
+            tabindex="0"
+          >
+            <p>Choose the correct answer:</p>
+          </legend>
+          <div class="radio-button-group">
+            <input
+              class=""
+              id="option-a"
+              name="question1"
+              type="radio"
+              value="A"
+              tabindex="-1"
+            />
+            <label
+              tabindex="0"
+              for="option-a"
+              class="options"
+            >option A</label>
+
+            <input
+              id="option-b"
+              name="question1"
+              type="radio"
+              value="B"
+              tabindex="-1"
+            />
+            <label
+              tabindex="0"
+              for="option-b"
+              class="options"
+            >option B</label>
+
+            <input
+              id="option-c"
+              name="question1"
+              type="radio"
+              value="C"
+              tabindex="-1"
+            />
+            <label
+              tabindex="0"
+              for="option-c"
+              class="options"
+            >option C</label>
+
+            <input
+              id="option-d"
+              name="question1"
+              type="radio"
+              value="D"
+              tabindex="-1"
+            />
+            <label
+              tabindex="0"
+              for="option-d"
+              class="options"
+            >option D</label>
+          </div>
+        </fieldset>
+
+        <div
+          id="answer-btn-container"
+          tabindex="0"
+        >
+          <button
+            type="button"
+            id="answer-btn"
+            class="submit-btn"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </section>
+    <!-- #endregion -->
+
+    <!-- #region --- Result Container  ----->
+    <section
+      id="result-container"
+      class="card hide"
+      role="region"
+    >
+      <div
+        class="speech-bubble"
+        id="answer-container"
+      >
+        <img
+          src="./img/speech-bubble.webp"
+          alt="Speach bubble"
+          aria-hidden="true"
+        />
+        <div class="title-text">
+          <h2
+            id="result-title"
+            tabindex="0"
+            class="bubble-text"
+            aria-live="polite"
+          >Placeholder</h2>
+          <p
+            id="result-explanation"
+            tabindex="0"
+            class="bubble-text"
+            aria-live="polite"
+          ></p>
+
+        </div>
+      </div>
+
+      <button
+        id="next-question-btn"
+        class="submit-btn"
+        type="button"
+      >
+        Next question
+      </button>
+
+      <div
+        id="announcer"
+        class="visually-hidden"
+        aria-live="polite"
+      ></div>
+    </section>
+    <!-- #endregion -->
+
+    <!-- #region --- Quiz Result ----->
+    <section
+      id="quiz-result"
+      class="card hide"
+      role="region"
+    >
+      <div
+        class="speech-bubble"
+        id=""
+      >
+        <img
+          src="./img/speech-bubble.webp"
+          alt="Speach bubble"
+          aria-hidden="true"
+        />
+        <div class="title-text">
+          <h3
+            id="quiz-result-title"
+            class="bubble-text"
+            tabindex="0"
+          >Placeholder</h3>
+          <p
+            id="quiz-result-text"
+            class="bubble-text"
+            tabindex="0"
+          ></p>
+        </div>
+      </div>
+
+      <button
+        id="start-again-btn"
+        class="submit-btn"
+        tabindex="0"
+        type="button"
+      >
+        Start again
+      </button>
+    </section>
+    <!-- #endregion -->
+  </main>
+
+  <footer role="contentinfo">
+    <nav
+      role="navigation"
+      aria-label="Footer menu"
+    >
+      <button
+        id="motion-mode-icon"
+        class="dark-mode-icon"
+        type="button"
+        tabindex="0"
+        aria-live="polite"
+        aria-label="Toggle reduce motion"
+        aria-expanded="false"
+      >
+        Reduce Motion
+      </button>
+
+      <div id="dark-mode-container">
+        <button
+          id="dark-mode-icon"
+          aria-live="polite"
+          aria-label="Toggle dark mode"
+          aria-expanded="false"
+        >
+          Dark mode
+        </button>
+      </div>
+      <p tabindex="0">
+        Project by Simon & Sofie
+        <a
+          tabindex="0"
+          href="https://github.com/simfrisk/accessibility-sofie-simon"
+          aria-label="Link to github"
+        >
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </p>
+    </nav>
+  </footer>
+</body>
+
 </html>
