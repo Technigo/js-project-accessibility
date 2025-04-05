@@ -9,10 +9,10 @@
 </head>
 
 <body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <a href="#user-info" class="skip-link">Skip to main content</a>
   <header id="header">
     <div class="header-content">
-      <h1>Website Feedback</h1>
+      <h1>Website Accessibility</h1>
       <nav role="navigation" aria-label="Main menu">
         <ul>
           <li>
@@ -94,24 +94,24 @@
         <p class="progress-text">0 of 4 questions aswered</p>
       </div>
 
-      <div class="quiz-instructions" role="group" aria-labelledby="instructions-heading" id="instructions">
+      <!-- <div class="quiz-instructions" role="group" aria-labelledby="instructions-heading" id="instructions">
         <h3 id="instructuions-heading"> instructions</h3>
         <p>Use tab to navigate nbetween , space to select an option </p>
-      </div>
+      </div> -->
 
       <form id="feedback-form">
         <fieldset>
-          <legend>Content readerbility</legend>
+          <legend>Question1: What is the correct way to make a group of radio buttons accessible to screen readers?</legend>
           <div class="radio-group" role="radiogroup" aria-required="true">
 
             <div class="radio-option">
               <input type="radio" name="readerbility" value="clear" id="read-clear" />
-              <label for="read-clear">Easy to navigate</label>
+              <label for="read-clear">Use the fieldset and < legend > elements to group related radio buttons</label>
             </div>
 
             <div class="radio-option">
               <input type="radio" name="readerbility" value="unclear" id="read-unclear" />
-              <label for="read-unclear">Difficult to read and understnd</label>
+              <label for="read-unclear">Wrap each radio button in a < div > and use role="radio"</label>
             </div>
 
           </div>
@@ -120,17 +120,17 @@
 
 
         <fieldset>
-          <legend>Navigation</legend>
+          <legend>Question: How should users be able to navigate radio buttons using a keyboard?</legend>
           <div class="radio-group" role="radio-group" aria-required="true">
 
             <div class="radio-option">
               <input type="radio" name="navigation" value="easy" id="nav-easy" />
-              <label for="nav-easy">Easy to navigate</label>
+              <label for="nav-easy">Use the Tab key to reach the group, then use Arrow keys to navigate between options</label>
             </div>
 
             <div class="radio-option">
               <input type="radio" name="navigation" value="difficult" id="nav-difficult" />
-              <label for="nav-difficult">Difficult to navigate</label>
+              <label for="nav-difficult">Press the Tab key to move through each radio button individually</label>
             </div>
 
           </div>
