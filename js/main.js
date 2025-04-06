@@ -76,6 +76,9 @@ function startQuiz() {
 
   // Load the first question
   loadQuestion(currentQuestionIndex);
+
+  // Announce restart for screen readers
+  announceMessage("Quiz started. First question loaded.");
 }
 
 // Load a question by index
@@ -234,6 +237,7 @@ function focusOnFirstRadioButton() {
 function showError(message) {
   elements.questionError.hidden = false;
   elements.errorMessage.textContent = message;
+  elements.announcer.textContent = message;
 }
 
 // Hide error message
