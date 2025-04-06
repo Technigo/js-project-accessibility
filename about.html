@@ -1,10 +1,94 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About</title>
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body></body>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>Web Accessibility Quiz</title>
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap"
+    rel="stylesheet"
+  >
+  <link
+    rel="stylesheet"
+    href="css/styles.css"
+  />
+</head>
+
+<body>
+  <a
+    href="#main-content"
+    class="skip-link"
+  >Skip to main content</a> <!-- look up if it has to be skip to main content -->
+  <header id="header">
+    <div class="header-content">
+      <h1>Web Accessibility Quiz</h1> <!-- add a smiley :)-->
+      <nav
+        role="navigation"
+        aria-label="Main menu"
+      >
+        <ul class="nav-list">
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="about.html">About</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+  </header>
+
+  <main id="main-content">
+    <!-- Remember to add a informative image --> <!-- about -->
+
+    <section id="about">
+      <h2>The team</h2>
+      <p> We're a team of developers that are passioned about web accessibility.
+        <br> We truly belive that everyone should have an engaging and fair access to all content on the world wide
+        web.
+      </p>
+    </section>
+
+    <section class="navigation-info">
+      <img
+        class="descriptive-img"
+        src="assets/descriptive-image.png"
+        alt="keyboard navigation info"
+      >
+      <div class="nav-text-container">
+        <h2>Keyboard navigation</h2>
+        <p>
+          This quiz is designed to be fully accessible using keyboard navigation. You can navigate through the quiz
+          using the <strong>Tab</strong> key to move forward and the <strong>Shift + Tab</strong> key to move backward.
+          Press <strong>Enter</strong> to select an answer or button.
+          Press <span class="abc-index">A</span> <span class="abc-index">B</span> <span class="abc-index">C</span> on
+          your keyboard to
+          answer the quiz questions.
+        </p>
+      </div>
+
+    </section>
+  </main>
+    <footer id="footer">
+      <p> 2025 Web Accessibility Quiz</p>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+
 </html>
+
+<!--by Mimmi, Selin, Tiago and Alex – Technigo2025 -->
