@@ -1,10 +1,174 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About</title>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
-  <body></body>
+
+  <body>
+    <a href="#main-content" class="skip-link"> Skip to main content </a>
+
+    <header id="header">
+      <div class="header-content">
+        <h1>Web Accessibility Quiz</h1>
+        <nav role="navigation" aria-label="Main navigation">
+          <ul>
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li class="active">
+              <a href="about.html" aria-current="page">About</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section id="about" class="about-section">
+        <div>
+          <h2>About Web Accessibility & WCAG</h2>
+          <p>
+            The internet should work for everyone—but many digital experiences
+            still fall short when it comes to accessibility. That’s where the
+            <b>Web Content Accessibility Guidelines (WCAG)</b> come in.
+          </p>
+        </div>
+        <div>
+          <h3>What is WCAG?</h3>
+          <p>
+            WCAG is a globally recognized standard developed by the
+            <b>W3C (World Wide Web Consortium)</b> to help make websites, apps,
+            and digital content accessible to users of all abilities. These
+            guidelines are essential for building inclusive interfaces that
+            consider users with visual, auditory, motor, cognitive, and
+            neurological impairments. <br /><br />
+
+            WCAG is built around four key principles, known as <b>P.O.U.R.</b>:
+          </p>
+        </div>
+        <div>
+          <h3>WCAG POUR Principles</h3>
+
+          <div class="educational-images">
+            <img
+              src="img/WCAG-POUR.png"
+              alt="Diagram illustrating the four WCAG accessibility principles: Perceivable, Operable, Understandable, and Robust, with key characteristics listed under each."
+            />
+          </div>
+        </div>
+        <div>
+          <div>
+            <h4>Perceivable <span aria-hidden="true">👀</span></h4>
+            <p>
+              Users must be able to detect and interpret content, regardless of
+              how they consume it.
+            </p>
+          </div>
+          <div>
+            <p><b>As a developer, this means:</b></p>
+            <ul>
+              <li>Use semantic HTML and provide alt attributes for images.</li>
+              <li>
+                Ensure text has sufficient color contrast against backgrounds
+                (e.g., using WCAG AA or AAA contrast ratios).
+              </li>
+              <li>Add captions and transcripts for multimedia content.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <h4>Operable <span aria-hidden="true">🎮</span></h4>
+            <p>
+              All users should be able to navigate and interact with your
+              interface.
+            </p>
+          </div>
+          <div>
+            <p><b>To support this, you should:</b></p>
+            <ul>
+              <li>
+                Ensure full keyboard functionality (e.g., forms, buttons,
+                menus).
+              </li>
+              <li>Provide visible focus indicators and logical tab order.</li>
+              <li>
+                Avoid flashing content that could trigger seizures or
+                discomfort.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div>
+            <h4>Understandable <span aria-hidden="true">🧠</span></h4>
+            <p>
+              Your content and interface should be predictable, clear, and
+              helpful.
+            </p>
+          </div>
+          <div>
+            <p><b>This includes: </b></p>
+            <ul>
+              <li>Using clear, simple language</li>
+              <li>Ensuring consistent design and predictable behavior</li>
+              <li>
+                Offering helpful error messages and instructions for forms and
+                interactions
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div>
+            <h4>Robust <span aria-hidden="true">🔧</span></h4>
+            <p>
+              Your code should be compatible with a wide range of
+              technologies—including screen readers and future tools.
+            </p>
+          </div>
+          <div>
+            <p><b>Best practices:</b></p>
+            <ul>
+              <li>Use clean, semantic HTML over div-based structures.</li>
+              <li>
+                Avoid unnecessary ARIA roles—use native elements where possible.
+              </li>
+              <li>
+                Ensure dynamic content updates are accessible (e.g., using ARIA
+                live regions).
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <p>
+            By following the <b>P.O.U.R. principles</b>, you build more
+            resilient, inclusive, and future-proof digital experiences.
+            Accessibility isn’t just a nice-to-have—it’s essential for reaching
+            all users, and it’s part of writing good code.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer role="contentinfo">
+      <div class="footer-content">
+        <nav role="navigation" aria-label="Footer navigation">
+          <ul>
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="about.html">About</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+  </body>
 </html>

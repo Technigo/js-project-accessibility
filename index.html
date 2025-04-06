@@ -1,13 +1,165 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title</title>
+    <title>Quizy</title>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
+
   <body>
-    <p>This is the starting point.</p>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header id="header">
+      <div class="header-content">
+        <h1>Web Accessibility Quiz</h1>
+        <nav role="navigation" aria-label="Main navigation">
+          <ul>
+            <li class="active">
+              <a href="index.html" aria-current="page">Home</a>
+            </li>
+            <li>
+              <a href="about.html">About</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="intro-section" id="introduction">
+        <img class="decorative-img" src="img/intro-icon.png" alt="" />
+        <h2>Is Your Code Truly Accessible? Test Your Knowledge</h2>
+        <p>
+          Creating an inclusive digital experience is not just an option—it is a
+          responsibility. Web accessibility ensures that everyone, including
+          people with disabilities, can navigate, understand, and interact with
+          online content. Adhering to the
+          <b> WCAG (Web Content Accessibility Guidelines)</b> helps make the web
+          more usable for all. <br /><br />How well do you understand
+          accessibility best practices? Whether you are an experienced developer
+          or just beginning to explore inclusive design, this quiz will assess
+          your knowledge and provide valuable insights to help you improve.
+          <br /><br />
+          <b
+            >Are you ready to enhance your accessibility skills? Start the quiz
+            now!</b
+          >
+        </p>
+        <div class="form-controls intro-section">
+          <button
+            id="start-quiz-button"
+            type="button"
+            class="submit-button primary-button"
+            aria-label="Start quiz"
+          >
+            Start Quiz
+          </button>
+        </div>
+      </section>
+
+      <section class="quiz-section" id="quiz" hidden>
+        <img class="decorative-img" src="img/quiz-icon.png" alt="" />
+        <h2>The A11y Challenge</h2>
+
+        <div class="quiz-progress" role="status" aria-live="polite">
+          <p class="progress-text">Question <b>1</b> of <b>5</b></p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <form id="quiz-form">
+          <div id="question-container">
+            <fieldset>
+              <div class="question-content"></div>
+              <div id="question-error" class="error" role="alert" hidden>
+                <p class="error-message" role="alert" aria-live="assertive"></p>
+              </div>
+            </fieldset>
+          </div>
+          <div class="form-controls">
+            <button
+              class="previous-button secondary-button"
+              type="button"
+              id="previousQuestion"
+              aria-label="Previous question"
+            >
+              Previous Question
+            </button>
+            <button
+              class="next-button primary-button"
+              type="button"
+              id="nextQuestion"
+              aria-label="Next question"
+            >
+              Next Question
+            </button>
+            <button
+              class="submit-button primary-button"
+              type="submit"
+              id="submitQuiz"
+              aria-label="Submit quiz"
+            >
+              Submit Quiz
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section class="results-section" id="results" aria-live="polite" hidden>
+        <img
+          class="party-popper decorative-img"
+          src="img/party-popper-emoji.png"
+          alt=""
+          role="presentation"
+        />
+        <h2>Quiz completed!</h2>
+        <div class="result-content" id="result-content"></div>
+        <div class="feedback-details" id="feedback-details">
+          <div class="accordion">
+            <div class="accordion-item"></div>
+          </div>
+        </div>
+        <div class="result-controls">
+          <button
+            class="restart-button primary-button"
+            type="button"
+            id="restartQuiz"
+            aria-label="Restart quiz"
+          >
+            Restart Quiz
+          </button>
+          <button
+            class="home-button secondary-button"
+            type="button"
+            id="backToHome"
+            aria-label="Go to homepage"
+          >
+            Go to Homepage
+          </button>
+        </div>
+      </section>
+
+      <div id="announcer" class="visually-hidden" aria-live="polite"></div>
+    </main>
+
+    <footer role="contentinfo">
+      <div class="footer-content">
+        <nav role="navigation" aria-label="Footer navigation">
+          <ul>
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="about.html">About</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="js/quiz.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
