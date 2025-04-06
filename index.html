@@ -1,13 +1,494 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title</title>
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <p>This is the starting point.</p>
-    <script src="js/main.js"></script>
-  </body>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>Web Accessebility Quiz</title>
+  <link
+    rel="stylesheet"
+    href="css/styles.css"
+  />
+
+</head>
+
+<body>
+  <a
+    href="#main-content"
+    class="skip-link"
+    aria-label="skip link"
+  >Skip to main content</a>
+  <header id="header">
+    <div class="header-content">
+      <h1>
+        Web Accessebility Quiz
+      </h1>
+      <nav
+        role="navigation"
+        aria-label="main menu"
+      >
+        <ul>
+          <li>
+            <a
+              href="index.html"
+              class="nav-links"
+            >Home</a>
+          </li>
+          <li>
+            <a
+              href="about.html"
+              class="nav-links"
+            >About</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section
+    id="banner"
+    role="banner"
+  >
+    <img
+      src="assets/hero.jpg"
+      alt=""
+      role="presentation"
+    />
+  </section>
+
+  <main id="main-content">
+
+    <section id="introduction-section">
+      <div class="introduction">
+        <h2>Introduction</h2>
+        <p>Our quiz is designed with accessibility in mind, offering high contrast mode for readability, reduced motion
+          to minimize distractions, and full keyboard navigation. We also use semantic HTML and ARIA attributes to
+          ensure compatibility with screen readers, making the experience inclusive for all users.
+        </p>
+        <div class="continue-container">
+
+          <button
+            id="intro-continue"
+            type="button"
+            class="intro-continue"
+          >
+            Continue to Quiz
+          </button>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section
+      id="user-info"
+      hidden
+    >
+      <h2>Your information</h2>
+      <form id="user-info-form">
+        <div class="form-control">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            aria-required="true"
+            aria-description="name error"
+            placeholder="John Doe"
+          />
+          <div
+            id="name-error"
+            class="error"
+            role="alert"
+            hidden
+          ></div>
+        </div>
+        <div class="form-control">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            aria-required="true"
+            aria-description="email-hint email-error"
+            placeholder="name@example.com"
+          />
+          <div
+            id="email-hint"
+            class="hint"
+          ></div>
+          <div
+            id="email-error"
+            class="error"
+            role="alert"
+            hidden
+          ></div>
+        </div>
+        <div class="form-control">
+          <button
+            type="submit"
+            class="quiz-buttons"
+            id="start-quiz"
+          >
+            Start Quiz
+          </button>
+        </div>
+      </form>
+    </section>
+
+
+
+
+
+    <section
+      id="quiz-section"
+      hidden
+      role="feed"
+    >
+      <h2 id="quiz-head">
+        Accessibility Quiz
+      </h2>
+
+      <!-- Intructions for the quiz  -->
+      <div
+        class="quiz-instructions"
+        id="quiz-instructions"
+        role="group"
+        aria-label="instructions-heading"
+      >
+        <h3 id="instructions-heading">Instructions</h3>
+        <p>Use tab to navigate between sections, space to select an option</p>
+      </div>
+
+      <!-- Progressbar -->
+      <div
+        class="progress-bar-container"
+        id="progress-bar-container"
+        role="status"
+        aria-live="polite"
+      >
+        <div
+          class="bar"
+          id="bar"
+          aria-label="progress bar"
+          aria-description="A bar showing progress of quiz"
+        >
+          <div
+            class="progress-fill"
+            style="width: 0%"
+          >
+          </div>
+
+        </div>
+        <p
+          class="progress-text"
+          id="progress-text"
+        >0/4 questions answered</p>
+      </div>
+
+
+
+
+      <!-- Quiz -->
+      <form id="quiz">
+        <fieldset
+          id="question-one"
+          class="form-questions"
+          aria-label="question 1"
+        >
+          <legend>
+            <span class="question-border">Importance of image accessibility</span>
+          </legend>
+
+
+          <p>Which of the following is important for web accessebility?</p>
+
+          <div class="answer-container">
+            <input
+              id="question-1-1"
+              name="web-accessibility"
+              value="true"
+              type="radio"
+            >
+            <label for="question-1-1">Using only images for text content</label>
+          </div>
+
+          <div class="answer-container">
+            <input
+              id="question-1-2"
+              name="web-accessibility"
+              value="false"
+              type="radio"
+            >
+            <label for="question-1-2">Ensuring that all important images have discriptive alt-text</label>
+          </div>
+
+          <div class="answer-container">
+            <input
+              id="question-1-3"
+              name="web-accessibility"
+              value="false"
+              type="radio"
+            >
+            <label for="question-1-3">Avoiding keyboard shortcuts</label>
+          </div>
+        </fieldset>
+
+        <fieldset
+          id="question-two"
+          class="form-questions"
+          aria-label="question 2"
+          hidden
+        >
+          <legend>
+            <span class="question-border">Understanding WCAG</span>
+          </legend>
+
+          <p>What does WCAG stand for?</p>
+          <div class="answer-container">
+            <input
+              id="question-2-1"
+              name="WCAG"
+              value="true"
+              type="radio"
+            >
+            <label for="question-2-1">Web Content Accessebility Guidlines</label>
+          </div>
+
+          <div class="answer-container">
+            <input
+              id="question-2-2"
+              name="WCAG"
+              value="false"
+              type="radio"
+            >
+            <label for="question-2-2">Web Code Accessebility Group</label>
+          </div>
+
+          <div class="answer-container">
+            <input
+              id="question-2-3"
+              name="WCAG"
+              value="false"
+              type="radio"
+            >
+            <label for="question-2-3">Website Creation and Accessebility Guide</label>
+          </div>
+        </fieldset>
+
+        <fieldset
+          id="question-three"
+          class="form-questions"
+          aria-label="question 3"
+          hidden
+        >
+          <legend>
+            <span class="question-border">Cognitive disability</span>
+          </legend>
+
+          <p>Which of these practices help users with cognitive disability?</p>
+
+          <div class="answer-container">
+            <input
+              id="question-3-1"
+              name="cognitive-disability"
+              value="true"
+              type="radio"
+            >
+            <label for="question-3-1">Using clear and simple language</label>
+          </div>
+
+          <div class="answer-container">
+            <input
+              id="question-3-2"
+              name="cognitive-disability"
+              value="false"
+              type="radio"
+            >
+            <label for="question-3-2">Making websites only accessible with a mouse</label>
+          </div>
+
+          <div class="answer-container">
+            <input
+              id="question-3-3"
+              name="cognitive-disability"
+              value="false"
+              type="radio"
+            >
+            <label for="question-3-3">Using complex forms with multiple steps</label>
+          </div>
+
+        </fieldset>
+
+        <fieldset
+          id="question-four"
+          class="form-questions"
+          aria-label="question 4"
+          hidden
+        >
+          <legend>
+            <span class="question-border">Color and Contrast for Accessibility</span>
+          </legend>
+
+          <p>What should you consider when using color in web design for accessibility?</p>
+
+          <div class="answer-container">
+            <input
+              id="question-4-1"
+              name="color-accessibility"
+              value="false"
+              type="radio"
+            >
+            <label for="question-4-1">Colors should be used only for decoration</label>
+          </div>
+
+          <div class="answer-container">
+            <input
+              id="question-4-2"
+              name="color-accessibility"
+              value="true"
+              type="radio"
+            >
+            <label for="question-4-2">Ensure that there is enough contrast between text and background</label>
+          </div>
+
+          <div class="answer-container">
+            <input
+              id="question-4-3"
+              name="color-accessibility"
+              value="false"
+              type="radio"
+            >
+            <label for="question-4-3">Avoid any use of color altogether</label>
+          </div>
+
+        </fieldset>
+
+        <div
+          id="answer-error"
+          class="error"
+          role="alert"
+          hidden
+        ></div>
+
+        <div
+          id="results"
+          class="form-result"
+          hidden
+          aria-label="quiz results"
+        >
+          
+          
+          <div id="img-container">
+            <h3>Results</h3>
+            <img
+              src="./assets/celebrate2.jpg"
+              alt="Fireworks"
+              role="img"
+              aria-describedby="img-description"
+            />
+            <p
+              id="img-description"
+              hidden
+            >A celebratory image of fireworks</p>
+          </div>
+
+
+          <div class="result-container">
+            <p id="results-message"></p>
+            <p id="score"></p>
+            <div id="flunked"></div>
+            
+          </div>
+        </div>
+
+        <div class="button-container">
+          <!-- Change the names on these divs later on -->
+
+          <button
+            id="previous-button"
+            type="button"
+            class="quiz-buttons"
+            hidden
+          >Back
+          </button>
+
+          <button
+            id="next-button"
+            type="button"
+            class="quiz-buttons"
+            hidden
+          >Next
+          </button>
+
+          <button
+            id="result-button"
+            type="submit"
+            class="quiz-buttons"
+            hidden
+          >See Result
+          </button>
+
+          <button
+            id="retake-button"
+            type="button"
+            class="quiz-buttons"
+            hidden="true"
+          >Retake quiz
+
+          </button>
+        </div>
+
+      </form>
+      <div
+        id="announcer"
+        class="visually-hidden"
+        aria-live="polite"
+        role="alert"
+      >
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer
+    id="footer"
+    role="contentinfo"
+  >
+    <nav
+      class="footer-content"
+      role="navigation"
+      aria-label="footer menu"
+    >
+      <ul>
+        <li>
+          <a
+            href="#"
+            class="nav-links"
+          >Privacy Policy</a>
+        </li>
+        <li>
+          <a
+            href="#"
+            class="nav-links"
+          >Terms of Service</a>
+        </li>
+        <li>
+          <a
+            href="#"
+            class="nav-links"
+          >Contact Us</a>
+        </li>
+      </ul>
+    </nav>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
+
 </html>
