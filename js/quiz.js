@@ -1,69 +1,53 @@
 const questions = [
   {
-    question: "What is the main goal of web accessibility?",
+    question: "What does the 'Robust' principle in WCAG focus on?",
     options: [
-      { text: "Making websites load faster", correct: false },
+      { text: "Making sure your design looks modern", correct: false },
       {
-        text: "Ensuring all users, including those with disabilities, can access and use web content",
-        correct: false,
-      },
-      { text: "<button> with proper ARIA labels", correct: true },
-      { text: "Increasing ad revenue", correct: false },
-    ],
-  },
-  {
-    question: "What does WCAG stand for?",
-    options: [
-      { text: "Web Code Accessibility Guidelines", correct: false },
-      { text: "World Content Accessibility Guide", correct: false },
-      { text: "Web Content Accessibility Guidelines", correct: true },
-      { text: "Wide Coverage Accessibility Guide", correct: false },
-    ],
-  },
-  {
-    question:
-      "What is the minimum color contrast ratio recommended by WCAG for normal text?",
-    options: [
-      { text: "2.1:1", correct: false },
-      { text: "3.5:1", correct: false },
-      { text: "4.5:1", correct: true },
-      { text: "7.0:1", correct: false },
-    ],
-  },
-  {
-    question:
-      "What happens if you use only color to convey important information?",
-    options: [
-      {
-        text: "Users with color blindness may miss critical information",
-        correct: false,
-      },
-      { text: "It improves the website’s visual appeal", correct: true },
-      { text: "It makes the site easier to navigate", correct: false },
-      { text: "Nothing, as long as the colors contrast well", correct: false },
-      { text: "It makes the site easier to navigate", correct: false },
-    ],
-  },
-  {
-    question: 'What is a "skip link," and why is it important?',
-    options: [
-      {
-        text: "A link that reloads the page for better accessibility",
-        correct: false,
-      },
-      {
-        text: "A link that allows users to skip repetitive content and go directly to the main content",
+        text: "Ensuring content works with various assistive technologies",
         correct: true,
       },
+      { text: "Using animations that enhance UX", correct: false },
+      { text: "Providing user-friendly navigation", correct: false },
+    ],
+  },
+  {
+    question: "Which of the following supports the 'Perceivable' principle?",
+    options: [
+      { text: "Making all text bold", correct: false },
+      { text: "Providing alt text for images", correct: true },
+      { text: "Using JavaScript-only buttons", correct: false },
+      { text: "Removing focus outlines", correct: false },
+    ],
+  },
+  {
+    question: "Which practice improves 'Operable' accessibility?",
+    options: [
+      { text: "Adding hover-only navigation", correct: false },
+      { text: "Ensuring the site works without JavaScript", correct: false },
+      { text: "Enabling all functionality via keyboard", correct: true },
+      { text: "Center-aligning all text", correct: false },
+    ],
+  },
+  {
+    question: "What does the 'Understandable' principle emphasize?",
+    options: [
+      { text: "Making sure your app loads quickly", correct: false },
+      { text: "Consistent layout and helpful error messages", correct: true },
+      { text: "Adding more animations for clarity", correct: false },
+      { text: "Using icons without labels to simplify UI", correct: false },
+    ],
+  },
+  {
+    question: "Why is semantic HTML important for accessibility?",
+    options: [
+      { text: "It makes code easier to minify", correct: false },
       {
-        text: "A hidden link that only screen readers can detect",
-        correct: false,
+        text: "It helps screen readers interpret content correctly",
+        correct: true,
       },
-      {
-        text: "A link that reloads the page for better accessibility",
-        correct: false,
-      },
-      { text: "A shortcut key to close pop-ups", correct: false },
+      { text: "It boosts website animations", correct: false },
+      { text: "It avoids needing JavaScript", correct: false },
     ],
   },
 ];

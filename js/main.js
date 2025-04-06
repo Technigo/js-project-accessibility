@@ -3,108 +3,150 @@ let currentQuestionIndex = 0;
 let userAnswers = [];
 let questionsData = [];
 
-// DOM Elements
-const introSection = document.getElementById("introduction");
-const quizSection = document.getElementById("quiz");
-const resultsSection = document.getElementById("results");
-const startQuizButton = document.getElementById("start-quiz-button");
-const quizForm = document.getElementById("quiz-form");
-const questionContainer = document.getElementById("question-container");
-const questionContent = document.querySelector(".question-content");
-const progressText = document.querySelector(".progress-text");
-const progressFill = document.querySelector(".progress-fill");
-const nextButton = document.getElementById("nextQuestion");
-const previousButton = document.getElementById("previousQuestion");
-const submitQuizButton = document.getElementById("submitQuiz");
-const restartQuizButton = document.getElementById("restartQuiz");
-const backToHomeButton = document.getElementById("backToHome");
-const resultContent = document.getElementById("result-content");
-const feedbackDetails = document.getElementById("feedback-details");
-const announcer = document.getElementById("announcer");
-const questionError = document.getElementById("question-error");
-const errorMessage = document.querySelector(".error-message");
+// DOM Elements - Organized by section
+const sections = {
+  intro: document.getElementById("introduction"),
+  quiz: document.getElementById("quiz"),
+  results: document.getElementById("results"),
+};
+
+const elements = {
+  // Buttons
+  startButton: document.getElementById("start-quiz-button"),
+  nextButton: document.getElementById("nextQuestion"),
+  previousButton: document.getElementById("previousQuestion"),
+  submitButton: document.getElementById("submitQuiz"),
+  restartButton: document.getElementById("restartQuiz"),
+  homeButton: document.getElementById("backToHome"),
+
+  // Quiz elements
+  quizForm: document.getElementById("quiz-form"),
+  questionContainer: document.getElementById("question-container"),
+  questionContent: document.querySelector(".question-content"),
+
+  // Progress indicators
+  progressText: document.querySelector(".progress-text"),
+  progressFill: document.querySelector(".progress-fill"),
+
+  // Results elements
+  resultContent: document.getElementById("result-content"),
+  feedbackDetails: document.getElementById("feedback-details"),
+
+  // Accessibility and error handling
+  announcer: document.getElementById("announcer"),
+  questionError: document.getElementById("question-error"),
+  errorMessage: document.querySelector(".error-message"),
+};
 
 // Initialize the quiz
 document.addEventListener("DOMContentLoaded", () => {
-  // Import quiz questions from quiz.js
+  // Import quiz questions from external file
   questionsData = questions || [];
-  console.log(questionsData); // TA BORT SEN
 
-  // Event Listeners
-  startQuizButton.addEventListener("click", startQuiz);
-  nextButton.addEventListener("click", goToNextQuestion);
-  previousButton.addEventListener("click", goToPreviousQuestion);
-  quizForm.addEventListener("submit", handleQuizSubmit);
-  restartQuizButton.addEventListener("click", restartQuiz);
-  backToHomeButton.addEventListener("click", goToHomepage);
+  // Set up event listeners
+  setupEventListeners();
 
-  // Set initial state
-  userAnswers = new Array(questionsData.length).fill(null);
+  // Initialize user answers array
+  resetUserAnswers();
 });
+
+// Set up all event listeners
+function setupEventListeners() {
+  elements.startButton.addEventListener("click", startQuiz);
+  elements.nextButton.addEventListener("click", goToNextQuestion);
+  elements.previousButton.addEventListener("click", goToPreviousQuestion);
+  elements.quizForm.addEventListener("submit", handleQuizSubmit);
+  elements.restartButton.addEventListener("click", restartQuiz);
+  elements.homeButton.addEventListener("click", goToHomepage);
+}
+
+// Reset user answers to initial state
+function resetUserAnswers() {
+  userAnswers = new Array(questionsData.length).fill(null);
+}
 
 // Start the quiz
 function startQuiz() {
-  introSection.hidden = true;
-  quizSection.hidden = false;
-  resultsSection.hidden = true;
+  showSection("quiz");
   window.location.hash = "#quiz";
-  announcer.textContent = "Moved to quiz section";
 
   // Reset quiz state
   currentQuestionIndex = 0;
-  userAnswers = new Array(questionsData.length).fill(null);
+  resetUserAnswers();
 
   // Load the first question
   loadQuestion(currentQuestionIndex);
-
-  // Announce that the quiz has started
-  announceMessage("Quiz started. First question loaded.");
 }
 
-// Load a question
+// Load a question by index
 function loadQuestion(index) {
   // Update progress indicators
   updateProgress(index);
 
-  // Get the current question
   const currentQuestion = questionsData[index];
 
-  // Clear previous question
-  questionContent.innerHTML = "";
+  // Clear previous question content
+  elements.questionContent.innerHTML = "";
 
-  // Create legend with question text
+  // Update fieldset legend
+  updateQuestionLegend(currentQuestion, index);
+
+  // Create and add radio options
+  createRadioOptions(currentQuestion, index);
+
+  // Hide error message
+  hideError();
+
+  // Update navigation buttons
+  updateNavigationButtons();
+}
+
+// Update the question legend in the fieldset
+function updateQuestionLegend(question, index) {
+  const fieldset = elements.questionContent.closest("fieldset");
+  const legendId = `question-${index}`;
+
+  // Remove existing legend if present
+  const existingLegend = fieldset.querySelector("legend");
+  if (existingLegend) {
+    fieldset.removeChild(existingLegend);
+  }
+
+  // Create and add new legend
   const legend = document.createElement("legend");
-  legend.textContent = currentQuestion.question;
-  questionContent.appendChild(legend);
+  legend.id = legendId;
+  legend.textContent = question.question;
+  fieldset.insertBefore(legend, fieldset.firstChild);
+}
 
-  // Create radio group div
+// Create radio options for the current question
+function createRadioOptions(question, questionIndex) {
   const radioGroup = document.createElement("div");
   radioGroup.className = "radio-group";
   radioGroup.setAttribute("role", "radiogroup");
 
-  // Add options
-  currentQuestion.options.forEach((option, optionIndex) => {
+  question.options.forEach((option, optionIndex) => {
     const radioOption = document.createElement("div");
     radioOption.className = "radio-option";
 
     const input = document.createElement("input");
     input.type = "radio";
-    input.name = `question-${index}`;
+    input.name = `question-${questionIndex}`;
     input.value = optionIndex;
-    input.id = `option-${index}-${optionIndex}`;
+    input.id = `option-${questionIndex}-${optionIndex}`;
 
     // Check if user has already answered this question
-    if (userAnswers[index] !== null && userAnswers[index] === optionIndex) {
+    if (userAnswers[questionIndex] === optionIndex) {
       input.checked = true;
     }
 
     const label = document.createElement("label");
-    label.setAttribute("for", `option-${index}-${optionIndex}`);
+    label.setAttribute("for", `option-${questionIndex}-${optionIndex}`);
     label.textContent = option.text;
 
     // Add event listener to capture answers
     input.addEventListener("change", () => {
-      userAnswers[index] = optionIndex;
+      userAnswers[questionIndex] = optionIndex;
       hideError();
       updateNavigationButtons();
       updateProgress(currentQuestionIndex);
@@ -115,21 +157,7 @@ function loadQuestion(index) {
     radioGroup.appendChild(radioOption);
   });
 
-  questionContent.appendChild(radioGroup);
-
-  // Hide error message
-  questionError.hidden = true;
-
-  // Update navigation buttons
-  updateNavigationButtons();
-
-  // Focus on first radio button
-  const firstRadio = questionContent.querySelector('input[type="radio"]');
-  if (firstRadio) {
-    firstRadio.setAttribute("tabindex", "0");
-    tabb - fokuserbar;
-    firstRadio.focus();
-  }
+  elements.questionContent.appendChild(radioGroup);
 }
 
 // Update progress indicators
@@ -137,103 +165,135 @@ function updateProgress(index) {
   const totalQuestions = questionsData.length;
   const currentQuestionNum = index + 1;
 
-  // Update text
-  progressText.innerHTML = `Question <b>${currentQuestionNum}</b> of <b>${totalQuestions}</b>`;
+  // Update text progress
+  elements.progressText.innerHTML = `Question <b>${currentQuestionNum}</b> of <b>${totalQuestions}</b>`;
 
-  // Count how many questions have been answered
-  const answeredQuestions = userAnswers.filter(
-    (answer) => answer !== null
-  ).length;
-
-  // Update progress bar
-  const progressPercentage = (answeredQuestions / totalQuestions) * 100;
-  progressFill.style.width = `${progressPercentage}%`;
+  // Count answered questions and update progress bar
+  const answeredCount = userAnswers.filter((answer) => answer !== null).length;
+  const progressPercentage = (answeredCount / totalQuestions) * 100;
+  elements.progressFill.style.width = `${progressPercentage}%`;
 }
 
 // Update navigation buttons based on current state
 function updateNavigationButtons() {
   const isLastQuestion = currentQuestionIndex === questionsData.length - 1;
   const isFirstQuestion = currentQuestionIndex === 0;
-  const currentAnswerProvided = userAnswers[currentQuestionIndex] !== null;
 
   // Show/hide previous button
-  previousButton.hidden = isFirstQuestion;
+  elements.previousButton.hidden = isFirstQuestion;
 
   // Show/hide next and submit buttons
-  nextButton.hidden = isLastQuestion;
-  submitQuizButton.hidden = !isLastQuestion;
+  elements.nextButton.hidden = isLastQuestion;
+  elements.submitButton.hidden = !isLastQuestion;
 }
 
-// Go to next question
+// Navigate to next question
 function goToNextQuestion() {
-  // Make sure we have an answer for the current question
+  // Ensure current question is answered
   if (userAnswers[currentQuestionIndex] === null) {
     showError("Please select an answer before continuing.");
     return;
   }
-  // Move to the next question
+
+  // Move to next question if not at the end
   if (currentQuestionIndex < questionsData.length - 1) {
     currentQuestionIndex++;
     loadQuestion(currentQuestionIndex);
+
+    // Focus on first radio button for accessibility
+    focusOnFirstRadioButton();
     announceMessage(`Question ${currentQuestionIndex + 1} loaded.`);
   }
 }
 
-// Go to previous question
+// Navigate to previous question
 function goToPreviousQuestion() {
   if (currentQuestionIndex > 0) {
     currentQuestionIndex--;
     loadQuestion(currentQuestionIndex);
+
+    // Focus on first radio button for accessibility
+    focusOnFirstRadioButton();
     announceMessage(`Question ${currentQuestionIndex + 1} loaded.`);
   }
 }
 
+// Focus on the first radio button for keyboard navigation
+function focusOnFirstRadioButton() {
+  setTimeout(() => {
+    const firstRadio = elements.questionContent.querySelector(
+      'input[type="radio"]'
+    );
+    if (firstRadio) {
+      firstRadio.focus();
+    }
+  }, 10);
+}
+
 // Show error message
 function showError(message) {
-  questionError.hidden = false;
-  errorMessage.textContent = message;
+  elements.questionError.hidden = false;
+  elements.errorMessage.textContent = message;
 }
 
 // Hide error message
 function hideError() {
-  questionError.hidden = true;
+  elements.questionError.hidden = true;
 }
 
 // Handle quiz submission
 function handleQuizSubmit(event) {
   event.preventDefault();
 
-  // Make sure we have an answer for the current (last) question
+  // Ensure final question is answered
   if (userAnswers[currentQuestionIndex] === null) {
     showError("Please select an answer before submitting.");
     return;
   }
 
-  // Show results
   showResults();
 }
 
 // Calculate and display results
 function showResults() {
-  quizSection.hidden = true;
-  resultsSection.hidden = false;
+  showSection("results");
 
   // Calculate score
+  const result = calculateScore();
+
+  // Display score summary
+  elements.resultContent.innerHTML = `
+    <p>You scored <strong>${result.correct}</strong> out of <strong>${result.total}</strong> questions correctly.</p>`;
+
+  // Generate detailed feedback
+  elements.feedbackDetails.innerHTML = generateFeedbackHTML(result);
+
+  // Announce results for screen readers
+  announceMessage(
+    `Quiz completed. You scored ${result.correct} out of ${result.total} questions correctly.`
+  );
+}
+
+// Calculate quiz score
+function calculateScore() {
   let correctAnswers = 0;
+  const totalQuestions = questionsData.length;
+
   userAnswers.forEach((answer, index) => {
     if (answer !== null && questionsData[index].options[answer].correct) {
       correctAnswers++;
     }
   });
 
-  const totalQuestions = questionsData.length;
-  const scorePercentage = Math.round((correctAnswers / totalQuestions) * 100);
+  return {
+    correct: correctAnswers,
+    total: totalQuestions,
+    percentage: Math.round((correctAnswers / totalQuestions) * 100),
+  };
+}
 
-  // Display results
-  resultContent.innerHTML = `
-    <p>You scored <strong>${correctAnswers}</strong> out of <strong>${totalQuestions}</strong> questions correctly.</p>`;
-
-  // Generate feedback details
+// Generate HTML for feedback details
+function generateFeedbackHTML(result) {
   let feedbackHTML = "<h3>Question Summary</h3><ul>";
 
   questionsData.forEach((question, index) => {
@@ -243,7 +303,7 @@ function showResults() {
     const userAnswerText =
       userAnswer !== null ? question.options[userAnswer].text : "Not answered";
 
-    // Find the correct answer
+    // Find the correct answer text
     const correctAnswerText = question.options.find(
       (option) => option.correct
     ).text;
@@ -259,45 +319,39 @@ function showResults() {
     `;
   });
 
-  feedbackHTML += "</ul>";
-  feedbackDetails.innerHTML = feedbackHTML;
-
-  // Announce results
-  announceMessage(
-    `Quiz completed. You scored ${correctAnswers} out of ${totalQuestions} questions correctly.`
-  );
+  return feedbackHTML + "</ul>";
 }
 
 // Restart the quiz
 function restartQuiz() {
-  // Reset state and start over
+  // Reset state
   currentQuestionIndex = 0;
-  userAnswers = new Array(questionsData.length).fill(null);
+  resetUserAnswers();
 
-  // Show quiz section and hide others
-  introSection.hidden = true;
-  quizSection.hidden = false;
-  resultsSection.hidden = true;
+  // Show quiz section
+  showSection("quiz");
 
   // Load first question
   loadQuestion(currentQuestionIndex);
 
-  // Announce restart
+  // Announce restart for screen readers
   announceMessage("Quiz restarted. First question loaded.");
 }
 
 // Go to homepage
 function goToHomepage() {
-  // Show intro section and hide others
-  introSection.hidden = false;
-  quizSection.hidden = true;
-  resultsSection.hidden = true;
-
-  // Announce homepage return
+  showSection("intro");
   announceMessage("Returned to homepage.");
 }
 
-// Utility function for screen reader announcements
+// Helper function to show a specific section and hide others
+function showSection(sectionName) {
+  Object.keys(sections).forEach((key) => {
+    sections[key].hidden = key !== sectionName;
+  });
+}
+
+// Screen reader announcement utility
 function announceMessage(message) {
-  announcer.textContent = message;
+  elements.announcer.textContent = message;
 }
