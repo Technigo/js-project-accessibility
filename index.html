@@ -1,13 +1,206 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title</title>
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <p>This is the starting point.</p>
-    <script src="js/main.js"></script>
-  </body>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>Accessibility Quiz</title>
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+</head>
+
+<body>
+  <a
+    href="#main-content"
+    class="skip-link"
+  >Skip to main content</a>
+  <header>
+    <h1>Accessibility Quiz</h1>
+    <nav
+      role="navigation"
+      aria-label="Main menu"
+    >
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="main-content">
+    <section
+      id="banner"
+      role="banner"
+    >
+      <img
+        src="assets/banner.jpg"
+        alt=""
+        role="presentation"
+      />
+    </section>
+    <section id="introduction">
+      <div class="text-container">
+        <h2>Introduction</h2>
+        <p>Welcome to the Accessibility Quiz! Test your knowledge about web accessibility.</p>
+        <p>Click the button to start the quiz.</p>
+      </div>
+      <button
+        id="start-quiz"
+        aria-label="Start the quiz"
+      >Start Quiz</button>
+    </section>
+
+    <section
+      id="quiz"
+      hidden
+    >
+      <h2>This is a quiz about accessibility</h2>
+      <form id="quiz-form">
+        <fieldset>
+          <legend>Question 1: What does "web accessibility" aim to achieve?</legend>
+          <div class="radio-group">
+            <div class="form-control">
+              <input
+                type="radio"
+                id="answer1"
+                name="question1"
+                value="a"
+              >
+              <label for="answer1">Make websites accessible only to tech-savvy users.</label>
+            </div>
+            <div class="form-control">
+              <input
+                type="radio"
+                id="answer2"
+                name="question1"
+                value="b"
+              >
+              <label for="answer2">Ensure websites are usable by everyone, including people with disabilities.</label>
+            </div>
+            <div class="form-control">
+              <input
+                type="radio"
+                id="answer3"
+                name="question1"
+                value="c"
+              >
+              <label for="answer3">Limit access to websites based on geographic location.</label>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Question 2: Which feature helps improve accessibility for users with visual impairments?</legend>
+          <div class="radio-group">
+            <div class="form-control">
+              <input
+                type="radio"
+                id="answer-2-1"
+                name="question2"
+                value="a"
+              >
+              <label for="answer-2-1">Alt text for images.</label>
+            </div>
+            <div class="form-control">
+              <input
+                type="radio"
+                id="answer-2-2"
+                name="question2"
+                value="b"
+              >
+              <label for="answer-2-2">Bright flashing animations.</label>
+            </div>
+            <div class="form-control">
+              <input
+                type="radio"
+                id="answer-2-3"
+                name="question2"
+                value="c"
+              >
+              <label for="answer-2-3">Complicated fonts.</label>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Question 3: What should clickable links have for better accessibility?</legend>
+          <div class="radio-group">
+            <div class="form-control">
+              <input
+                type="radio"
+                id="answer-3-1"
+                name="question3"
+                value="a"
+              >
+              <label for="answer-3-1">Meaningless labels like "Click here."</label>
+            </div>
+            <div class="form-control">
+              <input
+                type="radio"
+                id="answer-3-2"
+                name="question3"
+                value="b"
+              >
+              <label for="answer-3-2">Clear, descriptive text like "Learn more about web accessibility."</label>
+            </div>
+            <div class="form-control">
+              <input
+                type="radio"
+                id="answer-3-3"
+                name="question3"
+                value="c"
+              >
+              <label for="answer-3-3">Hidden or invisible text.</label>
+            </div>
+          </div>
+        </fieldset>
+        <div class="form-controls">
+          <button
+            type="submit"
+            id="submit-button"
+            class="submit-button"
+            aria-describedby="submit-description"
+          >
+            Submit your answers!
+          </button>
+          <p
+            id="submit-description"
+            class="visually-hidden"
+          >
+            Click to submit your feedback and see the summary
+          </p>
+        </div>
+      </form>
+      <section
+        id="results"
+        hidden
+        aria-live="polite"
+      >
+        <div id="results-content">
+
+        </div>
+
+      </section>
+    </section>
+
+    <div
+      id="announcer"
+      class="visually-hidden"
+      aria-live="polite"
+    ></div>
+  </main>
+  <footer role="contentinfo">
+    <div class="footer-content">
+      <nav
+        role="navigation"
+        aria-label="Footer menu"
+      >
+      </nav>
+    </div>
+  </footer>
+  <script src="main.js"></script>
+</body>
+
 </html>
