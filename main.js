@@ -50,14 +50,14 @@ document.addEventListener('DOMContentLoaded', function () {
     if (userAnswers.question1 === 'b') {
       score++;
       const question1Explanation = document.createElement('p');
-      question1Explanation.textContent = `Correct! The correct answer is ${answer2}`;
+      question1Explanation.innerHTML = `<span class="bold-text">Correct</span>! The correct answer is <span class="italic-text">${answer2}</span>`;;
       questionsExplanations.push(question1Explanation);
     }
     else {
       const element = userAnswers.question1 === 'a' ? 'answer1' : 'answer3';
       document.getElementById(element).parentElement.classList.add('invalid');
       const question1Explanation = document.createElement('p');
-      question1Explanation.textContent = `Incorrect. The correct answer is ${answer2}`;
+      question1Explanation.innerHTML = `<span class="bold-text">Incorrect</span>. The correct answer is <span class="italic-text">${answer2}</span>`;
       questionsExplanations.push(question1Explanation);
     }
 
@@ -65,30 +65,29 @@ document.addEventListener('DOMContentLoaded', function () {
     if (userAnswers.question2 === 'a') {
       score++;
       const question2Explanation = document.createElement('p');
-      question2Explanation.textContent = `Correct! The correct answer is ${answer23}`;
+      question2Explanation.innerHTML = `<span class="bold-text">Correct</span>! The correct answer is <span class="italic-text">${answer23}</span>`;
       questionsExplanations.push(question2Explanation);
     }
     else {
       const element = userAnswers.question2 === 'b' ? 'answer-2-2' : 'answer-2-3';
       document.getElementById(element).parentElement.classList.add('invalid');
       const question2Explanation = document.createElement('p');
-      question2Explanation.textContent = `Incorrect. The correct answer is ${answer23}`;
+      question2Explanation.innerHTML = `<span class="bold-text">Incorrect</span>. The correct answer is <span class="italic-text">${answer23}</span>`;
       questionsExplanations.push(question2Explanation);
     }
-
 
     document.getElementById('answer-3-2').parentElement.classList.add('valid');
     if (userAnswers.question3 === 'b') {
       score++;
       const question3Explanation = document.createElement('p');
-      question3Explanation.textContent = `Correct! The correct answer is ${answer32}`;
+      question3Explanation.innerHTML = `<span class="bold-text">Correct</span>! The correct answer is <span class="italic-text">${answer32}</span>`;
       questionsExplanations.push(question3Explanation);
     }
     else {
       const element = userAnswers.question3 === 'a' ? 'answer-3-1' : 'answer-3-3';
       document.getElementById(element).parentElement.classList.add('invalid');
       const question3Explanation = document.createElement('p');
-      question3Explanation.textContent = `Incorrect. The correct answer is ${answer32}`;
+      question3Explanation.innerHTML = `<span class="bold-text">Incorrect</span>. The correct answer is <span class="italic-text">${answer32}</span>`;
       questionsExplanations.push(question3Explanation);
     }
 
