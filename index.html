@@ -1,13 +1,417 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="description" content="Test your knowledge of web accessibility principles with our inclusive, user-friendly quiz. Learn key accessibility concepts to create better, more inclusive websites.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title</title>
+    <title>Accessibility Site - By Wind 1</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/ggo4lqo.css">
   </head>
+
   <body>
-    <p>This is the starting point.</p>
+    <a href="#main-content" class="skip-link">Skip to Main Content</a>
+    <header id="header">
+      <div class="header-content">
+        <img
+        class="nav-logo" 
+        src="assets/dark-olive.svg" 
+        alt="Team Wind Logo"
+        style="width: 100px">
+        <h1>An Accessibility Site for All</h1>
+        
+        <nav role="navigation" aria-label="Main menu">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  
+    <main id="main-content">
+      <section id="banner" role="banner">
+        <img 
+          src="assets/group-work.jpg" 
+          alt="" 
+          role="presentation" />  <!--decorative picture-->
+      </section>
+      <section id="introduction" aria-label="intro-section">
+        <h2>Welcome to our Accessibility quiz!</h2>
+        <p>
+          Hello there! Thank you for exploring the important topic of web accessibility. Please feel welcome to take the quiz below to assess your understanding of key accessibility principles in web development. Accessibility is fundamental to creating inclusive digital experiences, and we encourage you to share this resource with others who may benefit from learning more.
+        </p> 
+        <p> This quiz has been developed with a strong focus on web accessibility principles to ensure a positive experience for all users, including those with disabilities. 
+        </p>
+        <div class="form-controls intro-section">
+          <button 
+            id="intro-continue" 
+            type="button" 
+            class="submit-button">
+            Continue
+          </button>
+          <div class="hero-images">
+            <img 
+              id="info-image"
+              class="info-image"
+              src="assets/web-accessibility-image.jpg"
+              alt="A graphic image representing web accessibility" /> 
+          </div>
+        </div>
+      </section>
+
+      <section id="user-info" hidden>
+        <h2 id="user-info-heading">Your information</h2>
+        <form id="user-info-form" aria-labelledby="user-info-heading">
+          <div class="form-control">
+            <label for="name">Name:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              aria-required="true"
+              aria-describedby="name-error"
+              placeholder="Example: Johan Johansson"
+            />
+            <div id="name-error" class="error" role="alert" hidden></div>
+          </div>
+          <div class="form-control">
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              aria-required="true"
+              aria-describedby="email-hint email-error"
+              placeholder="name@example.com"/>
+            <div id="email-hint" class="error" role="alert" hidden>Example: name@example.com</div>
+            <div id="email-error" class="error" role="alert" hidden></div>
+            <div class="form-control">
+              <button type="submit" class="submit-button">
+                Continue to start the accessibility quiz
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+
+     <section id="temp-quiz" hidden>
+      <h2>Take our accessibility quiz</h2>
+
+      <div class="quiz-progress" role="status" aria-live="polite">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <p class="progress-text">0 of 6 questions answered</p>
+      </div>
+    
+      <div
+        class="quiz-instructions"
+        role="group"
+        aria-labelledby="instructions-heading">
+        <h3 id="instructions-heading">Quiz instructions</h3>  
+        <p>Use tab to navigate between sections, space to select an option</p>
+      </div>  
+
+      <form id="quiz-form">
+        <fieldset>
+          <legend>1. What is accessibility?</legend>
+          <div class="radio-group" role="radiogroup">
+
+          <div class="radio-option">
+          <input 
+            type="radio" 
+            name="question1" 
+            value="q1-correct"
+            id="q1a1"/>
+          <label 
+            for="q1a1"> 
+            Accessibility refers to the design of products, devices, services and environments for people who experience disabilities, including web development.
+          </label><br>
+        </div>
+
+        <div class="radio-option">
+          <input 
+            type="radio" 
+            name="question1" 
+            value="q1-incorrect"
+            id="q1a2"/>
+          <label 
+            for="q1a2"> 
+              Accessibility is primarily focused on optimizing websites for search engines to improve their ranking.
+          </label><br>
+        </div>
+
+        <div class="radio-option">
+          <input 
+            type="radio" 
+            name="question1" 
+            value="q1-incorrect"
+            id="q1a3"/>
+          <label 
+            for="q1a3"> 
+            Accessibility mainly concerns the visual design of a website, ensuring it is aesthetically pleasing and easy to navigate for all users.
+          </label><br>
+          </div>
+          
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>2. What is Semantic HTML as it relates to accessible web design?</legend>
+          <div class="radio-group" role="radiogroup">
+
+          <div class="radio-option">
+          <input 
+            type="radio" 
+            name="question2" 
+            value="q2-incorrect"
+            id="q2a1"/>
+          <label 
+            for="q2a1"> 
+            Semantic HTML refers to writing HTML code that is shorter and uses fewer lines, making it easier to load quickly.
+          </label><br>
+          </div>
+
+          <div class="radio-option">
+            <input 
+              type="radio" 
+              name="question2" 
+              value="q2-correct"
+              id="q2a2"/>
+            <label 
+              for="q2a2"> 
+              It is the practise of using HTML elements that clearly describe their meaning and purpose to both browsers and developers
+          </label><br>
+          </div>
+          
+          <div class="radio-option">
+            <input 
+              type="radio" 
+              name="question2" 
+              value="q2-incorrect"
+              id="q2a3"/>
+            <label 
+              for="q2a3"> 
+              Semantic HTML is a coding style that focuses on using the latest HTML5 features, regardless of their meaning or purpose, to create modern-looking websites.
+          </label><br>
+          </div>
+        </fieldset>
+        
+        <fieldset>
+          <legend>3. What is the primary purpose of the "Skip to Content" link in terms of web accessibility?</legend>
+          <div class="radio-group" role="radiogroup">
+
+          <div class="radio-option">
+          <input 
+            type="radio" 
+            name="question3" 
+            value="q3-incorrect"
+            id="q3a1"/>
+          <label 
+            for="q3a1"> 
+            To provide a link back to the homepage.
+          </label><br>
+          </div>
+
+          <div class="radio-option">
+            <input 
+              type="radio" 
+              name="question3" 
+              value="q3-correct"
+              id="q3a2"/>
+            <label 
+              for="q3a2"> 
+              To enable keyboard users to bypass repetitive navigation and jump directly to the main content.
+          </label><br>
+          </div>
+          
+          <div class="radio-option">
+            <input 
+              type="radio" 
+              name="question3" 
+              value="q3-incorrect"
+              id="q3a3"/>
+            <label 
+              for="q3a3"> 
+              To improve the website's search engine optimization.
+          </label><br>
+          </div>
+        </fieldset>
+
+
+        <fieldset>
+          <legend>4. What does EAA stand for?</legend>
+          <div class="radio-group" role="radiogroup">
+
+          <div class="radio-option">
+          <input 
+            type="radio" 
+            name="question4" 
+            value="q4-incorrect"
+            id="q4a1"/>
+          <label 
+            for="q4a1"> 
+            European Adaptation to Accessibility
+          </label><br>
+          </div>
+
+          <div class="radio-option">
+            <input 
+              type="radio" 
+              name="question4" 
+              value="q4-correct"
+              id="q4a2"/>
+            <label 
+              for="q4a2"> 
+              European Accessibility Act
+          </label><br>
+          </div>
+          
+          <div class="radio-option">
+            <input 
+              type="radio" 
+              name="question4" 
+              value="q4-incorrect"
+              id="q4a3"/>
+            <label 
+              for="q4a3"> 
+              European Access to Adaptiveness
+          </label><br>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>5. Who in Europe is not necessarily affected by the EEA’s requirements and obligations?</legend>
+          <div class="radio-group" role="radiogroup">
+
+          <div class="radio-option">
+          <input 
+            type="radio" 
+            name="question5" 
+            value="q5-incorrect"
+            id="q5a1"/>
+          <label 
+            for="q5a1"> 
+            Enterprises that work in Europe but have their headquarters outside of Europe.
+          </label><br>
+        </div>
+
+        <div class="radio-option">
+          <input 
+            type="radio" 
+            name="question5" 
+            value="q5-incorrect"
+            id="q5a2"/>
+          <label 
+            for="q5a2"> 
+            Infants, children under 13 years old, students, unemployed and adults over 65 years old.
+          </label><br>
+        </div>
+
+        <div class="radio-option">
+          <input 
+            type="radio" 
+            name="question5" 
+            value="q5-correct"
+            id="q5a3"/>
+          <label 
+            for="q5a3"> 
+            Enterprises which employ fewer than 10 persons and have an annual turnover or balance sheet total not exceeding €2 million.
+          </label><br>
+          </div>
+          
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>6. What is the purpose of ARIA (Accessible Rich Internet Applications) attributes? </legend>
+          <div class="radio-group" role="radiogroup">
+
+          <div class="radio-option">
+          <input 
+            type="radio" 
+            name="question6" 
+            value="q6-incorrect"
+            id="q6a1"/>
+          <label 
+            for="q6a1"> 
+            To provide additional styling options for HTML elements.
+          </label><br>
+        </div>
+
+        <div class="radio-option">
+          <input 
+            type="radio" 
+            name="question6" 
+            value="q6-correct"
+            id="q6a2"/>
+          <label 
+            for="q6a2"> 
+            To offer semantic information for assistive technologies.
+          </label><br>
+        </div>
+
+        <div class="radio-option">
+          <input 
+            type="radio" 
+            name="question6" 
+            value="q6-incorrect"
+            id="q6a3"/>
+          <label 
+            for="q6a3"> 
+            To manage dynamic content without JavaScript.
+          </label><br>
+          </div>
+        </div>
+        </fieldset>
+
+            <div class="form-controls">
+          <button
+            type="submit"
+            class="submit-button"
+            aria-describedby="submit-description"
+          >
+            Submit quiz
+        </button>
+        <p id="submit-description" class="visually-hidden">
+          Click to submit your quiz and see the results
+        </p>
+        </div>
+      </form>
+     </section>
+
+     <section id="results" hidden aria-live="polite">
+        <h2>You finished the quiz!</h2>
+        <div id="results-content"></div>
+        <div class="quiz-details"></div>
+     </section>
+
+     <div id="announcer" class="visually-hidden" aria-live="polite"></div>
+     
+    </main>
+    
+      <footer role="contentinfo">
+      <div class="footer-content">
+        <nav role="navigation" aria-label="Footer menu">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li>
+              <a href="https://github.com/Bianka2112/js-project-accessibility" 
+              aria-label="Visit our Github repository">
+              Created by: Bianka, Kasia and Talo 
+              <i class="fa-brands fa-github"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+
     <script src="js/main.js"></script>
+    <script src="https://kit.fontawesome.com/beb1bc6f21.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
   </body>
 </html>
+
