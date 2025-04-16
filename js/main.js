@@ -149,6 +149,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const formData = new FormData(feedbackForm);
         const userAnswer = Object.fromEntries(formData);
+        const loadingIndicator = document.getElementById('loading-indicator');
+
+        // Show loading message
+loadingIndicator.classList.add('active');
+feedbackSection.setAttribute('aria-busy', 'true');
 
         if (!userAnswer.navigation) {
             isValid = false;
@@ -209,14 +214,20 @@ document.addEventListener('DOMContentLoaded', () => {
         feedback += ` ${satisfactionMessage}`;
 
         feedback += positiveResposes >= totaResposes / 2 ? 'Great! We are glad you are satisfied!' : 'We are sorry to hear that you are not satisfied.';
-        feedbackSection.hidden = true;
-        resultsection.hidden = false;
-        resultContent.textContent = feedback;
-        feedbackDetails.innerHTML = detailedFeedback.map((text) => `<p>${text}</p>`).join('');
-
-        resultsection.setAttribute('tabindex', '-1');
-        resultsection.focus();
-        announcer.textContent = 'Feedback submitted successfully!';
+        setTimeout(() => {
+            // Process feedback
+            feedbackSection.setAttribute('aria-busy', 'false');
+            loadingIndicator.classList.remove('active');
+          
+            feedbackSection.hidden = true;
+            resultsection.hidden = false;
+            resultContent.textContent = feedback;
+            feedbackDetails.innerHTML = detailedFeedback.map((text) => `<p>${text}</p>`).join('');
+          
+            resultsection.setAttribute('tabindex', '-1');
+            resultsection.focus();
+            announcer.textContent = 'Feedback submitted successfully!';
+          }, 1500); // Simulate 1.5 second loading
     });
 
 
