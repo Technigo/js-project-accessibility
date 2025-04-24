@@ -1,0 +1,519 @@
+/* Base styles with accessibility considerations */
+:root {
+  --primary-color: #2c3e50;
+  --background-color: #ffffff;
+  --accent-color: #0040a3;
+  /* Darker blue for better contrast */
+  --error-color: #e74c3c;
+  --success-color: #27ae60;
+  --focus-outline: 3px solid var(--accent-color);
+  --focus-ring-color: rgba(0, 86, 179, 0.5);
+  --progress-bg: #edf2f7;
+  --text-color: #2c3e50;
+  --border-color: #e2e8f0;
+  --hover-bg: rgba(0, 0, 0, 0.05);
+  --transition-speed: 0.3s;
+}
+
+/* General reset and box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Body and basic styling */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--primary-color);
+  background-color: var(--background-color);
+  margin: 5;
+  padding: 16px;
+  font-size: 16px;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Button, input, select, textarea */
+button,
+input,
+select,
+textarea {
+  border: 2px solid var(--text-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+/* Kursiv stil */
+.italic-text {
+  font-style: italic;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--accent-color);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+}
+
+/* Enhanced focus styles */
+:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Form styles */
+fieldset {
+  border: 1px solid var(--primary-color);
+  margin: 1em 0;
+  padding: 1em;
+  border-radius: 4px;
+}
+
+legend {
+  font-weight: bold;
+  padding: 0.5em 1em;
+  color: var(--primary-color);
+  background-color: #f8fafc;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+}
+
+.radio-group {
+  margin: 1em 0;
+}
+
+label:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Custom radio button styling */
+input[type='radio'] {
+  margin-right: 0.75em;
+  width: 20px;
+  height: 20px;
+}
+
+input[type='radio']:focus-visible+label {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+input[type='radio']+label {
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  flex: 1;
+}
+
+/* Accordion Styles */
+.accordion-container {
+  margin: 2rem 0;
+  max-width: 800px;
+}
+
+.accordion-container h3 {
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.accordion {
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+.accordion-item {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+/* Accordion button and icon styling */
+.accordion-button {
+  width: 100%;
+  padding: 2rem;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.accordion-button:hover {
+  background-color: var(--hover-bg);
+}
+
+.accordion-button:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: -2px;
+}
+
+.accordion-icon {
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+  position: relative;
+  transition: transform var(--transition-speed) ease;
+}
+
+.accordion-icon::before,
+.accordion-icon::after {
+  content: '';
+  position: absolute;
+  background-color: currentColor;
+  transition: transform var(--transition-speed) ease;
+}
+
+.accordion-icon::before {
+  width: 2px;
+  height: 1.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.accordion-icon::after {
+  width: 1.2rem;
+  height: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.accordion-button[aria-expanded='true'] .accordion-icon::before {
+  transform: translateX(-50%) rotate(90deg);
+}
+
+.accordion-content {
+  padding: 0 1rem;
+  overflow: hidden;
+  transition: max-height var(--transition-speed) ease-out;
+}
+
+.accordion-content[hidden] {
+  display: none;
+}
+
+.accordion-content:not([hidden]) {
+  padding-bottom: 1rem;
+}
+
+.hero-images {
+  width: 50%;
+  /* Gör att containern täcker hela bredden */
+  overflow: hidden;
+  /* Så att bilden inte går utanför containeren */
+  position: relative;
+  margin: 2rem 0;
+  /* Avstånd runt containern */
+}
+
+.hero-images img {
+  width: 100%;
+  /* Bilden täcker hela bredden på containern */
+  object-fit: cover;
+  /* Bevarar bildens proportioner och täcker hela området */
+  object-position: center;
+  /* Centrerar bilden om den inte fyller hela containern */
+}
+
+/* Visually hidden class */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Submit button */
+.submit-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s, transform 0.1s;
+  font-weight: 500;
+}
+
+.submit-button:hover {
+  background-color: #34495e;
+}
+
+.submit-button:active {
+  transform: scale(0.98);
+}
+
+.submit-button:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+}
+
+/* Footer styles */
+footer {
+  width: 100%;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  background-color: var(--primary-color);
+  color: white;
+  padding: 2rem 0;
+  margin-top: 8px;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: grid;
+  gap: 2rem;
+}
+
+.footer-content nav {
+  margin-bottom: 1rem;
+}
+
+.footer-content h3 {
+  color: white;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.footer-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-content a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  display: block;
+  transition: opacity var(--transition-speed);
+}
+
+.footer-content a:hover {
+  opacity: 0.8;
+}
+
+.footer-info {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Header styles */
+#header {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  background-color: var(--primary-color);
+  color: white;
+  padding: 2rem 0;
+}
+
+#header .header-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+#header h1 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+#header nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: flex;
+  gap: 2rem;
+}
+
+#header nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: opacity var(--transition-speed);
+}
+
+#header nav a:hover {
+  opacity: 0.8;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Banner styles */
+#banner {
+  margin: 20px 20px 2rem;
+  width: 100%;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+}
+
+#banner img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Media Queries */
+@media (max-width: 1600px) {
+  /* Adjustments for larger screens */
+}
+
+@media (max-width: 1200px) {
+  body {
+    padding: 10px;
+  }
+
+  .accordion-button {
+    font-size: 1rem;
+    padding: 1.5rem;
+  }
+
+  .submit-button {
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 8px;
+  }
+
+  #header .header-content {
+    padding: 0 0.5rem;
+  }
+
+  .accordion-button {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
+
+  .submit-button {
+    padding: 8px 16px;
+  }
+
+  footer {
+    padding: 1rem 0;
+  }
+
+  footer .footer-content {
+    padding: 0 1rem;
+  }
+
+  footer .footer-content ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-info {
+    padding-top: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  .accordion-button {
+    font-size: 0.8rem;
+    padding: 0.75rem;
+  }
+
+  .submit-button {
+    padding: 6px 12px;
+  }
+
+  #header nav {
+    display: block;
+    text-align: center;
+  }
+
+  .footer-content {
+    padding: 0 0.5rem;
+  }
+
+  footer .footer-content ul {
+    display: block;
+    margin: 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 320px) {
+
+  /* Specific adjustments for 320px or smaller screens */
+  body {
+    font-size: 12px;
+    padding: 4px;
+  }
+
+  .accordion-button {
+    font-size: 0.7rem;
+    padding: 0.5rem;
+  }
+
+  .submit-button {
+    padding: 4px 8px;
+  }
+
+  #header nav {
+    display: block;
+    text-align: center;
+  }
+
+  footer {
+    padding: 0.5rem 0;
+  }
+
+  footer .footer-content {
+    padding: 0 0.25rem;
+  }
+}
