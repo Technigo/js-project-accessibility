@@ -1,13 +1,245 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title</title>
+    <title>Home</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/form.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <p>This is the starting point.</p>
+    <a href="#quiz-form" class="skip-link">Skip to Content</a>
+    <header>
+      <h1>Accessibility</h1>
+      <nav role="navigation" aria-label="Main menu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="banner" aria-hidden="true"></section>
+
+    <div class="wrapper">
+      <main role="main">
+        <section id="quiz-introduction" class="quiz-introduction">
+          <div
+            class="quiz-introduction-container"
+            id="quiz-introduction-container"
+          >
+            <img
+              src="/images/diveristy.svg"
+              style="height: 500px"
+              alt="Illustration of a developer making a website more accessible."
+            />
+            <h2>The Accessibility Quiz</h2>
+
+            <p>
+              It’s time to level up your skills and dive into the world of web
+              accessibility.<span aria-hidden="true">💻✨</span>
+
+              <!-- How well do you
+              know WCAG, color contrast, keyboard navigation, and inclusive
+              design? -->
+            </p>
+            <p>
+              This quiz is a chance to learn something new – and every step
+              toward better accessibility makes the internet a fairer place for
+              all
+              <span aria-hidden="true">❤️</span> Ready? Let’s go!
+              <span aria-hidden="true">🚀</span>
+            </p>
+            <p>
+              ps. This quiz follows accessibility principles by using semantic
+              HTML, keyboard-friendly interactions, and screen reader-friendly
+              markup.
+            </p>
+
+            <div class="quiz-control">
+              <button id="intro-continue" type="button" class="start-quiz">
+                Start Quiz
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section id="quiz">
+          <form id="quiz-form">
+            <h2>Accessibility Quiz</h2>
+            <p id="form-intro" class="sr-only">
+              This is a quiz with 3 questions about Accessibility. Use Tab to
+              start and Arrow keys to navigate.
+            </p>
+            <fieldset
+              id="first-question-section"
+              class="tab"
+              aria-hidden="true"
+              role="tabpanel"
+              aria-required="true"
+            >
+              <legend id="question1-legend">
+                What is the purpose of alt text on images?
+              </legend>
+
+              <label for="question1-a">
+                <input
+                  type="radio"
+                  name="What is the purpose of alt text on images?"
+                  value="Adds captions to videos"
+                  id="question1-a"
+                  aria-describedby="question1-legend"
+                />
+                Adds captions to videos
+              </label>
+
+              <br />
+
+              <label for="question1-b">
+                <input
+                  type="radio"
+                  name="What is the purpose of alt text on images?"
+                  value="Describes images to screen readers"
+                  id="question1-b"
+                />Describes images to screen readers</label
+              >
+              <br />
+
+              <label for="question1-c">
+                <input
+                  type="radio"
+                  name="What is the purpose of alt text on images?"
+                  value="Changes the image color"
+                  id="question1-c"
+                />Changes the image color</label
+              >
+            </fieldset>
+
+            <fieldset
+              id="second-question-section"
+              class="tab"
+              aria-hidden="true"
+              role="tabpanel"
+              aria-required="true"
+            >
+              <legend id="question2-legend">
+                Which element is used to group related form controls?
+              </legend>
+              <label for="question2-a">
+                <input
+                  type="radio"
+                  name="Which element is used to group related form controls?"
+                  value="<div>"
+                  id="question2-a"
+                  aria-describedby="question2-legend"
+                />
+                &lt;div&gt;</label
+              >
+
+              <br />
+
+              <label for="question2-b">
+                <input
+                  type="radio"
+                  name="Which element is used to group related form controls?"
+                  value="<fieldset>"
+                  id="question2-b"
+                />
+                &lt;fieldset&gt;
+              </label>
+              <br />
+
+              <label for="question2-c">
+                <input
+                  type="radio"
+                  name="Which element is used to group related form controls?"
+                  value="<section>"
+                  id="question2-c"
+                />
+                &lt;section&gt;
+              </label>
+            </fieldset>
+
+            <fieldset
+              id="third-question-section"
+              class="tab"
+              aria-hidden="true"
+              role="tabpanel"
+              aria-required="true"
+            >
+              <legend id="question3-legend">
+                What does aria-live="polite" do?
+              </legend>
+              <label for="question3-a">
+                <input
+                  type="radio"
+                  name='What does aria-live="polite" do?'
+                  value="Hides content from screen readers"
+                  id="question3-a"
+                  aria-describedby="question3-legend"
+                />
+                Hides content from screen readers</label
+              >
+              <br />
+
+              <label for="question3-b">
+                <input
+                  type="radio"
+                  name='What does aria-live="polite" do?'
+                  value="Politely reads dynamic changes to users"
+                  id="question3-b"
+                />
+                Politely reads dynamic changes to users
+              </label>
+              <br />
+
+              <label for="question3-c">
+                <input
+                  type="radio"
+                  name='What does aria-live="polite" do?'
+                  value="Adds background music"
+                  id="question3-c"
+                />
+                Adds background music
+              </label>
+            </fieldset>
+
+            <div class="quiz-progress">
+              <div id="progress-steps"></div>
+              <p id="progress-text" aria-live="polite"></p>
+            </div>
+            <div id="btn-container">
+              <button
+                type="button"
+                id="prevBtn"
+                style="display: none"
+                aria-hidden="true"
+              >
+                Previous
+              </button>
+              <button type="submit" id="nextBtn">Next</button>
+            </div>
+          </form>
+        </section>
+
+        <section id="quiz-result" style="display: none" aria-hidden="true">
+          <h2>Quiz Completed 🎉</h2>
+          <p id="quiz-score"></p>
+          <div id="quiz-overview"></div>
+          <button type="button" id="restartBtn">Restart Quiz</button>
+          <div id="feedback" aria-live="assertive" class="sr-only"></div>
+        </section>
+
+        <div id="announcer" class="sr-only" aria-live="polite"></div>
+      </main>
+    </div>
+
     <script src="js/main.js"></script>
   </body>
 </html>
