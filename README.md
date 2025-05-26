@@ -37,4 +37,4 @@ Check out the live website at [Accessibility Quiz](https://webaccessibilityquiz.
 - High Contrast Mode toggle button.
 - Enhanced styling for reduced motion support.
 
-© 2025 Accessibility Quiz. All Rights Reserved. | Developed & Designed by Ricardo Nicolau
+© 2025 Accessibility Quiz. All Rights Reserved. | Developed & Designed by DevByRico
