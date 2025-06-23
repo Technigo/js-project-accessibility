@@ -1,3 +1,4 @@
+import googlefonts from 'googlefonts';
 * Base styles with accessibility considerations */
 :root {
   --primary-color: #2c3e50;
