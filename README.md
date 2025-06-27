@@ -1,9 +1,5 @@
-# Web Accessibility Project
+# Web Accessibility Quiz
 
-A basic web server template focused on web accessibility practices.
+A simple interactive quiz built with JavaScript that tests users on essential web accessibility concepts based on WCAG guidelines. Designed with accessibility in mind, it includes semantic HTML, proper focus management, ARIA roles, and keyboard navigation to ensure an inclusive user experience.
 
-### Installation
-
-1. Fork this repository by clicking the "Fork" button at the top right of the GitHub repository page.
-
-2. Clone your forked repository
+https://accessibility-guiz.netlify.app
