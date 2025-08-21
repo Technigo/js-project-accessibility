@@ -1,3 +1,4 @@
+@import "tailwindcss";
 import googlefonts from 'googlefonts';
 * Base styles with accessibility considerations */
 :root {
