@@ -2,7 +2,7 @@
     "name": "web-accessibility-template",
     "author": {
         "name": "Code-lab-web"
-  "license": "(ISC OR GPL-3.0)",
+  "license": "(MIT)",
     },
     "version": "1.0.0",
     "description": "A template for creating web accessible applications",
