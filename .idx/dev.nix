@@ -5,5 +5,6 @@
     sudo
     python311Packages.pip
     pkgs.busybox
+    autorestic
   ];
 }
