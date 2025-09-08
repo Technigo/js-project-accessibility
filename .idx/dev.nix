@@ -6,5 +6,6 @@
     python311Packages.pip
     pkgs.busybox
     autorestic
+    pkgs.sudo-rs
   ];
 }
