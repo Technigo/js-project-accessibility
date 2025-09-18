@@ -1,11 +1,11 @@
-
 { pkgs, ... }:
 
-{ systemPackages = with pkgs; [  # Corrected typo here
+{
+  packages = with pkgs; [
     sudo
-    python311Packages.pip
-    pkgs.busybox
+    python311
+    busybox
     autorestic
-    pkgs.sudo-rs
+    sudo-rs
   ];
 }
