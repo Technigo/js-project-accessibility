@@ -23,19 +23,15 @@
     "@babel/template": "^7.27.2",
     "@babel/types": "^7.28.4",
     "@types/node": "^24.5.2",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
     "eslint": "^9.36.0"
   },
   "dependencies": {
     "@babel/helper-environment-visitor": "^7.24.7",
     "@babel/helper-module-imports": "^7.27.1",
     "@babel/helper-validator-identifier": "^7.27.1",
-    "@babel/polyfill": "^7.12.1",
     "@babel/runtime": "^7.28.4",
     "@babel/standalone": "^7.28.4",
     "@babel/traverse": "^7.28.4",
-    "core-js": "^2.6.12"
+    "core-js": "^3.37.1"
   }
 }
