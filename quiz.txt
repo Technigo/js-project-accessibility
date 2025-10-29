@@ -1,0 +1,49 @@
+What is the purpose of alt text on images?
+a) Adds captions to videos
+b) Describes images to screen readers
+c) Changes the image color
+
+Which element is used to group related form controls?
+a) <div>
+b) <fieldset>
+c) <section>
+
+What does aria-live="polite" do?
+a) Hides content from screen readers
+b) Politely reads dynamic changes to users
+c) Adds background music
+
+Why should you use semantic HTML?
+a) It makes code shorter
+b) It helps search engines and assistive tech understand content
+c) It increases page load speed
+
+Which HTML element creates a keyboard-focusable button?
+a) <div>
+b) <span>
+c) <button>
+
+How do users navigate radio buttons using a keyboard?
+a) Tab between all radios
+b) Arrow keys within a group
+c) Mouse only
+
+What does a "skip to content" link do?
+a) Scrolls to the bottom of the page
+b) Opens a menu
+c) Lets users jump past repeated content like navigation
+
+Which color contrast ratio is required by WCAG for normal text?
+a) 2:1
+b) 4.5:1
+c) 10:1
+
+What does tabindex="0" do?
+a) Removes focus
+b) Adds element to normal tab order
+c) Skips the element
+
+Who benefits from web accessibility?
+a) Only screen reader users
+b) Only people with disabilities
+c) Everyone
