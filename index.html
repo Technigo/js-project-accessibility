@@ -1,13 +1,115 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <title>Web Accessibility Quiz</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
   </head>
   <body>
-    <p>This is the starting point.</p>
-    <script src="js/main.js"></script>
+    <header>
+      <h1>Web Accessibility Quiz</h1>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#quiz">Skip to Quiz</a>
+      </nav>
+      <button id="darkModeToggle">Switch to Dark Mode</button>
+    </header>
+
+    <div class="content">
+      <section id="home">
+        <h2>Welcome to the Web Accessibility Quiz</h2>
+        <p>
+          Test your knowledge on web accessibility and best practices. Make sure to read the questions carefully and
+          select the most accurate answer.
+        </p>
+      </section>
+
+      <section id="about">
+        <h2>About This Quiz</h2>
+        <p>
+          This quiz is designed with accessibility in mind, following best practices for screen reader compatibility,
+          keyboard navigation, and more.
+        </p>
+        <!--  Decorative Image (Ignored by Screen Readers) 
+              This is just to demonstrate how to include an image without screen readers actually reading it. 
+              The image is marked as decorative using alt="" and aria-hidden="true". -->
+        <img src="img/decorative.png" alt="" aria-hidden="true" />
+
+        <!-- Informative image (Read by screen readers) -->
+        <img
+          src="img/informative.png"
+          alt="Infographic about web accessibility with examples of accessible elements such as navigation, forms, and alt text usage."
+        />
+      </section>
+
+      <section id="quiz" class="quiz-section">
+        <h2>Accessibility Quiz</h2>
+        <form id="quizForm" aria-live="polite">
+          <fieldset>
+            <legend>Question 1: What does ARIA stand for?</legend>
+            <input type="radio" id="q1a1" name="q1" value="correct" />
+            <label for="q1a1">Accessible Rich Internet Applications</label><br />
+
+            <input type="radio" id="q1a2" name="q1" value="incorrect" />
+            <label for="q1a2">Advanced Rich Internet Accessibility</label><br />
+
+            <input type="radio" id="q1a3" name="q1" value="incorrect" />
+            <label for="q1a3">Application Resource Interaction Accessibility</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Question 2: What is the main purpose of using ARIA attributes?</legend>
+            <input type="radio" id="q2a1" name="q2" value="incorrect" />
+            <label for="q2a1">To enhance visual design</label><br />
+
+            <input type="radio" id="q2a2" name="q2" value="correct" />
+            <label for="q2a2">To improve accessibility for assistive technologies</label><br />
+
+            <input type="radio" id="q2a3" name="q2" value="incorrect" />
+            <label for="q2a3">To reduce website loading time</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Question 3: What does WCAG stand for?</legend>
+            <input type="radio" id="q3a1" name="q3" value="correct" />
+            <label for="q3a1">Web Content Accessibility Guidelines</label><br />
+
+            <input type="radio" id="q3a2" name="q3" value="incorrect" />
+            <label for="q3a2">Web Creative Art Group</label><br />
+
+            <input type="radio" id="q3a3" name="q3" value="incorrect" />
+            <label for="q3a3">Website Compliance and Accessibility Guide</label>
+          </fieldset>
+
+          <button type="submit">Submit</button>
+        </form>
+        <div id="feedback"></div>
+      </section>
+    </div>
+
+    <footer>
+      <div class="footer">
+        <p>
+          Follow us on
+          <a href="https://facebook.com" target="_blank">Facebook</a>,
+          <a href="https://instagram.com" target="_blank">Instagram</a>
+          and <a href="https://twitter.com" target="_blank">Twitter</a> | <a href="#">Contact Us</a> |
+          <a href="#">Privacy Policy</a>
+        </p>
+        <p>
+          &copy; 2025 <strong>Web Accessibility Quiz</strong>. All Rights Reserved. | Developed & Designed by
+          <strong><a href="https://github.com/DevByRico" target="_blank">DevByRico</a></strong>
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
