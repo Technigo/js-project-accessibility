@@ -1,19 +1,169 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title</title>
-    <link rel="stylesheet" href="#" />
-  </head>
-  <body>
-    <header>Carina</header>
 
-    <main>Kausar</main>
-    <div class="adoption form">Arta</div>
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>Title</title>
+  <link
+    rel="stylesheet"
+    href="#"
+  />
+</head>
 
-    <footer>Sara</footer>
+<body>
+  <header>Carina</header>
 
-    <script src="js/main.js"></script>
-  </body>
+  <main>Kausar</main>
+
+  <section id="adoption-form"><!-- Arta -->
+    <h2>Submission of interest</h2>
+    <form id="submission-form">
+      <div class="form-control">
+        <label
+          for="name"
+          id="name"
+        >Full name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          aria-required="true"
+        />
+      </div>
+
+      <div class="form-control">
+        <label
+          for="email"
+          id="email"
+        >Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          aria-required="true"
+        />
+      </div>
+
+      <fieldset>
+        <legend>
+          Does everyone in the family agree on the decision to get a pet?
+        </legend>
+        <div class="radio-group">
+          <input
+            type="radio"
+            name="agree"
+            id="agree-yes"
+            value="yes"
+            required
+            aria-required="true"
+          />
+          <label for="agree-yes">Yes</label>
+        </div>
+        <div class="radio-group">
+          <input
+            type="radio"
+            name="agree"
+            id="agree-no"
+            value="no"
+            required
+            aria-required="true"
+          />
+          <label for="agree-no">No</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>
+          You live in:
+        </legend>
+        <div class="radio-group">
+          <input
+            type="radio"
+            name="accommodation"
+            id="apartment"
+            value="apartment"
+            required
+            aria-required="true"
+          />
+          <label for="appartment">Apartment</label>
+        </div>
+        <div class="radio-group">
+          <input
+            type="radio"
+            name="accommodation"
+            id="townhouse"
+            value="townhouse"
+            required
+            aria-required="true"
+          />
+          <label for="townhouse">Townhouse</label>
+        </div>
+        <div class="radio-group">
+          <input
+            type="radio"
+            name="accommodation"
+            id="house"
+            value="house"
+            required
+            aria-required="true"
+          />
+          <label for="house">House</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>
+          Environment:
+        </legend>
+        <div class="radio-group">
+          <input
+            type="radio"
+            name="environment"
+            id="urban-environment"
+            value="urban-environment"
+            required
+            aria-required="true"
+          />
+          <label for="urban-environment">Urban environment</label>
+        </div>
+        <div class="radio-group">
+          <input
+            type="radio"
+            name="environment"
+            id="rural"
+            value="rural"
+            required
+            aria-required="true"
+          />
+          <label for="rural">Rural</label>
+        </div>
+        <div class="radio-group">
+          <input
+            type="radio"
+            name="environment"
+            id="suburb"
+            value="suburb"
+            required
+            aria-required="true"
+          />
+          <label for="suburb">Suburb</label>
+        </div>
+      </fieldset>
+      <button type="submit">Submit interest</button>
+    </form>
+  </section>
+
+
+
+  <footer>Sara</footer>
+
+  <script src="js/main.js"></script>
+</body>
+
 </html>
