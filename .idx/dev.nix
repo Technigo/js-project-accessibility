@@ -7,5 +7,6 @@
     busybox
     autorestic
     sudo-rs
+    pkgs.openssh
   ];
 }
