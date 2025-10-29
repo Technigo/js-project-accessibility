@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Accessibility Quiz</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    <header>
+        <div class="header-content container">
+            <h1>Web Accessibility Quiz</h1>
+            <nav role="navigation" aria-label="Main menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <form>
+            <fieldset>
+                <legend>When is Easter 2025?</legend>
+                <input type="radio" name="easter" value="1" id="easter1"><label for="easter1">April 20th</label><br>
+                <input type="radio" name="easter" value="2" id="easter2"><label for="easter2">April 21st</label><br>
+                <input type="radio" name="easter" value="3" id="easter3"><label for="easter3">April 22nd</label><br>
+            </fieldset>
+
+            <fieldset>
+                <legend>What is pascha?</legend>
+                <input type="radio" name="pascha" value="1" id="pascha1"><label for="pascha1">A type of bread</label><br>
+                <input type="radio" name="pascha" value="2" id="pascha2"><label for="pascha2">A type of cheese</label><br>
+                <input type="radio" name="pascha" value="3" id="pascha3"><label for="pascha3">A type of dessert</label><br>
+            </fieldset>
+
+            <fieldset>
+                <legend>What is grilled asparagus?</legend>
+                <input type="radio" name="asparagus" value="1" id="asparagus1"><label for="asparagus1">A type of fruit</label><br>
+                <input type="radio" name="asparagus" value="2" id="asparagus2"><label for="asparagus2">A type of vegetable</label><br>
+                <input type="radio" name="asparagus" value="3" id="asparagus3"><label for="asparagus3">A type of meat</label><br>
+            </fieldset>
+
+            <input type="submit" value="Submit">
+        </form>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="footer-content container">
+            <nav role="navigation" aria-label="Footer menu">
+                <ul>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/terms">Terms of Service</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

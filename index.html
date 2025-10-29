@@ -1,13 +1,91 @@
+
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title</title>
+    <title>Leave feedback</title>
     <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <p>This is the starting point.</p>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
+        <div class="header-content container">
+            <h1>Website Feedback</h1>
+            <nav role="navigation" aria-label="Main menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" class="container">
+        <section id="banner" role="banner">
+            <img src="assets/banner.jpg" alt="" role="presentation" />
+        </section>
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>We value your feedback! Help us improve our website by sharing your experience.</p>
+            <div class="form-controls intro-section">
+                <button id="intro-continue" type="button" class="submit-button">Continue</button>
+            </div>
+        </section>
+        <section id="user-info" hidden>
+            <form id="feedback-form">
+                <label for="name">Name:</label>
+                <input id="name" name="name" type="text" aria-required="true" aria-describedby="name-error" />
+                <div id="name-error" class="error" role="alert" hidden></div>
+                <label for="email">Email:</label>
+                <input id="email" name="email" type="email" aria-required="true" aria-describedby="email-error" placeholder="Example: name@example.com" />
+                
+                <div class="quiz-progress" role="status" aria-live="polite">
+                    <div class="progres-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <p class="progress-text">0 of 4 questions answered</p>
+                </div>
+
+                <fieldset>
+                    <legend>Website Navigation Experience</legend>
+                    <div class="radio-group" role="radiogroup">
+                        <div class="radio-option">
+                            <input type="radio" name="navigation" value="easy" id="nav-easy" />
+                            <label for="nav-easy">Easy</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="navigation" value="difficult" id="nav-difficult" />
+                            <label for="nav-difficult">Difficult</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-controls">
+                    <button type="submit" class="submit-button" aria-describedby="submit-description">Submit feedback</button>
+                    <p id="submit-description" class="visually-hidden">Click to submit your feedback and see the summary</p>
+                </div>
+            </form>
+        </section>
+        <section id="results" hidden aria-live="polite">
+            <h2>Thank you</h2>
+            <div id="results-content"></div>
+            <div class="feedback-details"></div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="footer-content container">
+            <nav role="navigation" aria-label="Footer menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
     <script src="js/main.js"></script>
-  </body>
+    <script src="js/keyboardnavigation.js"></script>
+    <script src="js/accordion.js"></script>
+</body>
 </html>
