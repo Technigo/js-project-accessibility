@@ -22,6 +22,15 @@
   font-family: "Poppins", sans-serif;
 }
 
+.paw-icon {
+  width: 64px;          
+  height: 64px;
+  color: #eaeaea;       
+  display: block;
+  margin-top: -10px;   
+  margin-bottom: 10px;
+}
+
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -29,7 +38,6 @@
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   align-items: flex-start;
   gap: 40px;
-  text-align: left;
 }
 
 .footer h2 {
@@ -41,6 +49,7 @@
 .footer ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .footer li {
@@ -55,14 +64,14 @@
 
 .footer a:hover,
 .footer a:focus-visible {
-  color: var(--button-hover1);
+  color: var(--button-hover2);
   outline: none;
 }
 
 
 .footer-logo .paw {
   font-size: 2rem;
-  color: var(--button-hover1);
+  color: var(--button-hover2);
 }
 
 .footer-divider {
@@ -98,22 +107,25 @@
 
 .socials ul {
   display: flex;
+  align-items: center;
   list-style: none;
   gap: 15px;
   margin: 0;
   padding: 0;
 }
 
-.socials a {
-  color: #ccc;
-  font-size: 1.2rem;
-  text-decoration: none;
-  transition: color 0.3s;
+.socials a svg {
+  width: 24px;
+  height: 24px;
+  color: #eaeaea;
+  vertical-align: middle;
+  transition: color 0.3s, transform 0.3s;
 }
 
-.socials a:hover,
-.socials a:focus-visible {
+.socials a:hover svg,
+.socials a:focus-visible svg {
   color: var(--button-hover3);
+  transform: scale(1.1);
 }
 
 
@@ -125,6 +137,7 @@
   .footer-bottom {
     flex-direction: column;
     text-align: center;
+    gap: 15px;
   }
 
   .socials {
