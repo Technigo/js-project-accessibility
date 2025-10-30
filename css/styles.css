@@ -2,7 +2,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Montserrat";
 }
+
 :root {
   --background: #d1e5fe;
   --page: #f5f0ec;
@@ -23,15 +25,94 @@
 
 /* ----------------------------- 
           ARTA - FORM
----------------------------------
-*//* Form elements */
+---------------------------------*/
+
 #adoption-form {
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    background-color: #f8fafc;
-    border-radius: 8px;
-    border: 1px solid #e2e8f0;
-    display: block;
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #d1e5fe;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+fieldset {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+legend {
+  font-weight: 500;
+  padding: 0 0.5rem;
+}
+
+.radio-group {
+  margin: 0.5rem 0;
+}
+
+.radio-group label {
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+
+button[type="submit"] {
+  background-color: var(--background);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--button-hover2);
+  color: black;
+}
+
+button[type="submit"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.4);
+}
+
+#response {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: var(--background);
+  border-radius: 5px;
+  text-align: center;
 }
 
 
