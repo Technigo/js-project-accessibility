@@ -1,32 +1,133 @@
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 :root {
   --background: #d1e5fe;
   --page: #f5f0ec;
   --button-hover1: #9863ee;
   --button-hover2: #e5c6ff;
   --button-hover3: #f598ad;
+  --footer-bg: #2b2e3a;
+  --text-light: #eaeaea;
 }
 
-/* ----------------------------- 
-       CARINA - HEADER
----------------------------------
-*/
+.footer {
+  background-color: var(--footer-bg);
+  color: var(--text-light);
+  padding: 60px 20px 30px;
+  font-family: "Poppins", sans-serif;
+}
 
-/* ----------------------------- 
-        KAUSAR - CARDS
----------------------------------
-*/
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  align-items: flex-start;
+  gap: 40px;
+  text-align: left;
+}
 
-/* ----------------------------- 
-          ARTA - FORM
----------------------------------
-*/
+.footer h2 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
 
-/* ----------------------------- 
-         SARA - FOOTER 
----------------------------------
-*/
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer li {
+  margin-bottom: 0.4rem;
+}
+
+.footer a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer a:hover,
+.footer a:focus-visible {
+  color: var(--button-hover1);
+  outline: none;
+}
+
+
+.footer-logo .paw {
+  font-size: 2rem;
+  color: var(--button-hover1);
+}
+
+.footer-divider {
+  border: none;
+  border-top: 1px solid #3a3d4a;
+  margin: 40px 0 20px;
+}
+
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.follow-text {
+  margin-right: 10px;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.socials ul {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.socials a {
+  color: #ccc;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.socials a:hover,
+.socials a:focus-visible {
+  color: var(--button-hover3);
+}
+
+
+@media (max-width: 700px) {
+  .footer-container {
+    text-align: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .socials {
+    justify-content: center;
+  }
+}
