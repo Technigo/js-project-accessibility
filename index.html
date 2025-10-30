@@ -1,13 +1,369 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title</title>
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <p>This is the starting point.</p>
-    <script src="js/main.js"></script>
-  </body>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>Web Accessibility Quiz</title>
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap"
+    rel="stylesheet"
+  >
+  <link
+    rel="stylesheet"
+    href="css/styles.css"
+  />
+</head>
+
+<body>
+  <!--skip link -->
+  <a
+    href="#main-content"
+    class="skip-link"
+  >Skip to main content</a>
+  <!-- header -->
+  <header id="header">
+    <div class="header-content">
+      <h1>Web Accessibility Quiz</h1>
+      <nav
+        role="navigation"
+        aria-label="Main menu"
+      >
+        <ul class="nav-list">
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="about.html">About</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <section id="introduction">
+      <div class="text-container">
+        <h2>Welcome to our quiz</h2>
+        <p>We designed this quiz to be easy for everyone to use. It's keyboard friendly, screen reader ready and built
+          with clear text and strong contrast for better visibility.</p>
+      </div>
+      <div class="img-container">
+        <img
+          class="decorative-img"
+          src="assets/img1.jpg"
+          alt=""
+          role="presentation"
+        >
+      </div>
+    </section>
+
+    <section id="quiz">
+      <h2>Accessibility Quiz</h2>
+      <!-- progress bar -->
+      <div
+        class="quiz-progress"
+        role="status"
+        aria-live="polite"
+      >
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+        <p class="progress-text"></p>
+      </div>
+      <!-- start quiz -->
+      <button
+        id="start-button"
+        type="button"
+        class="btn"
+      >Start Quiz</button>
+
+      <!-- quiz starts -->
+      <form
+        id="quiz-form"
+        hidden
+      >
+        <fieldset class="question">
+          <legend>1</legend>
+          <h3>What does WCAG stand for?</h3>
+          <div
+            class="answer-options"
+            role="radiogroup"
+          >
+            <div>
+              <input
+                type="radio"
+                name="question1"
+                id="q1a"
+                value="a"
+              >
+              <label
+                class="btn"
+                for="q1a"
+              ><span class="abc-index">A</span> World Content
+                Accessibility Guidelines
+              </label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="question1"
+                id="q1b"
+                value="b"
+              >
+              <label
+                class="btn"
+                for="q1b"
+              ><span class="abc-index">B</span> World Wide Web Consortium</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="question1"
+                id="q1c"
+                value="c"
+              >
+              <label
+                class="btn"
+                for="q1c"
+              ><span class="abc-index">C</span> Web Content Accessibility Guidelines</label>
+            </div>
+          </div>
+
+          <div
+            class="error"
+            role="alert"
+          ></div>
+          <!--submit answer -->
+          <button
+            class="submit-btn"
+            type="submit"
+          >Submit</button>
+        </fieldset>
+        <!-- question 2 -->
+        <fieldset class="question">
+          <legend>2</legend>
+          <h3>What is the most common target of WCAG level of conformance for many websites?</h3>
+          <div
+            class="answer-options"
+            role="radiogroup"
+          >
+            <div>
+              <input
+                type="radio"
+                name="question2"
+                id="q2a"
+                value="a"
+              >
+              <label
+                class="btn"
+                for="q2a"
+              ><span class="abc-index">A</span> Level A</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="question2"
+                id="q2b"
+                value="b"
+              >
+              <label
+                class="btn"
+                for="q2b"
+              ><span class="abc-index">B</span> Level AA</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="question2"
+                id="q2c"
+                value="c"
+              >
+              <label
+                class="btn"
+                for="q2c"
+              ><span class="abc-index">C</span> Level AAA</label>
+            </div>
+          </div>
+
+          <div
+            class="error"
+            role="alert"
+          ></div>
+          <!--submit answer -->
+          <button
+            class="submit-btn"
+            type="submit"
+          >Submit</button>
+        </fieldset>
+        <!-- question 3 -->
+        <fieldset class="question">
+          <legend>3</legend>
+          <h3>What is the purpose of ARIA landmark roles?</h3>
+          <div
+            class="answer-options"
+            role="radiogroup"
+          >
+            <div>
+              <input
+                type="radio"
+                name="question3"
+                id="q3a"
+                value="a"
+              >
+              <label
+                class="btn"
+                for="q3a"
+              ><span class="abc-index">A</span> A way to style web-pages using CSS classes</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="question3"
+                id="q3b"
+                value="b"
+              >
+              <label
+                class="btn"
+                for="q3b"
+              ><span class="abc-index">B</span> A way to classify and label sections of a page for assistive
+                technology</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="question3"
+                id="q3c"
+                value="c"
+              >
+              <label
+                class="btn"
+                for="q3c"
+              ><span class="abc-index">C</span> A way to improve the SEO ranking of the web-site</label>
+            </div>
+          </div>
+
+          <div
+            class="error"
+            role="alert"
+          ></div>
+          <!--submit answer -->
+          <button
+            class="submit-btn"
+            type="submit"
+          >Submit</button>
+        </fieldset>
+        <!-- question 4 -->
+        <fieldset class="question">
+          <legend>4</legend>
+          <h3>What is a "keyboard trap" in web accessibility?</h3>
+          <div
+            class="answer-options"
+            role="radiogroup"
+          >
+            <div>
+              <input
+                type="radio"
+                name="question4"
+                id="q4a"
+                value="a"
+              >
+              <label
+                class="btn"
+                for="q4a"
+              ><span class="abc-index">A</span> A situation where a user cannot navigate away from an element using only
+                the
+                keyboard</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="question4"
+                id="q4b"
+                value="b"
+              >
+              <label
+                class="btn"
+                for="q4b"
+              ><span class="abc-index">B</span> A situation where screen readers fail to read content properly for
+                users</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="question4"
+                id="q4c"
+                value="c"
+              >
+              <label
+                class="btn"
+                for="q4c"
+              ><span class="abc-index">C</span> A situation where a user is unable to use their mouse on a
+                webpage</label>
+            </div>
+          </div>
+
+          <div
+            class="error"
+            role="alert"
+          ></div>
+          <!--submit answer -->
+          <button
+            class="submit-btn"
+            type="submit"
+          >Submit</button>
+        </fieldset>
+      </form>
+
+      <div
+        id="message-container"
+        class="message-container"
+        aria-live="polite"
+        hidden
+      ></div>
+
+    </section>
+
+    <section
+      id="results-container"
+      class="results-container"
+      aria-live="polite"
+      hidden
+    ></section>
+
+    <div
+      id="announcer"
+      class="visually-hidden"
+      aria-live="polite"
+    ></div>
+
+  </main>
+
+  <footer id="footer">
+    <p> 2025 Web Accessibility Quiz</p>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+
 </html>
+
+<!--by Mimmi, Selin, Tiago and Alex – Technigo2025 -->
+
+<!--Fix footer-->
+<!--style result-container-->
+<!--look through aria-elements are we doing those correctly-->
+
+<!--new branch newfix-->
