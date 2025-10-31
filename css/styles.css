@@ -15,7 +15,7 @@
   --button-hover3: #f598ad;
   --transition: 0.4s ease-in-out;
   --footer-bg: #2b2e3a;
-  --text-light: #eaeaea;
+  --text-light: #5a1a1a;
 }
 
 /* -----------------------------
@@ -80,6 +80,7 @@
 .dogs-card {
   max-width: 1000px;
   margin: 0 auto;
+  padding: 100px 0;
 }
 
 .dogs-card-container {
@@ -184,6 +185,7 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border: 1px solid #d1e5fe;
+  margin-bottom: 100px;
 }
 
 h2 {
