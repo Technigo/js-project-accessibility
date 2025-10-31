@@ -8,14 +8,90 @@
   --background: #d1e5fe;
   --page: #f5f0ec;
   --button-hover1: #9863ee;
-  --button-hover2: #e5c6ff;
-  --button-hover3: #f598ad;
+  --button-button: #e5c6ff;
+  --button-hover2: #f598ad;
+  --button-button: #FDC6D4;
+  --transition: 0.4s ease-in-out;
 }
 
+/* ----------------------------- 
+        BODDY -
+---------------------------------
+*/
+.hero{
+  position: relative;
+  background-size: cover;
+  overflow: hidden;
+}
+
+#img{
+  height: 850px;
+  
+}
 /* ----------------------------- 
        CARINA - HEADER
 ---------------------------------
 */
+
+.body{
+  display: flex;
+  background-color: var(--background);
+  padding-bottom: 40px;
+  height: 100vh;
+  
+
+}
+
+/*navigation*/
+.nav{
+  background-color: #f598ad; /*var(--background);*/
+  height: 100px;
+  padding-top: 40px;
+  
+
+}
+
+/*pawprint*/
+.icon{
+  fill: var(--button-hover1);
+  color: var(--button-hover1);
+}
+.page-icon {
+  display: flex;
+}
+
+/*nav/menu buttons*/
+#buttons{
+  display: flex;
+  justify-content: space-evenly;
+ 
+}
+
+#button{
+  background-color: var(--page);
+  border: none;
+  border-radius: 40px;
+  height: 30px;
+  width: 70px; 
+  cursor: pointer;
+
+}
+#button:hover{
+  background-color: var(--button-hover1);
+  color: #fff;
+  border: none;
+  border-radius: 40px;
+  height: 30px;
+  width: 70px; 
+  transition: var(--transition)
+}
+.nav-items{
+  height: 40px;
+
+}
+
+
+
 
 /* ----------------------------- 
         KAUSAR - CARDS
