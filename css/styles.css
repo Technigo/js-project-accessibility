@@ -4,55 +4,54 @@
   box-sizing: border-box;
   font-family: "Montserrat";
 }
+/* ---------- Combined stylesheet (merged) ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+}
+
 :root {
   --background: #d1e5fe;
   --page: #f5f0ec;
   --button-hover1: #9863ee;
   --button-button: #e5c6ff;
-  --button-hover2: #f598ad;
-  --button-button: #FDC6D4;
+  --button-hover2: #e5c6ff;
+  --button-hover3: #f598ad;
   --transition: 0.4s ease-in-out;
+  --footer-bg: #2b2e3a;
+  --text-light: #eaeaea;
 }
 
-/* ----------------------------- 
-        BODDY -
----------------------------------
-*/
-.hero{
+/* -----------------------------
+   HERO and HEADER styles
+---------------------------------*/
+.hero {
   position: relative;
   background-size: cover;
   overflow: hidden;
 }
 
-#img{
+#img {
   height: 850px;
-  
 }
-/* ----------------------------- 
-       CARINA - HEADER
----------------------------------
-*/
 
-.body{
+.body {
   display: flex;
   background-color: var(--background);
   padding-bottom: 40px;
   height: 100vh;
-  
-
 }
 
-/*navigation*/
-.nav{
+.nav {
   background-color: #f598ad; /*var(--background);*/
   height: 100px;
   padding-top: 40px;
-  
-
 }
 
-/*pawprint*/
-.icon{
+.icon {
   fill: var(--button-hover1);
   color: var(--button-hover1);
 }
@@ -60,44 +59,31 @@
   display: flex;
 }
 
-/*nav/menu buttons*/
-#buttons{
+#buttons {
   display: flex;
   justify-content: space-evenly;
- 
 }
 
-#button{
+#button {
   background-color: var(--page);
   border: none;
   border-radius: 40px;
   height: 30px;
-  width: 70px; 
+  width: 70px;
   cursor: pointer;
-
 }
-#button:hover{
+#button:hover {
   background-color: var(--button-hover1);
   color: #fff;
-  border: none;
-  border-radius: 40px;
-  height: 30px;
-  width: 70px; 
-  transition: var(--transition)
+  transition: var(--transition);
 }
-.nav-items{
+.nav-items {
   height: 40px;
-
 }
 
-
-
-
-/* ----------------------------- 
-        KAUSAR - CARDS
----------------------------------
-*/
-
+/* -----------------------------
+   CARDS KAUSAR
+---------------------------------*/
 .dogs-card {
   max-width: 1000px;
   margin: 0 auto;
@@ -145,7 +131,6 @@
   font-size: 14px;
   font-weight: 400;
 }
-
 .tag-Friendly {
   background-color: #ff6b6b;
 }
@@ -179,31 +164,230 @@
 
 .dog-card-icon {
   fill: var(--background);
-  /* color: var(--background); */
   width: 20px;
 }
-
 .dog-card-flexbox {
   display: flex;
   align-items: center;
   padding: 5px 20px;
   gap: 10px;
 }
-
 .dog-card-text {
   font-size: 14px;
 }
-
 .dog-card-bold {
   font-weight: bold;
 }
 
-/* ----------------------------- 
-          ARTA - FORM
----------------------------------
-*/
+/* -----------------------------
+   FOOTER styles (from origin/Footer)
+---------------------------------*/
+.footer {
+  background-color: var(--footer-bg);
+  color: var(--text-light);
+  padding: 60px 20px 30px;
+  font-family: "Poppins", sans-serif;
+}
 
-/* ----------------------------- 
-         SARA - FOOTER 
----------------------------------
-*/
+.paw-icon {
+  width: 80px;
+  height: 80px;
+  color: #eaeaea;
+  transform: rotate(-90deg);
+  display: block;
+  margin: 10px auto 0;
+}
+
+.footer-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: start;
+  justify-items: center;
+  gap: 60px;
+  text-align: left;
+  padding-bottom: 20px;
+}
+
+.footer h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: 400;
+}
+.footer a:hover,
+.footer a:focus-visible {
+  color: var(--button-hover2);
+  outline: none;
+}
+
+.footer-divider {
+  border: none;
+  border-top: 1px solid #3a3d4a;
+  margin: 40px 0 20px;
+}
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+.socials {
+  text-align: center;
+}
+.socials h2 {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.socials ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.socials a svg {
+  width: 24px;
+  height: 24px;
+  color: #eaeaea;
+  transition: color 0.3s, transform 0.3s;
+}
+.socials a:hover svg,
+.socials a:focus-visible svg {
+  color: var(--button-hover3);
+  transform: scale(1.1);
+}
+
+@media (max-width: 800px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+  .socials ul {
+    justify-content: center;
+  }
+  .socials {
+    text-align: center;
+  }
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: start;
+  justify-items: center;
+  gap: 60px;
+  text-align: left;
+  padding-bottom: 20px;
+}
+
+.footer h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: 400;
+}
+
+.footer a:hover,
+.footer a:focus-visible {
+  color: var(--button-hover2);
+  outline: none;
+}
+
+.footer-divider {
+  border: none;
+  border-top: 1px solid #3a3d4a;
+  margin: 40px 0 20px;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+.socials {
+  text-align: center;
+}
+
+.socials h2 {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.socials ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.socials a svg {
+  width: 24px;
+  height: 24px;
+  color: #eaeaea;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.socials a:hover svg,
+.socials a:focus-visible svg {
+  color: var(--button-hover3);
+  transform: scale(1.1);
+}
+
+@media (max-width: 800px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .socials ul {
+    justify-content: center;
+  }
+
+  .socials {
+    text-align: center;
+  }
+}
