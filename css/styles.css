@@ -185,7 +185,7 @@
 .footer {
   background-color: var(--footer-bg);
   color: var(--text-light);
-  padding: 60px 20px 30px;
+  padding: 60px 0 30px;
   font-family: "Poppins", sans-serif;
 }
 
@@ -242,6 +242,7 @@
 .footer-bottom {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -285,108 +286,6 @@
   .socials ul {
     justify-content: center;
   }
-  .socials {
-    text-align: center;
-  }
-}
-
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  align-items: start;
-  justify-items: center;
-  gap: 60px;
-  text-align: left;
-  padding-bottom: 20px;
-}
-
-.footer h2 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  margin-bottom: 1rem;
-  color: #fff;
-}
-
-.footer ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer a {
-  color: #ccc;
-  text-decoration: none;
-  transition: color 0.3s;
-  font-weight: 400;
-}
-
-.footer a:hover,
-.footer a:focus-visible {
-  color: var(--button-hover2);
-  outline: none;
-}
-
-.footer-divider {
-  border: none;
-  border-top: 1px solid #3a3d4a;
-  margin: 40px 0 20px;
-}
-
-.footer-bottom {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.9rem;
-  color: #bbb;
-}
-
-.socials {
-  text-align: center;
-}
-
-.socials h2 {
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-.socials ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-
-.socials a svg {
-  width: 24px;
-  height: 24px;
-  color: #eaeaea;
-  transition: color 0.3s, transform 0.3s;
-}
-
-.socials a:hover svg,
-.socials a:focus-visible svg {
-  color: var(--button-hover3);
-  transform: scale(1.1);
-}
-
-@media (max-width: 800px) {
-  .footer-container {
-    grid-template-columns: 1fr 1fr;
-    text-align: center;
-    gap: 40px;
-  }
-
-  .socials ul {
-    justify-content: center;
-  }
-
   .socials {
     text-align: center;
   }
