@@ -313,7 +313,7 @@ button[type="submit"]:focus {
   color: #ccc;
   text-decoration: none;
   transition: color 0.3s;
-  font-weight: 400;
+  font-weight: 600;
 }
 .footer a:hover,
 .footer a:focus-visible {
