@@ -21,16 +21,9 @@
 /* -----------------------------
    HERO and HEADER styles
 ---------------------------------*/
-.hero {
-  position: relative;
-  background-size: cover;
-  overflow: hidden;
+.header {
+  min-height: 200px;
 }
-
-#img {
-  height: 850px;
-}
-
 .body {
   display: flex;
   background-color: var(--background);
@@ -38,40 +31,116 @@
   height: 100vh;
 }
 
-.nav {
-  background-color: #f598ad; /*var(--background);*/
-  height: 100px;
-  padding-top: 40px;
+/*hero*/
+.hero {
+  position: relative;
+  background-size: cover;
+  overflow: hidden;
+  flex-wrap: wrap;
 }
 
+#img {
+  height: 900px;
+}
+
+.hero-text h2 {
+  position: absolute;
+  top: 0;
+  right: 100px;
+  left: 100px;
+  font-size: 90px;
+  color: var(--footer-bg);
+  pad: 10px;
+}
+
+/* I can't get the text, to align on the image
+.hero-text h3 {
+  position: absolute;
+  top: 550px;
+  left: 30px;
+  font-size: 30px;
+  color: var(--footer-bg);
+  pad: 10px;
+}
+.hero-text p {
+  position: absolute;
+
+  color: var(--footer-bg);
+  pad: 10px;
+}
+  */
+/*media for different sizes*/
+
+@media (min-width: 1000px) {
+  #img {
+    height: 1100px;
+    width: 1500px;
+  }
+}
+@media (max-width: 800px) {
+  .hero {
+    height: 800px;
+  }
+  #img {
+    height: 500px;
+  }
+  .hero-text h2 {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 500px) {
+  #img {
+    height: 300px;
+  }
+  .hero-text h2 {
+    font-size: 20px;
+  }
+}
+/*nav menu*/
+.nav-items {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 20px;
+  background-color: var(--background);
+  height: 200px;
+}
+
+/*pawprint*/
 .icon {
   fill: var(--button-hover1);
   color: var(--button-hover1);
 }
+
+/* the text does not wrap fast enough when the page is rezised, 500px not vissible*/
 .page-icon {
   display: flex;
+  margin-left: -150px;
 }
 
-#buttons {
+.menu {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
+  background-color: var(--background);
 }
 
 #button {
-  background-color: var(--page);
-  border: none;
+  background-color: var(--button-button);
+  border-color: var(--button-hover1);
   border-radius: 40px;
   height: 30px;
-  width: 70px;
+  width: 75px;
   cursor: pointer;
 }
 #button:hover {
   background-color: var(--button-hover1);
   color: #fff;
   transition: var(--transition);
-}
-.nav-items {
-  height: 40px;
 }
 
 /* -----------------------------
@@ -226,6 +295,28 @@ legend {
   padding: 0 0.5rem;
 }
 
+button[type="button"] {
+  background-color: var(--background);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+button[type="click"]:hover {
+  background-color: var(--button-hover2);
+  color: black;
+}
+
+button[type="click"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.4);
+}
+
 .radio-group {
   margin: 0.5rem 0;
 }
@@ -233,6 +324,38 @@ legend {
 .radio-group label {
   display: inline-block;
   margin-left: 0.5rem;
+}
+
+/*Visually hidden but still announced by screen readers */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* prevent text wrap */
+  border: 0;
+}
+
+/**Focus indicator for keyboard users*/
+:focus-visible {
+  outline: 3px solid #0b84ff;
+  outline-offset: 2px;
+}
+
+/*Interactive controls show focus clearly*/
+input:focus-visible,
+button:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #0b84ff;
+  outline-offset: 2px;
+}
+
+[aria-invalid="true"] {
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.12);
 }
 
 button[type="submit"] {
