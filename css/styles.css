@@ -21,6 +21,9 @@
 /* -----------------------------
    HERO and HEADER styles
 ---------------------------------*/
+/* -----------------------------
+   HERO and HEADER styles
+---------------------------------*/
 .header {
   min-height: 200px;
 }
@@ -36,9 +39,14 @@
   position: relative;
   background-size: cover;
   overflow: hidden;
-  flex-wrap: wrap;
-}
+  height: 1000px;
+  flex-wrap: nowrap;
 
+  background-image: url(../img/Gemini_Generated_Image_q8ixlmq8ixlmq8ix.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 #img {
   height: 900px;
 }
@@ -53,59 +61,15 @@
   pad: 10px;
 }
 
-/* I can't get the text, to align on the image
-.hero-text h3 {
-  position: absolute;
-  top: 550px;
-  left: 30px;
-  font-size: 30px;
-  color: var(--footer-bg);
-  pad: 10px;
-}
-.hero-text p {
-  position: absolute;
-
-  color: var(--footer-bg);
-  pad: 10px;
-}
-  */
-/*media for different sizes*/
-
-@media (min-width: 1000px) {
-  #img {
-    height: 1100px;
-    width: 1500px;
-  }
-}
-@media (max-width: 800px) {
-  .hero {
-    height: 800px;
-  }
-  #img {
-    height: 500px;
-  }
-  .hero-text h2 {
-    font-size: 40px;
-  }
-}
-
-@media (max-width: 500px) {
-  #img {
-    height: 300px;
-  }
-  .hero-text h2 {
-    font-size: 20px;
-  }
-}
 /*nav menu*/
 .nav-items {
   position: sticky;
   top: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 100px;
   background-color: var(--background);
   height: 200px;
 }
@@ -119,13 +83,10 @@
 /* the text does not wrap fast enough when the page is rezised, 500px not vissible*/
 .page-icon {
   display: flex;
-  margin-left: -150px;
+  font-size: 25px;
 }
 
 .menu {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
   background-color: var(--background);
 }
 
@@ -133,14 +94,48 @@
   background-color: var(--button-button);
   border-color: var(--button-hover1);
   border-radius: 40px;
-  height: 30px;
-  width: 75px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 3px;
+  height: 45px;
+  width: 120px;
   cursor: pointer;
 }
 #button:hover {
   background-color: var(--button-hover1);
   color: #fff;
   transition: var(--transition);
+}
+
+/*media for different sizes*/
+
+@media (max-width: 800px) {
+  .hero {
+    height: 800px;
+  }
+  #img {
+    height: 500px;
+  }
+  .hero-text h2 {
+    font-size: 45px;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero-text h2 {
+    top: 20px;
+    font-size: 25px;
+  }
+  .hero {
+    height: 400px;
+  }
+  #button {
+    height: 30px;
+    width: 90px;
+  }
+  .page-icon {
+    font-size: 10px;
+  }
 }
 
 /* -----------------------------
@@ -299,45 +294,58 @@
   margin-bottom: 100px;
 }
 
-h2 {
+#adoption-form h2 {
   margin-bottom: 1.5rem;
 }
 
-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
+.form-control {
+  margin-bottom: 1rem;
 }
 
-input[type="text"],
-input[type="email"] {
+#adoption-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+#adoption-form input[type="text"],
+#adoption-form input[type="email"] {
   width: 100%;
   padding: 0.75rem;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 6px;
   font-size: 1rem;
-  transition: border-color 0.2s;
+  transition: box-shadow 0.15s, border-color 0.15s;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus {
+#adoption-form input[type="text"]:focus-visible,
+#adoption-form input[type="email"]:focus-visible {
   outline: none;
   box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
 }
 
-fieldset {
+#adoption-form fieldset {
   margin: 1.5rem 0;
   padding: 1rem;
   border: 1px solid #ddd;
   border-radius: 5px;
 }
 
-legend {
+#adoption-form legend {
   font-weight: 500;
   padding: 0 0.5rem;
 }
 
-button[type="button"] {
+#adoption-form .radio-group {
+  margin: 0.5rem 0;
+}
+
+#adoption-form .radio-group label {
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+
+#adoption-form button {
   background-color: var(--background);
   padding: 0.75rem 1.5rem;
   border: none;
@@ -349,23 +357,13 @@ button[type="button"] {
   margin-top: 1rem;
 }
 
-button[type="click"]:hover {
-  background-color: var(--button-hover2);
-  color: black;
+#adoption-form button:hover {
+  background: #e6e9ee;
 }
 
-button[type="click"]:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.4);
-}
-
-.radio-group {
-  margin: 0.5rem 0;
-}
-
-.radio-group label {
-  display: inline-block;
-  margin-left: 0.5rem;
+#adoption-form button:focus-visible {
+  outline: 3px solid #0b84ff;
+  outline-offset: 2px;
 }
 
 /*Visually hidden but still announced by screen readers */
@@ -377,7 +375,8 @@ button[type="click"]:focus {
   margin: -1px;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
-  white-space: nowrap; /* prevent text wrap */
+  white-space: nowrap;
+  /* prevent text wrap */
   border: 0;
 }
 
@@ -387,39 +386,20 @@ button[type="click"]:focus {
   outline-offset: 2px;
 }
 
-/*Interactive controls show focus clearly*/
-input:focus-visible,
-button:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-  outline: 3px solid #0b84ff;
-  outline-offset: 2px;
+.error {
+  margin-top: 0.5rem;
+  color: #dc3545;
+  font-size: 0.875rem;
 }
 
-[aria-invalid="true"] {
+.hint {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+#adoption-form [aria-invalid="true"] {
   box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.12);
-}
-
-button[type="submit"] {
-  background-color: var(--background);
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  width: 100%;
-  margin-top: 1rem;
-}
-
-button[type="submit"]:hover {
-  background-color: var(--button-hover2);
-  color: black;
-}
-
-button[type="submit"]:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.4);
 }
 
 #response {
@@ -431,59 +411,78 @@ button[type="submit"]:focus {
   text-align: center;
 }
 
+:focus {
+  outline: 2px solid #007bff;
+}
 /* -----------------------------
-   FOOTER styles (from origin/Footer)
----------------------------------*/
+FOOTER styles (from origin/Footer)
+-----------------------------*/
+
 .footer {
   background-color: var(--footer-bg);
   color: var(--text-light);
-  padding: 60px 0 30px;
   font-family: "Poppins", sans-serif;
 }
 
-.paw-icon {
-  width: 80px;
-  height: 80px;
-  color: #eaeaea;
-  transform: rotate(-90deg);
-  display: block;
-  margin: 10px auto 0;
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+  padding: 30px 10px 0;
+  flex-wrap: nowrap;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.footer-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  align-items: start;
-  justify-items: center;
-  gap: 60px;
-  text-align: left;
-  padding-bottom: 20px;
+.paw-icon {
+  width: 120px;
+  height: 120px;
+  color: #eaeaea;
+  transform: rotate(-90deg);
+  margin-top: -10px;
 }
 
 .footer h2 {
   font-size: 1.1rem;
   font-weight: 600;
-  letter-spacing: 0.3px;
-  margin-bottom: 1rem;
   color: #fff;
+  margin-bottom: 1rem;
 }
-.footer ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+
 .footer a {
-  color: #ccc;
+  color: #eaeaea;
   text-decoration: none;
-  transition: color 0.3s;
   font-weight: 600;
+  transition: color 0.3s;
 }
+
 .footer a:hover,
 .footer a:focus-visible {
   color: var(--button-hover2);
   outline: none;
+}
+
+.socials ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.socials a svg {
+  width: 24px;
+  height: 24px;
+  color: #eaeaea;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.socials a:hover svg,
+.socials a:focus-visible svg {
+  color: var(--button-hover3);
+  transform: scale(1.1);
 }
 
 .footer-divider {
@@ -491,54 +490,40 @@ button[type="submit"]:focus {
   border-top: 1px solid #3a3d4a;
   margin: 40px 0 20px;
 }
+
 .footer-bottom {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #3a3d4a;
   font-size: 0.9rem;
   color: #bbb;
-}
-
-.socials {
-  text-align: center;
-}
-.socials h2 {
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-.socials ul {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  gap: 20px;
-}
-.socials a svg {
-  width: 24px;
-  height: 24px;
-  color: #eaeaea;
-  transition: color 0.3s, transform 0.3s;
-}
-.socials a:hover svg,
-.socials a:focus-visible svg {
-  color: var(--button-hover3);
-  transform: scale(1.1);
+  text-align: left;
 }
 
 @media (max-width: 800px) {
   .footer-container {
-    grid-template-columns: 1fr 1fr;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
     gap: 40px;
+    padding: 40px 20px;
   }
+
+  .paw-icon {
+    width: 90px;
+    height: 90px;
+    margin-top: 0;
+  }
+
+  .footer-bottom {
+    justify-content: center;
+    text-align: center;
+  }
+
   .socials ul {
     justify-content: center;
-  }
-  .socials {
-    text-align: center;
   }
 }

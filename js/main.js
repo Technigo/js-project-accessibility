@@ -1,9 +1,12 @@
 /* -----------------------------
           ARTA - FORM
 ---------------------------------*/
-
-const adoptionForm = document.getElementById("adoption-form");
 const submissionForm = document.getElementById("submission-form");
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const nameError = document.getElementById("name-error");
+const emailError = document.getElementById("email-error");
+
 const continueButton = document.getElementById("continue-button");
 const questionOne = document.getElementById("question-one");
 const questionTwo = document.getElementById("question-two");
@@ -19,9 +22,9 @@ const accommodationRadios = document.querySelectorAll(
 const environmentRadios = document.querySelectorAll(
   'input[name="environment"]'
 );
-let userName = "";
 
-/*---Accessibility helpers---*/
+let liveRegion = createLiveRegion();
+
 function createLiveRegion() {
   let live = document.getElementById("site-aria-live");
   if (!live) {
@@ -34,7 +37,26 @@ function createLiveRegion() {
   }
   return live;
 }
-const liveRegion = createLiveRegion();
+
+function isValidName(v) {
+  return /^[a-zA-Z\s'-]+$/.test(v);
+}
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function showError(input, errorElement, message) {
+  input.setAttribute("aria-invalid", "true");
+  errorElement.textContent = message;
+  errorElement.hidden = false;
+}
+
+function clearError(input, errorElement) {
+  input.removeAttribute("aria-invalid");
+  errorElement.textContent = "";
+  errorElement.hidden = true;
+}
 
 function announcePolite(message) {
   liveRegion.textContent = "";
@@ -43,122 +65,236 @@ function announcePolite(message) {
   }, 50);
 }
 
-function toggleRequired(elements, required) {
-  elements.forEach((element) => {
-    if (required) {
-      element.setAttribute("required", "");
-      element.setAttribute("aria-required", "true");
-      element.addEventListener("input", () =>
-        element.removeAttribute("aria-invalid")
-      );
-    } else {
-      element.removeAttribute("required");
-      element.removeAttribute("aria-required");
-      element.removeAttribute("aria-invalid");
-    }
-  });
-}
+function handleRadioKeydown(e, radios) {
+  const key = e.key;
+  const currentIndex = Array.from(radios).indexOf(e.target);
+  let targetIndex = currentIndex;
 
-/*Arrow key navigation for radio groups*/
-function enableRadioArrowNavigation(radios) {
-  if (!radios || radios.length === 0) return;
-  radios.forEach((radio, idx) => {
-    radio.addEventListener("keydown", (e) => {
-      const key = e.key;
-      let target = null;
-      if (key === "ArrowLeft" || key === "ArrowUp")
-        target = radios[(idx - 1 + radios.length) % radios.length];
-      if (key === "ArrowRight" || key === "ArrowDown")
-        target = radios[(idx + 1) % radios.length];
-      if (target) {
-        e.preventDefault();
-        target.focus();
-        target.checked = true;
-        target.dispatchEvent(new Event("change", { bubbles: true }));
-      }
-    });
-  });
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  toggleRequired(agreeRadios, false);
-  toggleRequired(accommodationRadios, false);
-  toggleRequired(environmentRadios, false);
-
-  if (responseSection) {
-    responseSection.setAttribute("aria-live", "polite");
-    responseSection.setAttribute("aria-atomic", "true");
+  switch (key) {
+    case "ArrowUp":
+    case "ArrowLeft":
+      targetIndex = (currentIndex - 1 + radios.length) % radios.length;
+      break;
+    case "ArrowDown":
+    case "ArrowRight":
+      targetIndex = (currentIndex + 1) % radios.length;
+      break;
+    default:
+      return;
   }
 
-  enableRadioArrowNavigation(agreeRadios);
-  enableRadioArrowNavigation(accommodationRadios);
-  enableRadioArrowNavigation(environmentRadios);
-});
+  e.preventDefault();
+  radios[targetIndex].focus();
+  radios[targetIndex].checked = true;
+}
 
-continueButton.addEventListener("click", () => {
-  questionOne.hidden = false;
-  questionOne.setAttribute("aria-hidden", "false");
-  toggleRequired(agreeRadios, true);
-  if (agreeRadios[0]) agreeRadios[0].focus();
-  submissionForm.scrollIntoView({ behavior: "smooth" });
-  announcePolite("Question one revealed. Please select an option.");
-});
-
-agreeRadios.forEach((radio) => {
-  radio.addEventListener("change", () => {
-    questionTwo.hidden = false;
-    questionTwo.setAttribute("aria-hidden", "false");
-    toggleRequired(accommodationRadios, true);
-    if (accommodationRadios[0]) accommodationRadios[0].focus();
-    submissionForm.scrollIntoView({ behavior: "smooth" });
-    announcePolite(
-      "Question two revealed. Please select an accommodation type."
-    );
+function enableRadioArrowNavigation(radios) {
+  if (!radios || radios.length === 0) return;
+  radios.forEach((radio) => {
+    radio.addEventListener("keydown", (e) => handleRadioKeydown(e, radios));
   });
-});
-
-accommodationRadios.forEach((radio) => {
-  radio.addEventListener("change", () => {
-    questionThree.hidden = false;
-    questionThree.setAttribute("aria-hidden", "false");
-    toggleRequired(environmentRadios, true);
-    if (environmentRadios[0]) environmentRadios[0].focus();
-    adoptionForm.scrollIntoView({ behavior: "smooth" });
-    announcePolite("Question three revealed. Please select the environment.");
-  });
-});
-
-environmentRadios.forEach((radio) => {
-  radio.addEventListener("change", (e) => {
-    submitButton.hidden = false;
-    submitButton.setAttribute("aria-hidden", "false");
-    if (submitButton) submitButton.focus();
-    announcePolite("Submit button is available");
-  });
-});
+}
 
 function resetForm() {
   questionOne.hidden = true;
-  questionOne.setAttribute("aria-hidden", "true");
   questionTwo.hidden = true;
-  questionTwo.setAttribute("aria-hidden", "true");
   questionThree.hidden = true;
-  questionThree.setAttribute("aria-hidden", "true");
   submitButton.hidden = true;
-  submitButton.setAttribute("aria-hidden", "true");
-  toggleRequired(agreeRadios, false);
-  toggleRequired(accommodationRadios, false);
-  toggleRequired(environmentRadios, false);
+  [agreeRadios, accommodationRadios, environmentRadios].forEach((set) => {
+    set.forEach((r) => {
+      r.removeAttribute("required");
+      r.removeAttribute("aria-invalid");
+    });
+  });
   announcePolite("Form reset");
 }
 
-submissionForm.addEventListener("submit", (e) => {
+// Event Listeners
+nameInput.addEventListener("input", () => {
+  if (nameInput.value.trim() && isValidName(nameInput.value)) {
+    clearError(nameInput, nameError);
+  }
+});
+
+emailInput.addEventListener("input", () => {
+  const v = emailInput.value.trim();
+  if (v && isValidEmail(v)) {
+    clearError(emailInput, emailError);
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  [agreeRadios, accommodationRadios, environmentRadios].forEach((set) => {
+    set.forEach((r) => r.removeAttribute("required"));
+  });
+  enableRadioArrowNavigation(agreeRadios);
+  enableRadioArrowNavigation(accommodationRadios);
+  enableRadioArrowNavigation(environmentRadios);
+
+  // Add Tab event listener to show next question
+  questionOne.addEventListener("keydown", (e) => {
+    if (e.key === "Tab" && !e.shiftKey) {
+      const selectedAgree = Array.from(agreeRadios).find((r) => r.checked);
+      if (selectedAgree) {
+        questionTwo.hidden = false;
+        accommodationRadios.forEach((a) => a.setAttribute("required", ""));
+        announcePolite(
+          "Question two revealed. Please select an accommodation type."
+        );
+      }
+    }
+  });
+
+  questionTwo.addEventListener("keydown", (e) => {
+    if (e.key === "Tab" && !e.shiftKey) {
+      const selectedAccommodation = Array.from(accommodationRadios).find(
+        (r) => r.checked
+      );
+      if (selectedAccommodation) {
+        questionThree.hidden = false;
+        environmentRadios.forEach((e) => e.setAttribute("required", ""));
+        announcePolite(
+          "Question three revealed. Please select the environment."
+        );
+      }
+    }
+  });
+
+  questionThree.addEventListener("keydown", (e) => {
+    if (e.key === "Tab" && !e.shiftKey) {
+      const selectedEnvironment = Array.from(environmentRadios).find(
+        (r) => r.checked
+      );
+      if (selectedEnvironment) {
+        submitButton.hidden = false;
+        announcePolite("Submit button is available");
+      }
+    }
+  });
+});
+
+continueButton.addEventListener("click", function (e) {
   e.preventDefault();
-  const name = (document.getElementById("name").value || "").trim() || "there";
+  e.stopPropagation();
 
+  let ok = true;
+
+  const nameVal = nameInput.value.trim();
+  if (!nameVal) {
+    showError(nameInput, nameError, "Please enter your name");
+    ok = false;
+  } else if (!isValidName(nameVal)) {
+    showError(nameInput, nameError, "Please enter a valid name");
+    ok = false;
+  } else {
+    clearError(nameInput, nameError);
+  }
+
+  const emailVal = emailInput.value.trim();
+  if (!emailVal) {
+    showError(emailInput, emailError, "Please enter your email address");
+    ok = false;
+  } else if (!isValidEmail(emailVal)) {
+    showError(emailInput, emailError, "Please enter a valid email address");
+    ok = false;
+  } else {
+    clearError(emailInput, emailError);
+  }
+
+  if (!ok) {
+    (nameError.textContent ? nameInput : emailInput).focus();
+    return;
+  }
+
+  // Show questions
+  questionOne.hidden = false;
+  agreeRadios.forEach((r) => r.setAttribute("required", ""));
+  agreeRadios[0]?.focus();
+  announcePolite("Question one revealed. Please select an option.");
+});
+
+agreeRadios.forEach((radio) =>
+  radio.addEventListener("change", () => {
+    questionTwo.hidden = false;
+    accommodationRadios.forEach((a) => a.setAttribute("required", ""));
+    accommodationRadios[0]?.focus();
+    announcePolite(
+      "Question two revealed. Please select an accommodation type."
+    );
+  })
+);
+
+accommodationRadios.forEach((radio) =>
+  radio.addEventListener("change", () => {
+    questionThree.hidden = false;
+    environmentRadios.forEach((e) => e.setAttribute("required", ""));
+    environmentRadios[0]?.focus();
+    announcePolite("Question three revealed. Please select the environment.");
+  })
+);
+
+environmentRadios.forEach((radio) =>
+  radio.addEventListener("change", () => {
+    submitButton.hidden = false;
+    submitButton.focus();
+    announcePolite("Submit button is available");
+  })
+);
+
+submissionForm.addEventListener("submit", (e) => {
+  if (e.key === "Enter" && e.target.type !== "submit") {
+    e.preventDefault();
+
+    // If we're on the initial form section, trigger the continue button
+    if (questionOne.hidden) {
+      continueButton.click();
+      return;
+    }
+
+    // Only allow Enter to submit when all questions are answered
+    if (!areAllQuestionsAnswered()) {
+      e.preventDefault();
+      announcePolite("Please answer all questions before submitting");
+    }
+  }
+  e.preventDefault();
+  let ok = true;
+
+  const nameVal = nameInput.value.trim();
+  if (!nameVal) {
+    showError(nameInput, nameError, "Please enter your name");
+    ok = false;
+  } else if (!isValidName(nameVal)) {
+    showError(nameInput, nameError, "Please enter a valid name");
+    ok = false;
+  } else {
+    clearError(nameInput, nameError);
+  }
+
+  const emailVal = emailInput.value.trim();
+  if (!emailVal) {
+    showError(emailInput, emailError, "Please enter your email address");
+    ok = false;
+  } else if (!isValidEmail(emailVal)) {
+    showError(emailInput, emailError, "Please enter a valid email address");
+    ok = false;
+  } else {
+    clearError(emailInput, emailError);
+  }
+
+  if (!ok) {
+    (nameError.textContent ? nameInput : emailInput).focus();
+    return;
+  }
+
+  if (!areAllQuestionsAnswered()) {
+    announcePolite("Please answer all questions before submitting");
+    return;
+  }
+
+  const name = nameVal || "there";
+  responseSection.hidden = false;
   responseSection.classList.remove("visually-hidden");
-  responseSection.scrollIntoView({ behavior: "smooth" });
-
   responseContent.replaceChildren();
   const strong = document.createElement("strong");
   strong.textContent = name;
@@ -167,16 +303,23 @@ submissionForm.addEventListener("submit", (e) => {
     strong,
     ". A member of our staff will contact you shortly."
   );
-
   responseContent.setAttribute("tabindex", "-1");
   responseContent.focus();
-
-  responseSection.setAttribute("tabindex", "-1");
-  responseSection.focus();
-
   announcePolite(
     `Form submitted successfully. Thank you, ${name}. A member of our staff will contact you shortly.`
   );
+
   submissionForm.reset();
   resetForm();
 });
+
+function areAllQuestionsAnswered() {
+  const hasAgreeAnswer = Array.from(agreeRadios).some((r) => r.checked);
+  const hasAccommodationAnswer = Array.from(accommodationRadios).some(
+    (r) => r.checked
+  );
+  const hasEnvironmentAnswer = Array.from(environmentRadios).some(
+    (r) => r.checked
+  );
+  return hasAgreeAnswer && hasAccommodationAnswer && hasEnvironmentAnswer;
+}

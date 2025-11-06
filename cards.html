@@ -9,7 +9,8 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <title>Title</title>
+    <link rel="icon" type="image/png" href="/img/happy.png" />
+    <title>Pet-Foster</title>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
@@ -18,7 +19,7 @@
 
       <div class="nav-items">
         <div class="page-icon" id="icon">
-          <h2>Pet foster</h2>
+          <h1>Pet foster</h1>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -40,7 +41,7 @@
           </svg>
         </div>
 
-        <div class="menu">
+        <div class="menu" aria-label="menu buttons">
           <button
             id="button"
             onclick="location.href='index.html'"
@@ -57,6 +58,13 @@
           </button>
           <button id="button">Donations</button>
           <button id="button">Our work</button>
+          <button
+            id="button"
+            onclick="location.href='cards.html#adoption-form'"
+            class="nav-link"
+          >
+            Aplication from
+          </button>
           <button id="button">Contacts</button>
         </div>
       </div>
@@ -67,39 +75,58 @@
     </main>
 
     <section id="adoption-form" aria-labelledby="submission-title">
-      <!-- Arta -->
       <h2 id="submission-title">Submission of interest</h2>
 
-      <form id="submission-form">
-        <div class="form-control">
-          <label for="name" id="name-label">Full name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            aria-required="true"
-          />
-        </div>
+      <form id="submission-form" novalidate>
+        <fieldset aria-describedby="details-help">
+          <legend>Your details</legend>
+          <p id="details-help" class="visually-hidden">
+            Please provide your full name and email address.
+          </p>
 
-        <div class="form-control">
-          <label for="email" id="email-label">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            aria-required="true"
-          />
-        </div>
+          <div class="form-control">
+            <label for="name" id="name-label">Full name:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              aria-describedby="name-error"
+              autocomplete="name"
+              tabindex="0"
+            />
+            <div id="name-error" class="error" role="alert" hidden></div>
+          </div>
 
-        <div class="form-control">
-          <button id="continue-button" type="button">
-            Continue to questions
-          </button>
-        </div>
+          <div class="form-control">
+            <label for="email" id="email-label">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="Example: name@example.com"
+              aria-describedby="email-hint email-error"
+              autocomplete="email"
+              tabindex="0"
+            />
+            <p id="email-hint" class="hint">Example: name@example.com</p>
+            <div id="email-error" class="error" role="alert" hidden></div>
+          </div>
 
-        <fieldset id="question-one" hidden="true">
+          <div class="form-control">
+            <button
+              id="continue-button"
+              type="button"
+              class="continue-button"
+              tabindex="0"
+            >
+              Continue to questions
+            </button>
+          </div>
+        </fieldset>
+
+        <fieldset id="question-one" hidden>
           <legend>
             Does everyone in the family agree on the decision to get a pet?
           </legend>
@@ -127,7 +154,7 @@
           </div>
         </fieldset>
 
-        <fieldset id="question-two" hidden="true">
+        <fieldset id="question-two" hidden>
           <legend>You live in:</legend>
           <div class="radio-group">
             <input
@@ -164,7 +191,7 @@
           </div>
         </fieldset>
 
-        <fieldset id="question-three" hidden="true">
+        <fieldset id="question-three" hidden>
           <legend>Environment:</legend>
           <div class="radio-group">
             <input
@@ -200,7 +227,7 @@
             <label for="suburb">Suburb</label>
           </div>
         </fieldset>
-        <button id="submit-button" type="submit" hidden="true">
+        <button id="submit-button" type="submit" hidden tabindex="0">
           Submit interest
         </button>
       </form>
@@ -208,10 +235,10 @@
 
     <section id="response" class="visually-hidden">
       <h2>Thank you for your interest</h2>
-      <div id="response-content" aria-live="polite" aria-atomic="true"></div>
+      <div id="response-content"></div>
     </section>
 
-    <footer class="footer" role="contentinfo">
+    <footer class="footer">
       <div class="footer-container">
         <section class="footer-logo">
           <svg
@@ -227,24 +254,24 @@
           </svg>
         </section>
 
-        <nav aria-labelledby="adopt-heading" class="footer-links">
-          <h2 id="adopt-heading">
-            <a href="adopt-form.html">Adopt a dog</a>
+        <section class="footer-links">
+          <h2>
+            <a href="cards.html#adoption-form" data-action="adopt-form"
+              >Adopt a dog
+            </a>
           </h2>
-        </nav>
+        </section>
 
-        <nav aria-labelledby="help-heading" class="footer-links">
-          <h2 id="help-heading">
-            <a href="donate-form.html">Help them, donate</a>
-          </h2>
-        </nav>
-
-        <nav aria-labelledby="socials-heading" class="footer-links socials">
-          <h2 id="socials-heading">Follow us</h2>
+        <section class="footer-links socials">
+          <h2 class="socials-heading">Follow us</h2>
           <ul>
             <li>
-              <a href="#" aria-label="Visit our Facebook page"
-                ><svg
+              <a
+                href="#"
+                data-social="Facebook"
+                aria-label="Visit our Facebook page"
+              >
+                <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
                   height="24"
@@ -258,12 +285,17 @@
                 >
                   <path
                     d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
-                  /></svg
-              ></a>
+                  />
+                </svg>
+              </a>
             </li>
             <li>
-              <a href="#" aria-label="Visit our Instagram page"
-                ><svg
+              <a
+                href="#"
+                data-social="Instagram"
+                aria-label="Visit our Instagram page"
+              >
+                <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
                   height="24"
@@ -277,12 +309,17 @@
                 >
                   <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
                   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg
-              ></a>
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+              </a>
             </li>
             <li>
-              <a href="#" aria-label="Visit our Twitter page"
-                ><svg
+              <a
+                href="#"
+                data-social="twitter"
+                aria-label="Visit our Twitter page"
+              >
+                <svg
                   width="32"
                   height="32"
                   viewBox="0 0 24 24"
@@ -296,7 +333,7 @@
               </a>
             </li>
           </ul>
-        </nav>
+        </section>
       </div>
 
       <hr aria-hidden="true" class="footer-divider" />
