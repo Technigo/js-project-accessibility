@@ -14,12 +14,12 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
+    <!--Carina-->
     <header>
-      <!--Carina-->
-
+      <nav class="nav" role="navigation" aria-label="Main navigation"></nav>
       <div class="nav-items">
         <div class="page-icon" id="icon">
-          <h1>Pet foster</h1>
+          <h2>Pet foster</h2>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -41,9 +41,10 @@
           </svg>
         </div>
 
-        <div class="menu" aria-label="menu buttons">
+        <div class="menu">
           <button
             id="button"
+            tabindex="0"
             onclick="location.href='index.html'"
             class="nav-link"
           >
@@ -51,21 +52,23 @@
           </button>
           <button
             id="button"
+            tabindex="0"
             onclick="location.href='cards.html'"
             class="nav-link"
           >
             Pets
           </button>
-          <button id="button">Donations</button>
-          <button id="button">Our work</button>
+          <button id="button" tabindex="0">Donations</button>
           <button
             id="button"
+            tabindex="0"
             onclick="location.href='cards.html#adoption-form'"
             class="nav-link"
           >
-            Aplication from
+            Aplication
           </button>
-          <button id="button">Contacts</button>
+          <button id="button" tabindex="0">Our work</button>
+          <button id="button" tabindex="0">Contacts</button>
         </div>
       </div>
     </header>
