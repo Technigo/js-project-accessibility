@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="/img/happy.png" />
+    <title>Pet-Foster</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!--Carina-->
+    <header>
+      <nav class="nav" role="navigation" aria-label="Main navigation"></nav>
+      <div class="nav-items">
+        <div class="page-icon" id="icon">
+          <h1>Pet foster</h1>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.25"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon"
+          >
+            <circle cx="11" cy="4" r="2" />
+            <circle cx="18" cy="8" r="2" />
+            <circle cx="20" cy="16" r="2" />
+            <path
+              d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"
+            />
+          </svg>
+        </div>
+
+        <div class="menu">
+          <button
+            id="button"
+            tabindex="0"
+            onclick="location.href='index.html'"
+            class="nav-link"
+          >
+            Home
+          </button>
+          <button
+            id="button"
+            tabindex="0"
+            onclick="location.href='cards.html'"
+            class="nav-link"
+          >
+            Pets
+          </button>
+          <button id="button" tabindex="0">Donations</button>
+          <button
+            id="button"
+            tabindex="0"
+            onclick="location.href='cards.html#adoption-form'"
+            class="nav-link"
+          >
+            Aplication
+          </button>
+          <button id="button" tabindex="0">Our work</button>
+          <button id="button" tabindex="0">Contacts</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="dogs-card">
+      <section class="dogs-card-container"></section>
+    </main>
+
+    <section id="adoption-form" aria-labelledby="submission-title">
+      <h2 id="submission-title">Submission of interest</h2>
+
+      <form id="submission-form" novalidate>
+        <fieldset aria-describedby="details-help">
+          <legend>Your details</legend>
+          <p id="details-help" class="visually-hidden">
+            Please provide your full name and email address.
+          </p>
+
+          <div class="form-control">
+            <label for="name" id="name-label">Full name:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              aria-describedby="name-error"
+              autocomplete="name"
+              tabindex="0"
+            />
+            <div id="name-error" class="error" role="alert" hidden></div>
+          </div>
+
+          <div class="form-control">
+            <label for="email" id="email-label">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="Example: name@example.com"
+              aria-describedby="email-hint email-error"
+              autocomplete="email"
+              tabindex="0"
+            />
+            <p id="email-hint" class="hint">Example: name@example.com</p>
+            <div id="email-error" class="error" role="alert" hidden></div>
+          </div>
+
+          <div class="form-control">
+            <button
+              id="continue-button"
+              type="button"
+              class="continue-button"
+              tabindex="0"
+            >
+              Continue to questions
+            </button>
+          </div>
+        </fieldset>
+
+        <fieldset id="question-one" hidden>
+          <legend>
+            Does everyone in the family agree on the decision to get a pet?
+          </legend>
+          <div class="radio-group">
+            <input
+              type="radio"
+              name="agree"
+              id="agree-yes"
+              value="yes"
+              required
+              aria-required="true"
+            />
+            <label for="agree-yes">Yes</label>
+          </div>
+          <div class="radio-group">
+            <input
+              type="radio"
+              name="agree"
+              id="agree-no"
+              value="no"
+              required
+              aria-required="true"
+            />
+            <label for="agree-no">No</label>
+          </div>
+        </fieldset>
+
+        <fieldset id="question-two" hidden>
+          <legend>You live in:</legend>
+          <div class="radio-group">
+            <input
+              type="radio"
+              name="accommodation"
+              id="apartment"
+              value="apartment"
+              required
+              aria-required="true"
+            />
+            <label for="apartment">Apartment</label>
+          </div>
+          <div class="radio-group">
+            <input
+              type="radio"
+              name="accommodation"
+              id="townhouse"
+              value="townhouse"
+              required
+              aria-required="true"
+            />
+            <label for="townhouse">Townhouse</label>
+          </div>
+          <div class="radio-group">
+            <input
+              type="radio"
+              name="accommodation"
+              id="house"
+              value="house"
+              required
+              aria-required="true"
+            />
+            <label for="house">House</label>
+          </div>
+        </fieldset>
+
+        <fieldset id="question-three" hidden>
+          <legend>Environment:</legend>
+          <div class="radio-group">
+            <input
+              type="radio"
+              name="environment"
+              id="urban-environment"
+              value="urban-environment"
+              required
+              aria-required="true"
+            />
+            <label for="urban-environment">Urban environment</label>
+          </div>
+          <div class="radio-group">
+            <input
+              type="radio"
+              name="environment"
+              id="rural"
+              value="rural"
+              required
+              aria-required="true"
+            />
+            <label for="rural">Rural</label>
+          </div>
+          <div class="radio-group">
+            <input
+              type="radio"
+              name="environment"
+              id="suburb"
+              value="suburb"
+              required
+              aria-required="true"
+            />
+            <label for="suburb">Suburb</label>
+          </div>
+        </fieldset>
+        <button id="submit-button" type="submit" hidden tabindex="0">
+          Submit interest
+        </button>
+      </form>
+    </section>
+
+    <section id="response" class="visually-hidden">
+      <h2>Thank you for your interest</h2>
+      <div id="response-content"></div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <section class="footer-logo">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+            class="paw-icon"
+          >
+            <path
+              d="M11 3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm7 4a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm2 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"
+            />
+          </svg>
+        </section>
+
+        <section class="footer-links">
+          <h2>
+            <a href="cards.html#adoption-form" data-action="adopt-form"
+              >Adopt a dog
+            </a>
+          </h2>
+        </section>
+
+        <section class="footer-links socials">
+          <h2 class="socials-heading">Follow us</h2>
+          <ul>
+            <li>
+              <a
+                href="#"
+                data-social="Facebook"
+                aria-label="Visit our Facebook page"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-facebook-icon lucide-facebook"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                data-social="Instagram"
+                aria-label="Visit our Instagram page"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-instagram-icon lucide-instagram"
+                >
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                data-social="twitter"
+                aria-label="Visit our Twitter page"
+              >
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M24 4.557a9.83 9.83 0 01-2.828.775 4.932 4.932 0 002.165-2.724 9.864 9.864 0 01-3.127 1.195 4.916 4.916 0 00-8.38 4.482A13.94 13.94 0 011.671 3.149a4.916 4.916 0 001.523 6.573 4.903 4.903 0 01-2.228-.616c-.054 2.28 1.581 4.415 3.949 4.89a4.935 4.935 0 01-2.224.085 4.919 4.919 0 004.588 3.415 9.867 9.867 0 01-6.102 2.104c-.396 0-.788-.023-1.175-.069a13.945 13.945 0 007.548 2.212c9.056 0 14.009-7.504 14.009-14.009 0-.213-.005-.425-.014-.636A10.025 10.025 0 0024 4.557z"
+                  />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <hr aria-hidden="true" class="footer-divider" />
+
+      <div class="footer-bottom">
+        <p>© 2025. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/kausar-screen-reader.js"></script>
+  </body>
+</html>
