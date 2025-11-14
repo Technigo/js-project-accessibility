@@ -301,6 +301,7 @@ const fields = ["img", "name", "breed", "age", "gender"];
 
 // Функция для озвучивания текста
 let speakTimeout;
+
 function speak(text) {
   if (speechSynthesis.speaking) {
     speechSynthesis.cancel();
